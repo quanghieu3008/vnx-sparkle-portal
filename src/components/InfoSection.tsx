@@ -99,12 +99,12 @@ export default function InfoSection() {
                 alt="Hành trình 25 năm"
                 className="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
               />
-              <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/30 to-transparent" />
+              <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/50 to-black/30" />
               <div className="relative z-10 p-5 h-full flex flex-col justify-end">
                 <span className="inline-block w-fit px-3 py-1 bg-orange-500/20 backdrop-blur-sm text-orange-400 rounded-full text-xs font-medium mb-2">
                   Sự kiện
                 </span>
-                <h4 className="text-xl font-display font-bold text-green-700 mb-1">
+                <h4 className="text-xl font-display font-bold text-white mb-1">
                   {infoBlocks[1].title}
                 </h4>
                 <p className="text-sm text-white/80 line-clamp-2">
@@ -126,12 +126,12 @@ export default function InfoSection() {
                 alt="Hội nghị Thành viên 2025"
                 className="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
               />
-              <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/30 to-transparent" />
+              <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/50 to-black/30" />
               <div className="relative z-10 p-5 h-full flex flex-col justify-end">
                 <span className="inline-block w-fit px-3 py-1 bg-orange-500/20 backdrop-blur-sm text-orange-400 rounded-full text-xs font-medium mb-2">
                   Sự kiện
                 </span>
-                <h4 className="text-xl font-display font-bold text-green-700 mb-1">
+                <h4 className="text-xl font-display font-bold text-white mb-1">
                   {infoBlocks[2].title}
                 </h4>
                 <p className="text-sm text-white/80 line-clamp-2">
