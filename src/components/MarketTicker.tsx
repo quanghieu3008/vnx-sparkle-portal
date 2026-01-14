@@ -21,10 +21,10 @@ export default function MarketTicker() {
   const loopData: TickerItem[] = [...tickerData, ...tickerData];
 
   return (
-    <div className="fixed top-20 left-0 right-0 z-40 bg-secondary/90 backdrop-blur-sm border-b border-border/30">
+    <div className="fixed top-20 left-0 right-0 z-40 bg-background border-b border-border/50">
       <div className="flex items-center">
         <div className="flex-shrink-0 bg-primary px-4 py-2.5 z-10">
-          <span className="text-primary-foreground text-sm font-semibold whitespace-nowrap">Dữ liệu thị trường</span>
+          <span className="text-primary-foreground text-sm font-semibold whitespace-nowrap">Latest Market Data</span>
         </div>
 
         <div className="flex-1 overflow-hidden">
@@ -32,7 +32,7 @@ export default function MarketTicker() {
             {loopData.map((item, index) => (
               <div key={`${item.name}-${index}`} className="inline-flex items-center gap-3">
                 <span className="text-sm font-semibold text-foreground">{item.name}</span>
-                <span className="text-sm font-bold text-primary">{item.value.toLocaleString()}</span>
+                <span className="text-sm font-bold text-foreground">{item.value.toLocaleString()}</span>
                 <span
                   className={`inline-flex items-center gap-1 text-sm font-medium ${
                     item.change >= 0 ? "price-up" : "price-down"
@@ -47,7 +47,6 @@ export default function MarketTicker() {
                   {item.change.toFixed(2)} ({item.changePercent >= 0 ? "+" : ""}
                   {item.changePercent.toFixed(2)}%)
                 </span>
-                <span className="text-muted-foreground mx-2">|</span>
               </div>
             ))}
           </div>
