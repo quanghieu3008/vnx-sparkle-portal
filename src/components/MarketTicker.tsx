@@ -1,6 +1,4 @@
-import { useState, useEffect } from "react";
 import { TrendingUp, TrendingDown } from "lucide-react";
-import { AnimatePresence, motion } from "framer-motion";
 
 interface TickerItem {
   name: string;
@@ -19,52 +17,37 @@ const tickerData: TickerItem[] = [
   { name: "VNAllShare", value: 1245.89, change: 8.67, changePercent: 0.70 },
 ];
 
+// Duplicate data for seamless infinite scroll
+const duplicatedData = [...tickerData, ...tickerData];
+
 export default function MarketTicker() {
-  const [currentIndex, setCurrentIndex] = useState(0);
-
-  useEffect(() => {
-    const interval = setInterval(() => {
-      setCurrentIndex((prev) => (prev + 1) % tickerData.length);
-    }, 3000);
-    return () => clearInterval(interval);
-  }, []);
-
-  const currentItem = tickerData[currentIndex];
-
   return (
-    <div className="bg-secondary/50 border-b border-border/30 mt-20">
+    <div className="fixed top-20 left-0 right-0 z-40 bg-secondary/90 backdrop-blur-sm border-b border-border/30">
       <div className="flex items-center">
-        <div className="flex-shrink-0 bg-primary px-4 py-2">
-          <span className="text-primary-foreground text-sm font-semibold">Dữ liệu thị trường</span>
+        <div className="flex-shrink-0 bg-primary px-4 py-2.5">
+          <span className="text-primary-foreground text-sm font-semibold whitespace-nowrap">Dữ liệu thị trường</span>
         </div>
         
         <div className="flex-1 overflow-hidden">
-          <div className="py-2 px-4">
-            <AnimatePresence mode="wait">
-              <motion.div
-                key={currentIndex}
-                initial={{ opacity: 0, y: 10 }}
-                animate={{ opacity: 1, y: 0 }}
-                exit={{ opacity: 0, y: -10 }}
-                transition={{ duration: 0.3 }}
-                className="flex items-center gap-4"
-              >
-                <span className="text-sm font-medium text-foreground">{currentItem.name}</span>
-                <span className="text-sm font-semibold text-foreground">{currentItem.value.toLocaleString()}</span>
+          <div className="ticker-scroll flex items-center gap-8 py-2.5 px-4">
+            {duplicatedData.map((item, index) => (
+              <div key={index} className="flex items-center gap-3 flex-shrink-0">
+                <span className="text-sm font-semibold text-foreground">{item.name}</span>
+                <span className="text-sm font-bold text-primary">{item.value.toLocaleString()}</span>
                 <span
                   className={`flex items-center gap-1 text-sm font-medium ${
-                    currentItem.change >= 0 ? "price-up" : "price-down"
+                    item.change >= 0 ? "price-up" : "price-down"
                   }`}
                 >
-                  {currentItem.change >= 0 ? (
+                  {item.change >= 0 ? (
                     <TrendingUp className="h-3 w-3" />
                   ) : (
                     <TrendingDown className="h-3 w-3" />
                   )}
-                  {currentItem.change >= 0 ? "+" : ""}{currentItem.change.toFixed(2)} ({currentItem.changePercent >= 0 ? "+" : ""}{currentItem.changePercent.toFixed(2)}%)
+                  {item.change >= 0 ? "+" : ""}{item.change.toFixed(2)} ({item.changePercent >= 0 ? "+" : ""}{item.changePercent.toFixed(2)}%)
                 </span>
-              </motion.div>
-            </AnimatePresence>
+              </div>
+            ))}
           </div>
         </div>
       </div>
