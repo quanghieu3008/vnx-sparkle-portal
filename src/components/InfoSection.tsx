@@ -104,7 +104,7 @@ export default function InfoSection() {
                 <span className="inline-block w-fit px-3 py-1 bg-orange-500/20 backdrop-blur-sm text-orange-400 rounded-full text-xs font-medium mb-2">
                   Sự kiện
                 </span>
-                <h4 className="text-xl font-display font-bold text-white mb-1 line-clamp-1">
+                <h4 className="text-xl font-display font-bold text-green-700 mb-1">
                   {infoBlocks[1].title}
                 </h4>
                 <p className="text-sm text-white/80 line-clamp-2">
@@ -131,7 +131,7 @@ export default function InfoSection() {
                 <span className="inline-block w-fit px-3 py-1 bg-orange-500/20 backdrop-blur-sm text-orange-400 rounded-full text-xs font-medium mb-2">
                   Sự kiện
                 </span>
-                <h4 className="text-xl font-display font-bold text-white mb-1 line-clamp-1">
+                <h4 className="text-xl font-display font-bold text-green-700 mb-1">
                   {infoBlocks[2].title}
                 </h4>
                 <p className="text-sm text-white/80 line-clamp-2">
