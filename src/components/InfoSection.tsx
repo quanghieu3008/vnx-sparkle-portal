@@ -101,10 +101,10 @@ export default function InfoSection() {
               />
               <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/30 to-transparent" />
               <div className="relative z-10 p-5 h-full flex flex-col justify-end">
-                <span className="inline-block w-fit px-3 py-1 bg-white/20 backdrop-blur-sm text-white rounded-full text-xs font-medium mb-2">
+                <span className="inline-block w-fit px-3 py-1 bg-orange-500/20 backdrop-blur-sm text-orange-400 rounded-full text-xs font-medium mb-2">
                   Sự kiện
                 </span>
-                <h4 className="text-lg font-display font-semibold text-white mb-1">
+                <h4 className="text-xl font-display font-bold text-white mb-1 line-clamp-1">
                   {infoBlocks[1].title}
                 </h4>
                 <p className="text-sm text-white/80 line-clamp-2">
@@ -128,10 +128,10 @@ export default function InfoSection() {
               />
               <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/30 to-transparent" />
               <div className="relative z-10 p-5 h-full flex flex-col justify-end">
-                <span className="inline-block w-fit px-3 py-1 bg-white/20 backdrop-blur-sm text-white rounded-full text-xs font-medium mb-2">
+                <span className="inline-block w-fit px-3 py-1 bg-orange-500/20 backdrop-blur-sm text-orange-400 rounded-full text-xs font-medium mb-2">
                   Sự kiện
                 </span>
-                <h4 className="text-lg font-display font-semibold text-white mb-1">
+                <h4 className="text-xl font-display font-bold text-white mb-1 line-clamp-1">
                   {infoBlocks[2].title}
                 </h4>
                 <p className="text-sm text-white/80 line-clamp-2">
