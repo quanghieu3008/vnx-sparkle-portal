@@ -48,10 +48,12 @@ const Index = () => {
       <div className="relative z-0">
         <Header />
         <MarketTicker />
-        <HeroSection />
+        <div className="pt-10">
+          <HeroSection />
         <InfoSection />
         <PartnersSection />
-        <Footer />
+          <Footer />
+        </div>
         <ChatBot />
         <ScrollToTop />
       </div>
