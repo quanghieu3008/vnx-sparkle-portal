@@ -195,7 +195,7 @@ export default function InfoSection() {
           {podcastItems.map((item, index) => (
             <div
               key={index}
-              className="bg-white rounded-xl overflow-hidden shadow-card hover:shadow-hover transition-all duration-300 group cursor-pointer"
+              className="bg-white rounded-xl overflow-hidden shadow-card hover:shadow-hover transition-all duration-300 group cursor-pointer border-4 border-white ring-1 ring-slate-200"
             >
               {/* Image with badge and play button */}
               <div className="relative aspect-[4/3] overflow-hidden">
