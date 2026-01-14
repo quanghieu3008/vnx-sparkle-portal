@@ -25,35 +25,10 @@ export default function MarketTicker() {
           <span className="text-primary-foreground text-sm font-semibold whitespace-nowrap">Dữ liệu thị trường</span>
         </div>
         
-        <div className="flex-1 overflow-hidden relative">
-          {/* Gradient fade edges */}
-          <div className="absolute left-0 top-0 bottom-0 w-8 bg-gradient-to-r from-secondary/90 to-transparent z-10" />
-          <div className="absolute right-0 top-0 bottom-0 w-8 bg-gradient-to-l from-secondary/90 to-transparent z-10" />
-          
+        <div className="flex-1 overflow-hidden">
           <div className="ticker-scroll inline-flex items-center gap-10 py-2.5 whitespace-nowrap">
-            {/* First set */}
             {tickerData.map((item, index) => (
-              <div key={`first-${index}`} className="inline-flex items-center gap-3">
-                <span className="text-sm font-semibold text-foreground">{item.name}</span>
-                <span className="text-sm font-bold text-primary">{item.value.toLocaleString()}</span>
-                <span
-                  className={`inline-flex items-center gap-1 text-sm font-medium ${
-                    item.change >= 0 ? "price-up" : "price-down"
-                  }`}
-                >
-                  {item.change >= 0 ? (
-                    <TrendingUp className="h-3 w-3" />
-                  ) : (
-                    <TrendingDown className="h-3 w-3" />
-                  )}
-                  {item.change >= 0 ? "+" : ""}{item.change.toFixed(2)} ({item.changePercent >= 0 ? "+" : ""}{item.changePercent.toFixed(2)}%)
-                </span>
-                <span className="text-muted-foreground mx-2">|</span>
-              </div>
-            ))}
-            {/* Duplicate set for seamless loop */}
-            {tickerData.map((item, index) => (
-              <div key={`second-${index}`} className="inline-flex items-center gap-3">
+              <div key={index} className="inline-flex items-center gap-3">
                 <span className="text-sm font-semibold text-foreground">{item.name}</span>
                 <span className="text-sm font-bold text-primary">{item.value.toLocaleString()}</span>
                 <span
