@@ -34,11 +34,11 @@ const infoBlocks: InfoBlock[] = [
 ];
 
 const newsItems = [
-  { code: "TV 001", title: "VNX công bố quy chế giao dịch mới áp dụng từ Q2/2026", date: "14/01/2026" },
-  { code: "TV 002", title: "Báo cáo thường niên 2025 - Những con số ấn tượng", date: "13/01/2026" },
-  { code: "TV 003", title: "Chương trình đào tạo nhà đầu tư chuyên nghiệp", date: "12/01/2026" },
-  { code: "TV 004", title: "Hợp tác quốc tế: VNX ký kết MOU với SGX", date: "11/01/2026" },
-  { code: "TV 005", title: "Thông báo về lịch nghỉ giao dịch Tết Nguyên đán 2026", date: "10/01/2026" },
+  { code: "005", title: "Decision on the suspension of the settlement of commercial business cases of People's court of Region 2 - Hanoi", date: "14/01/2026" },
+  { code: "005", title: "Quyết định đình chỉ giải quyết vụ án kinh doanh thương mại", date: "14/01/2026" },
+  { code: "042", title: "Amended charter", date: "13/01/2026" },
+  { code: "042", title: "Resolution of Board of Directors approval for the charter capital increase and the amendment of the Charter", date: "13/01/2026" },
+  { code: "042", title: "Sửa đổi điều lệ công ty", date: "13/01/2026" },
 ];
 
 const regulationItems = [
