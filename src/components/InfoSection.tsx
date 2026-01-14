@@ -45,7 +45,7 @@ const podcastItems = [
 
 export default function InfoSection() {
   return (
-    <section className="py-20 bg-background">
+    <section className="py-20">
       <div className="container mx-auto px-4">
         {/* Section Header */}
         <motion.div

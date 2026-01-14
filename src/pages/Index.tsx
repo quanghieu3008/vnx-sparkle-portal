@@ -1,3 +1,4 @@
+import { useState, useEffect } from "react";
 import Header from "@/components/Header";
 import MarketTicker from "@/components/MarketTicker";
 import HeroSection from "@/components/HeroSection";
@@ -6,18 +7,54 @@ import PartnersSection from "@/components/PartnersSection";
 import Footer from "@/components/Footer";
 import ChatBot from "@/components/ChatBot";
 import ScrollToTop from "@/components/ScrollToTop";
+import heroBg1 from "@/assets/hero-bg-1.jpg";
+import heroBg2 from "@/assets/hero-bg-2.jpg";
+import heroBg3 from "@/assets/hero-bg-3.jpg";
+
+const backgrounds = [heroBg1, heroBg2, heroBg3];
 
 const Index = () => {
+  const [currentBg, setCurrentBg] = useState(0);
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setCurrentBg((prev) => (prev + 1) % backgrounds.length);
+    }, 5000);
+    return () => clearInterval(interval);
+  }, []);
+
   return (
-    <div className="min-h-screen bg-background">
-      <Header />
-      <MarketTicker />
-      <HeroSection />
-      <InfoSection />
-      <PartnersSection />
-      <Footer />
-      <ChatBot />
-      <ScrollToTop />
+    <div className="min-h-screen relative">
+      {/* Fixed Background Images - stays behind all content */}
+      <div className="fixed inset-0 -z-10">
+        {backgrounds.map((bg, index) => (
+          <div
+            key={index}
+            className="absolute inset-0 transition-opacity duration-1000"
+            style={{
+              backgroundImage: `url(${bg})`,
+              backgroundSize: "cover",
+              backgroundPosition: "center",
+              backgroundAttachment: "fixed",
+              opacity: currentBg === index ? 1 : 0,
+            }}
+          />
+        ))}
+        {/* Overlay gradient */}
+        <div className="absolute inset-0 bg-gradient-to-b from-background/90 via-background/70 to-background/90" />
+      </div>
+
+      {/* Content */}
+      <div className="relative z-0">
+        <Header />
+        <MarketTicker />
+        <HeroSection />
+        <InfoSection />
+        <PartnersSection />
+        <Footer />
+        <ChatBot />
+        <ScrollToTop />
+      </div>
     </div>
   );
 };

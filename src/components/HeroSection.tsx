@@ -1,13 +1,8 @@
 import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { ChevronRight, Search, TrendingUp, TrendingDown, Clock } from "lucide-react";
-import heroBg1 from "@/assets/hero-bg-1.jpg";
-import heroBg2 from "@/assets/hero-bg-2.jpg";
-import heroBg3 from "@/assets/hero-bg-3.jpg";
 import { Button } from "./ui/button";
 import { Input } from "./ui/input";
-
-const backgrounds = [heroBg1, heroBg2, heroBg3];
 
 interface NewsItem {
   id: number;
@@ -63,47 +58,27 @@ const topLosers: TopStock[] = [
 ];
 
 export default function HeroSection() {
-  const [currentBg, setCurrentBg] = useState(0);
   const [currentNews, setCurrentNews] = useState(0);
-  const [timeLeft, setTimeLeft] = useState(2);
+  const [timeLeft, setTimeLeft] = useState(5);
 
   useEffect(() => {
-    const bgInterval = setInterval(() => {
-      setCurrentBg((prev) => (prev + 1) % backgrounds.length);
+    const newsInterval = setInterval(() => {
       setCurrentNews((prev) => (prev + 1) % newsItems.length);
-      setTimeLeft(2);
-    }, 2000);
+      setTimeLeft(5);
+    }, 5000);
 
     const countdownInterval = setInterval(() => {
-      setTimeLeft((prev) => (prev > 0 ? prev - 1 : 2));
+      setTimeLeft((prev) => (prev > 0 ? prev - 1 : 5));
     }, 1000);
 
     return () => {
-      clearInterval(bgInterval);
+      clearInterval(newsInterval);
       clearInterval(countdownInterval);
     };
   }, []);
 
   return (
     <section className="relative min-h-screen pt-20">
-      {/* Fixed Background Images */}
-      <div className="fixed inset-0 top-0 -z-10">
-        {backgrounds.map((bg, index) => (
-          <div
-            key={index}
-            className="absolute inset-0 transition-opacity duration-1000"
-            style={{
-              backgroundImage: `url(${bg})`,
-              backgroundSize: "cover",
-              backgroundPosition: "center",
-              opacity: currentBg === index ? 1 : 0,
-            }}
-          />
-        ))}
-        {/* Overlay */}
-        <div className="absolute inset-0 bg-gradient-to-r from-background/95 via-background/80 to-background/60" />
-      </div>
-
       {/* Content */}
       <div className="relative container mx-auto px-4 py-12 lg:py-20">
         <div className="grid lg:grid-cols-2 gap-8 lg:gap-12 items-start">
@@ -150,7 +125,7 @@ export default function HeroSection() {
                     fill="none"
                     stroke="hsl(var(--primary))"
                     strokeWidth="2"
-                    strokeDasharray={`${(timeLeft / 2) * 113} 113`}
+                    strokeDasharray={`${(timeLeft / 5) * 113} 113`}
                     strokeLinecap="round"
                     transform="rotate(-90 20 20)"
                     className="transition-all duration-1000"
@@ -163,8 +138,7 @@ export default function HeroSection() {
                     key={idx}
                     onClick={() => {
                       setCurrentNews(idx);
-                      setCurrentBg(idx);
-                      setTimeLeft(2);
+                      setTimeLeft(5);
                     }}
                     className={`h-2 rounded-full transition-all ${
                       currentNews === idx ? "w-8 bg-primary" : "w-2 bg-muted-foreground/30"
