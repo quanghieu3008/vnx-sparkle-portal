@@ -169,7 +169,7 @@ export default function InfoSection() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6, delay: 0.1 }}
-            className="bg-white rounded-xl p-5 shadow-card border-8 border-white ring-1 ring-slate-200"
+            className="bg-slate-50 rounded-xl p-5 shadow-card border-8 border-slate-50 ring-1 ring-slate-200"
           >
             <h3 className="text-base font-display font-semibold text-[#1e3a5f] mb-4 flex items-center gap-2">
               <span className="w-1 h-5 bg-[#1e3a5f] rounded-full" />
@@ -209,7 +209,7 @@ export default function InfoSection() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6, delay: 0.2 }}
-            className="bg-white rounded-xl p-5 shadow-card border-8 border-white ring-1 ring-slate-200"
+            className="bg-slate-50 rounded-xl p-5 shadow-card border-8 border-slate-50 ring-1 ring-slate-200"
           >
             <h3 className="text-base font-display font-semibold text-[#1e3a5f] mb-4 flex items-center gap-2">
               <span className="w-1 h-5 bg-orange-500 rounded-full" />
@@ -249,7 +249,7 @@ export default function InfoSection() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6, delay: 0.3 }}
-            className="bg-white rounded-xl p-5 shadow-card border-8 border-white ring-1 ring-slate-200"
+            className="bg-slate-50 rounded-xl p-5 shadow-card border-8 border-slate-50 ring-1 ring-slate-200"
           >
             <h3 className="text-base font-display font-semibold text-[#1e3a5f] mb-4 flex items-center gap-2">
               <span className="w-1 h-5 bg-green-500 rounded-full" />
@@ -295,7 +295,7 @@ export default function InfoSection() {
           {podcastItems.map((item, index) => (
             <div
               key={index}
-              className="bg-white rounded-xl overflow-hidden shadow-card hover:shadow-hover transition-all duration-300 group cursor-pointer border-8 border-white ring-1 ring-slate-200"
+              className="bg-slate-50 rounded-xl overflow-hidden shadow-card hover:shadow-hover transition-all duration-300 group cursor-pointer border-8 border-slate-50 ring-1 ring-slate-200"
             >
               {/* Image with badge and play button */}
               <div className="relative aspect-[4/3] overflow-hidden">
