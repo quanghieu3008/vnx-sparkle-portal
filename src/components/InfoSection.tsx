@@ -41,8 +41,9 @@ const newsItems = [
 ];
 
 const podcastItems = [
-  { title: "Phân tích xu hướng thị trường Q1/2025", author: "TS. Nguyễn Văn An", duration: "45:30", type: "Podcast" },
-  { title: "Chiến lược đầu tư dài hạn cho năm 2025", author: "ThS. Trần Thị Bình", duration: "8 phút", type: "Bài viết" },
+  { title: "Xây dựng hệ sinh thái sản phẩm kết nối thúc đẩy tính thanh khoản", category: "Thông tin chuyên sâu", date: "12 tháng 12 năm 2025", type: "article", image: "https://images.unsplash.com/photo-1513366208864-87536b8bd7b4?w=400&h=300&fit=crop" },
+  { title: "Phân tích xu hướng thị trường Q1/2025", category: "Podcast", date: "10 tháng 01 năm 2026", type: "podcast", image: "https://images.unsplash.com/photo-1590602847861-f357a9332bbc?w=400&h=300&fit=crop" },
+  { title: "Chiến lược đầu tư dài hạn cho năm 2026", category: "Podcast", date: "08 tháng 01 năm 2026", type: "podcast", image: "https://images.unsplash.com/photo-1478737270239-2f02b77fc618?w=400&h=300&fit=crop" },
 ];
 
 export default function InfoSection() {
@@ -184,48 +185,39 @@ export default function InfoSection() {
             </a>
           </motion.div>
 
-          {/* Podcasts & Articles */}
+          {/* Podcasts & Articles - Card Style */}
           <motion.div
             initial={{ opacity: 0, x: 20 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
-            className="bg-glass rounded-xl p-6 shadow-card"
+            className="grid grid-cols-3 gap-4"
           >
-            <h3 className="text-lg font-display font-semibold text-foreground mb-4 flex items-center gap-2">
-              <span className="w-1 h-6 bg-accent rounded-full" />
-              Podcast & Bài viết
-            </h3>
-            <div className="space-y-4">
-              {podcastItems.map((item, index) => (
-                <div
-                  key={index}
-                  className="flex gap-4 p-3 rounded-lg bg-secondary/30 hover:bg-secondary/50 transition-colors group cursor-pointer"
-                >
-                  <div className="flex-shrink-0 w-16 h-16 rounded-lg bg-gradient-to-br from-primary/30 to-accent/30 flex items-center justify-center">
-                    <PlayCircle className="h-8 w-8 text-primary" />
-                  </div>
-                  <div className="flex-1">
-                    <span className={`inline-block px-2 py-0.5 rounded text-xs font-medium mb-1 ${
-                      item.type === "Podcast" ? "bg-primary/20 text-primary" : "bg-accent/20 text-accent"
-                    }`}>
-                      {item.type}
-                    </span>
-                    <h4 className="text-sm font-medium text-foreground group-hover:text-primary transition-colors line-clamp-1">
-                      {item.title}
-                    </h4>
-                    <div className="flex items-center gap-3 mt-1 text-xs text-muted-foreground">
-                      <span className="flex items-center gap-1">
-                        <User className="h-3 w-3" /> {item.author}
-                      </span>
-                      <span className="flex items-center gap-1">
-                        <Clock className="h-3 w-3" /> {item.duration}
-                      </span>
-                    </div>
-                  </div>
+            {podcastItems.map((item, index) => (
+              <div
+                key={index}
+                className="bg-white rounded-xl overflow-hidden shadow-card border-2 border-white hover:shadow-hover transition-all duration-300 group cursor-pointer"
+              >
+                <div className="aspect-[4/3] overflow-hidden">
+                  <img
+                    src={item.image}
+                    alt={item.title}
+                    className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                  />
                 </div>
-              ))}
-            </div>
+                <div className="p-4">
+                  <p className="text-xs text-[#1e3a5f]/70 mb-2">
+                    {item.category} | {item.date}
+                  </p>
+                  <h4 className="text-sm font-semibold text-[#1e3a5f] line-clamp-3 mb-3">
+                    {item.title}
+                  </h4>
+                  <a href="#" className="inline-flex items-center gap-1 text-sm text-orange-500 font-medium hover:gap-2 transition-all">
+                    Đọc thêm <ChevronRight className="h-4 w-4" />
+                  </a>
+                </div>
+              </div>
+            ))}
           </motion.div>
         </div>
       </div>
