@@ -1,5 +1,5 @@
 import { motion } from "framer-motion";
-import { ChevronRight, PlayCircle, Clock, User } from "lucide-react";
+import { ChevronRight, Play, Clock, User } from "lucide-react";
 import vnxIntro from "@/assets/vnx-intro.jpg";
 import event25Years from "@/assets/event-25years.jpg";
 import eventMember2025 from "@/assets/event-member2025.jpg";
@@ -41,9 +41,10 @@ const newsItems = [
 ];
 
 const podcastItems = [
-  { title: "Xây dựng hệ sinh thái sản phẩm kết nối thúc đẩy tính thanh khoản", category: "Thông tin chuyên sâu", date: "12 tháng 12 năm 2025", type: "article", image: "https://images.unsplash.com/photo-1513366208864-87536b8bd7b4?w=400&h=300&fit=crop" },
-  { title: "Phân tích xu hướng thị trường Q1/2025", category: "Podcast", date: "10 tháng 01 năm 2026", type: "podcast", image: "https://images.unsplash.com/photo-1590602847861-f357a9332bbc?w=400&h=300&fit=crop" },
-  { title: "Chiến lược đầu tư dài hạn cho năm 2026", category: "Podcast", date: "08 tháng 01 năm 2026", type: "podcast", image: "https://images.unsplash.com/photo-1478737270239-2f02b77fc618?w=400&h=300&fit=crop" },
+  { title: "Phân tích xu hướng thị trường Q1/2025", category: "Phân tích", author: "TS. Nguyễn Văn An", duration: "45:30", type: "podcast", image: "https://images.unsplash.com/photo-1611974789855-9c2a0a7236a3?w=400&h=300&fit=crop" },
+  { title: "Chiến lược đầu tư dài hạn cho năm 2025", category: "Chiến lược", author: "ThS. Trần Thị Bình", duration: "8 phút", type: "article", image: "https://images.unsplash.com/photo-1590283603385-17ffb3a7f29f?w=400&h=300&fit=crop" },
+  { title: "Cơ hội từ thị trường phái sinh", category: "Phái sinh", author: "TS. Lê Hoàng Cường", duration: "32:15", type: "podcast", image: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=400&h=300&fit=crop" },
+  { title: "ESG và xu hướng đầu tư bền vững", category: "ESG", author: "TS. Phạm Thị Dung", duration: "12 phút", type: "article", image: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=400&h=300&fit=crop" },
 ];
 
 export default function InfoSection() {
@@ -143,83 +144,102 @@ export default function InfoSection() {
           </div>
         </div>
 
-        {/* Member Announcements & Podcasts */}
-        <div className="grid md:grid-cols-2 gap-6">
-          {/* Member News */}
-          <motion.div
-            initial={{ opacity: 0, x: -20 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6 }}
-            className="bg-white rounded-xl p-6 shadow-card"
-          >
-            <h3 className="text-lg font-display font-semibold text-[#1e3a5f] mb-4 flex items-center gap-2">
-              <span className="w-1 h-6 bg-[#1e3a5f] rounded-full" />
-              Tin công bố của thành viên
-            </h3>
-            <div className="space-y-3">
-              {newsItems.map((news, index) => (
-                <a
-                  key={index}
-                  href="#"
-                  className="block p-3 rounded-lg hover:bg-slate-100 transition-colors group border-b border-slate-200 last:border-0"
-                >
-                  <div className="flex items-start gap-3">
-                    <span className="flex-shrink-0 text-xs font-bold text-[#1e3a5f] bg-slate-100 px-2 py-1 rounded">
-                      {news.code}
-                    </span>
-                    <div className="flex-1 min-w-0">
-                      <h4 className="text-sm font-medium text-[#1e3a5f] group-hover:text-primary transition-colors line-clamp-1">
-                        {news.title}
-                      </h4>
-                      <p className="text-xs text-slate-500 mt-1 flex items-center gap-1">
-                        <Clock className="h-3 w-3" /> {news.date}
-                      </p>
+        {/* Member Announcements */}
+        <motion.div
+          initial={{ opacity: 0, x: -20 }}
+          whileInView={{ opacity: 1, x: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6 }}
+          className="bg-white rounded-xl p-6 shadow-card mb-8"
+        >
+          <h3 className="text-lg font-display font-semibold text-[#1e3a5f] mb-4 flex items-center gap-2">
+            <span className="w-1 h-6 bg-[#1e3a5f] rounded-full" />
+            Tin công bố của thành viên
+          </h3>
+          <div className="space-y-3">
+            {newsItems.map((news, index) => (
+              <a
+                key={index}
+                href="#"
+                className="block p-3 rounded-lg hover:bg-slate-100 transition-colors group border-b border-slate-200 last:border-0"
+              >
+                <div className="flex items-start gap-3">
+                  <span className="flex-shrink-0 text-xs font-bold text-[#1e3a5f] bg-slate-100 px-2 py-1 rounded">
+                    {news.code}
+                  </span>
+                  <div className="flex-1 min-w-0">
+                    <h4 className="text-sm font-medium text-[#1e3a5f] group-hover:text-primary transition-colors line-clamp-1">
+                      {news.title}
+                    </h4>
+                    <p className="text-xs text-slate-500 mt-1 flex items-center gap-1">
+                      <Clock className="h-3 w-3" /> {news.date}
+                    </p>
+                  </div>
+                </div>
+              </a>
+            ))}
+          </div>
+          <a href="#" className="inline-flex items-center gap-1 text-sm text-[#1e3a5f] font-medium mt-4 hover:gap-2 transition-all">
+            Xem tất cả <ChevronRight className="h-4 w-4" />
+          </a>
+        </motion.div>
+
+        {/* Podcasts & Articles - 4 Cards Grid */}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6 }}
+          className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6"
+        >
+          {podcastItems.map((item, index) => (
+            <div
+              key={index}
+              className="bg-white rounded-xl overflow-hidden shadow-card hover:shadow-hover transition-all duration-300 group cursor-pointer"
+            >
+              {/* Image with badge and play button */}
+              <div className="relative aspect-[4/3] overflow-hidden">
+                <img
+                  src={item.image}
+                  alt={item.title}
+                  className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                />
+                {/* Badge */}
+                <span className={`absolute top-3 left-3 px-3 py-1 rounded-full text-xs font-semibold text-white ${
+                  item.type === "podcast" ? "bg-orange-500" : "bg-green-600"
+                }`}>
+                  {item.type === "podcast" ? "Podcast" : "Bài viết"}
+                </span>
+                {/* Play button for podcast */}
+                {item.type === "podcast" && (
+                  <div className="absolute inset-0 flex items-center justify-center">
+                    <div className="w-14 h-14 rounded-full bg-orange-500 flex items-center justify-center shadow-lg group-hover:scale-110 transition-transform">
+                      <Play className="h-6 w-6 text-white fill-white ml-1" />
                     </div>
                   </div>
-                </a>
-              ))}
-            </div>
-            <a href="#" className="inline-flex items-center gap-1 text-sm text-[#1e3a5f] font-medium mt-4 hover:gap-2 transition-all">
-              Xem tất cả <ChevronRight className="h-4 w-4" />
-            </a>
-          </motion.div>
-
-          {/* Podcasts & Articles - Card Style */}
-          <motion.div
-            initial={{ opacity: 0, x: 20 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6 }}
-            className="grid grid-cols-3 gap-4"
-          >
-            {podcastItems.map((item, index) => (
-              <div
-                key={index}
-                className="bg-white rounded-xl overflow-hidden shadow-card border-2 border-white hover:shadow-hover transition-all duration-300 group cursor-pointer"
-              >
-                <div className="aspect-[4/3] overflow-hidden">
-                  <img
-                    src={item.image}
-                    alt={item.title}
-                    className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
-                  />
-                </div>
-                <div className="p-4">
-                  <p className="text-xs text-[#1e3a5f]/70 mb-2">
-                    {item.category} | {item.date}
-                  </p>
-                  <h4 className="text-sm font-semibold text-[#1e3a5f] line-clamp-3 mb-3">
-                    {item.title}
-                  </h4>
-                  <a href="#" className="inline-flex items-center gap-1 text-sm text-orange-500 font-medium hover:gap-2 transition-all">
-                    Đọc thêm <ChevronRight className="h-4 w-4" />
-                  </a>
+                )}
+              </div>
+              {/* Content */}
+              <div className="p-4">
+                <p className="text-xs font-medium text-orange-500 mb-2">
+                  {item.category}
+                </p>
+                <h4 className="text-sm font-bold text-[#1e3a5f] line-clamp-2 mb-3">
+                  {item.title}
+                </h4>
+                <div className="flex items-center justify-between text-xs text-slate-500">
+                  <span className="flex items-center gap-1 truncate">
+                    <User className="h-3 w-3 flex-shrink-0" /> 
+                    <span className="truncate">{item.author}</span>
+                  </span>
+                  <span className="flex items-center gap-1 flex-shrink-0">
+                    <Clock className="h-3 w-3" /> {item.duration}
+                  </span>
                 </div>
               </div>
-            ))}
-          </motion.div>
-        </div>
+            </div>
+          ))}
+        </motion.div>
       </div>
     </section>
   );
