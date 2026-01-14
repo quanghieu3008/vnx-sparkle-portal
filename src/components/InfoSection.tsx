@@ -45,24 +45,8 @@ const podcastItems = [
 
 export default function InfoSection() {
   return (
-    <section className="py-20">
+    <section className="py-8">
       <div className="container mx-auto px-4">
-        {/* Section Header */}
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.6 }}
-          className="text-center mb-12"
-        >
-          <h2 className="text-3xl md:text-4xl font-display font-bold text-foreground mb-4">
-            Tin tức & Hoạt động
-          </h2>
-          <p className="text-muted-foreground max-w-2xl mx-auto">
-            Cập nhật những thông tin mới nhất về hoạt động thị trường và các sự kiện quan trọng
-          </p>
-        </motion.div>
-
         {/* Main Grid */}
         <div className="grid lg:grid-cols-3 gap-6 mb-12">
           {/* VNX Introduction Card */}

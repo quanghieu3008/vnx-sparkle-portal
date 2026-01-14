@@ -19,7 +19,7 @@ const Index = () => {
   useEffect(() => {
     const interval = setInterval(() => {
       setCurrentBg((prev) => (prev + 1) % backgrounds.length);
-    }, 5000);
+    }, 3000);
     return () => clearInterval(interval);
   }, []);
 
