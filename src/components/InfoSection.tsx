@@ -34,10 +34,10 @@ const infoBlocks: InfoBlock[] = [
 ];
 
 const newsItems = [
-  { title: "VNX công bố quy chế giao dịch mới áp dụng từ Q2/2026", date: "14/01/2026" },
-  { title: "Báo cáo thường niên 2025 - Những con số ấn tượng", date: "13/01/2026" },
-  { title: "Chương trình đào tạo nhà đầu tư chuyên nghiệp", date: "12/01/2026" },
-  { title: "Hợp tác quốc tế: VNX ký kết MOU với SGX", date: "11/01/2026" },
+  { code: "TV 001", title: "VNX công bố quy chế giao dịch mới áp dụng từ Q2/2026", date: "14/01/2026" },
+  { code: "TV 002", title: "Báo cáo thường niên 2025 - Những con số ấn tượng", date: "13/01/2026" },
+  { code: "TV 003", title: "Chương trình đào tạo nhà đầu tư chuyên nghiệp", date: "12/01/2026" },
+  { code: "TV 004", title: "Hợp tác quốc tế: VNX ký kết MOU với SGX", date: "11/01/2026" },
 ];
 
 const podcastItems = [
@@ -150,10 +150,10 @@ export default function InfoSection() {
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
-            className="bg-glass rounded-xl p-6 shadow-card"
+            className="bg-white rounded-xl p-6 shadow-card"
           >
-            <h3 className="text-lg font-display font-semibold text-foreground mb-4 flex items-center gap-2">
-              <span className="w-1 h-6 bg-primary rounded-full" />
+            <h3 className="text-lg font-display font-semibold text-[#1e3a5f] mb-4 flex items-center gap-2">
+              <span className="w-1 h-6 bg-[#1e3a5f] rounded-full" />
               Tin công bố của thành viên
             </h3>
             <div className="space-y-3">
@@ -161,18 +161,25 @@ export default function InfoSection() {
                 <a
                   key={index}
                   href="#"
-                  className="block p-3 rounded-lg hover:bg-secondary/50 transition-colors group"
+                  className="block p-3 rounded-lg hover:bg-slate-100 transition-colors group border-b border-slate-200 last:border-0"
                 >
-                  <h4 className="text-sm font-medium text-foreground group-hover:text-primary transition-colors line-clamp-1">
-                    {news.title}
-                  </h4>
-                  <p className="text-xs text-muted-foreground mt-1 flex items-center gap-1">
-                    <Clock className="h-3 w-3" /> {news.date}
-                  </p>
+                  <div className="flex items-start gap-3">
+                    <span className="flex-shrink-0 text-xs font-bold text-[#1e3a5f] bg-slate-100 px-2 py-1 rounded">
+                      {news.code}
+                    </span>
+                    <div className="flex-1 min-w-0">
+                      <h4 className="text-sm font-medium text-[#1e3a5f] group-hover:text-primary transition-colors line-clamp-1">
+                        {news.title}
+                      </h4>
+                      <p className="text-xs text-slate-500 mt-1 flex items-center gap-1">
+                        <Clock className="h-3 w-3" /> {news.date}
+                      </p>
+                    </div>
+                  </div>
                 </a>
               ))}
             </div>
-            <a href="#" className="inline-flex items-center gap-1 text-sm text-primary mt-4 hover:gap-2 transition-all">
+            <a href="#" className="inline-flex items-center gap-1 text-sm text-[#1e3a5f] font-medium mt-4 hover:gap-2 transition-all">
               Xem tất cả <ChevronRight className="h-4 w-4" />
             </a>
           </motion.div>
