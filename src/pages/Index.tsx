@@ -36,12 +36,12 @@ const Index = () => {
               backgroundSize: "cover",
               backgroundPosition: "center",
               backgroundAttachment: "fixed",
-              opacity: currentBg === index ? 0.3 : 0,
+              opacity: currentBg === index ? 0.5 : 0,
             }}
           />
         ))}
-        {/* Overlay gradient - HKEX dark navy style */}
-        <div className="absolute inset-0 bg-gradient-to-b from-background/90 via-background/80 to-background" />
+        {/* Overlay gradient - Deep navy blue style */}
+        <div className="absolute inset-0 bg-gradient-to-b from-background/70 via-background/60 to-background/90" />
       </div>
 
       {/* Content */}
