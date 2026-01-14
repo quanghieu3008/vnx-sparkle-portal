@@ -18,17 +18,19 @@ const tickerData: TickerItem[] = [
 ];
 
 export default function MarketTicker() {
+  const loopData: TickerItem[] = [...tickerData, ...tickerData];
+
   return (
     <div className="fixed top-20 left-0 right-0 z-40 bg-secondary/90 backdrop-blur-sm border-b border-border/30">
       <div className="flex items-center">
         <div className="flex-shrink-0 bg-primary px-4 py-2.5 z-10">
           <span className="text-primary-foreground text-sm font-semibold whitespace-nowrap">Dữ liệu thị trường</span>
         </div>
-        
+
         <div className="flex-1 overflow-hidden">
           <div className="ticker-scroll inline-flex items-center gap-10 py-2.5 whitespace-nowrap">
-            {tickerData.map((item, index) => (
-              <div key={index} className="inline-flex items-center gap-3">
+            {loopData.map((item, index) => (
+              <div key={`${item.name}-${index}`} className="inline-flex items-center gap-3">
                 <span className="text-sm font-semibold text-foreground">{item.name}</span>
                 <span className="text-sm font-bold text-primary">{item.value.toLocaleString()}</span>
                 <span
@@ -41,7 +43,9 @@ export default function MarketTicker() {
                   ) : (
                     <TrendingDown className="h-3 w-3" />
                   )}
-                  {item.change >= 0 ? "+" : ""}{item.change.toFixed(2)} ({item.changePercent >= 0 ? "+" : ""}{item.changePercent.toFixed(2)}%)
+                  {item.change >= 0 ? "+" : ""}
+                  {item.change.toFixed(2)} ({item.changePercent >= 0 ? "+" : ""}
+                  {item.changePercent.toFixed(2)}%)
                 </span>
                 <span className="text-muted-foreground mx-2">|</span>
               </div>
