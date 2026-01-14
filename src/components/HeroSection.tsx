@@ -151,7 +151,7 @@ export default function HeroSection() {
           {/* Right Side - Market Data */}
           <div className="space-y-4">
             {/* Market Overview Table */}
-            <div className="bg-glass rounded-xl p-4 shadow-card">
+            <div className="bg-[#2d2540] rounded-xl p-4 shadow-card">
               <div className="flex items-center justify-between mb-4">
                 <h3 className="text-lg font-display font-semibold text-foreground">Tổng quan thị trường</h3>
                 <span className="text-xs text-muted-foreground">Cập nhật: 14/01/2026, 15:00</span>
@@ -195,7 +195,7 @@ export default function HeroSection() {
             {/* Top Gainers/Losers/Volume */}
             <div className="grid grid-cols-2 gap-4">
               {/* Top Gainers */}
-              <div className="bg-glass rounded-xl p-4 shadow-card">
+              <div className="bg-[#2d2540] rounded-xl p-4 shadow-card">
                 <h4 className="flex items-center gap-2 text-sm font-semibold text-success mb-3">
                   <TrendingUp className="h-4 w-4" /> Top tăng
                 </h4>
@@ -210,7 +210,7 @@ export default function HeroSection() {
               </div>
 
               {/* Top Losers */}
-              <div className="bg-glass rounded-xl p-4 shadow-card">
+              <div className="bg-[#2d2540] rounded-xl p-4 shadow-card">
                 <h4 className="flex items-center gap-2 text-sm font-semibold text-destructive mb-3">
                   <TrendingDown className="h-4 w-4" /> Top giảm
                 </h4>
