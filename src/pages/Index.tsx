@@ -24,8 +24,8 @@ const Index = () => {
   }, []);
 
   return (
-    <div className="min-h-screen relative">
-      {/* Fixed Background Images - stays behind all content */}
+    <div className="min-h-screen relative bg-background">
+      {/* Fixed Background Images - HKEX style with darker overlay */}
       <div className="fixed inset-0 -z-10">
         {backgrounds.map((bg, index) => (
           <div
@@ -36,12 +36,12 @@ const Index = () => {
               backgroundSize: "cover",
               backgroundPosition: "center",
               backgroundAttachment: "fixed",
-              opacity: currentBg === index ? 1 : 0,
+              opacity: currentBg === index ? 0.3 : 0,
             }}
           />
         ))}
-        {/* Overlay gradient - lighter to show original background images */}
-        <div className="absolute inset-0 bg-gradient-to-b from-background/60 via-background/40 to-background/70" />
+        {/* Overlay gradient - HKEX dark navy style */}
+        <div className="absolute inset-0 bg-gradient-to-b from-background/90 via-background/80 to-background" />
       </div>
 
       {/* Content */}

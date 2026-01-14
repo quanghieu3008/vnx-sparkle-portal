@@ -148,29 +148,29 @@ export default function HeroSection() {
             </div>
           </div>
 
-          {/* Right Side - Market Data */}
+          {/* Right Side - Market Data - HKEX Style */}
           <div className="space-y-4">
             {/* Market Overview Table */}
-            <div className="bg-glass rounded-xl p-4 shadow-card">
+            <div className="bg-card/90 backdrop-blur-sm rounded-lg p-4 border border-border/50">
               <div className="flex items-center justify-between mb-4">
-                <h3 className="text-lg font-display font-semibold text-foreground">Tổng quan thị trường</h3>
-                <span className="text-xs text-muted-foreground">Cập nhật: 14/01/2026, 15:00</span>
+                <h3 className="text-lg font-display font-semibold text-foreground">Market Overview</h3>
+                <span className="text-xs text-muted-foreground">Updated: 14/01/2026, 15:00</span>
               </div>
 
               <div className="overflow-x-auto">
                 <table className="w-full text-sm">
                   <thead>
                     <tr className="border-b border-border/50">
-                      <th className="text-left py-2 px-2 text-muted-foreground font-medium">Tên chỉ số</th>
-                      <th className="text-right py-2 px-2 text-muted-foreground font-medium">Mục lục</th>
-                      <th className="text-right py-2 px-2 text-muted-foreground font-medium">Mở</th>
-                      <th className="text-right py-2 px-2 text-muted-foreground font-medium">Cao</th>
-                      <th className="text-right py-2 px-2 text-muted-foreground font-medium">Thấp</th>
+                      <th className="text-left py-2 px-2 text-muted-foreground font-medium">Name</th>
+                      <th className="text-right py-2 px-2 text-muted-foreground font-medium">Index</th>
+                      <th className="text-right py-2 px-2 text-muted-foreground font-medium">Open</th>
+                      <th className="text-right py-2 px-2 text-muted-foreground font-medium">High</th>
+                      <th className="text-right py-2 px-2 text-muted-foreground font-medium">Low</th>
                     </tr>
                   </thead>
                   <tbody>
                     {marketIndices.map((index, idx) => (
-                      <tr key={idx} className="border-b border-border/30 last:border-0">
+                      <tr key={idx} className="border-b border-border/30 last:border-0 hover:bg-secondary/30 transition-colors">
                         <td className="py-2 px-2 font-medium text-foreground">{index.name}</td>
                         <td className="py-2 px-2 text-right">
                           <div className="font-semibold text-foreground">{index.value.toLocaleString()}</div>
@@ -188,20 +188,20 @@ export default function HeroSection() {
               </div>
 
               <a href="#" className="inline-flex items-center gap-1 text-primary text-sm mt-4 hover:underline">
-                Tìm hiểu thêm <ChevronRight className="h-4 w-4" />
+                View more <ChevronRight className="h-4 w-4" />
               </a>
             </div>
 
-            {/* Top Gainers/Losers/Volume */}
+            {/* Top Gainers/Losers - HKEX Style */}
             <div className="grid grid-cols-2 gap-4">
               {/* Top Gainers */}
-              <div className="bg-glass rounded-xl p-4 shadow-card">
+              <div className="bg-card/90 backdrop-blur-sm rounded-lg p-4 border border-border/50">
                 <h4 className="flex items-center gap-2 text-sm font-semibold text-success mb-3">
-                  <TrendingUp className="h-4 w-4" /> Top tăng
+                  <TrendingUp className="h-4 w-4" /> Top Gainers
                 </h4>
                 <div className="space-y-2">
                   {topGainers.map((stock, idx) => (
-                    <div key={idx} className="flex justify-between items-center text-sm">
+                    <div key={idx} className="flex justify-between items-center text-sm hover:bg-secondary/30 p-1 rounded transition-colors">
                       <span className="font-medium text-foreground">{stock.code}</span>
                       <span className="price-up">+{stock.change.toFixed(2)}%</span>
                     </div>
@@ -210,13 +210,13 @@ export default function HeroSection() {
               </div>
 
               {/* Top Losers */}
-              <div className="bg-glass rounded-xl p-4 shadow-card">
+              <div className="bg-card/90 backdrop-blur-sm rounded-lg p-4 border border-border/50">
                 <h4 className="flex items-center gap-2 text-sm font-semibold text-destructive mb-3">
-                  <TrendingDown className="h-4 w-4" /> Top giảm
+                  <TrendingDown className="h-4 w-4" /> Top Losers
                 </h4>
                 <div className="space-y-2">
                   {topLosers.map((stock, idx) => (
-                    <div key={idx} className="flex justify-between items-center text-sm">
+                    <div key={idx} className="flex justify-between items-center text-sm hover:bg-secondary/30 p-1 rounded transition-colors">
                       <span className="font-medium text-foreground">{stock.code}</span>
                       <span className="price-down">{stock.change.toFixed(2)}%</span>
                     </div>
