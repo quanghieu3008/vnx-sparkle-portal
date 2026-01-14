@@ -17,8 +17,8 @@ export default function PartnersSection() {
   const duplicatedPartners = [...partners, ...partners];
 
   return (
-    <section className="py-16 border-y border-border/30 overflow-hidden">
-      <div className="container mx-auto px-4 mb-8">
+    <section className="py-8 border-y border-border/30 overflow-hidden">
+      <div className="container mx-auto px-4 mb-6">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -26,27 +26,24 @@ export default function PartnersSection() {
           transition={{ duration: 0.6 }}
           className="text-center"
         >
-          <h3 className="text-xl font-display font-semibold text-foreground mb-2">
+          <h3 className="text-xl font-display font-semibold text-foreground">
             Liên kết tổ chức
           </h3>
-          <p className="text-sm text-muted-foreground">
-            Hợp tác với các tổ chức uy tín trong và ngoài nước
-          </p>
         </motion.div>
       </div>
 
       <div className="relative">
-        <div className="partner-scroll flex items-center gap-16 px-8">
+        <div className="partner-scroll flex items-center gap-12 px-8">
           {duplicatedPartners.map((partner, index) => (
             <motion.div
               key={index}
-              whileHover={{ scale: 1.1 }}
-              className="flex-shrink-0 w-32 h-20 bg-card rounded-xl flex items-center justify-center p-4 shadow-card hover:shadow-hover transition-all cursor-pointer group"
+              whileHover={{ scale: 1.05 }}
+              className="flex-shrink-0 h-16 flex items-center justify-center cursor-pointer"
             >
               <img
                 src={partner.logo}
                 alt={partner.name}
-                className="w-full h-full object-contain opacity-70 group-hover:opacity-100 transition-opacity"
+                className="h-full w-auto object-contain opacity-80 hover:opacity-100 transition-opacity"
               />
             </motion.div>
           ))}
