@@ -1,6 +1,8 @@
 import { motion } from "framer-motion";
 import { ChevronRight, PlayCircle, Clock, User } from "lucide-react";
-import vnxLogo from "@/assets/vnx-logo.jpg";
+import vnxIntro from "@/assets/vnx-intro.jpg";
+import event25Years from "@/assets/event-25years.jpg";
+import eventMember2025 from "@/assets/event-member2025.jpg";
 
 interface InfoBlock {
   id: number;
@@ -59,11 +61,10 @@ export default function InfoSection() {
           >
             <div className="flex flex-col md:flex-row h-full">
               <div className="md:w-1/3 relative overflow-hidden">
-                <div className="absolute inset-0 bg-gradient-to-br from-primary/20 to-transparent" />
                 <img
-                  src={vnxLogo}
+                  src={vnxIntro}
                   alt="VNX"
-                  className="w-full h-48 md:h-full object-contain p-8 group-hover:scale-105 transition-transform duration-500"
+                  className="w-full h-48 md:h-full object-cover group-hover:scale-105 transition-transform duration-500"
                 />
               </div>
               <div className="md:w-2/3 p-6 flex flex-col justify-center">
@@ -85,29 +86,59 @@ export default function InfoSection() {
 
           {/* Event Cards */}
           <div className="space-y-6">
-            {infoBlocks.slice(1).map((block, index) => (
-              <motion.div
-                key={block.id}
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.6, delay: 0.2 + index * 0.1 }}
-                className="bg-glass rounded-xl p-5 shadow-card hover:shadow-hover transition-all duration-300 group"
-              >
-                <span className="inline-block px-3 py-1 bg-accent/20 text-accent rounded-full text-xs font-medium mb-3">
+            {/* Event 25 Years */}
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6, delay: 0.2 }}
+              className="relative rounded-xl overflow-hidden shadow-card hover:shadow-hover transition-all duration-300 group h-40"
+            >
+              <img
+                src={event25Years}
+                alt="Hành trình 25 năm"
+                className="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/30 to-transparent" />
+              <div className="relative z-10 p-5 h-full flex flex-col justify-end">
+                <span className="inline-block w-fit px-3 py-1 bg-white/20 backdrop-blur-sm text-white rounded-full text-xs font-medium mb-2">
                   Sự kiện
                 </span>
-                <h4 className="text-lg font-display font-semibold text-foreground mb-2 group-hover:text-primary transition-colors">
-                  {block.title}
+                <h4 className="text-lg font-display font-semibold text-white mb-1">
+                  {infoBlocks[1].title}
                 </h4>
-                <p className="text-sm text-muted-foreground line-clamp-2 mb-3">
-                  {block.description}
+                <p className="text-sm text-white/80 line-clamp-2">
+                  {infoBlocks[1].description}
                 </p>
-                <a href="#" className="inline-flex items-center gap-1 text-sm text-primary hover:gap-2 transition-all">
-                  Xem chi tiết <ChevronRight className="h-4 w-4" />
-                </a>
-              </motion.div>
-            ))}
+              </div>
+            </motion.div>
+
+            {/* Event Member 2025 */}
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6, delay: 0.3 }}
+              className="relative rounded-xl overflow-hidden shadow-card hover:shadow-hover transition-all duration-300 group h-40"
+            >
+              <img
+                src={eventMember2025}
+                alt="Hội nghị Thành viên 2025"
+                className="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/30 to-transparent" />
+              <div className="relative z-10 p-5 h-full flex flex-col justify-end">
+                <span className="inline-block w-fit px-3 py-1 bg-white/20 backdrop-blur-sm text-white rounded-full text-xs font-medium mb-2">
+                  Sự kiện
+                </span>
+                <h4 className="text-lg font-display font-semibold text-white mb-1">
+                  {infoBlocks[2].title}
+                </h4>
+                <p className="text-sm text-white/80 line-clamp-2">
+                  {infoBlocks[2].description}
+                </p>
+              </div>
+            </motion.div>
           </div>
         </div>
 
