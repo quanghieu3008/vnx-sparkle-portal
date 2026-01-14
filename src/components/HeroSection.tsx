@@ -1,8 +1,7 @@
 import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { ChevronRight, Search, TrendingUp, TrendingDown, Clock } from "lucide-react";
+import { ChevronRight, TrendingUp, TrendingDown, Clock } from "lucide-react";
 import { Button } from "./ui/button";
-import { Input } from "./ui/input";
 
 interface NewsItem {
   id: number;
@@ -59,16 +58,16 @@ const topLosers: TopStock[] = [
 
 export default function HeroSection() {
   const [currentNews, setCurrentNews] = useState(0);
-  const [timeLeft, setTimeLeft] = useState(5);
+  const [timeLeft, setTimeLeft] = useState(3);
 
   useEffect(() => {
     const newsInterval = setInterval(() => {
       setCurrentNews((prev) => (prev + 1) % newsItems.length);
-      setTimeLeft(5);
-    }, 5000);
+      setTimeLeft(3);
+    }, 3000);
 
     const countdownInterval = setInterval(() => {
-      setTimeLeft((prev) => (prev > 0 ? prev - 1 : 5));
+      setTimeLeft((prev) => (prev > 0 ? prev - 1 : 3));
     }, 1000);
 
     return () => {
@@ -125,7 +124,7 @@ export default function HeroSection() {
                     fill="none"
                     stroke="hsl(var(--primary))"
                     strokeWidth="2"
-                    strokeDasharray={`${(timeLeft / 5) * 113} 113`}
+                    strokeDasharray={`${(timeLeft / 3) * 113} 113`}
                     strokeLinecap="round"
                     transform="rotate(-90 20 20)"
                     className="transition-all duration-1000"
@@ -138,7 +137,7 @@ export default function HeroSection() {
                     key={idx}
                     onClick={() => {
                       setCurrentNews(idx);
-                      setTimeLeft(5);
+                      setTimeLeft(3);
                     }}
                     className={`h-2 rounded-full transition-all ${
                       currentNews === idx ? "w-8 bg-primary" : "w-2 bg-muted-foreground/30"
@@ -191,15 +190,6 @@ export default function HeroSection() {
               <a href="#" className="inline-flex items-center gap-1 text-primary text-sm mt-4 hover:underline">
                 Tìm hiểu thêm <ChevronRight className="h-4 w-4" />
               </a>
-            </div>
-
-            {/* Search Bar */}
-            <div className="relative">
-              <Search className="absolute left-4 top-1/2 -translate-y-1/2 h-5 w-5 text-muted-foreground" />
-              <Input
-                placeholder="Nhập tên/mã sản phẩm"
-                className="pl-12 bg-glass border-border/50 h-12 text-foreground placeholder:text-muted-foreground"
-              />
             </div>
 
             {/* Top Gainers/Losers/Volume */}
