@@ -136,8 +136,9 @@
   }
 
   .ticker-scroll {
-    animation: ticker 40s linear infinite;
+    animation: ticker 30s linear infinite;
     will-change: transform;
+    min-width: max-content;
   }
 
   .partner-scroll {
@@ -173,10 +174,10 @@
 
 @keyframes ticker {
   0% {
-    transform: translateX(100vw);
+    transform: translateX(0);
   }
   100% {
-    transform: translateX(-100%);
+    transform: translateX(-50%);
   }
 }
 
