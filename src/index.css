@@ -145,6 +145,11 @@
     animation: partner-scroll 20s linear infinite;
   }
 
+  .partner-scroll-seamless {
+    animation: partner-scroll-seamless 25s linear infinite;
+    will-change: transform;
+  }
+
   .hero-fade {
     animation: heroFade 8s ease-in-out infinite;
   }
@@ -187,6 +192,15 @@
   }
   100% {
     transform: translateX(-50%);
+  }
+}
+
+@keyframes partner-scroll-seamless {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-33.333%);
   }
 }
 

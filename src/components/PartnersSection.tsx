@@ -3,18 +3,19 @@ import partnerSSC from "@/assets/partner-ssc.jpg";
 import partnerVSD from "@/assets/partner-vsd.jpg";
 import partnerHNX from "@/assets/partner-hnx.jpg";
 import partnerHOSE from "@/assets/partner-hose.jpg";
-import partnerWFE from "@/assets/partner-wfe.jpg";
+import partnerMOF from "@/assets/partner-mof.png";
 
 const partners = [
   { name: "SSC", logo: partnerSSC },
   { name: "VSD", logo: partnerVSD },
   { name: "HNX", logo: partnerHNX },
   { name: "HOSE", logo: partnerHOSE },
-  { name: "WFE", logo: partnerWFE },
+  { name: "Bộ Tài Chính", logo: partnerMOF },
 ];
 
 export default function PartnersSection() {
-  const duplicatedPartners = [...partners, ...partners];
+  // Duplicate 3 times for seamless infinite scroll
+  const duplicatedPartners = [...partners, ...partners, ...partners];
 
   return (
     <section className="py-8 border-y border-border/30 overflow-hidden">
@@ -32,20 +33,19 @@ export default function PartnersSection() {
         </motion.div>
       </div>
 
-      <div className="relative">
-        <div className="partner-scroll flex items-center gap-12 px-8">
+      <div className="relative w-full overflow-hidden">
+        <div className="partner-scroll-seamless flex items-center">
           {duplicatedPartners.map((partner, index) => (
-            <motion.div
+            <div
               key={index}
-              whileHover={{ scale: 1.05 }}
-              className="flex-shrink-0 h-16 flex items-center justify-center cursor-pointer"
+              className="flex-shrink-0 h-16 px-8 flex items-center justify-center cursor-pointer hover:scale-105 transition-transform"
             >
               <img
                 src={partner.logo}
                 alt={partner.name}
                 className="h-full w-auto object-contain opacity-80 hover:opacity-100 transition-opacity"
               />
-            </motion.div>
+            </div>
           ))}
         </div>
       </div>
