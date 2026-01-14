@@ -38,18 +38,23 @@ const newsItems = [
   { code: "TV 002", title: "Báo cáo thường niên 2025 - Những con số ấn tượng", date: "13/01/2026" },
   { code: "TV 003", title: "Chương trình đào tạo nhà đầu tư chuyên nghiệp", date: "12/01/2026" },
   { code: "TV 004", title: "Hợp tác quốc tế: VNX ký kết MOU với SGX", date: "11/01/2026" },
+  { code: "TV 005", title: "Thông báo về lịch nghỉ giao dịch Tết Nguyên đán 2026", date: "10/01/2026" },
 ];
 
 const regulationItems = [
   { code: "QĐ 01", title: "Quy định về niêm yết chứng khoán tại Sở GDCK Việt Nam", date: "10/01/2026" },
   { code: "QĐ 02", title: "Quy chế giao dịch chứng khoán phái sinh", date: "08/01/2026" },
   { code: "QĐ 03", title: "Quy định về công bố thông tin trên thị trường chứng khoán", date: "05/01/2026" },
+  { code: "QĐ 04", title: "Quy định về thành viên giao dịch và thành viên bù trừ", date: "03/01/2026" },
+  { code: "QĐ 05", title: "Quy chế hoạt động của thị trường trái phiếu doanh nghiệp", date: "01/01/2026" },
 ];
 
 const circularItems = [
   { code: "TT 01", title: "Thông tư hướng dẫn hoạt động đăng ký, lưu ký chứng khoán", date: "12/01/2026" },
   { code: "TT 02", title: "Thông tư quy định về giao dịch điện tử trên TTCK", date: "09/01/2026" },
   { code: "TT 03", title: "Thông tư về quản lý quỹ đầu tư chứng khoán", date: "06/01/2026" },
+  { code: "TT 04", title: "Thông tư hướng dẫn về phát hành trái phiếu doanh nghiệp", date: "04/01/2026" },
+  { code: "TT 05", title: "Thông tư quy định về giám sát giao dịch chứng khoán", date: "02/01/2026" },
 ];
 
 const podcastItems = [
