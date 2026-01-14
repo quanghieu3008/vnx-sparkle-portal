@@ -6,73 +6,73 @@
 
 @layer base {
   :root {
-    /* HKEX Style - Deep Navy Blue Background */
-    --background: 215 60% 12%;
-    --foreground: 0 0% 100%;
+    /* VNX Professional Blue Theme - Brighter & Lighter */
+    --background: 210 45% 35%;
+    --foreground: 210 30% 98%;
 
-    --card: 215 55% 16%;
-    --card-foreground: 0 0% 100%;
+    --card: 210 50% 42%;
+    --card-foreground: 210 30% 98%;
 
-    --popover: 210 45% 12%;
-    --popover-foreground: 0 0% 100%;
+    --popover: 210 48% 38%;
+    --popover-foreground: 210 30% 98%;
 
-    --primary: 171 100% 36%;
-    --primary-foreground: 0 0% 100%;
+    --primary: 195 90% 50%;
+    --primary-foreground: 210 60% 15%;
 
-    --secondary: 215 50% 20%;
-    --secondary-foreground: 0 0% 100%;
+    --secondary: 210 45% 48%;
+    --secondary-foreground: 210 30% 98%;
 
-    --muted: 215 45% 22%;
-    --muted-foreground: 215 25% 70%;
+    --muted: 210 40% 52%;
+    --muted-foreground: 210 25% 85%;
 
-    --accent: 171 100% 36%;
-    --accent-foreground: 0 0% 100%;
+    --accent: 45 95% 58%;
+    --accent-foreground: 210 60% 15%;
 
     --destructive: 0 72% 55%;
-    --destructive-foreground: 0 0% 100%;
+    --destructive-foreground: 210 40% 98%;
 
-    --success: 145 70% 45%;
-    --success-foreground: 0 0% 100%;
+    --success: 145 70% 50%;
+    --success-foreground: 210 60% 15%;
 
-    --border: 215 40% 25%;
-    --input: 215 45% 22%;
-    --ring: 171 100% 36%;
+    --border: 210 40% 55%;
+    --input: 210 40% 50%;
+    --ring: 195 90% 50%;
 
-    --radius: 0.5rem;
+    --radius: 0.75rem;
 
-    /* Custom VNX Colors - Deep Navy Blue Style */
-    --vnx-cyan: 171 100% 36%;
-    --vnx-cyan-glow: 171 100% 45%;
-    --vnx-navy: 210 100% 20%;
-    --vnx-navy-light: 210 80% 25%;
+    /* Custom VNX Colors */
+    --vnx-cyan: 195 90% 50%;
+    --vnx-cyan-glow: 195 95% 60%;
+    --vnx-navy: 210 45% 35%;
+    --vnx-navy-light: 210 50% 45%;
     --vnx-gold: 45 95% 58%;
-    --vnx-green: 145 70% 45%;
+    --vnx-green: 145 70% 50%;
     --vnx-red: 0 72% 55%;
 
     /* Gradients */
-    --gradient-hero: linear-gradient(135deg, hsl(215 60% 12%) 0%, hsl(215 55% 18%) 100%);
-    --gradient-card: linear-gradient(180deg, hsl(215 55% 18%) 0%, hsl(215 55% 14%) 100%);
-    --gradient-accent: linear-gradient(135deg, hsl(171 100% 36%) 0%, hsl(171 100% 45%) 100%);
+    --gradient-hero: linear-gradient(135deg, hsl(var(--vnx-navy)) 0%, hsl(210 50% 45%) 100%);
+    --gradient-card: linear-gradient(180deg, hsl(var(--card)) 0%, hsl(210 48% 38%) 100%);
+    --gradient-accent: linear-gradient(135deg, hsl(var(--primary)) 0%, hsl(195 85% 40%) 100%);
     --gradient-gold: linear-gradient(135deg, hsl(var(--vnx-gold)) 0%, hsl(50 100% 65%) 100%);
 
     /* Shadows */
-    --shadow-glow: 0 0 40px hsl(171 100% 36% / 0.25);
-    --shadow-card: 0 8px 32px hsl(215 60% 5% / 0.5);
-    --shadow-hover: 0 12px 40px hsl(171 100% 36% / 0.2);
+    --shadow-glow: 0 0 40px hsl(var(--primary) / 0.35);
+    --shadow-card: 0 8px 32px hsl(210 50% 20% / 0.4);
+    --shadow-hover: 0 12px 40px hsl(var(--primary) / 0.25);
 
     /* Sidebar */
-    --sidebar-background: 215 60% 12%;
-    --sidebar-foreground: 0 0% 100%;
-    --sidebar-primary: 171 100% 36%;
-    --sidebar-primary-foreground: 0 0% 100%;
-    --sidebar-accent: 215 55% 18%;
-    --sidebar-accent-foreground: 0 0% 100%;
-    --sidebar-border: 215 40% 25%;
-    --sidebar-ring: 171 100% 36%;
+    --sidebar-background: 210 48% 38%;
+    --sidebar-foreground: 210 30% 98%;
+    --sidebar-primary: 195 90% 50%;
+    --sidebar-primary-foreground: 210 60% 15%;
+    --sidebar-accent: 210 45% 48%;
+    --sidebar-accent-foreground: 210 30% 98%;
+    --sidebar-border: 210 40% 55%;
+    --sidebar-ring: 195 90% 50%;
   }
 
   .dark {
-    /* Same as root for dark navy theme */
+    /* Same as root - dark mode by default */
   }
 }
 

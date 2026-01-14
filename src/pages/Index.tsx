@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useState, useEffect } from "react";
 import Header from "@/components/Header";
 import MarketTicker from "@/components/MarketTicker";
 import HeroSection from "@/components/HeroSection";
@@ -7,9 +7,9 @@ import PartnersSection from "@/components/PartnersSection";
 import Footer from "@/components/Footer";
 import ChatBot from "@/components/ChatBot";
 import ScrollToTop from "@/components/ScrollToTop";
-import heroBg1 from "@/assets/hero-bg-custom-1.png";
-import heroBg2 from "@/assets/hero-bg-custom-2.png";
-import heroBg3 from "@/assets/hero-bg-custom-3.png";
+import heroBg1 from "@/assets/hero-bg-1.jpg";
+import heroBg2 from "@/assets/hero-bg-2.jpg";
+import heroBg3 from "@/assets/hero-bg-3.jpg";
 
 const backgrounds = [heroBg1, heroBg2, heroBg3];
 
@@ -24,9 +24,9 @@ const Index = () => {
   }, []);
 
   return (
-    <div className="min-h-screen relative bg-background">
-      {/* Fixed Background Images */}
-      <div className="fixed inset-0 -z-10 pointer-events-none">
+    <div className="min-h-screen relative">
+      {/* Fixed Background Images - stays behind all content */}
+      <div className="fixed inset-0 -z-10">
         {backgrounds.map((bg, index) => (
           <div
             key={index}
@@ -36,18 +36,12 @@ const Index = () => {
               backgroundSize: "cover",
               backgroundPosition: "center",
               backgroundAttachment: "fixed",
-              opacity: currentBg === index ? 0.95 : 0,
-              filter:
-                currentBg === index
-                  ? "saturate(1.25) contrast(1.12) brightness(1.12)"
-                  : "none",
-              willChange: "opacity",
+              opacity: currentBg === index ? 1 : 0,
             }}
           />
         ))}
-
-        {/* Overlay gradient - deep navy tone but let images show through */}
-        <div className="absolute inset-0 bg-gradient-to-b from-background/35 via-background/30 to-background/70" />
+        {/* Overlay gradient - lighter to show original background images */}
+        <div className="absolute inset-0 bg-gradient-to-b from-background/60 via-background/40 to-background/70" />
       </div>
 
       {/* Content */}
@@ -56,8 +50,8 @@ const Index = () => {
         <MarketTicker />
         <div className="pt-10">
           <HeroSection />
-          <InfoSection />
-          <PartnersSection />
+        <InfoSection />
+        <PartnersSection />
           <Footer />
         </div>
         <ChatBot />

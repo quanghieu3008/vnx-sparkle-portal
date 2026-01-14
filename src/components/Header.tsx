@@ -53,7 +53,7 @@ export default function Header() {
   return (
     <header
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-        isScrolled ? "bg-vnx-navy shadow-card" : "bg-vnx-navy/95"
+        isScrolled ? "bg-glass-strong shadow-card" : "bg-transparent"
       }`}
     >
       <div className="container mx-auto px-4">
@@ -66,8 +66,8 @@ export default function Header() {
           >
             <img src={vnxLogo} alt="VNX Logo" className="h-12 w-auto" />
             <div className="hidden sm:block">
-              <h1 className="text-lg font-display font-bold text-white">VIETNAM EXCHANGE</h1>
-              <p className="text-xs text-white/70">Sở Giao dịch Chứng khoán Việt Nam</p>
+              <h1 className="text-lg font-display font-bold text-foreground">VIETNAM EXCHANGE</h1>
+              <p className="text-xs text-muted-foreground">Sở Giao dịch Chứng khoán Việt Nam</p>
             </div>
           </motion.div>
 
@@ -80,7 +80,7 @@ export default function Header() {
                 onMouseEnter={() => setActiveMenu(index)}
                 onMouseLeave={() => setActiveMenu(null)}
               >
-                <button className="flex items-center gap-1 px-4 py-2 text-sm font-medium text-white/90 hover:text-vnx-gold transition-colors">
+                <button className="flex items-center gap-1 px-4 py-2 text-sm font-medium text-foreground/90 hover:text-primary transition-colors">
                   {menu.label}
                   <ChevronDown className="h-4 w-4" />
                 </button>
@@ -113,24 +113,24 @@ export default function Header() {
           {/* Right side actions */}
           <div className="flex items-center gap-3">
             {/* Search */}
-            <Button variant="ghost" size="icon" className="text-white/80 hover:text-vnx-gold">
+            <Button variant="ghost" size="icon" className="text-foreground/80 hover:text-primary">
               <Search className="h-5 w-5" />
             </Button>
 
             {/* Language Switcher */}
             <button
               onClick={() => setLanguage(language === "VN" ? "EN" : "VN")}
-              className="flex items-center gap-2 px-3 py-1.5 rounded-full bg-white/10 hover:bg-white/20 transition-colors"
+              className="flex items-center gap-2 px-3 py-1.5 rounded-full bg-secondary/50 hover:bg-secondary transition-colors"
             >
-              <Globe className="h-4 w-4 text-vnx-gold" />
-              <span className="text-sm font-medium text-white">{language}</span>
+              <Globe className="h-4 w-4 text-primary" />
+              <span className="text-sm font-medium">{language}</span>
             </button>
 
             {/* Mobile Menu Button */}
             <Button
               variant="ghost"
               size="icon"
-              className="lg:hidden text-white"
+              className="lg:hidden text-foreground"
               onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
             >
               {isMobileMenuOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
@@ -146,13 +146,13 @@ export default function Header() {
             initial={{ opacity: 0, height: 0 }}
             animate={{ opacity: 1, height: "auto" }}
             exit={{ opacity: 0, height: 0 }}
-            className="lg:hidden bg-vnx-navy border-t border-white/10"
+            className="lg:hidden bg-glass-strong border-t border-border/50"
           >
             <div className="container mx-auto px-4 py-4">
               {menuItems.map((menu, index) => (
-                <div key={index} className="border-b border-white/10 last:border-0">
+                <div key={index} className="border-b border-border/30 last:border-0">
                   <button
-                    className="w-full flex items-center justify-between py-3 text-sm font-medium text-white"
+                    className="w-full flex items-center justify-between py-3 text-sm font-medium text-foreground"
                     onClick={() => setActiveMenu(activeMenu === index ? null : index)}
                   >
                     {menu.label}
@@ -172,7 +172,7 @@ export default function Header() {
                           <a
                             key={idx}
                             href="#"
-                            className="block py-2 text-sm text-white/70 hover:text-vnx-gold"
+                            className="block py-2 text-sm text-muted-foreground hover:text-primary"
                           >
                             {item}
                           </a>

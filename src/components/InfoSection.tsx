@@ -47,7 +47,7 @@ export default function InfoSection() {
   return (
     <section className="py-8">
       <div className="container mx-auto px-4">
-        {/* Main Grid - HKEX Style */}
+        {/* Main Grid */}
         <div className="grid lg:grid-cols-3 gap-6 mb-12">
           {/* VNX Introduction Card */}
           <motion.div
@@ -55,10 +55,11 @@ export default function InfoSection() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6, delay: 0.1 }}
-            className="lg:col-span-2 bg-card/90 backdrop-blur-sm rounded-lg overflow-hidden border border-border/50 group hover:border-primary/50 transition-all duration-300"
+            className="lg:col-span-2 bg-glass rounded-2xl overflow-hidden shadow-card group hover:shadow-hover transition-all duration-300"
           >
             <div className="flex flex-col md:flex-row h-full">
-              <div className="md:w-1/3 relative overflow-hidden bg-secondary/30">
+              <div className="md:w-1/3 relative overflow-hidden">
+                <div className="absolute inset-0 bg-gradient-to-br from-primary/20 to-transparent" />
                 <img
                   src={vnxLogo}
                   alt="VNX"
@@ -66,8 +67,8 @@ export default function InfoSection() {
                 />
               </div>
               <div className="md:w-2/3 p-6 flex flex-col justify-center">
-                <span className="inline-block w-fit px-3 py-1 bg-primary/20 text-primary rounded text-xs font-medium mb-4">
-                  About
+                <span className="inline-block w-fit px-3 py-1 bg-primary/20 text-primary rounded-full text-xs font-medium mb-4">
+                  Giới thiệu
                 </span>
                 <h3 className="text-xl md:text-2xl font-display font-bold text-foreground mb-3">
                   {infoBlocks[0].title}
@@ -76,7 +77,7 @@ export default function InfoSection() {
                   {infoBlocks[0].description}
                 </p>
                 <a href="#" className="inline-flex items-center gap-2 text-primary hover:gap-3 transition-all">
-                  Read more <ChevronRight className="h-4 w-4" />
+                  Đọc thêm <ChevronRight className="h-4 w-4" />
                 </a>
               </div>
             </div>
@@ -91,10 +92,10 @@ export default function InfoSection() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.6, delay: 0.2 + index * 0.1 }}
-                className="bg-card/90 backdrop-blur-sm rounded-lg p-5 border border-border/50 hover:border-primary/50 transition-all duration-300 group"
+                className="bg-glass rounded-xl p-5 shadow-card hover:shadow-hover transition-all duration-300 group"
               >
-                <span className="inline-block px-3 py-1 bg-primary/20 text-primary rounded text-xs font-medium mb-3">
-                  Event
+                <span className="inline-block px-3 py-1 bg-accent/20 text-accent rounded-full text-xs font-medium mb-3">
+                  Sự kiện
                 </span>
                 <h4 className="text-lg font-display font-semibold text-foreground mb-2 group-hover:text-primary transition-colors">
                   {block.title}
@@ -103,14 +104,14 @@ export default function InfoSection() {
                   {block.description}
                 </p>
                 <a href="#" className="inline-flex items-center gap-1 text-sm text-primary hover:gap-2 transition-all">
-                  View details <ChevronRight className="h-4 w-4" />
+                  Xem chi tiết <ChevronRight className="h-4 w-4" />
                 </a>
               </motion.div>
             ))}
           </div>
         </div>
 
-        {/* Member Announcements & Podcasts - HKEX Style */}
+        {/* Member Announcements & Podcasts */}
         <div className="grid md:grid-cols-2 gap-6">
           {/* Member News */}
           <motion.div
@@ -118,18 +119,18 @@ export default function InfoSection() {
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
-            className="bg-card/90 backdrop-blur-sm rounded-lg p-6 border border-border/50"
+            className="bg-glass rounded-xl p-6 shadow-card"
           >
             <h3 className="text-lg font-display font-semibold text-foreground mb-4 flex items-center gap-2">
               <span className="w-1 h-6 bg-primary rounded-full" />
-              Member Announcements
+              Tin công bố của thành viên
             </h3>
             <div className="space-y-3">
               {newsItems.map((news, index) => (
                 <a
                   key={index}
                   href="#"
-                  className="block p-3 rounded-lg hover:bg-secondary/50 transition-colors group border-b border-border/30 last:border-0"
+                  className="block p-3 rounded-lg hover:bg-secondary/50 transition-colors group"
                 >
                   <h4 className="text-sm font-medium text-foreground group-hover:text-primary transition-colors line-clamp-1">
                     {news.title}
@@ -141,33 +142,35 @@ export default function InfoSection() {
               ))}
             </div>
             <a href="#" className="inline-flex items-center gap-1 text-sm text-primary mt-4 hover:gap-2 transition-all">
-              View all <ChevronRight className="h-4 w-4" />
+              Xem tất cả <ChevronRight className="h-4 w-4" />
             </a>
           </motion.div>
 
-          {/* Podcasts & Articles - HKEX Style */}
+          {/* Podcasts & Articles */}
           <motion.div
             initial={{ opacity: 0, x: 20 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
-            className="bg-card/90 backdrop-blur-sm rounded-lg p-6 border border-border/50"
+            className="bg-glass rounded-xl p-6 shadow-card"
           >
             <h3 className="text-lg font-display font-semibold text-foreground mb-4 flex items-center gap-2">
-              <span className="w-1 h-6 bg-primary rounded-full" />
-              Insights & Media
+              <span className="w-1 h-6 bg-accent rounded-full" />
+              Podcast & Bài viết
             </h3>
             <div className="space-y-4">
               {podcastItems.map((item, index) => (
                 <div
                   key={index}
-                  className="flex gap-4 p-3 rounded-lg bg-secondary/50 hover:bg-secondary transition-colors group cursor-pointer"
+                  className="flex gap-4 p-3 rounded-lg bg-secondary/30 hover:bg-secondary/50 transition-colors group cursor-pointer"
                 >
-                  <div className="flex-shrink-0 w-16 h-16 rounded-lg bg-primary/20 flex items-center justify-center">
+                  <div className="flex-shrink-0 w-16 h-16 rounded-lg bg-gradient-to-br from-primary/30 to-accent/30 flex items-center justify-center">
                     <PlayCircle className="h-8 w-8 text-primary" />
                   </div>
                   <div className="flex-1">
-                    <span className="inline-block px-2 py-0.5 rounded text-xs font-medium mb-1 bg-primary/20 text-primary">
+                    <span className={`inline-block px-2 py-0.5 rounded text-xs font-medium mb-1 ${
+                      item.type === "Podcast" ? "bg-primary/20 text-primary" : "bg-accent/20 text-accent"
+                    }`}>
                       {item.type}
                     </span>
                     <h4 className="text-sm font-medium text-foreground group-hover:text-primary transition-colors line-clamp-1">
