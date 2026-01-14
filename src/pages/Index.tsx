@@ -40,8 +40,8 @@ const Index = () => {
             }}
           />
         ))}
-        {/* Overlay gradient */}
-        <div className="absolute inset-0 bg-gradient-to-b from-background/90 via-background/70 to-background/90" />
+        {/* Overlay gradient - lighter to show original background images */}
+        <div className="absolute inset-0 bg-gradient-to-b from-background/60 via-background/40 to-background/70" />
       </div>
 
       {/* Content */}
