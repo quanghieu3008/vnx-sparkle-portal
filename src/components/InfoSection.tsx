@@ -40,6 +40,18 @@ const newsItems = [
   { code: "TV 004", title: "Hợp tác quốc tế: VNX ký kết MOU với SGX", date: "11/01/2026" },
 ];
 
+const regulationItems = [
+  { code: "QĐ 01", title: "Quy định về niêm yết chứng khoán tại Sở GDCK Việt Nam", date: "10/01/2026" },
+  { code: "QĐ 02", title: "Quy chế giao dịch chứng khoán phái sinh", date: "08/01/2026" },
+  { code: "QĐ 03", title: "Quy định về công bố thông tin trên thị trường chứng khoán", date: "05/01/2026" },
+];
+
+const circularItems = [
+  { code: "TT 01", title: "Thông tư hướng dẫn hoạt động đăng ký, lưu ký chứng khoán", date: "12/01/2026" },
+  { code: "TT 02", title: "Thông tư quy định về giao dịch điện tử trên TTCK", date: "09/01/2026" },
+  { code: "TT 03", title: "Thông tư về quản lý quỹ đầu tư chứng khoán", date: "06/01/2026" },
+];
+
 const podcastItems = [
   { title: "Phân tích xu hướng thị trường Q1/2025", category: "Phân tích", author: "TS. Nguyễn Văn An", duration: "45:30", type: "podcast", image: "https://images.unsplash.com/photo-1611974789855-9c2a0a7236a3?w=400&h=300&fit=crop" },
   { title: "Chiến lược đầu tư dài hạn cho năm 2025", category: "Chiến lược", author: "ThS. Trần Thị Bình", duration: "8 phút", type: "article", image: "https://images.unsplash.com/photo-1590283603385-17ffb3a7f29f?w=400&h=300&fit=crop" },
@@ -144,45 +156,128 @@ export default function InfoSection() {
           </div>
         </div>
 
-        {/* Member Announcements */}
-        <motion.div
-          initial={{ opacity: 0, x: -20 }}
-          whileInView={{ opacity: 1, x: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.6 }}
-          className="bg-white rounded-xl p-6 shadow-card mb-8"
-        >
-          <h3 className="text-lg font-display font-semibold text-[#1e3a5f] mb-4 flex items-center gap-2">
-            <span className="w-1 h-6 bg-[#1e3a5f] rounded-full" />
-            Tin công bố của thành viên
-          </h3>
-          <div className="space-y-3">
-            {newsItems.map((news, index) => (
-              <a
-                key={index}
-                href="#"
-                className="block p-3 rounded-lg hover:bg-slate-100 transition-colors group border-b border-slate-200 last:border-0"
-              >
-                <div className="flex items-start gap-3">
-                  <span className="flex-shrink-0 text-xs font-bold text-[#1e3a5f] bg-slate-100 px-2 py-1 rounded">
-                    {news.code}
-                  </span>
-                  <div className="flex-1 min-w-0">
-                    <h4 className="text-sm font-medium text-[#1e3a5f] group-hover:text-primary transition-colors line-clamp-1">
-                      {news.title}
-                    </h4>
-                    <p className="text-xs text-slate-500 mt-1 flex items-center gap-1">
-                      <Clock className="h-3 w-3" /> {news.date}
-                    </p>
+        {/* Member Announcements, Regulations & Circulars - 3 Cards Grid */}
+        <div className="grid md:grid-cols-3 gap-6 mb-8">
+          {/* Member News */}
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6, delay: 0.1 }}
+            className="bg-white rounded-xl p-5 shadow-card border-8 border-white ring-1 ring-slate-200"
+          >
+            <h3 className="text-base font-display font-semibold text-[#1e3a5f] mb-4 flex items-center gap-2">
+              <span className="w-1 h-5 bg-[#1e3a5f] rounded-full" />
+              Tin công bố của thành viên
+            </h3>
+            <div className="space-y-2">
+              {newsItems.map((news, index) => (
+                <a
+                  key={index}
+                  href="#"
+                  className="block p-2 rounded-lg hover:bg-slate-100 transition-colors group border-b border-slate-200 last:border-0"
+                >
+                  <div className="flex items-start gap-2">
+                    <span className="flex-shrink-0 text-xs font-bold text-[#1e3a5f] bg-slate-100 px-2 py-0.5 rounded">
+                      {news.code}
+                    </span>
+                    <div className="flex-1 min-w-0">
+                      <h4 className="text-xs font-medium text-[#1e3a5f] group-hover:text-primary transition-colors line-clamp-1">
+                        {news.title}
+                      </h4>
+                      <p className="text-xs text-slate-500 mt-0.5 flex items-center gap-1">
+                        <Clock className="h-3 w-3" /> {news.date}
+                      </p>
+                    </div>
                   </div>
-                </div>
-              </a>
-            ))}
-          </div>
-          <a href="#" className="inline-flex items-center gap-1 text-sm text-[#1e3a5f] font-medium mt-4 hover:gap-2 transition-all">
-            Xem tất cả <ChevronRight className="h-4 w-4" />
-          </a>
-        </motion.div>
+                </a>
+              ))}
+            </div>
+            <a href="#" className="inline-flex items-center gap-1 text-xs text-[#1e3a5f] font-medium mt-3 hover:gap-2 transition-all">
+              Xem tất cả <ChevronRight className="h-3 w-3" />
+            </a>
+          </motion.div>
+
+          {/* Regulations */}
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6, delay: 0.2 }}
+            className="bg-white rounded-xl p-5 shadow-card border-8 border-white ring-1 ring-slate-200"
+          >
+            <h3 className="text-base font-display font-semibold text-[#1e3a5f] mb-4 flex items-center gap-2">
+              <span className="w-1 h-5 bg-orange-500 rounded-full" />
+              Thông báo quy định
+            </h3>
+            <div className="space-y-2">
+              {regulationItems.map((item, index) => (
+                <a
+                  key={index}
+                  href="#"
+                  className="block p-2 rounded-lg hover:bg-slate-100 transition-colors group border-b border-slate-200 last:border-0"
+                >
+                  <div className="flex items-start gap-2">
+                    <span className="flex-shrink-0 text-xs font-bold text-orange-600 bg-orange-50 px-2 py-0.5 rounded">
+                      {item.code}
+                    </span>
+                    <div className="flex-1 min-w-0">
+                      <h4 className="text-xs font-medium text-[#1e3a5f] group-hover:text-primary transition-colors line-clamp-1">
+                        {item.title}
+                      </h4>
+                      <p className="text-xs text-slate-500 mt-0.5 flex items-center gap-1">
+                        <Clock className="h-3 w-3" /> {item.date}
+                      </p>
+                    </div>
+                  </div>
+                </a>
+              ))}
+            </div>
+            <a href="#" className="inline-flex items-center gap-1 text-xs text-[#1e3a5f] font-medium mt-3 hover:gap-2 transition-all">
+              Xem tất cả <ChevronRight className="h-3 w-3" />
+            </a>
+          </motion.div>
+
+          {/* Circulars */}
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6, delay: 0.3 }}
+            className="bg-white rounded-xl p-5 shadow-card border-8 border-white ring-1 ring-slate-200"
+          >
+            <h3 className="text-base font-display font-semibold text-[#1e3a5f] mb-4 flex items-center gap-2">
+              <span className="w-1 h-5 bg-green-500 rounded-full" />
+              Thông tư
+            </h3>
+            <div className="space-y-2">
+              {circularItems.map((item, index) => (
+                <a
+                  key={index}
+                  href="#"
+                  className="block p-2 rounded-lg hover:bg-slate-100 transition-colors group border-b border-slate-200 last:border-0"
+                >
+                  <div className="flex items-start gap-2">
+                    <span className="flex-shrink-0 text-xs font-bold text-green-600 bg-green-50 px-2 py-0.5 rounded">
+                      {item.code}
+                    </span>
+                    <div className="flex-1 min-w-0">
+                      <h4 className="text-xs font-medium text-[#1e3a5f] group-hover:text-primary transition-colors line-clamp-1">
+                        {item.title}
+                      </h4>
+                      <p className="text-xs text-slate-500 mt-0.5 flex items-center gap-1">
+                        <Clock className="h-3 w-3" /> {item.date}
+                      </p>
+                    </div>
+                  </div>
+                </a>
+              ))}
+            </div>
+            <a href="#" className="inline-flex items-center gap-1 text-xs text-[#1e3a5f] font-medium mt-3 hover:gap-2 transition-all">
+              Xem tất cả <ChevronRight className="h-3 w-3" />
+            </a>
+          </motion.div>
+        </div>
 
         {/* Podcasts & Articles - 4 Cards Grid */}
         <motion.div
