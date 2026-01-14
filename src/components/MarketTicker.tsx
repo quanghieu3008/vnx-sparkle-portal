@@ -21,12 +21,8 @@ export default function MarketTicker() {
   const loopData: TickerItem[] = [...tickerData, ...tickerData];
 
   return (
-    <div className="fixed top-20 left-0 right-0 z-40 bg-secondary/90 backdrop-blur-sm border-b border-border/30">
+    <div className="fixed top-20 left-0 right-0 z-40 bg-[#2d2540] border-b border-border/30">
       <div className="flex items-center">
-        <div className="flex-shrink-0 bg-primary px-4 py-2.5 z-10">
-          <span className="text-primary-foreground text-sm font-semibold whitespace-nowrap">Dữ liệu thị trường</span>
-        </div>
-
         <div className="flex-1 overflow-hidden">
           <div className="ticker-scroll inline-flex items-center gap-10 py-2.5 whitespace-nowrap">
             {loopData.map((item, index) => (
