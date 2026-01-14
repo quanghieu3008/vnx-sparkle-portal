@@ -85,23 +85,24 @@ export default function HeroSection() {
   }, []);
 
   return (
-    <section className="relative min-h-screen overflow-hidden pt-20">
-      {/* Background Images */}
-      {backgrounds.map((bg, index) => (
-        <div
-          key={index}
-          className="absolute inset-0 transition-opacity duration-1000"
-          style={{
-            backgroundImage: `url(${bg})`,
-            backgroundSize: "cover",
-            backgroundPosition: "center",
-            opacity: currentBg === index ? 1 : 0,
-          }}
-        />
-      ))}
-
-      {/* Overlay */}
-      <div className="absolute inset-0 bg-gradient-to-r from-background/95 via-background/80 to-background/60" />
+    <section className="relative min-h-screen pt-20">
+      {/* Fixed Background Images */}
+      <div className="fixed inset-0 top-0 -z-10">
+        {backgrounds.map((bg, index) => (
+          <div
+            key={index}
+            className="absolute inset-0 transition-opacity duration-1000"
+            style={{
+              backgroundImage: `url(${bg})`,
+              backgroundSize: "cover",
+              backgroundPosition: "center",
+              opacity: currentBg === index ? 1 : 0,
+            }}
+          />
+        ))}
+        {/* Overlay */}
+        <div className="absolute inset-0 bg-gradient-to-r from-background/95 via-background/80 to-background/60" />
+      </div>
 
       {/* Content */}
       <div className="relative container mx-auto px-4 py-12 lg:py-20">
