@@ -1,0 +1,55 @@
+import { TrendingUp, TrendingDown } from "lucide-react";
+
+interface TickerItem {
+  name: string;
+  value: number;
+  change: number;
+  changePercent: number;
+}
+
+const tickerData: TickerItem[] = [
+  { name: "VNINDEX", value: 1287.45, change: 12.34, changePercent: 0.97 },
+  { name: "VN30", value: 1312.78, change: -8.56, changePercent: -0.65 },
+  { name: "HNX", value: 234.56, change: 2.34, changePercent: 1.01 },
+  { name: "UPCOM", value: 89.34, change: 0.45, changePercent: 0.51 },
+  { name: "VN100", value: 1198.67, change: 15.23, changePercent: 1.29 },
+  { name: "HNX30", value: 312.45, change: -4.12, changePercent: -1.30 },
+  { name: "VNAllShare", value: 1245.89, change: 8.67, changePercent: 0.70 },
+];
+
+export default function MarketTicker() {
+  const duplicatedData = [...tickerData, ...tickerData];
+
+  return (
+    <div className="bg-secondary/50 border-b border-border/30 overflow-hidden">
+      <div className="flex items-center">
+        <div className="flex-shrink-0 bg-primary px-4 py-2">
+          <span className="text-primary-foreground text-sm font-semibold">Dữ liệu thị trường</span>
+        </div>
+        
+        <div className="flex-1 overflow-hidden">
+          <div className="ticker-scroll flex items-center gap-8 py-2 px-4 whitespace-nowrap">
+            {duplicatedData.map((item, index) => (
+              <div key={index} className="flex items-center gap-2">
+                <span className="text-sm font-medium text-foreground">{item.name}</span>
+                <span className="text-sm font-semibold text-foreground">{item.value.toLocaleString()}</span>
+                <span
+                  className={`flex items-center gap-1 text-sm font-medium ${
+                    item.change >= 0 ? "price-up" : "price-down"
+                  }`}
+                >
+                  {item.change >= 0 ? (
+                    <TrendingUp className="h-3 w-3" />
+                  ) : (
+                    <TrendingDown className="h-3 w-3" />
+                  )}
+                  {item.change >= 0 ? "+" : ""}{item.change.toFixed(2)} ({item.changePercent >= 0 ? "+" : ""}{item.changePercent.toFixed(2)}%)
+                </span>
+              </div>
+            ))}
+          </div>
+        </div>
+      </div>
+    </div>
+  );
+}
