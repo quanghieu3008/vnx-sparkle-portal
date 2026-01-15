@@ -111,7 +111,7 @@ export default function InfoSection() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.6, delay: 0.2 }}
-              className="relative rounded-xl overflow-hidden shadow-card hover:shadow-hover transition-all duration-300 group h-40"
+              className="relative rounded-xl overflow-hidden shadow-card hover:shadow-hover transition-all duration-300 group h-52"
             >
               <img
                 src={event25Years}
@@ -138,7 +138,7 @@ export default function InfoSection() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.6, delay: 0.3 }}
-              className="relative rounded-xl overflow-hidden shadow-card hover:shadow-hover transition-all duration-300 group h-40"
+              className="relative rounded-xl overflow-hidden shadow-card hover:shadow-hover transition-all duration-300 group h-52"
             >
               <img
                 src={eventMember2025}
