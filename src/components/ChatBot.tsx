@@ -93,7 +93,7 @@ export default function ChatBot() {
             </div>
 
             {/* Messages */}
-            <div className="h-80 overflow-y-auto p-4 space-y-4">
+            <div className="h-80 overflow-y-auto p-4 space-y-4 text-slate-800">
               {messages.map((message) => (
                 <div
                   key={message.id}
@@ -113,7 +113,7 @@ export default function ChatBot() {
                   <div
                     className={`max-w-[75%] p-3 rounded-2xl text-sm ${
                       message.isBot
-                        ? "bg-secondary text-foreground rounded-tl-none"
+                        ? "bg-secondary text-slate-800 rounded-tl-none"
                         : "bg-primary text-primary-foreground rounded-tr-none"
                     }`}
                   >
