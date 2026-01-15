@@ -92,7 +92,7 @@ export default function Header() {
                       animate={{ opacity: 1, y: 0 }}
                       exit={{ opacity: 0, y: 10 }}
                       transition={{ duration: 0.2 }}
-                      className="absolute top-full left-0 w-64 bg-glass-strong rounded-lg shadow-card border border-border/50 py-2 mt-1"
+                      className="absolute top-full left-0 w-64 bg-slate-50 rounded-lg shadow-card border border-border/50 py-2 mt-1"
                     >
                       {menu.items.map((item, idx) => (
                         <a
