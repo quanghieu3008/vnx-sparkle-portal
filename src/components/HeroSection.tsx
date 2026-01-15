@@ -77,9 +77,9 @@ export default function HeroSection() {
   }, []);
 
   return (
-    <section className="relative min-h-screen pt-20">
+    <section className="relative pt-20">
       {/* Content */}
-      <div className="relative container mx-auto px-4 py-12 lg:py-20">
+      <div className="relative container mx-auto px-4 py-6 lg:py-8">
         <div className="grid lg:grid-cols-2 gap-8 lg:gap-12 items-start">
           {/* Left Side - News */}
           <div className="space-y-8">
