@@ -98,7 +98,7 @@ export default function Header() {
                         <a
                           key={idx}
                           href="#"
-                          className="block px-4 py-2 text-sm text-foreground/80 hover:text-primary hover:bg-primary/5 transition-colors"
+                          className="block px-4 py-2 text-sm text-slate-700 hover:text-primary hover:bg-primary/5 transition-colors"
                         >
                           {item}
                         </a>
