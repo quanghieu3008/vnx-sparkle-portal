@@ -7,9 +7,9 @@ import PartnersSection from "@/components/PartnersSection";
 import Footer from "@/components/Footer";
 import ChatBot from "@/components/ChatBot";
 import ScrollToTop from "@/components/ScrollToTop";
-import heroBg1 from "@/assets/hero-bg-1.jpg";
-import heroBg2 from "@/assets/hero-bg-2-new.jpg";
-import heroBg3 from "@/assets/hero-bg-3.jpg";
+import heroBg1 from "@/assets/hero-bg-1.png";
+import heroBg2 from "@/assets/hero-bg-2.png";
+import heroBg3 from "@/assets/hero-bg-3.png";
 
 const backgrounds = [heroBg1, heroBg2, heroBg3];
 
