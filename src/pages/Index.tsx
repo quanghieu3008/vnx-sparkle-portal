@@ -9,7 +9,7 @@ import ChatBot from "@/components/ChatBot";
 import ScrollToTop from "@/components/ScrollToTop";
 import heroBg1 from "@/assets/hero-bg-1.jpg";
 import heroBg2 from "@/assets/hero-bg-2.jpg";
-import heroBg3 from "@/assets/hero-bg-3.jpg";
+import heroBg3 from "@/assets/hero-bg-3-new.png";
 
 const backgrounds = [heroBg1, heroBg2, heroBg3];
 
