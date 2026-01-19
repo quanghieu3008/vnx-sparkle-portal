@@ -12,27 +12,31 @@ interface MenuItem {
 const menuItems: MenuItem[] = [
   {
     label: "Giới thiệu",
-    items: ["Tổng quan về quá trình hình thành", "Lịch sử phát triển", "Cơ cấu tổ chức", "Thành tựu đạt được"],
+    items: ["Thông điệp của lãnh đạo", "Lịch sử phát triển", "Sơ đồ tổ chức", "Chức năng, nhiệm vụ", "Ban lãnh đạo"],
   },
   {
     label: "Thành viên",
-    items: ["Thông tin công bố về thành viên", "Thông tin công bố của thành viên", "Danh sách thành viên", "Thư viện thành viên"],
+    items: ["Thông tin công bố về thành viên", "Thông tin công bố của thành viên", "Danh sách thành viên", "Hoạt động thành viên", "Hướng dẫn nghiệp vụ"],
   },
   {
-    label: "Tin tức & Sự kiện",
-    items: ["Tin tức hoạt động VNX", "Tin tức hoạt động HOSE", "Tin tức hoạt động HNX", "Sự kiện quốc tế", "Sự kiện thị trường"],
+    label: "Tin tức và sự kiện",
+    items: ["Hoạt động sự kiện", "Hoạt động xã hội", "Hoạt động hợp tác", "Lịch nghỉ hàng năm"],
   },
   {
-    label: "Dữ liệu thị trường",
-    items: ["Danh sách chỉ số", "VNX", "HOSE", "HNX", "UPCOM", "Cổ phiếu", "Trái phiếu", "ETF", "CW", "Phái sinh"],
+    label: "Thông tin từ Sở GDCK",
+    items: ["Thông tin công bố của VNX", "Thông tin công bố về công ty con"],
+  },
+  {
+    label: "Thông tin thị trường",
+    items: ["Dữ liệu thị trường", "Thông tin trong giờ GD", "Thông tin cuối ngày GD", "Bảng giá giao dịch", "Hoạt động giám sát"],
   },
   {
     label: "Văn bản pháp lý",
     items: ["Luật", "Nghị định", "Thông tư", "Quyết định", "Quy chế"],
   },
   {
-    label: "Đối tác",
-    items: ["Sở thành viên", "Đối tác cơ quan nhà nước", "Đối tác quốc tế"],
+    label: "Dành cho NĐT",
+    items: ["Khuyến cáo NĐT", "Cung cấp thông tin/Chương trình đào tạo", "Hướng dẫn NĐT"],
   },
 ];
 
