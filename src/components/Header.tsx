@@ -4,39 +4,80 @@ import { Search, ChevronDown, Globe, Menu, X } from "lucide-react";
 import vnxLogo from "@/assets/vnx-logo.jpg";
 import { Button } from "./ui/button";
 
+interface SubMenuItem {
+  label: string;
+  isChild?: boolean;
+}
+
 interface MenuItem {
   label: string;
-  items?: string[];
+  items?: SubMenuItem[];
 }
 
 const menuItems: MenuItem[] = [
   {
     label: "Giới thiệu",
-    items: ["Thông điệp của lãnh đạo", "Lịch sử phát triển", "Sơ đồ tổ chức", "Chức năng, nhiệm vụ", "Ban lãnh đạo"],
+    items: [
+      { label: "Thông điệp của lãnh đạo" },
+      { label: "Lịch sử phát triển" },
+      { label: "Sơ đồ tổ chức" },
+      { label: "Chức năng, nhiệm vụ" },
+      { label: "Ban lãnh đạo" },
+    ],
   },
   {
     label: "Thành viên",
-    items: ["Thông tin công bố về thành viên", "Thông tin công bố của thành viên", "Danh sách thành viên", "Hoạt động thành viên", "Hướng dẫn nghiệp vụ"],
+    items: [
+      { label: "Thông tin công bố về thành viên" },
+      { label: "Thông tin công bố của thành viên" },
+      { label: "Danh sách thành viên" },
+      { label: "Hoạt động thành viên" },
+      { label: "Hướng dẫn nghiệp vụ" },
+    ],
   },
   {
     label: "Tin tức và sự kiện",
-    items: ["Hoạt động sự kiện", "Hoạt động xã hội", "Hoạt động hợp tác", "Lịch nghỉ hàng năm"],
+    items: [
+      { label: "Hoạt động sự kiện" },
+      { label: "Hoạt động xã hội" },
+      { label: "Hoạt động hợp tác" },
+      { label: "Lịch nghỉ hàng năm" },
+    ],
   },
   {
     label: "Thông tin từ Sở GDCK",
-    items: ["Thông tin công bố của VNX", "Thông tin công bố về công ty con"],
+    items: [
+      { label: "Thông tin công bố của VNX" },
+      { label: "Thông tin công bố về công ty con" },
+    ],
   },
   {
     label: "Thông tin thị trường",
-    items: ["Dữ liệu thị trường", "Thông tin trong giờ GD", "Thông tin cuối ngày GD", "Bảng giá giao dịch", "Hoạt động giám sát"],
+    items: [
+      { label: "Dữ liệu thị trường" },
+      { label: "Thông tin trong giờ GD", isChild: true },
+      { label: "Thông tin cuối ngày GD", isChild: true },
+      { label: "Bảng giá giao dịch" },
+      { label: "Hoạt động giám sát" },
+    ],
   },
   {
     label: "Văn bản pháp lý",
-    items: ["Luật", "Nghị định", "Thông tư", "Quyết định", "Quy chế"],
+    items: [
+      { label: "Luật" },
+      { label: "Nghị định" },
+      { label: "Thông tư" },
+      { label: "Quyết định" },
+      { label: "Quy chế" },
+    ],
   },
   {
     label: "Dành cho NĐT",
-    items: ["Khuyến cáo NĐT", "Cung cấp thông tin/Chương trình đào tạo", "Hướng dẫn NĐT"],
+    items: [
+      { label: "Khuyến cáo NĐT" },
+      { label: "Cung cấp thông tin/Chương trình đào tạo" },
+      { label: "Hướng dẫn NĐT" },
+    ],
   },
 ];
 
@@ -102,9 +143,11 @@ export default function Header() {
                         <a
                           key={idx}
                           href="#"
-                          className="block px-4 py-2 text-sm text-slate-700 hover:text-primary hover:bg-primary/5 transition-colors"
+                          className={`block py-2 text-sm text-slate-700 hover:text-primary hover:bg-primary/5 transition-colors ${
+                            item.isChild ? "pl-8 pr-4 text-slate-500" : "px-4"
+                          }`}
                         >
-                          {item}
+                          {item.label}
                         </a>
                       ))}
                     </motion.div>
@@ -176,9 +219,11 @@ export default function Header() {
                           <a
                             key={idx}
                             href="#"
-                            className="block py-2 text-sm text-muted-foreground hover:text-primary"
+                            className={`block py-2 text-sm text-muted-foreground hover:text-primary ${
+                              item.isChild ? "pl-4" : ""
+                            }`}
                           >
-                            {item}
+                            {item.label}
                           </a>
                         ))}
                       </motion.div>
