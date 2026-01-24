@@ -23,16 +23,7 @@ const menuItems: MenuItem[] = [
       { label: "Sơ đồ tổ chức" },
       { label: "Chức năng, nhiệm vụ" },
       { label: "Ban lãnh đạo" },
-    ],
-  },
-  {
-    label: "Thành viên",
-    items: [
-      { label: "Thông tin công bố về thành viên" },
-      { label: "Thông tin công bố của thành viên" },
-      { label: "Danh sách thành viên" },
-      { label: "Hoạt động thành viên" },
-      { label: "Hướng dẫn nghiệp vụ" },
+      { label: "Ấn phẩm" },
     ],
   },
   {
@@ -42,13 +33,19 @@ const menuItems: MenuItem[] = [
       { label: "Hoạt động xã hội" },
       { label: "Hoạt động hợp tác" },
       { label: "Lịch nghỉ hàng năm" },
+      { label: "Thông tin công bố của VNX" },
+      { label: "Thông tin công bố về công ty con" },
     ],
   },
   {
-    label: "Thông tin từ Sở GDCK",
+    label: "Thành viên",
     items: [
-      { label: "Thông tin công bố của VNX" },
-      { label: "Thông tin công bố về công ty con" },
+      { label: "Thông tin công bố về thành viên" },
+      { label: "Thông tin công bố của thành viên" },
+      { label: "Danh sách thành viên" },
+      { label: "Đăng ký thành viên" },
+      { label: "Hoạt động thành viên" },
+      { label: "Hướng dẫn nghiệp vụ" },
     ],
   },
   {
@@ -72,11 +69,11 @@ const menuItems: MenuItem[] = [
     ],
   },
   {
-    label: "Dành cho NĐT",
+    label: "Góc Nhà đầu tư",
     items: [
-      { label: "Khuyến cáo NĐT" },
-      { label: "Cung cấp thông tin/Chương trình đào tạo" },
-      { label: "Hướng dẫn NĐT" },
+      { label: "Khuyến cáo Nhà đầu tư" },
+      { label: "Chương trình đào tạo" },
+      { label: "Hướng dẫn Nhà đầu tư" },
     ],
   },
 ];
