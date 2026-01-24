@@ -161,26 +161,26 @@ export default function InfoSection() {
           </div>
         </div>
 
-        {/* Member Registration Block - Enhanced */}
+        {/* Member Registration Block - Light Theme */}
         <motion.div
           initial={{ opacity: 0, y: 30, scale: 0.98 }}
           whileInView={{ opacity: 1, y: 0, scale: 1 }}
           viewport={{ once: true }}
           transition={{ duration: 0.7, delay: 0.2, ease: "easeOut" }}
-          className="mb-12 relative rounded-2xl overflow-hidden shadow-2xl group"
+          className="mb-12 relative rounded-2xl overflow-hidden shadow-xl group border border-slate-200"
         >
-          {/* Animated Background Gradient */}
-          <div className="absolute inset-0 bg-gradient-to-br from-[#0f2744] via-[#1e3a5f] to-[#0d4f8b] opacity-100" />
-          <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top_right,_var(--tw-gradient-stops))] from-cyan-500/20 via-transparent to-transparent" />
-          <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_bottom_left,_var(--tw-gradient-stops))] from-orange-500/10 via-transparent to-transparent" />
+          {/* Light Background with Subtle Gradient */}
+          <div className="absolute inset-0 bg-gradient-to-br from-white via-slate-50 to-cyan-50/50" />
+          <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top_right,_var(--tw-gradient-stops))] from-cyan-100/40 via-transparent to-transparent" />
+          <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_bottom_left,_var(--tw-gradient-stops))] from-orange-100/30 via-transparent to-transparent" />
           
           {/* Decorative Elements */}
-          <div className="absolute top-0 right-0 w-96 h-96 bg-gradient-to-br from-cyan-400/10 to-transparent rounded-full blur-3xl transform translate-x-1/3 -translate-y-1/3" />
-          <div className="absolute bottom-0 left-0 w-72 h-72 bg-gradient-to-tr from-orange-400/10 to-transparent rounded-full blur-3xl transform -translate-x-1/3 translate-y-1/3" />
+          <div className="absolute top-0 right-0 w-96 h-96 bg-gradient-to-br from-cyan-200/30 to-transparent rounded-full blur-3xl transform translate-x-1/3 -translate-y-1/3" />
+          <div className="absolute bottom-0 left-0 w-72 h-72 bg-gradient-to-tr from-[#1e3a5f]/10 to-transparent rounded-full blur-3xl transform -translate-x-1/3 translate-y-1/3" />
           
           {/* Grid Pattern Overlay */}
-          <div className="absolute inset-0 opacity-5" style={{
-            backgroundImage: `url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.4'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E")`,
+          <div className="absolute inset-0 opacity-[0.03]" style={{
+            backgroundImage: `url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%231e3a5f' fill-opacity='1'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E")`,
           }} />
 
           <div className="relative z-10 flex flex-col lg:flex-row items-center">
@@ -192,8 +192,8 @@ export default function InfoSection() {
                 viewport={{ once: true }}
                 transition={{ duration: 0.5, delay: 0.4 }}
               >
-                <span className="inline-flex items-center gap-2 px-4 py-2 bg-gradient-to-r from-cyan-500/30 to-cyan-400/20 backdrop-blur-sm text-cyan-300 rounded-full text-sm font-semibold mb-6 border border-cyan-400/30">
-                  <span className="w-2 h-2 rounded-full bg-cyan-400 animate-pulse" />
+                <span className="inline-flex items-center gap-2 px-4 py-2 bg-gradient-to-r from-[#1e3a5f]/10 to-cyan-500/10 text-[#1e3a5f] rounded-full text-sm font-semibold mb-6 border border-[#1e3a5f]/20">
+                  <span className="w-2 h-2 rounded-full bg-cyan-500 animate-pulse" />
                   Thành viên VNX
                 </span>
               </motion.div>
@@ -203,10 +203,10 @@ export default function InfoSection() {
                 whileInView={{ opacity: 1, x: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.5, delay: 0.5 }}
-                className="text-3xl md:text-4xl lg:text-5xl font-display font-bold text-white mb-5 leading-tight"
+                className="text-3xl md:text-4xl lg:text-5xl font-display font-bold text-[#1e3a5f] mb-5 leading-tight"
               >
                 Đăng ký Thành viên
-                <span className="block text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 to-orange-400">
+                <span className="block text-transparent bg-clip-text bg-gradient-to-r from-cyan-600 to-[#1e3a5f]">
                   Giao dịch Chứng khoán
                 </span>
               </motion.h3>
@@ -216,7 +216,7 @@ export default function InfoSection() {
                 whileInView={{ opacity: 1, x: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.5, delay: 0.6 }}
-                className="text-white/70 mb-8 text-base md:text-lg leading-relaxed max-w-xl"
+                className="text-slate-600 mb-8 text-base md:text-lg leading-relaxed max-w-xl"
               >
                 Tham gia cùng hàng trăm tổ chức tài chính hàng đầu. Nhận quyền truy cập đầy đủ vào nền tảng giao dịch hiện đại và hỗ trợ chuyên nghiệp từ VNX.
               </motion.p>
@@ -230,16 +230,16 @@ export default function InfoSection() {
                 className="flex flex-wrap gap-8 mb-8"
               >
                 <div className="text-center">
-                  <div className="text-3xl md:text-4xl font-bold text-white">150+</div>
-                  <div className="text-sm text-white/60">Thành viên</div>
+                  <div className="text-3xl md:text-4xl font-bold text-[#1e3a5f]">150+</div>
+                  <div className="text-sm text-slate-500">Thành viên</div>
                 </div>
                 <div className="text-center">
-                  <div className="text-3xl md:text-4xl font-bold text-white">25+</div>
-                  <div className="text-sm text-white/60">Năm hoạt động</div>
+                  <div className="text-3xl md:text-4xl font-bold text-[#1e3a5f]">25+</div>
+                  <div className="text-sm text-slate-500">Năm hoạt động</div>
                 </div>
                 <div className="text-center">
-                  <div className="text-3xl md:text-4xl font-bold text-white">24/7</div>
-                  <div className="text-sm text-white/60">Hỗ trợ</div>
+                  <div className="text-3xl md:text-4xl font-bold text-[#1e3a5f]">24/7</div>
+                  <div className="text-sm text-slate-500">Hỗ trợ</div>
                 </div>
               </motion.div>
               
@@ -252,13 +252,13 @@ export default function InfoSection() {
               >
                 <a
                   href="#"
-                  className="inline-flex items-center gap-2 bg-gradient-to-r from-cyan-500 to-cyan-400 text-[#0f2744] px-8 py-4 rounded-xl font-bold text-base hover:from-cyan-400 hover:to-cyan-300 transition-all shadow-lg shadow-cyan-500/25 hover:shadow-cyan-500/40 hover:scale-105 transform"
+                  className="inline-flex items-center gap-2 bg-gradient-to-r from-[#1e3a5f] to-[#2d5a8f] text-white px-8 py-4 rounded-xl font-bold text-base hover:from-[#2d5a8f] hover:to-[#1e3a5f] transition-all shadow-lg shadow-[#1e3a5f]/25 hover:shadow-[#1e3a5f]/40 hover:scale-105 transform"
                 >
                   Đăng ký ngay <ChevronRight className="h-5 w-5" />
                 </a>
                 <a
                   href="#"
-                  className="inline-flex items-center gap-2 border-2 border-white/30 text-white px-8 py-4 rounded-xl font-semibold text-base hover:bg-white/10 hover:border-white/50 transition-all"
+                  className="inline-flex items-center gap-2 border-2 border-[#1e3a5f]/30 text-[#1e3a5f] px-8 py-4 rounded-xl font-semibold text-base hover:bg-[#1e3a5f]/5 hover:border-[#1e3a5f]/50 transition-all"
                 >
                   Xem hướng dẫn
                 </a>
@@ -275,20 +275,20 @@ export default function InfoSection() {
                 className="relative"
               >
                 {/* Outer Ring */}
-                <div className="w-48 h-48 md:w-64 md:h-64 rounded-full border-2 border-cyan-400/30 flex items-center justify-center animate-[spin_20s_linear_infinite]">
-                  <div className="absolute w-4 h-4 bg-cyan-400 rounded-full top-0 left-1/2 transform -translate-x-1/2 shadow-lg shadow-cyan-400/50" />
+                <div className="w-48 h-48 md:w-64 md:h-64 rounded-full border-2 border-[#1e3a5f]/20 flex items-center justify-center animate-[spin_20s_linear_infinite]">
+                  <div className="absolute w-4 h-4 bg-cyan-500 rounded-full top-0 left-1/2 transform -translate-x-1/2 shadow-lg shadow-cyan-500/50" />
                   <div className="absolute w-3 h-3 bg-orange-400 rounded-full bottom-4 right-4 shadow-lg shadow-orange-400/50" />
                 </div>
                 
                 {/* Middle Ring */}
-                <div className="absolute inset-4 rounded-full border border-white/20 animate-[spin_15s_linear_infinite_reverse]">
-                  <div className="absolute w-2 h-2 bg-white/60 rounded-full top-2 right-8" />
+                <div className="absolute inset-4 rounded-full border border-[#1e3a5f]/10 animate-[spin_15s_linear_infinite_reverse]">
+                  <div className="absolute w-2 h-2 bg-[#1e3a5f]/40 rounded-full top-2 right-8" />
                 </div>
                 
                 {/* Center Icon */}
                 <div className="absolute inset-0 flex items-center justify-center">
-                  <div className="w-28 h-28 md:w-36 md:h-36 rounded-full bg-gradient-to-br from-cyan-500/30 to-cyan-600/20 backdrop-blur-sm flex items-center justify-center border border-cyan-400/40 shadow-2xl">
-                    <svg xmlns="http://www.w3.org/2000/svg" className="h-14 w-14 md:h-18 md:w-18 text-cyan-300" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
+                  <div className="w-28 h-28 md:w-36 md:h-36 rounded-full bg-gradient-to-br from-[#1e3a5f] to-[#2d5a8f] flex items-center justify-center border border-[#1e3a5f]/20 shadow-2xl shadow-[#1e3a5f]/20">
+                    <svg xmlns="http://www.w3.org/2000/svg" className="h-14 w-14 md:h-18 md:w-18 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
                       <path strokeLinecap="round" strokeLinejoin="round" d="M18 18.72a9.094 9.094 0 003.741-.479 3 3 0 00-4.682-2.72m.94 3.198l.001.031c0 .225-.012.447-.037.666A11.944 11.944 0 0112 21c-2.17 0-4.207-.576-5.963-1.584A6.062 6.062 0 016 18.719m12 0a5.971 5.971 0 00-.941-3.197m0 0A5.995 5.995 0 0012 12.75a5.995 5.995 0 00-5.058 2.772m0 0a3 3 0 00-4.681 2.72 8.986 8.986 0 003.74.477m.94-3.197a5.971 5.971 0 00-.94 3.197M15 6.75a3 3 0 11-6 0 3 3 0 016 0zm6 3a2.25 2.25 0 11-4.5 0 2.25 2.25 0 014.5 0zm-13.5 0a2.25 2.25 0 11-4.5 0 2.25 2.25 0 014.5 0z" />
                     </svg>
                   </div>
