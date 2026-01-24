@@ -161,48 +161,139 @@ export default function InfoSection() {
           </div>
         </div>
 
-        {/* Member Registration Block */}
+        {/* Member Registration Block - Enhanced */}
         <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
+          initial={{ opacity: 0, y: 30, scale: 0.98 }}
+          whileInView={{ opacity: 1, y: 0, scale: 1 }}
           viewport={{ once: true }}
-          transition={{ duration: 0.6, delay: 0.2 }}
-          className="mb-12 bg-gradient-to-r from-[#1e3a5f] to-[#2d4a6f] rounded-2xl overflow-hidden shadow-card"
+          transition={{ duration: 0.7, delay: 0.2, ease: "easeOut" }}
+          className="mb-12 relative rounded-2xl overflow-hidden shadow-2xl group"
         >
-          <div className="flex flex-col md:flex-row items-center">
+          {/* Animated Background Gradient */}
+          <div className="absolute inset-0 bg-gradient-to-br from-[#0f2744] via-[#1e3a5f] to-[#0d4f8b] opacity-100" />
+          <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top_right,_var(--tw-gradient-stops))] from-cyan-500/20 via-transparent to-transparent" />
+          <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_bottom_left,_var(--tw-gradient-stops))] from-orange-500/10 via-transparent to-transparent" />
+          
+          {/* Decorative Elements */}
+          <div className="absolute top-0 right-0 w-96 h-96 bg-gradient-to-br from-cyan-400/10 to-transparent rounded-full blur-3xl transform translate-x-1/3 -translate-y-1/3" />
+          <div className="absolute bottom-0 left-0 w-72 h-72 bg-gradient-to-tr from-orange-400/10 to-transparent rounded-full blur-3xl transform -translate-x-1/3 translate-y-1/3" />
+          
+          {/* Grid Pattern Overlay */}
+          <div className="absolute inset-0 opacity-5" style={{
+            backgroundImage: `url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.4'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E")`,
+          }} />
+
+          <div className="relative z-10 flex flex-col lg:flex-row items-center">
             {/* Left Content */}
-            <div className="md:w-2/3 p-8 md:p-10">
-              <span className="inline-block w-fit px-4 py-1.5 bg-white/20 backdrop-blur-sm text-white rounded-full text-sm font-medium mb-4">
-                Thành viên
-              </span>
-              <h3 className="text-2xl md:text-3xl font-display font-bold text-white mb-4">
-                Đăng ký Thành viên Giao dịch
-              </h3>
-              <p className="text-white/80 mb-6 text-base md:text-lg leading-relaxed">
-                Trở thành thành viên giao dịch của Sở Giao dịch Chứng khoán Việt Nam để tham gia vào thị trường chứng khoán với đầy đủ quyền lợi và hỗ trợ chuyên nghiệp từ VNX.
-              </p>
-              <div className="flex flex-wrap gap-4">
+            <div className="lg:w-3/5 p-8 md:p-12 lg:p-14">
+              <motion.div
+                initial={{ opacity: 0, x: -20 }}
+                whileInView={{ opacity: 1, x: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.5, delay: 0.4 }}
+              >
+                <span className="inline-flex items-center gap-2 px-4 py-2 bg-gradient-to-r from-cyan-500/30 to-cyan-400/20 backdrop-blur-sm text-cyan-300 rounded-full text-sm font-semibold mb-6 border border-cyan-400/30">
+                  <span className="w-2 h-2 rounded-full bg-cyan-400 animate-pulse" />
+                  Thành viên VNX
+                </span>
+              </motion.div>
+              
+              <motion.h3
+                initial={{ opacity: 0, x: -20 }}
+                whileInView={{ opacity: 1, x: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.5, delay: 0.5 }}
+                className="text-3xl md:text-4xl lg:text-5xl font-display font-bold text-white mb-5 leading-tight"
+              >
+                Đăng ký Thành viên
+                <span className="block text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 to-orange-400">
+                  Giao dịch Chứng khoán
+                </span>
+              </motion.h3>
+              
+              <motion.p
+                initial={{ opacity: 0, x: -20 }}
+                whileInView={{ opacity: 1, x: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.5, delay: 0.6 }}
+                className="text-white/70 mb-8 text-base md:text-lg leading-relaxed max-w-xl"
+              >
+                Tham gia cùng hàng trăm tổ chức tài chính hàng đầu. Nhận quyền truy cập đầy đủ vào nền tảng giao dịch hiện đại và hỗ trợ chuyên nghiệp từ VNX.
+              </motion.p>
+
+              {/* Stats */}
+              <motion.div
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.5, delay: 0.7 }}
+                className="flex flex-wrap gap-8 mb-8"
+              >
+                <div className="text-center">
+                  <div className="text-3xl md:text-4xl font-bold text-white">150+</div>
+                  <div className="text-sm text-white/60">Thành viên</div>
+                </div>
+                <div className="text-center">
+                  <div className="text-3xl md:text-4xl font-bold text-white">25+</div>
+                  <div className="text-sm text-white/60">Năm hoạt động</div>
+                </div>
+                <div className="text-center">
+                  <div className="text-3xl md:text-4xl font-bold text-white">24/7</div>
+                  <div className="text-sm text-white/60">Hỗ trợ</div>
+                </div>
+              </motion.div>
+              
+              <motion.div
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.5, delay: 0.8 }}
+                className="flex flex-wrap gap-4"
+              >
                 <a
                   href="#"
-                  className="inline-flex items-center gap-2 bg-white text-[#1e3a5f] px-6 py-3 rounded-lg font-semibold hover:bg-white/90 transition-colors"
+                  className="inline-flex items-center gap-2 bg-gradient-to-r from-cyan-500 to-cyan-400 text-[#0f2744] px-8 py-4 rounded-xl font-bold text-base hover:from-cyan-400 hover:to-cyan-300 transition-all shadow-lg shadow-cyan-500/25 hover:shadow-cyan-500/40 hover:scale-105 transform"
                 >
-                  Đăng ký ngay <ChevronRight className="h-4 w-4" />
+                  Đăng ký ngay <ChevronRight className="h-5 w-5" />
                 </a>
                 <a
                   href="#"
-                  className="inline-flex items-center gap-2 border-2 border-white/50 text-white px-6 py-3 rounded-lg font-semibold hover:bg-white/10 transition-colors"
+                  className="inline-flex items-center gap-2 border-2 border-white/30 text-white px-8 py-4 rounded-xl font-semibold text-base hover:bg-white/10 hover:border-white/50 transition-all"
                 >
                   Xem hướng dẫn
                 </a>
-              </div>
+              </motion.div>
             </div>
-            {/* Right Icon/Visual */}
-            <div className="md:w-1/3 p-8 flex items-center justify-center">
-              <div className="w-32 h-32 md:w-40 md:h-40 rounded-full bg-white/10 flex items-center justify-center">
-                <svg xmlns="http://www.w3.org/2000/svg" className="h-16 w-16 md:h-20 md:w-20 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
-                  <path strokeLinecap="round" strokeLinejoin="round" d="M18 18.72a9.094 9.094 0 003.741-.479 3 3 0 00-4.682-2.72m.94 3.198l.001.031c0 .225-.012.447-.037.666A11.944 11.944 0 0112 21c-2.17 0-4.207-.576-5.963-1.584A6.062 6.062 0 016 18.719m12 0a5.971 5.971 0 00-.941-3.197m0 0A5.995 5.995 0 0012 12.75a5.995 5.995 0 00-5.058 2.772m0 0a3 3 0 00-4.681 2.72 8.986 8.986 0 003.74.477m.94-3.197a5.971 5.971 0 00-.94 3.197M15 6.75a3 3 0 11-6 0 3 3 0 016 0zm6 3a2.25 2.25 0 11-4.5 0 2.25 2.25 0 014.5 0zm-13.5 0a2.25 2.25 0 11-4.5 0 2.25 2.25 0 014.5 0z" />
-                </svg>
-              </div>
+
+            {/* Right Visual */}
+            <div className="lg:w-2/5 p-8 flex items-center justify-center">
+              <motion.div
+                initial={{ opacity: 0, scale: 0.8, rotate: -10 }}
+                whileInView={{ opacity: 1, scale: 1, rotate: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.7, delay: 0.5, type: "spring" }}
+                className="relative"
+              >
+                {/* Outer Ring */}
+                <div className="w-48 h-48 md:w-64 md:h-64 rounded-full border-2 border-cyan-400/30 flex items-center justify-center animate-[spin_20s_linear_infinite]">
+                  <div className="absolute w-4 h-4 bg-cyan-400 rounded-full top-0 left-1/2 transform -translate-x-1/2 shadow-lg shadow-cyan-400/50" />
+                  <div className="absolute w-3 h-3 bg-orange-400 rounded-full bottom-4 right-4 shadow-lg shadow-orange-400/50" />
+                </div>
+                
+                {/* Middle Ring */}
+                <div className="absolute inset-4 rounded-full border border-white/20 animate-[spin_15s_linear_infinite_reverse]">
+                  <div className="absolute w-2 h-2 bg-white/60 rounded-full top-2 right-8" />
+                </div>
+                
+                {/* Center Icon */}
+                <div className="absolute inset-0 flex items-center justify-center">
+                  <div className="w-28 h-28 md:w-36 md:h-36 rounded-full bg-gradient-to-br from-cyan-500/30 to-cyan-600/20 backdrop-blur-sm flex items-center justify-center border border-cyan-400/40 shadow-2xl">
+                    <svg xmlns="http://www.w3.org/2000/svg" className="h-14 w-14 md:h-18 md:w-18 text-cyan-300" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
+                      <path strokeLinecap="round" strokeLinejoin="round" d="M18 18.72a9.094 9.094 0 003.741-.479 3 3 0 00-4.682-2.72m.94 3.198l.001.031c0 .225-.012.447-.037.666A11.944 11.944 0 0112 21c-2.17 0-4.207-.576-5.963-1.584A6.062 6.062 0 016 18.719m12 0a5.971 5.971 0 00-.941-3.197m0 0A5.995 5.995 0 0012 12.75a5.995 5.995 0 00-5.058 2.772m0 0a3 3 0 00-4.681 2.72 8.986 8.986 0 003.74.477m.94-3.197a5.971 5.971 0 00-.94 3.197M15 6.75a3 3 0 11-6 0 3 3 0 016 0zm6 3a2.25 2.25 0 11-4.5 0 2.25 2.25 0 014.5 0zm-13.5 0a2.25 2.25 0 11-4.5 0 2.25 2.25 0 014.5 0z" />
+                    </svg>
+                  </div>
+                </div>
+              </motion.div>
             </div>
           </div>
         </motion.div>
