@@ -106,7 +106,7 @@ export default function Header() {
             animate={{ opacity: 1, x: 0 }}
             className="flex items-center gap-3"
           >
-            <img src={vnxLogo} alt="Vietnam Exchange Logo" className="h-20 w-auto" />
+            <img src={vnxLogo} alt="Vietnam Exchange Logo" className="h-16 w-auto" />
           </motion.div>
 
           {/* Desktop Navigation */}
