@@ -1,6 +1,6 @@
 import { motion } from "framer-motion";
 import { Mail, Phone, MapPin, Facebook, Youtube, Linkedin } from "lucide-react";
-import vnxLogo from "@/assets/vnx-logo.jpg";
+import vnxLogo from "@/assets/vnx-logo-new.png";
 
 const footerLinks = {
   gioiThieu: [
@@ -36,11 +36,7 @@ export default function Footer() {
               viewport={{ once: true }}
               className="flex items-center gap-3 mb-4"
             >
-              <img src={vnxLogo} alt="VNX Logo" className="h-12 w-auto" />
-              <div>
-                <h3 className="font-display font-bold text-white">VIETNAM EXCHANGE</h3>
-                <p className="text-sm text-white/70">Sở Giao dịch Chứng khoán Việt Nam</p>
-              </div>
+              <img src={vnxLogo} alt="Vietnam Exchange Logo" className="h-14 w-auto" />
             </motion.div>
             <p className="text-sm text-white/70 mb-4 max-w-sm">
               Phát triển thị trường vốn Việt Nam trở thành trung tâm tài chính hàng đầu khu vực

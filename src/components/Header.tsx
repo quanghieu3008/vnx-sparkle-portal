@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Search, ChevronDown, Globe, Menu, X } from "lucide-react";
-import vnxLogo from "@/assets/vnx-logo.jpg";
+import vnxLogo from "@/assets/vnx-logo-new.png";
 import { Button } from "./ui/button";
 
 interface SubMenuItem {
@@ -106,11 +106,7 @@ export default function Header() {
             animate={{ opacity: 1, x: 0 }}
             className="flex items-center gap-3"
           >
-            <img src={vnxLogo} alt="VNX Logo" className="h-12 w-auto" />
-            <div className="hidden sm:block">
-              <h1 className="text-lg font-display font-bold text-foreground">VIETNAM EXCHANGE</h1>
-              <p className="text-xs text-muted-foreground">Sở Giao dịch Chứng khoán Việt Nam</p>
-            </div>
+            <img src={vnxLogo} alt="Vietnam Exchange Logo" className="h-14 w-auto" />
           </motion.div>
 
           {/* Desktop Navigation */}
