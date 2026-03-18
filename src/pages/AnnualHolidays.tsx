@@ -252,8 +252,8 @@ const AnnualHolidays = () => {
                             <h3 className="text-sm text-slate-600 leading-relaxed group-hover:text-[#003366] transition-colors flex-1 font-normal">
                               {item.title}
                             </h3>
-                            <a href="#" className="text-xs text-[#003366] hover:underline mt-2 inline-block">
-                              Xem chi tiết →
+                            <a href="#" className="text-sm text-[#003366] font-medium hover:underline mt-3 inline-block">
+                              Xem chi tiết
                             </a>
                           </div>
                         </article>
