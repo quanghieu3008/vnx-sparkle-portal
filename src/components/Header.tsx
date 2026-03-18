@@ -34,7 +34,7 @@ const menuItems: MenuItem[] = [
       { label: "Hoạt động sự kiện", href: "/hoat-dong-su-kien" },
       { label: "Hoạt động xã hội", href: "/hoat-dong-xa-hoi" },
       
-      { label: "Lịch nghỉ hàng năm" },
+      { label: "Lịch nghỉ hàng năm", href: "/lich-nghi-hang-nam" },
       { label: "Thông tin công bố của VNX" },
       { label: "Thông tin công bố về công ty con" },
     ],
