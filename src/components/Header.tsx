@@ -1,12 +1,14 @@
 import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Search, ChevronDown, Globe, Menu, X } from "lucide-react";
+import { useNavigate } from "react-router-dom";
 import vnxLogo from "@/assets/vnx-logo-new.png";
 import { Button } from "./ui/button";
 
 interface SubMenuItem {
   label: string;
   isChild?: boolean;
+  href?: string;
 }
 
 interface MenuItem {
@@ -29,7 +31,7 @@ const menuItems: MenuItem[] = [
   {
     label: "Tin tức và sự kiện",
     items: [
-      { label: "Hoạt động sự kiện" },
+      { label: "Hoạt động sự kiện", href: "/hoat-dong-su-kien" },
       { label: "Hoạt động xã hội" },
       { label: "Hoạt động hợp tác" },
       { label: "Lịch nghỉ hàng năm" },
@@ -84,6 +86,8 @@ export default function Header() {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [language, setLanguage] = useState<"VN" | "EN">("VN");
 
+  const navigate = useNavigate();
+
   useEffect(() => {
     const handleScroll = () => {
       setIsScrolled(window.scrollY > 20);
@@ -135,7 +139,14 @@ export default function Header() {
                       {menu.items.map((item, idx) => (
                         <a
                           key={idx}
-                          href="#"
+                          href={item.href || "#"}
+                          onClick={(e) => {
+                            if (item.href) {
+                              e.preventDefault();
+                              navigate(item.href);
+                              setActiveMenu(null);
+                            }
+                          }}
                           className={`block py-2 text-sm text-slate-700 hover:text-primary hover:bg-primary/5 transition-colors ${
                             item.isChild ? "pl-8 pr-4 text-slate-500" : "px-4"
                           }`}
@@ -211,7 +222,14 @@ export default function Header() {
                         {menu.items.map((item, idx) => (
                           <a
                             key={idx}
-                            href="#"
+                            href={item.href || "#"}
+                            onClick={(e) => {
+                              if (item.href) {
+                                e.preventDefault();
+                                navigate(item.href);
+                                setIsMobileMenuOpen(false);
+                              }
+                            }}
                             className={`block py-2 text-sm text-muted-foreground hover:text-primary ${
                               item.isChild ? "pl-4" : ""
                             }`}
