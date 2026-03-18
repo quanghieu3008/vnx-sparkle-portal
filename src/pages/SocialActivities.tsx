@@ -16,7 +16,7 @@ const filterCategories = [
 ];
 
 const activityTypes = [
-  { value: 'all', label: 'Tất cả loại hoạt động' },
+  { value: 'all', label: 'Tất cả hoạt động' },
   { value: 'charity', label: 'Từ thiện' },
   { value: 'welfare', label: 'An sinh xã hội' },
   { value: 'community', label: 'Hỗ trợ cộng đồng' },
