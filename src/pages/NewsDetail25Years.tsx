@@ -14,7 +14,7 @@ const NewsDetail25Years = () => {
       <ScrollToTop />
       <Header />
 
-      <main className="pt-20 lg:pt-24">
+      <main className="pt-20">
         {/* Hero Banner */}
         <div className="relative h-[300px] md:h-[420px] overflow-hidden">
           <img
