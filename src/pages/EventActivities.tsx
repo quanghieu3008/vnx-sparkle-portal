@@ -340,7 +340,7 @@ const EventActivities = () => {
                           <p className="text-sm text-slate-500 line-clamp-2 mb-3">
                             {event.description}
                           </p>
-                          <button className="inline-flex items-center gap-1 text-sm text-[#e8930a] hover:text-[#d17f08] font-medium transition-colors">
+                          <button className="inline-flex items-center gap-1 text-sm text-[#3b82f6] hover:text-[#2563eb] font-medium transition-colors">
                             Xem chi tiết
                             <ChevronRight className="h-4 w-4" />
                           </button>
