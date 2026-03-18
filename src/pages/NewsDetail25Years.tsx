@@ -94,7 +94,7 @@ const NewsDetail25Years = () => {
                 <figure className="my-8">
                   <div className="rounded-xl overflow-hidden shadow-lg">
                     <img
-                      src={eventMember2025}
+                      src={vnxCeremony2024}
                       alt="Lễ kỷ niệm 25 năm TTCK Việt Nam"
                       className="w-full h-auto"
                     />
