@@ -233,41 +233,28 @@ const AnnualHolidays = () => {
                       <span className="w-1 h-6 bg-[#003366] rounded-full"></span>
                       NĂM {year}
                     </h2>
-                    <div className="relative">
-                      {/* Horizontal connecting line across all cards */}
-                      {groupedByYear[year].length > 1 && (
-                        <div className="hidden md:block absolute top-[14px] left-[calc(12.5%)] right-[calc(12.5%)] h-[2px] bg-slate-300 z-0"></div>
-                      )}
-                      <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-5">
-                        {groupedByYear[year].map((item) => (
-                          <article key={item.id} className="group cursor-pointer relative flex flex-col">
-                            {/* Dot on the line */}
-                            <div className="hidden md:flex justify-center relative z-10 mb-1">
-                              <div className="w-3 h-3 rounded-full bg-[#003366] border-2 border-white shadow"></div>
+                    <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-5">
+                      {groupedByYear[year].map((item) => (
+                        <article key={item.id} className="group cursor-pointer flex flex-col">
+                          <div className="bg-white rounded-lg border border-slate-200 p-4 shadow-sm hover:shadow-md transition-shadow flex flex-col flex-1">
+                            <div className="flex justify-center mb-3">
+                              <span className="inline-block bg-[#003366] text-white text-xs font-semibold px-4 py-1.5 rounded">
+                                {item.date}
+                              </span>
                             </div>
-                            <div className="relative z-10 bg-white rounded-lg border border-slate-200 p-4 shadow-sm hover:shadow-md transition-shadow flex flex-col flex-1">
-                              {/* Date badge centered */}
-                              <div className="flex justify-center mb-3">
-                                <span className="inline-block bg-[#003366] text-white text-xs font-semibold px-4 py-1.5 rounded">
-                                  {item.date}
-                                </span>
-                              </div>
-                              {/* Image */}
-                              <div className="aspect-[4/3] rounded overflow-hidden mb-3">
-                                <img
-                                  src={item.image}
-                                  alt={item.title}
-                                  className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
-                                />
-                              </div>
-                              {/* Title */}
-                              <h3 className="text-sm text-slate-700 leading-relaxed group-hover:text-[#003366] transition-colors flex-1">
-                                {item.title}
-                              </h3>
+                            <div className="aspect-[4/3] rounded overflow-hidden mb-3">
+                              <img
+                                src={item.image}
+                                alt={item.title}
+                                className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
+                              />
                             </div>
-                          </article>
-                        ))}
-                      </div>
+                            <h3 className="text-sm text-slate-700 leading-relaxed group-hover:text-[#003366] transition-colors flex-1">
+                              {item.title}
+                            </h3>
+                          </div>
+                        </article>
+                      ))}
                     </div>
                   </div>
                 ))}
