@@ -20,7 +20,7 @@ const menuItems: MenuItem[] = [
   {
     label: "Giới thiệu",
     items: [
-      { label: "Thông điệp của lãnh đạo" },
+      { label: "Thông điệp của lãnh đạo", href: "/gioi-thieu/thong-diep-lanh-dao" },
       { label: "Lịch sử phát triển" },
       { label: "Sơ đồ tổ chức" },
       { label: "Chức năng, nhiệm vụ" },
