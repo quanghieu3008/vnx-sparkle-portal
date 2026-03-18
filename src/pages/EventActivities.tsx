@@ -131,7 +131,7 @@ const EventActivities = () => {
   const regularEvents = filteredEvents.filter(e => !e.featured);
 
   return (
-    <div className="min-h-screen bg-background">
+    <div className="min-h-screen bg-white text-slate-900">
       <Header />
       
       <main className="pt-20 lg:pt-24">
