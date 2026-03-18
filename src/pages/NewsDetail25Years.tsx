@@ -4,7 +4,7 @@ import Header from '@/components/Header';
 import Footer from '@/components/Footer';
 import ScrollToTop from '@/components/ScrollToTop';
 import event25years from '@/assets/event-25years.jpg';
-import eventMember2025 from '@/assets/event-member2025.jpg';
+import vnxCeremony2024 from '@/assets/vnx-ceremony-2024.png';
 
 const NewsDetail25Years = () => {
   const navigate = useNavigate();
