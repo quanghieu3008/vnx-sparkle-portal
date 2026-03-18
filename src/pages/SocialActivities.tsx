@@ -90,8 +90,18 @@ const activitiesData = [
     featured: false,
     result: 'Trồng được 1.000 cây xanh tại 5 tỉnh thành',
   },
+  {
+    id: 7,
+    title: 'Chương trình tình nguyện "Vì trẻ em vùng khó khăn"',
+    date: '12/03/2024',
+    organizer: 'VNX phối hợp với Quỹ Bảo trợ Trẻ em',
+    description: 'Hoạt động tình nguyện hỗ trợ trẻ em vùng khó khăn với các chương trình giáo dục, vui chơi và tặng quà.',
+    image: vnxIntro,
+    type: 'volunteer',
+    featured: false,
+    result: 'Hỗ trợ 200 trẻ em tại 3 tỉnh miền núi',
+  },
 ];
-
 const relatedLinks = [
   { label: 'Báo cáo trách nhiệm xã hội (CSR)', href: '#' },
   { label: 'Thư viện hình ảnh hoạt động', href: '#' },
