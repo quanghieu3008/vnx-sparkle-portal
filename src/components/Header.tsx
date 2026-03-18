@@ -139,7 +139,14 @@ export default function Header() {
                       {menu.items.map((item, idx) => (
                         <a
                           key={idx}
-                          href="#"
+                          href={item.href || "#"}
+                          onClick={(e) => {
+                            if (item.href) {
+                              e.preventDefault();
+                              navigate(item.href);
+                              setActiveMenu(null);
+                            }
+                          }}
                           className={`block py-2 text-sm text-slate-700 hover:text-primary hover:bg-primary/5 transition-colors ${
                             item.isChild ? "pl-8 pr-4 text-slate-500" : "px-4"
                           }`}
