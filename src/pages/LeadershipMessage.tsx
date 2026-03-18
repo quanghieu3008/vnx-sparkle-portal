@@ -87,27 +87,43 @@ const LeadershipMessage = () => {
               </p>
             </section>
 
-            {/* Section 2 */}
+            {/* Section 2: Đổi mới pháp lý - text left, image right */}
             <section className="mb-12">
               <h2 className="text-xl md:text-2xl font-bold text-[#003366] mb-4 border-l-4 border-orange-500 pl-4">
                 Đổi mới môi trường pháp lý
               </h2>
-              <p className="text-slate-600 leading-relaxed mb-4">
-                Năm 2021 cũng là một năm bản lề đối với thị trường chứng khoán Việt Nam. Thông qua việc ban hành một loạt các văn bản pháp luật mới như Luật Doanh nghiệp, Luật Chứng khoán và các Nghị định và Thông tư hướng dẫn, môi trường pháp lý trên thị trường chứng khoán được đổi mới toàn diện, tiệm cận với các thông lệ quốc tế.
-              </p>
-              <p className="text-slate-600 leading-relaxed">
-                Đặc biệt, Sở Giao dịch Chứng khoán Việt Nam đã được thành lập theo Quyết định số 37/2020/QĐ-TTg ngày 23/12/2020 của Thủ tướng Chính phủ theo mô hình Công ty mẹ - Công ty con trên cơ sở sắp xếp lại Sở Giao dịch Chứng khoán Tp. Hồ Chí Minh và Sở Giao dịch Chứng khoán Hà Nội.
-              </p>
+              <div className="grid md:grid-cols-[3fr_2fr] gap-6 items-start">
+                <div>
+                  <p className="text-slate-600 leading-relaxed mb-4">
+                    Năm 2021 cũng là một năm bản lề đối với thị trường chứng khoán Việt Nam. Thông qua việc ban hành một loạt các văn bản pháp luật mới như Luật Doanh nghiệp, Luật Chứng khoán và các Nghị định và Thông tư hướng dẫn, môi trường pháp lý trên thị trường chứng khoán được đổi mới toàn diện, tiệm cận với các thông lệ quốc tế.
+                  </p>
+                  <p className="text-slate-600 leading-relaxed">
+                    Đặc biệt, Sở Giao dịch Chứng khoán Việt Nam đã được thành lập theo Quyết định số 37/2020/QĐ-TTg ngày 23/12/2020 của Thủ tướng Chính phủ theo mô hình Công ty mẹ - Công ty con trên cơ sở sắp xếp lại Sở Giao dịch Chứng khoán Tp. Hồ Chí Minh và Sở Giao dịch Chứng khoán Hà Nội.
+                  </p>
+                </div>
+                <img
+                  src={leadershipMeeting}
+                  alt="Cuộc họp lãnh đạo Sở Giao dịch Chứng khoán"
+                  className="rounded-xl shadow-lg w-full h-60 object-cover"
+                />
+              </div>
             </section>
 
-            {/* Section 3 */}
+            {/* Section 3: Sứ mệnh & Tầm nhìn - image left, text right */}
             <section className="mb-12">
               <h2 className="text-xl md:text-2xl font-bold text-[#003366] mb-4 border-l-4 border-[#003366] pl-4">
                 Sứ mệnh & Tầm nhìn
               </h2>
-              <p className="text-slate-600 leading-relaxed mb-4">
-                Mục tiêu cốt lõi, kim chỉ nam trong hoạt động của Sở Giao dịch Chứng khoán Việt Nam là cùng Sở Giao dịch Chứng khoán Hà Nội, Sở Giao dịch Chứng khoán Tp. Hồ Chí Minh thực hiện chức năng tổ chức thị trường giao dịch chứng khoán theo quy định của pháp luật chứng khoán, đảm bảo hoạt động giao dịch chứng khoán tại các Sở Giao dịch Chứng khoán được tiến hành minh bạch, công khai, công bằng, trật tự, an toàn, hiệu quả; bảo vệ quyền và lợi ích hợp pháp của nhà đầu tư tham gia giao dịch chứng khoán.
-              </p>
+              <div className="grid md:grid-cols-[2fr_3fr] gap-6 items-start mb-4">
+                <img
+                  src={tradingFloor}
+                  alt="Sàn giao dịch chứng khoán Việt Nam"
+                  className="rounded-xl shadow-lg w-full h-60 object-cover"
+                />
+                <p className="text-slate-600 leading-relaxed">
+                  Mục tiêu cốt lõi, kim chỉ nam trong hoạt động của Sở Giao dịch Chứng khoán Việt Nam là cùng Sở Giao dịch Chứng khoán Hà Nội, Sở Giao dịch Chứng khoán Tp. Hồ Chí Minh thực hiện chức năng tổ chức thị trường giao dịch chứng khoán theo quy định của pháp luật chứng khoán, đảm bảo hoạt động giao dịch chứng khoán tại các Sở Giao dịch Chứng khoán được tiến hành minh bạch, công khai, công bằng, trật tự, an toàn, hiệu quả; bảo vệ quyền và lợi ích hợp pháp của nhà đầu tư tham gia giao dịch chứng khoán.
+                </p>
+              </div>
               <p className="text-slate-600 leading-relaxed">
                 Bên cạnh đó, Sở Giao dịch Chứng khoán Việt Nam sẽ tăng cường hội nhập, liên kết với các đơn vị tổ chức thị trường khu vực và thế giới, hướng tới các chuẩn mực quốc tế, phát triển bền vững, nâng cao khả năng cạnh tranh, quản trị rủi ro, góp phần thu hẹp khoảng cách phát triển giữa thị trường chứng khoán Việt Nam với các nước phát triển.
               </p>
