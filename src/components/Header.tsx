@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Search, ChevronDown, Globe, Menu, X } from "lucide-react";
+import { useNavigate } from "react-router-dom";
 import vnxLogo from "@/assets/vnx-logo-new.png";
 import { Button } from "./ui/button";
 
