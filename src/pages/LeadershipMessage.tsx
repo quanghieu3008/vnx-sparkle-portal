@@ -63,7 +63,7 @@ const LeadershipMessage = () => {
             alt="Sàn giao dịch chứng khoán Việt Nam"
             className="w-full h-64 md:h-80 object-cover"
           />
-          <div className="absolute inset-0 bg-gradient-to-t from-white/40 to-transparent" />
+          <div className="absolute inset-0 bg-gradient-to-t from-white/30 to-transparent" />
         </div>
 
         {/* Content */}
