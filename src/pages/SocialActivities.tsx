@@ -253,9 +253,10 @@ const SocialActivities = () => {
                     {featuredActivities.length > 0 ? (
                       <div className="space-y-5">
                         {featuredActivities.slice(0, 2).map((activity, index) => (
-                          <article 
+                          <Link 
+                            to="/tin-tuc/le-ky-niem-25-nam-ttck"
                             key={activity.id}
-                            className="bg-white rounded-lg border border-slate-200 overflow-hidden shadow-sm hover:shadow-lg transition-all group"
+                            className="bg-white rounded-lg border border-slate-200 overflow-hidden shadow-sm hover:shadow-lg transition-all group cursor-pointer block"
                           >
                             <div className={`relative overflow-hidden ${index === 0 ? 'aspect-[16/9]' : 'aspect-[16/8]'}`}>
                               <img 
