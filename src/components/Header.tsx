@@ -222,7 +222,14 @@ export default function Header() {
                         {menu.items.map((item, idx) => (
                           <a
                             key={idx}
-                            href="#"
+                            href={item.href || "#"}
+                            onClick={(e) => {
+                              if (item.href) {
+                                e.preventDefault();
+                                navigate(item.href);
+                                setIsMobileMenuOpen(false);
+                              }
+                            }}
                             className={`block py-2 text-sm text-muted-foreground hover:text-primary ${
                               item.isChild ? "pl-4" : ""
                             }`}
