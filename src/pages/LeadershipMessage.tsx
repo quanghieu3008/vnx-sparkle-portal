@@ -4,6 +4,8 @@ import ScrollToTop from '@/components/ScrollToTop';
 import { Link } from 'react-router-dom';
 import { ChevronRight, Quote } from 'lucide-react';
 import leadershipBanner from '@/assets/leadership-banner.png';
+import leadershipMeeting from '@/assets/leadership-meeting.jpg';
+import tradingFloor from '@/assets/leadership-trading-floor.jpg';
 
 const LeadershipMessage = () => {
   return (
