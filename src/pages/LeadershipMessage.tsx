@@ -65,7 +65,7 @@ const LeadershipMessage = () => {
         </div>
 
         {/* Content */}
-        <div className="bg-[#eef1f6] pb-16">
+        <div className="bg-white pb-16">
           <div className="container mx-auto px-4 py-12 max-w-4xl text-justify">
             {/* Opening Quote */}
             <div className="relative bg-white rounded-2xl p-8 mb-12 border border-slate-200 shadow-sm">
