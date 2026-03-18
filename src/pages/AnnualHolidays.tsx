@@ -249,7 +249,7 @@ const AnnualHolidays = () => {
                                 className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
                               />
                             </div>
-                            <h3 className="text-sm text-slate-700 leading-relaxed group-hover:text-[#003366] transition-colors flex-1">
+                            <h3 className="text-sm text-slate-600 leading-relaxed group-hover:text-[#003366] transition-colors flex-1 font-normal">
                               {item.title}
                             </h3>
                           </div>
