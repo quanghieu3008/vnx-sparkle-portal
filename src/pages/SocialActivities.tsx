@@ -90,8 +90,18 @@ const activitiesData = [
     featured: false,
     result: 'Trồng được 1.000 cây xanh tại 5 tỉnh thành',
   },
+  {
+    id: 7,
+    title: 'Chương trình tình nguyện "Vì trẻ em vùng khó khăn"',
+    date: '12/03/2024',
+    organizer: 'VNX phối hợp với Quỹ Bảo trợ Trẻ em',
+    description: 'Hoạt động tình nguyện hỗ trợ trẻ em vùng khó khăn với các chương trình giáo dục, vui chơi và tặng quà.',
+    image: vnxIntro,
+    type: 'volunteer',
+    featured: false,
+    result: 'Hỗ trợ 200 trẻ em tại 3 tỉnh miền núi',
+  },
 ];
-
 const relatedLinks = [
   { label: 'Báo cáo trách nhiệm xã hội (CSR)', href: '#' },
   { label: 'Thư viện hình ảnh hoạt động', href: '#' },
@@ -291,7 +301,7 @@ const SocialActivities = () => {
                   <div className="lg:col-span-5">
                     <h2 className="text-base font-bold text-[#003366] mb-4 flex items-center gap-2">
                       <span className="w-1 h-5 bg-[#e8930a] rounded-full"></span>
-                      Được xem nhiều nhất
+                      Danh sách hoạt động
                     </h2>
                     
                     <div className="bg-white rounded-lg border border-slate-200 overflow-hidden">
@@ -339,19 +349,6 @@ const SocialActivities = () => {
                   <div className="bg-white rounded-lg p-8 text-center mt-6 border border-slate-200">
                     <Search className="h-12 w-12 text-slate-300 mx-auto mb-4" />
                     <p className="text-slate-500">Không tìm thấy hoạt động phù hợp với bộ lọc đã chọn.</p>
-                  </div>
-                )}
-
-                {/* Pagination */}
-                {filteredActivities.length > 0 && (
-                  <div className="mt-8 flex justify-center">
-                    <div className="flex items-center gap-1.5">
-                      <button className="h-9 px-3 rounded border border-slate-300 bg-white text-sm text-slate-400 cursor-not-allowed" disabled>Trước</button>
-                      <button className="h-9 w-9 rounded bg-[#003366] text-white text-sm font-medium">1</button>
-                      <button className="h-9 w-9 rounded border border-slate-300 bg-white text-sm text-slate-600 hover:border-[#003366] hover:text-[#003366]">2</button>
-                      <button className="h-9 w-9 rounded border border-slate-300 bg-white text-sm text-slate-600 hover:border-[#003366] hover:text-[#003366]">3</button>
-                      <button className="h-9 px-3 rounded border border-slate-300 bg-white text-sm text-slate-600 hover:border-[#003366] hover:text-[#003366]">Tiếp</button>
-                    </div>
                   </div>
                 )}
               </div>
