@@ -287,10 +287,13 @@ const EventActivities = () => {
                             <p className="text-sm text-slate-500 line-clamp-2 mb-4">
                               {event.description}
                             </p>
-                            <button className="inline-flex items-center gap-1.5 px-4 py-2 rounded-full bg-gradient-to-r from-[#3b82f6] to-[#2563eb] text-white text-sm font-medium hover:from-[#2563eb] hover:to-[#1d4ed8] shadow-md hover:shadow-lg transition-all">
+                            <Link 
+                              to={event.id === 1 ? '/tin-tuc/le-ky-niem-25-nam-ttck' : '#'}
+                              className="inline-flex items-center gap-1.5 px-4 py-2 rounded-full bg-gradient-to-r from-[#3b82f6] to-[#2563eb] text-white text-sm font-medium hover:from-[#2563eb] hover:to-[#1d4ed8] shadow-md hover:shadow-lg transition-all"
+                            >
                               <Eye className="h-3.5 w-3.5" />
                               Xem chi tiết
-                            </button>
+                            </Link>
                           </div>
                         </article>
                       ))}
