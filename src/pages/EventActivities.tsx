@@ -122,22 +122,50 @@ const EventActivities = () => {
       <Header />
       
       <main className="pt-20 lg:pt-24">
-        {/* Breadcrumb - dark navy */}
-        <div className="bg-[#002855] border-b border-white/10">
+        {/* Breadcrumb - light background */}
+        <div className="bg-white border-b border-slate-200">
           <div className="container mx-auto px-4 py-3">
-            <nav className="flex items-center text-sm text-white/60">
-              <Link to="/" className="hover:text-white/90 transition-colors">Trang chủ</Link>
+            <nav className="flex items-center text-sm text-slate-500">
+              <Link to="/" className="hover:text-[#003366] transition-colors">Trang chủ</Link>
               <ChevronRight className="h-4 w-4 mx-2" />
-              <span className="text-white/80">Tin tức và sự kiện</span>
+              <span className="text-[#003366] font-medium">Tin tức và sự kiện</span>
               <ChevronRight className="h-4 w-4 mx-2" />
-              <span className="text-white font-medium">Hoạt động sự kiện</span>
+              <span className="text-slate-700">Hoạt động sự kiện</span>
             </nav>
           </div>
         </div>
 
-        {/* Page Title - dark navy */}
-        <div className="bg-[#003366] py-8 mb-0">
-          <div className="container mx-auto px-4">
+        {/* Page Title - dark navy with swoosh */}
+        <div className="relative overflow-hidden bg-[#003366] py-8 mb-0">
+          {/* Swoosh accent - green to orange */}
+          <svg 
+            className="absolute right-0 top-0 h-full w-auto" 
+            viewBox="0 0 300 100" 
+            preserveAspectRatio="xMaxYMin slice"
+            fill="none"
+            style={{ minWidth: '400px' }}
+          >
+            <defs>
+              <linearGradient id="swooshGradientEvent" x1="0%" y1="0%" x2="100%" y2="100%">
+                <stop offset="0%" stopColor="hsl(145, 80%, 45%)" />
+                <stop offset="50%" stopColor="hsl(80, 70%, 50%)" />
+                <stop offset="100%" stopColor="hsl(25, 95%, 53%)" />
+              </linearGradient>
+            </defs>
+            <path 
+              d="M100,0 Q180,20 220,50 T300,100 L300,0 Z" 
+              fill="url(#swooshGradientEvent)" 
+              opacity="0.15"
+            />
+            <path 
+              d="M120,0 Q200,30 250,60 T300,100" 
+              stroke="url(#swooshGradientEvent)" 
+              strokeWidth="4" 
+              fill="none"
+              opacity="0.8"
+            />
+          </svg>
+          <div className="container mx-auto px-4 relative z-10">
             <h1 className="text-2xl md:text-3xl font-heading font-bold text-white mb-2">
               Hoạt động sự kiện
             </h1>
