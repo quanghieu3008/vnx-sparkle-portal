@@ -10,6 +10,7 @@ import SocialActivities from "./pages/SocialActivities";
 import NewsDetail25Years from "./pages/NewsDetail25Years";
 import AnnualHolidays from "./pages/AnnualHolidays";
 import LeadershipMessage from "./pages/LeadershipMessage";
+import DevelopmentHistory from "./pages/DevelopmentHistory";
 import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
