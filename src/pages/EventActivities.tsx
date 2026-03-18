@@ -287,7 +287,7 @@ const EventActivities = () => {
                             <p className="text-sm text-slate-500 line-clamp-2 mb-4">
                               {event.description}
                             </p>
-                            <button className="inline-flex items-center gap-1.5 px-4 py-2 rounded bg-[#e8930a] text-white text-sm font-medium hover:bg-[#d17f08] transition-colors">
+                            <button className="inline-flex items-center gap-1.5 px-4 py-2 rounded-full bg-gradient-to-r from-[#3b82f6] to-[#2563eb] text-white text-sm font-medium hover:from-[#2563eb] hover:to-[#1d4ed8] shadow-md hover:shadow-lg transition-all">
                               <Eye className="h-3.5 w-3.5" />
                               Xem chi tiết
                             </button>
@@ -340,7 +340,7 @@ const EventActivities = () => {
                           <p className="text-sm text-slate-500 line-clamp-2 mb-3">
                             {event.description}
                           </p>
-                          <button className="inline-flex items-center gap-1 text-sm text-[#e8930a] hover:text-[#d17f08] font-medium transition-colors">
+                          <button className="inline-flex items-center gap-1 text-sm text-[#3b82f6] hover:text-[#2563eb] font-medium transition-colors">
                             Xem chi tiết
                             <ChevronRight className="h-4 w-4" />
                           </button>
