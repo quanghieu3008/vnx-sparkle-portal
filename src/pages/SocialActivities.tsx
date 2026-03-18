@@ -335,11 +335,13 @@ const SocialActivities = () => {
                         ))}
                       </div>
                       
-                      <div className="p-4 bg-slate-50 border-t border-slate-200">
-                        <button className="w-full inline-flex items-center justify-center gap-2 text-sm text-[#003366] hover:text-[#0055aa] font-medium transition-colors">
-                          Xem tất cả hoạt động
-                          <ChevronRight className="h-4 w-4" />
-                        </button>
+                      <div className="p-3 bg-slate-50 border-t border-slate-200 flex justify-center">
+                        <div className="flex items-center gap-1.5">
+                          <button className="h-8 px-2.5 rounded border border-slate-300 bg-white text-xs text-slate-400 cursor-not-allowed" disabled>Trước</button>
+                          <button className="h-8 w-8 rounded bg-[#003366] text-white text-xs font-medium">1</button>
+                          <button className="h-8 w-8 rounded border border-slate-300 bg-white text-xs text-slate-600 hover:border-[#003366] hover:text-[#003366]">2</button>
+                          <button className="h-8 px-2.5 rounded border border-slate-300 bg-white text-xs text-slate-600 hover:border-[#003366] hover:text-[#003366]">Tiếp</button>
+                        </div>
                       </div>
                     </div>
                   </div>
