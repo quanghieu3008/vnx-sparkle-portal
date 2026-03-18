@@ -234,23 +234,32 @@ const AnnualHolidays = () => {
                       NĂM {year}
                     </h2>
                     <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-5">
-                      {groupedByYear[year].map((item) => (
-                        <article key={item.id} className="group cursor-pointer">
-                          <div className="mb-3">
-                            <span className="inline-block bg-[#003366] text-white text-xs font-medium px-3 py-1.5 rounded">
-                              {item.date}
-                            </span>
+                      {groupedByYear[year].map((item, idx) => (
+                        <article key={item.id} className="group cursor-pointer relative">
+                          {/* Connecting line between cards */}
+                          {idx < groupedByYear[year].length - 1 && (
+                            <div className="hidden md:block absolute top-[14px] left-[calc(50%+12px)] right-[-20px] h-[2px] bg-slate-300 z-0" style={{ width: 'calc(100% - 50% + 20px)' }}></div>
+                          )}
+                          <div className="relative z-10 bg-white rounded-lg border border-slate-200 p-4 shadow-sm hover:shadow-md transition-shadow">
+                            {/* Date badge centered */}
+                            <div className="flex justify-center mb-3">
+                              <span className="inline-block bg-[#003366] text-white text-xs font-semibold px-4 py-1.5 rounded">
+                                {item.date}
+                              </span>
+                            </div>
+                            {/* Image */}
+                            <div className="aspect-[4/3] rounded overflow-hidden mb-3">
+                              <img
+                                src={item.image}
+                                alt={item.title}
+                                className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
+                              />
+                            </div>
+                            {/* Title */}
+                            <h3 className="text-sm text-slate-700 leading-relaxed group-hover:text-[#003366] transition-colors">
+                              {item.title}
+                            </h3>
                           </div>
-                          <div className="aspect-[4/3] rounded-lg overflow-hidden border border-slate-200 mb-3">
-                            <img
-                              src={item.image}
-                              alt={item.title}
-                              className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
-                            />
-                          </div>
-                          <h3 className="text-sm text-slate-700 leading-relaxed group-hover:text-[#003366] transition-colors">
-                            {item.title}
-                          </h3>
                         </article>
                       ))}
                     </div>
