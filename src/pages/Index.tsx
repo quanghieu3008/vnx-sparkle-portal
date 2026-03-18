@@ -53,7 +53,6 @@ const Index = () => {
         <PartnersSection />
           <Footer />
         </div>
-        <ChatBot />
         <ScrollToTop />
       </div>
     </div>
