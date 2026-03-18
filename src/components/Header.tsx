@@ -8,6 +8,7 @@ import { Button } from "./ui/button";
 interface SubMenuItem {
   label: string;
   isChild?: boolean;
+  href?: string;
 }
 
 interface MenuItem {
