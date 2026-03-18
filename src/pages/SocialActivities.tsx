@@ -287,7 +287,7 @@ const SocialActivities = () => {
                                 </div>
                               </div>
                             </div>
-                          </article>
+                          </Link>
                         ))}
                       </div>
                     ) : (
