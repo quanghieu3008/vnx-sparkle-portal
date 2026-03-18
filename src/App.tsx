@@ -7,6 +7,7 @@ import Index from "./pages/Index";
 import EventActivities from "./pages/EventActivities";
 import SocialActivities from "./pages/SocialActivities";
 import NewsDetail25Years from "./pages/NewsDetail25Years";
+import AnnualHolidays from "./pages/AnnualHolidays";
 import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
@@ -22,6 +23,7 @@ const App = () => (
           <Route path="/hoat-dong-su-kien" element={<EventActivities />} />
           <Route path="/hoat-dong-xa-hoi" element={<SocialActivities />} />
           <Route path="/tin-tuc/le-ky-niem-25-nam-ttck" element={<NewsDetail25Years />} />
+          <Route path="/lich-nghi-hang-nam" element={<AnnualHolidays />} />
           {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
           <Route path="*" element={<NotFound />} />
         </Routes>
