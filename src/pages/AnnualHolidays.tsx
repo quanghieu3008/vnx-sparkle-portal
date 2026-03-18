@@ -238,7 +238,7 @@ const AnnualHolidays = () => {
                         <article key={item.id} className="group cursor-pointer flex flex-col">
                           <div className="bg-white rounded-lg border border-slate-200 p-4 shadow-sm hover:shadow-md transition-shadow flex flex-col flex-1">
                             <div className="flex justify-center mb-3">
-                              <span className="inline-block bg-[#003366] text-white text-xs font-semibold px-4 py-1.5 rounded">
+                              <span className="inline-block bg-[#003366] text-white text-xs font-medium px-4 py-1.5 rounded">
                                 {item.date}
                               </span>
                             </div>
