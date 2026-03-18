@@ -301,7 +301,7 @@ const SocialActivities = () => {
                   <div className="lg:col-span-5">
                     <h2 className="text-base font-bold text-[#003366] mb-4 flex items-center gap-2">
                       <span className="w-1 h-5 bg-[#e8930a] rounded-full"></span>
-                      Được xem nhiều nhất
+                      Danh sách hoạt động
                     </h2>
                     
                     <div className="bg-white rounded-lg border border-slate-200 overflow-hidden">
