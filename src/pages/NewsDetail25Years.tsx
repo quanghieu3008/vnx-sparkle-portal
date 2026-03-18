@@ -10,7 +10,7 @@ const NewsDetail25Years = () => {
   const navigate = useNavigate();
 
   return (
-    <div className="min-h-screen bg-[#003366]">
+    <div className="min-h-screen bg-background">
       <ScrollToTop />
       <Header />
 
