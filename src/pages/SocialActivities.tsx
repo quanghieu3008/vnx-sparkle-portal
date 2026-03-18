@@ -351,19 +351,6 @@ const SocialActivities = () => {
                     <p className="text-slate-500">Không tìm thấy hoạt động phù hợp với bộ lọc đã chọn.</p>
                   </div>
                 )}
-
-                {/* Pagination */}
-                {filteredActivities.length > 0 && (
-                  <div className="mt-8 flex justify-center">
-                    <div className="flex items-center gap-1.5">
-                      <button className="h-9 px-3 rounded border border-slate-300 bg-white text-sm text-slate-400 cursor-not-allowed" disabled>Trước</button>
-                      <button className="h-9 w-9 rounded bg-[#003366] text-white text-sm font-medium">1</button>
-                      <button className="h-9 w-9 rounded border border-slate-300 bg-white text-sm text-slate-600 hover:border-[#003366] hover:text-[#003366]">2</button>
-                      <button className="h-9 w-9 rounded border border-slate-300 bg-white text-sm text-slate-600 hover:border-[#003366] hover:text-[#003366]">3</button>
-                      <button className="h-9 px-3 rounded border border-slate-300 bg-white text-sm text-slate-600 hover:border-[#003366] hover:text-[#003366]">Tiếp</button>
-                    </div>
-                  </div>
-                )}
               </div>
 
               {/* Sidebar */}
