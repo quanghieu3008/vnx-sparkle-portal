@@ -12,7 +12,7 @@ import vnxIntro from '@/assets/vnx-intro.jpg';
 const filterCategories = [
   { label: 'Hoạt động sự kiện', href: '/hoat-dong-su-kien', active: true },
   { label: 'Hoạt động xã hội', href: '/hoat-dong-xa-hoi', active: false },
-  { label: 'Hoạt động hợp tác', href: '/hoat-dong-hop-tac', active: false },
+  
   { label: 'Lịch nghỉ hàng năm', href: '/lich-nghi-hang-nam', active: false },
 ];
 
