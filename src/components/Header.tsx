@@ -21,7 +21,7 @@ const menuItems: MenuItem[] = [
     label: "Giới thiệu",
     items: [
       { label: "Thông điệp của lãnh đạo", href: "/gioi-thieu/thong-diep-lanh-dao" },
-      { label: "Lịch sử phát triển" },
+      { label: "Lịch sử phát triển", href: "/gioi-thieu/lich-su-phat-trien" },
       { label: "Sơ đồ tổ chức" },
       { label: "Chức năng, nhiệm vụ" },
       { label: "Ban lãnh đạo" },
