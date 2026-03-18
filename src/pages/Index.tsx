@@ -5,7 +5,6 @@ import HeroSection from "@/components/HeroSection";
 import InfoSection from "@/components/InfoSection";
 import PartnersSection from "@/components/PartnersSection";
 import Footer from "@/components/Footer";
-import ChatBot from "@/components/ChatBot";
 import ScrollToTop from "@/components/ScrollToTop";
 import heroBg1 from "@/assets/hero-bg-1.png";
 import heroBg2 from "@/assets/hero-bg-2.png";
