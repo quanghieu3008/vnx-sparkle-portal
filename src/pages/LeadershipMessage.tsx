@@ -26,7 +26,7 @@ const LeadershipMessage = () => {
           <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent" />
           <div className="absolute bottom-6 left-0 right-0">
             <div className="container mx-auto px-4">
-              <h1 className="text-2xl md:text-4xl font-heading font-bold uppercase italic mb-2" style={{
+              <h1 className="text-2xl md:text-4xl font-heading font-bold uppercase mb-2" style={{
                 backgroundImage: 'linear-gradient(180deg, #D4A843 0%, #F5E6A3 15%, #C69A35 30%, #FFFDD0 50%, #C19A2E 70%, #E8C84A 85%, #A67C1A 100%)',
                 WebkitBackgroundClip: 'text',
                 WebkitTextFillColor: 'transparent',
