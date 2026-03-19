@@ -1,4 +1,5 @@
 import Header from '@/components/Header';
+import MarketTicker from '@/components/MarketTicker';
 import Footer from '@/components/Footer';
 import ScrollToTop from '@/components/ScrollToTop';
 import { Link } from 'react-router-dom';
