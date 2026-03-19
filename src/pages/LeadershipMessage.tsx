@@ -27,16 +27,19 @@ const LeadershipMessage = () => {
           <div className="absolute bottom-6 left-0 right-0">
             <div className="container mx-auto px-4">
               <h1 className="text-2xl md:text-4xl font-heading font-bold uppercase italic mb-2" style={{
-                backgroundImage: 'linear-gradient(to bottom, #BF953F, #FCF6BA, #B38728, #FBF5B7, #AA771C)',
+                backgroundImage: 'linear-gradient(to bottom, #BF953F 0%, #FCF6BA 25%, #B38728 50%, #FBF5B7 75%, #AA771C 100%)',
                 WebkitBackgroundClip: 'text',
                 WebkitTextFillColor: 'transparent',
+                textShadow: '0 2px 8px rgba(0,0,0,0.3)',
+                filter: 'drop-shadow(0 2px 4px rgba(0,0,0,0.3))',
               }}>
                 Thông điệp của lãnh đạo
               </h1>
               <p className="text-sm md:text-base italic" style={{
-                backgroundImage: 'linear-gradient(to bottom, #BF953F, #FCF6BA, #B38728, #FBF5B7, #AA771C)',
+                backgroundImage: 'linear-gradient(to bottom, #BF953F 0%, #FCF6BA 25%, #B38728 50%, #FBF5B7 75%, #AA771C 100%)',
                 WebkitBackgroundClip: 'text',
                 WebkitTextFillColor: 'transparent',
+                filter: 'drop-shadow(0 1px 3px rgba(0,0,0,0.3))',
               }}>
                 Sứ mệnh, tầm nhìn và định hướng phát triển của Sở Giao dịch Chứng khoán Việt Nam.
               </p>
