@@ -16,56 +16,37 @@ const LeadershipMessage = () => {
       <ScrollToTop />
 
       <main className="pt-[121px]">
-        {/* Breadcrumb */}
-        <div className="bg-white border-b border-slate-200">
-          <div className="container mx-auto px-4 py-3">
-            <nav className="flex items-center text-sm text-slate-500 leading-none">
-              <Link to="/" className="hover:text-[#003366] transition-colors">Trang chủ</Link>
-              <ChevronRight className="h-4 w-4 mx-2" />
-              <span className="text-[#003366] font-medium">Giới thiệu</span>
-              <ChevronRight className="h-4 w-4 mx-2" />
-              <span className="text-slate-700">Thông điệp của lãnh đạo</span>
-            </nav>
-          </div>
-        </div>
-
-        {/* Page Title Header */}
-        <div className="relative overflow-hidden bg-[#003366] py-5">
-          <svg
-            className="absolute right-0 top-0 h-full w-auto"
-            viewBox="0 0 300 100"
-            preserveAspectRatio="xMaxYMin slice"
-            fill="none"
-            style={{ minWidth: '400px' }}
-          >
-            <defs>
-              <linearGradient id="swooshLeadership" x1="0%" y1="0%" x2="100%" y2="100%">
-                <stop offset="0%" stopColor="hsl(145, 80%, 45%)" />
-                <stop offset="50%" stopColor="hsl(80, 70%, 50%)" />
-                <stop offset="100%" stopColor="hsl(25, 95%, 53%)" />
-              </linearGradient>
-            </defs>
-            <path d="M100,0 Q180,20 220,50 T300,100 L300,0 Z" fill="url(#swooshLeadership)" opacity="0.15" />
-            <path d="M120,0 Q200,30 250,60 T300,100" stroke="url(#swooshLeadership)" strokeWidth="4" fill="none" opacity="0.8" />
-          </svg>
-          <div className="container mx-auto px-4 relative z-10">
-            <h1 className="text-2xl md:text-3xl font-heading font-bold text-white mb-2">
-              Thông điệp của lãnh đạo
-            </h1>
-            <p className="text-white/60 text-sm">
-              Sứ mệnh, tầm nhìn và định hướng phát triển của Sở Giao dịch Chứng khoán Việt Nam.
-            </p>
-          </div>
-        </div>
-
-        {/* Hero Banner Image */}
+        {/* Hero Banner Image with Breadcrumb overlay */}
         <div className="relative">
           <img
             src={leadershipBanner}
             alt="Sàn giao dịch chứng khoán Việt Nam"
             className="w-full h-48 md:h-64 object-cover"
           />
-          <div className="absolute inset-0 bg-gradient-to-t from-white/30 to-transparent" />
+          <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent" />
+          <div className="absolute bottom-4 left-0 right-0">
+            <div className="container mx-auto px-4">
+              <nav className="flex items-center text-sm leading-none">
+                <Link to="/" className="transition-colors" style={{
+                  backgroundImage: 'linear-gradient(to bottom, #BF953F, #FCF6BA, #B38728, #FBF5B7, #AA771C)',
+                  WebkitBackgroundClip: 'text',
+                  WebkitTextFillColor: 'transparent',
+                }}>Trang chủ</Link>
+                <ChevronRight className="h-4 w-4 mx-2 text-amber-300" />
+                <span style={{
+                  backgroundImage: 'linear-gradient(to bottom, #BF953F, #FCF6BA, #B38728, #FBF5B7, #AA771C)',
+                  WebkitBackgroundClip: 'text',
+                  WebkitTextFillColor: 'transparent',
+                }} className="font-medium">Giới thiệu</span>
+                <ChevronRight className="h-4 w-4 mx-2 text-amber-300" />
+                <span style={{
+                  backgroundImage: 'linear-gradient(to bottom, #BF953F, #FCF6BA, #B38728, #FBF5B7, #AA771C)',
+                  WebkitBackgroundClip: 'text',
+                  WebkitTextFillColor: 'transparent',
+                }}>Thông điệp của lãnh đạo</span>
+              </nav>
+            </div>
+          </div>
         </div>
 
         {/* Content */}
