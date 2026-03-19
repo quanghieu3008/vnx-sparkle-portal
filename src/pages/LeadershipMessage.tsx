@@ -16,36 +16,44 @@ const LeadershipMessage = () => {
       <ScrollToTop />
 
       <main className="pt-[121px]">
-        {/* Hero Banner Image with Breadcrumb overlay */}
+        {/* Hero Banner Image with Title overlay */}
         <div className="relative">
           <img
             src={leadershipBanner}
             alt="Sàn giao dịch chứng khoán Việt Nam"
-            className="w-full h-48 md:h-64 object-cover"
+            className="w-full h-56 md:h-72 object-cover"
           />
-          <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent" />
-          <div className="absolute bottom-4 left-0 right-0">
+          <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent" />
+          <div className="absolute bottom-6 left-0 right-0">
             <div className="container mx-auto px-4">
-              <nav className="flex items-center text-sm leading-none">
-                <Link to="/" className="transition-colors" style={{
-                  backgroundImage: 'linear-gradient(to bottom, #BF953F, #FCF6BA, #B38728, #FBF5B7, #AA771C)',
-                  WebkitBackgroundClip: 'text',
-                  WebkitTextFillColor: 'transparent',
-                }}>Trang chủ</Link>
-                <ChevronRight className="h-4 w-4 mx-2 text-amber-300" />
-                <span style={{
-                  backgroundImage: 'linear-gradient(to bottom, #BF953F, #FCF6BA, #B38728, #FBF5B7, #AA771C)',
-                  WebkitBackgroundClip: 'text',
-                  WebkitTextFillColor: 'transparent',
-                }} className="font-medium">Giới thiệu</span>
-                <ChevronRight className="h-4 w-4 mx-2 text-amber-300" />
-                <span style={{
-                  backgroundImage: 'linear-gradient(to bottom, #BF953F, #FCF6BA, #B38728, #FBF5B7, #AA771C)',
-                  WebkitBackgroundClip: 'text',
-                  WebkitTextFillColor: 'transparent',
-                }}>Thông điệp của lãnh đạo</span>
-              </nav>
+              <h1 className="text-2xl md:text-4xl font-heading font-bold uppercase italic mb-2" style={{
+                backgroundImage: 'linear-gradient(to bottom, #BF953F, #FCF6BA, #B38728, #FBF5B7, #AA771C)',
+                WebkitBackgroundClip: 'text',
+                WebkitTextFillColor: 'transparent',
+              }}>
+                Thông điệp của lãnh đạo
+              </h1>
+              <p className="text-sm md:text-base italic" style={{
+                backgroundImage: 'linear-gradient(to bottom, #BF953F, #FCF6BA, #B38728, #FBF5B7, #AA771C)',
+                WebkitBackgroundClip: 'text',
+                WebkitTextFillColor: 'transparent',
+              }}>
+                Sứ mệnh, tầm nhìn và định hướng phát triển của Sở Giao dịch Chứng khoán Việt Nam.
+              </p>
             </div>
+          </div>
+        </div>
+
+        {/* Breadcrumb */}
+        <div className="bg-white border-b border-slate-200">
+          <div className="container mx-auto px-4 py-3">
+            <nav className="flex items-center text-sm text-slate-500">
+              <Link to="/" className="hover:text-[#003366] transition-colors">Trang chủ</Link>
+              <ChevronRight className="h-4 w-4 mx-2" />
+              <span className="text-[#003366] font-medium">Giới thiệu</span>
+              <ChevronRight className="h-4 w-4 mx-2" />
+              <span className="text-slate-700">Thông điệp của lãnh đạo</span>
+            </nav>
           </div>
         </div>
 
