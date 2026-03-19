@@ -2,7 +2,7 @@ import Header from '@/components/Header';
 import Footer from '@/components/Footer';
 import ScrollToTop from '@/components/ScrollToTop';
 import { Link } from 'react-router-dom';
-import { ChevronRight } from 'lucide-react';
+import { ChevronRight, CalendarDays, Landmark, CircleDollarSign, GitFork } from 'lucide-react';
 import historyBanner from '@/assets/vnx-history-banner.png';
 import leadershipMeeting from '@/assets/leadership-meeting.jpg';
 import tradingFloor from '@/assets/leadership-trading-floor.jpg';
@@ -158,13 +158,17 @@ const DevelopmentHistory = () => {
             <section className="mb-12">
               <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-4">
                 {[
-                  { icon: '📅', label: 'Thành lập', desc: '23/12/2020 theo QĐ 37/2020/QĐ-TTg' },
-                  { icon: '🏛️', label: 'Hoạt động', desc: 'Chính thức từ 06/8/2021' },
-                  { icon: '🏦', label: 'Vốn điều lệ', desc: '3.000 tỷ đồng' },
-                  { icon: '🔶', label: 'Mô hình', desc: 'Công ty mẹ - Công ty con' },
+                  { Icon: CalendarDays, label: 'Thành lập', desc: '23/12/2020 theo QĐ 37/2020/QĐ-TTg' },
+                  { Icon: Landmark, label: 'Hoạt động', desc: 'Chính thức từ 06/8/2021' },
+                  { Icon: CircleDollarSign, label: 'Vốn điều lệ', desc: '3.000 tỷ đồng' },
+                  { Icon: GitFork, label: 'Mô hình', desc: 'Công ty mẹ - Công ty con' },
                 ].map((v) => (
                   <div key={v.label} className="bg-slate-50 rounded-xl p-5 border border-slate-200 text-center shadow-sm">
-                    <div className="text-3xl mb-2">{v.icon}</div>
+                    <div className="flex justify-center mb-3">
+                      <div className="w-12 h-12 rounded-full border-2 border-orange-500 flex items-center justify-center">
+                        <v.Icon className="w-6 h-6 text-orange-500" />
+                      </div>
+                    </div>
                     <h3 className="font-bold text-[#003366] text-lg mb-1">{v.label}</h3>
                     <p className="text-sm text-slate-500">{v.desc}</p>
                   </div>
