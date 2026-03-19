@@ -16,46 +16,10 @@ const LeadershipMessage = () => {
       <ScrollToTop />
 
       <main className="pt-[121px]">
-        {/* Hero Banner Image with Title overlay */}
-        <div className="relative">
-          <img
-            src={leadershipBanner}
-            alt="Sàn giao dịch chứng khoán Việt Nam"
-            className="w-full h-56 md:h-72 object-cover"
-          />
-          <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent" />
-          <div className="absolute bottom-6 left-0 right-0">
-            <div className="container mx-auto px-4">
-              <h1 className="text-2xl md:text-4xl font-heading font-bold uppercase mb-2" style={{
-                background: 'linear-gradient(to bottom, #d1a340 0%, #fcf2aa 25%, #c28f26 50%, #efcc68 75%, #8b6014 100%)',
-                WebkitBackgroundClip: 'text',
-                WebkitTextFillColor: 'transparent',
-                backgroundClip: 'text',
-                color: 'transparent',
-                WebkitTextStroke: '1.5px #5c410b',
-                filter: 'drop-shadow(2px 6px 6px rgba(0,0,0,0.6)) drop-shadow(0px 2px 2px rgba(0,0,0,0.4))',
-              }}>
-                Thông điệp của lãnh đạo
-              </h1>
-              <p className="text-sm md:text-base font-medium" style={{
-                background: 'linear-gradient(to bottom, #d1a340 0%, #fcf2aa 25%, #c28f26 50%, #efcc68 75%, #8b6014 100%)',
-                WebkitBackgroundClip: 'text',
-                WebkitTextFillColor: 'transparent',
-                backgroundClip: 'text',
-                color: 'transparent',
-                WebkitTextStroke: '1px #5c410b',
-                filter: 'drop-shadow(2px 6px 6px rgba(0,0,0,0.6)) drop-shadow(0px 2px 2px rgba(0,0,0,0.4))',
-              }}>
-                Sứ mệnh, tầm nhìn và định hướng phát triển của Sở Giao dịch Chứng khoán Việt Nam.
-              </p>
-            </div>
-          </div>
-        </div>
-
         {/* Breadcrumb */}
         <div className="bg-white border-b border-slate-200">
           <div className="container mx-auto px-4 py-3">
-            <nav className="flex items-center text-sm text-slate-500">
+            <nav className="flex items-center text-sm text-slate-500 leading-none">
               <Link to="/" className="hover:text-[#003366] transition-colors">Trang chủ</Link>
               <ChevronRight className="h-4 w-4 mx-2" />
               <span className="text-[#003366] font-medium">Giới thiệu</span>
@@ -63,6 +27,45 @@ const LeadershipMessage = () => {
               <span className="text-slate-700">Thông điệp của lãnh đạo</span>
             </nav>
           </div>
+        </div>
+
+        {/* Page Title Header */}
+        <div className="relative overflow-hidden bg-[#003366] py-5">
+          <svg
+            className="absolute right-0 top-0 h-full w-auto"
+            viewBox="0 0 300 100"
+            preserveAspectRatio="xMaxYMin slice"
+            fill="none"
+            style={{ minWidth: '400px' }}
+          >
+            <defs>
+              <linearGradient id="swooshLeadership" x1="0%" y1="0%" x2="100%" y2="100%">
+                <stop offset="0%" stopColor="hsl(145, 80%, 45%)" />
+                <stop offset="50%" stopColor="hsl(80, 70%, 50%)" />
+                <stop offset="100%" stopColor="hsl(25, 95%, 53%)" />
+              </linearGradient>
+            </defs>
+            <path d="M100,0 Q180,20 220,50 T300,100 L300,0 Z" fill="url(#swooshLeadership)" opacity="0.15" />
+            <path d="M120,0 Q200,30 250,60 T300,100" stroke="url(#swooshLeadership)" strokeWidth="4" fill="none" opacity="0.8" />
+          </svg>
+          <div className="container mx-auto px-4 relative z-10">
+            <h1 className="text-2xl md:text-3xl font-heading font-bold text-white mb-2">
+              Thông điệp của lãnh đạo
+            </h1>
+            <p className="text-white/60 text-sm">
+              Sứ mệnh, tầm nhìn và định hướng phát triển của Sở Giao dịch Chứng khoán Việt Nam.
+            </p>
+          </div>
+        </div>
+
+        {/* Hero Banner Image */}
+        <div className="relative">
+          <img
+            src={leadershipBanner}
+            alt="Sàn giao dịch chứng khoán Việt Nam"
+            className="w-full h-48 md:h-64 object-cover"
+          />
+          <div className="absolute inset-0 bg-gradient-to-t from-white/30 to-transparent" />
         </div>
 
         {/* Content */}
