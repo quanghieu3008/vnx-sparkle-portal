@@ -3,6 +3,7 @@ import Footer from '@/components/Footer';
 import ScrollToTop from '@/components/ScrollToTop';
 import { Link } from 'react-router-dom';
 import { ChevronRight } from 'lucide-react';
+import orgChartImg from '@/assets/org-chart.png';
 
 const OrganizationalChart = () => {
   return (
@@ -58,97 +59,12 @@ const OrganizationalChart = () => {
           <div className="container mx-auto px-4 py-12 max-w-5xl">
 
             {/* Org Chart Visual */}
-            <div className="mb-16 overflow-x-auto">
-              <div className="min-w-[700px] flex flex-col items-center gap-0">
-
-                {/* Level 1: VNX */}
-                <div className="bg-[#003366] text-white font-bold text-sm md:text-base px-8 py-3 rounded-lg shadow-md text-center">
-                  SỞ GIAO DỊCH CHỨNG KHOÁN VIỆT NAM
-                </div>
-                <div className="w-px h-8 bg-[#003366]" />
-
-                {/* Level 2: HĐTV + side branches */}
-                <div className="relative flex items-center justify-center gap-0 w-full">
-                  {/* VP HĐTV - left branch */}
-                  <div className="flex flex-col items-center">
-                    <div className="bg-white border-2 border-[#003366] text-[#003366] font-semibold text-xs md:text-sm px-4 py-2.5 rounded-lg text-center whitespace-nowrap">
-                      Văn phòng<br />Hội đồng thành viên
-                    </div>
-                  </div>
-                  <div className="w-12 h-px bg-[#003366]" />
-
-                  {/* HĐTV center */}
-                  <div className="bg-[#1a5276] text-white font-bold text-sm md:text-base px-6 py-3 rounded-lg shadow-md text-center whitespace-nowrap">
-                    HỘI ĐỒNG THÀNH VIÊN
-                  </div>
-
-                  <div className="w-12 h-px bg-[#003366]" />
-                  {/* Ban Kiểm soát - right branch */}
-                  <div className="flex flex-col items-center">
-                    <div className="bg-orange-50 border-2 border-orange-400 text-orange-700 font-semibold text-xs md:text-sm px-4 py-2.5 rounded-lg text-center whitespace-nowrap">
-                      Ban Kiểm soát
-                    </div>
-                  </div>
-                </div>
-                <div className="w-px h-8 bg-[#003366]" />
-
-                {/* Level 3: Ban Điều hành */}
-                <div className="bg-[#1a5276] text-white font-bold text-sm md:text-base px-6 py-3 rounded-lg shadow-md text-center">
-                  BAN ĐIỀU HÀNH
-                </div>
-                <div className="w-px h-6 bg-[#003366]" />
-
-                {/* Level 3.5: Horizontal line with 2 subsidiaries + center */}
-                <div className="relative flex items-start justify-center w-full max-w-3xl">
-                  {/* Left: Sở GDCK TP.HCM */}
-                  <div className="flex flex-col items-center flex-1">
-                    <div className="w-full h-px bg-[#003366]" />
-                    <div className="w-px h-6 bg-[#003366]" />
-                    <div className="bg-green-50 border-2 border-green-500 text-green-800 font-semibold text-xs md:text-sm px-4 py-2.5 rounded-lg text-center whitespace-nowrap">
-                      SỞ GDCK TP. HỒ CHÍ MINH
-                    </div>
-                  </div>
-
-                  {/* Center connector */}
-                  <div className="flex flex-col items-center flex-1">
-                    <div className="w-full h-px bg-[#003366]" />
-                    <div className="w-px h-6 bg-[#003366]" />
-                  </div>
-
-                  {/* Right: Sở GDCK HN */}
-                  <div className="flex flex-col items-center flex-1">
-                    <div className="w-full h-px bg-[#003366]" />
-                    <div className="w-px h-6 bg-[#003366]" />
-                    <div className="bg-purple-50 border-2 border-purple-500 text-purple-800 font-semibold text-xs md:text-sm px-4 py-2.5 rounded-lg text-center whitespace-nowrap">
-                      SỞ GDCK HÀ NỘI
-                    </div>
-                  </div>
-                </div>
-
-                {/* Level 4: Các ban chức năng */}
-                <div className="w-px h-6 bg-[#003366]" />
-                <div className="w-full max-w-4xl">
-                  <div className="w-full h-px bg-slate-300" />
-                  <div className="grid grid-cols-7 gap-2 mt-4">
-                    {[
-                      { label: 'Ban Tổ chức\nnhân sự', color: 'border-sky-400 bg-sky-50 text-sky-800' },
-                      { label: 'Ban Tài chính\n- Kế toán', color: 'border-emerald-400 bg-emerald-50 text-emerald-800' },
-                      { label: 'Ban Tổng hợp\n- Hành chính', color: 'border-teal-400 bg-teal-50 text-teal-800' },
-                      { label: 'Ban Chiến lược\nvà Phát triển', color: 'border-amber-400 bg-amber-50 text-amber-800' },
-                      { label: 'Ban Giám sát\nthị trường', color: 'border-rose-400 bg-rose-50 text-rose-800' },
-                      { label: 'Ban Quản lý\nthành viên', color: 'border-violet-400 bg-violet-50 text-violet-800' },
-                      { label: 'Ban Công nghệ\nthông tin', color: 'border-indigo-400 bg-indigo-50 text-indigo-800' },
-                    ].map((ban) => (
-                      <div key={ban.label} className="flex flex-col items-center">
-                        <div className="w-px h-4 bg-slate-300" />
-                        <div className={`border-2 ${ban.color} font-semibold text-[10px] md:text-xs px-2 py-2 rounded-lg text-center whitespace-pre-line leading-tight`}>
-                          {ban.label}
-                        </div>
-                      </div>
-                    ))}
-                  </div>
-                </div>
-              </div>
+            <div className="mb-16">
+              <img
+                src={orgChartImg}
+                alt="Sơ đồ tổ chức Sở Giao dịch Chứng khoán Việt Nam"
+                className="w-full max-w-4xl mx-auto rounded-lg shadow-md"
+              />
             </div>
 
             {/* Description */}
