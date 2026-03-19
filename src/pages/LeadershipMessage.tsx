@@ -15,7 +15,7 @@ const LeadershipMessage = () => {
       <MarketTicker />
       <ScrollToTop />
 
-      <main className="pt-20 lg:pt-24">
+      <main className="pt-28 lg:pt-32">
         {/* Breadcrumb */}
         <div className="bg-white border-b border-slate-200">
           <div className="container mx-auto px-4 py-3">
@@ -63,7 +63,7 @@ const LeadershipMessage = () => {
           <img
             src={leadershipBanner}
             alt="Sàn giao dịch chứng khoán Việt Nam"
-            className="w-full h-64 md:h-80 object-cover"
+            className="w-full h-48 md:h-64 object-cover"
           />
           <div className="absolute inset-0 bg-gradient-to-t from-white/30 to-transparent" />
         </div>
