@@ -15,7 +15,7 @@ const LeadershipMessage = () => {
       <MarketTicker />
       <ScrollToTop />
 
-      <main className="pt-[104px] lg:pt-[112px]">
+      <main className="pt-[121px]">
         {/* Breadcrumb */}
         <div className="bg-white border-b border-slate-200">
           <div className="container mx-auto px-4 py-3">
