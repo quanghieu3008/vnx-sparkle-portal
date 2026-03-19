@@ -3,6 +3,7 @@ import Footer from '@/components/Footer';
 import ScrollToTop from '@/components/ScrollToTop';
 import { Link } from 'react-router-dom';
 import { ChevronRight } from 'lucide-react';
+import orgChartImg from '@/assets/org-chart.png';
 
 const OrganizationalChart = () => {
   return (
