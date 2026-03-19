@@ -30,7 +30,7 @@ const LeadershipMessage = () => {
         </div>
 
         {/* Page Title Header */}
-        <div className="relative overflow-hidden bg-[#003366] py-5">
+        <div className="relative overflow-hidden bg-[#003366] py-3">
           <svg
             className="absolute right-0 top-0 h-full w-auto"
             viewBox="0 0 300 100"
