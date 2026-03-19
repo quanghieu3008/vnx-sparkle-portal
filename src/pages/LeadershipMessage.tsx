@@ -27,24 +27,18 @@ const LeadershipMessage = () => {
           <div className="absolute bottom-6 left-0 right-0">
             <div className="container mx-auto px-4">
               <h1 className="text-2xl md:text-4xl font-heading font-bold uppercase mb-2" style={{
-                background: 'linear-gradient(to bottom, #d1a340 0%, #fcf2aa 25%, #c28f26 50%, #efcc68 75%, #8b6014 100%)',
+                backgroundImage: 'linear-gradient(to bottom, #AA771C, #B38728, #BF953F, #FCF6BA, #FBF5B7)',
                 WebkitBackgroundClip: 'text',
                 WebkitTextFillColor: 'transparent',
-                backgroundClip: 'text',
-                color: 'transparent',
-                WebkitTextStroke: '1.5px #5c410b',
-                filter: 'drop-shadow(2px 6px 6px rgba(0,0,0,0.6)) drop-shadow(0px 2px 2px rgba(0,0,0,0.4))',
+                filter: 'drop-shadow(0 2px 4px rgba(0,0,0,0.4))',
               }}>
                 Thông điệp của lãnh đạo
               </h1>
               <p className="text-sm md:text-base font-medium" style={{
-                background: 'linear-gradient(to bottom, #d1a340 0%, #fcf2aa 25%, #c28f26 50%, #efcc68 75%, #8b6014 100%)',
+                backgroundImage: 'linear-gradient(to bottom, #AA771C, #B38728, #BF953F, #FCF6BA, #FBF5B7)',
                 WebkitBackgroundClip: 'text',
                 WebkitTextFillColor: 'transparent',
-                backgroundClip: 'text',
-                color: 'transparent',
-                WebkitTextStroke: '1px #5c410b',
-                filter: 'drop-shadow(2px 6px 6px rgba(0,0,0,0.6)) drop-shadow(0px 2px 2px rgba(0,0,0,0.4))',
+                filter: 'drop-shadow(0 1px 3px rgba(0,0,0,0.4))',
               }}>
                 Sứ mệnh, tầm nhìn và định hướng phát triển của Sở Giao dịch Chứng khoán Việt Nam.
               </p>
