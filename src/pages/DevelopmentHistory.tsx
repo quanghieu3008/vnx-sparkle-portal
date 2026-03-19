@@ -2,7 +2,7 @@ import Header from '@/components/Header';
 import Footer from '@/components/Footer';
 import ScrollToTop from '@/components/ScrollToTop';
 import { Link } from 'react-router-dom';
-import { ChevronRight } from 'lucide-react';
+import { ChevronRight, CalendarDays, Landmark, CircleDollarSign, GitFork } from 'lucide-react';
 import historyBanner from '@/assets/vnx-history-banner.png';
 import leadershipMeeting from '@/assets/leadership-meeting.jpg';
 import tradingFloor from '@/assets/leadership-trading-floor.jpg';
