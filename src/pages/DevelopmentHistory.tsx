@@ -165,8 +165,8 @@ const DevelopmentHistory = () => {
                 ].map((v) => (
                   <div key={v.label} className="bg-slate-50 rounded-xl p-5 border border-slate-200 text-center shadow-sm">
                     <div className="flex justify-center mb-3">
-                      <div className="w-12 h-12 rounded-full border-2 border-orange-500 flex items-center justify-center">
-                        <v.Icon className="w-6 h-6 text-orange-500" />
+                      <div className="w-10 h-10 rounded-full border-2 border-orange-500 flex items-center justify-center">
+                        <v.Icon className="w-5 h-5 text-orange-500" strokeWidth={2.5} />
                       </div>
                     </div>
                     <h3 className="font-bold text-[#003366] text-lg mb-1">{v.label}</h3>
