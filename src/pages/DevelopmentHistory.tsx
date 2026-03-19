@@ -154,6 +154,24 @@ const DevelopmentHistory = () => {
               </div>
             </section>
 
+            {/* Key Facts */}
+            <section className="mb-12">
+              <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-4">
+                {[
+                  { icon: '📅', label: 'Thành lập', desc: '23/12/2020 theo QĐ 37/2020/QĐ-TTg' },
+                  { icon: '🏛️', label: 'Hoạt động', desc: 'Chính thức từ 06/8/2021' },
+                  { icon: '🏦', label: 'Vốn điều lệ', desc: '3.000 tỷ đồng' },
+                  { icon: '🔶', label: 'Mô hình', desc: 'Công ty mẹ - Công ty con' },
+                ].map((v) => (
+                  <div key={v.label} className="bg-slate-50 rounded-xl p-5 border border-slate-200 text-center shadow-sm">
+                    <div className="text-3xl mb-2">{v.icon}</div>
+                    <h3 className="font-bold text-[#003366] text-lg mb-1">{v.label}</h3>
+                    <p className="text-sm text-slate-500">{v.desc}</p>
+                  </div>
+                ))}
+              </div>
+            </section>
+
             {/* Vision */}
             <section className="mb-12">
               <h2 className="text-xl md:text-2xl font-bold text-[#003366] mb-4 border-l-4 border-[#003366] pl-4">
