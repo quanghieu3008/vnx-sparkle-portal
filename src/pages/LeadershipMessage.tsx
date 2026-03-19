@@ -34,7 +34,7 @@ const LeadershipMessage = () => {
               }}>
                 Thông điệp của lãnh đạo
               </h1>
-              <p className="text-sm md:text-base italic font-medium" style={{
+              <p className="text-sm md:text-base font-medium" style={{
                 backgroundImage: 'linear-gradient(180deg, #D4A843 0%, #F5E6A3 15%, #C69A35 30%, #FFFDD0 50%, #C19A2E 70%, #E8C84A 85%, #A67C1A 100%)',
                 WebkitBackgroundClip: 'text',
                 WebkitTextFillColor: 'transparent',
