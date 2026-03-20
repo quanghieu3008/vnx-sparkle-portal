@@ -44,7 +44,7 @@ const OrganizationalChart = () => {
             <path d="M100,0 Q180,20 220,50 T300,100 L300,0 Z" fill="url(#swooshOrg)" opacity="0.15" />
             <path d="M120,0 Q200,30 250,60 T300,100" stroke="url(#swooshOrg)" strokeWidth="4" fill="none" opacity="0.8" />
           </svg>
-          <div className="container mx-auto px-4 relative z-10">
+          <div className="container mx-auto px-4 relative z-10 h-full flex flex-col justify-center">
             <h1 className="text-2xl md:text-3xl font-heading font-bold text-white mb-2">
               Sơ đồ tổ chức
             </h1>

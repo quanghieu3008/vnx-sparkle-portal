@@ -165,7 +165,7 @@ const EventActivities = () => {
               opacity="0.8"
             />
           </svg>
-          <div className="container mx-auto px-4 relative z-10">
+          <div className="container mx-auto px-4 relative z-10 h-full flex flex-col justify-center">
             <h1 className="text-2xl md:text-3xl font-heading font-bold text-white mb-2">
               Hoạt động sự kiện
             </h1>
