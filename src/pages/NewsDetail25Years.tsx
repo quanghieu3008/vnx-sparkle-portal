@@ -14,6 +14,7 @@ const NewsDetail25Years = () => {
     <div className="min-h-screen bg-white">
       <ScrollToTop />
       <Header />
+      <MarketTicker />
 
       <main className="pt-20">
         {/* Hero Banner */}

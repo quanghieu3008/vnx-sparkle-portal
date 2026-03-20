@@ -121,6 +121,7 @@ const EventActivities = () => {
   return (
     <div className="min-h-screen bg-[#003366]">
       <Header />
+      <MarketTicker />
       
       <main className="pt-20 lg:pt-24">
         {/* Breadcrumb - light background */}
