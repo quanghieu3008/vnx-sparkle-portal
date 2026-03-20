@@ -1,4 +1,5 @@
 import Header from '@/components/Header';
+import MarketTicker from '@/components/MarketTicker';
 import Footer from '@/components/Footer';
 import ScrollToTop from '@/components/ScrollToTop';
 import { Link } from 'react-router-dom';
@@ -9,6 +10,7 @@ const OrganizationalChart = () => {
   return (
     <div className="min-h-screen bg-[#003366]">
       <Header />
+      <MarketTicker />
       <ScrollToTop />
 
       <main className="pt-20 lg:pt-24">

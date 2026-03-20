@@ -1,6 +1,7 @@
 import { ArrowLeft, Calendar, Share2, Clock } from 'lucide-react';
 import { useNavigate } from 'react-router-dom';
 import Header from '@/components/Header';
+import MarketTicker from '@/components/MarketTicker';
 import Footer from '@/components/Footer';
 import ScrollToTop from '@/components/ScrollToTop';
 import event25years from '@/assets/event-25years.jpg';
@@ -13,6 +14,7 @@ const NewsDetail25Years = () => {
     <div className="min-h-screen bg-white">
       <ScrollToTop />
       <Header />
+      <MarketTicker />
 
       <main className="pt-20">
         {/* Hero Banner */}
