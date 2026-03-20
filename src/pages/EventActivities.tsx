@@ -136,7 +136,7 @@ const EventActivities = () => {
         </div>
 
         {/* Page Title - dark navy with swoosh */}
-        <div className="relative overflow-hidden bg-[#003366] py-8 mb-0">
+        <div className="relative overflow-hidden bg-[#003366] mb-0" style={{ height: 110 }}>
           {/* Swoosh accent - green to orange */}
           <svg 
             className="absolute right-0 top-0 h-full w-auto" 
@@ -165,7 +165,7 @@ const EventActivities = () => {
               opacity="0.8"
             />
           </svg>
-          <div className="container mx-auto px-4 relative z-10">
+          <div className="container mx-auto px-4 relative z-10 h-full flex flex-col justify-center">
             <h1 className="text-2xl md:text-3xl font-heading font-bold text-white mb-2">
               Hoạt động sự kiện
             </h1>
