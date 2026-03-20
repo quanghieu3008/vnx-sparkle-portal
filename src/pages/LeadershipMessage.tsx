@@ -88,7 +88,7 @@ const LeadershipMessage = () => {
             </div>
 
             <div className="text-right text-slate-500 italic mt-8">
-              <p>Trân trọng./.</p>
+              <p className="font-bold">Trân trọng./.</p>
             </div>
           </div>
         </div>
