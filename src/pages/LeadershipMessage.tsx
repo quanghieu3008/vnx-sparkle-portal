@@ -86,6 +86,10 @@ const LeadershipMessage = () => {
 
               <div className="clear-both"></div>
             </div>
+
+            <div className="text-right text-slate-500 italic mt-8">
+              <p>Trân trọng./.</p>
+            </div>
           </div>
         </div>
       </main>
