@@ -136,7 +136,7 @@ const EventActivities = () => {
         </div>
 
         {/* Page Title - dark navy with swoosh */}
-        <div className="relative overflow-hidden bg-[#003366] py-8 mb-0">
+        <div className="relative overflow-hidden bg-[#003366] mb-0" style={{ height: 110 }}>
           {/* Swoosh accent - green to orange */}
           <svg 
             className="absolute right-0 top-0 h-full w-auto" 
