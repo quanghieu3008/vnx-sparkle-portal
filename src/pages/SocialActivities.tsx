@@ -136,7 +136,7 @@ const SocialActivities = () => {
         {/* Breadcrumb - light background */}
         <div className="bg-white border-b border-slate-200">
           <div className="container mx-auto px-4 py-3">
-            <nav className="flex items-center text-sm text-slate-500">
+            <nav className="flex items-center text-sm text-slate-500 leading-none">
               <Link to="/" className="hover:text-[#003366] transition-colors">Trang chủ</Link>
               <ChevronRight className="h-4 w-4 mx-2" />
               <span className="text-[#003366] font-medium">Tin tức và sự kiện</span>
