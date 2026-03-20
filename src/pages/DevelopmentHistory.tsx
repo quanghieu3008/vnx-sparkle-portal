@@ -73,7 +73,7 @@ const DevelopmentHistory = () => {
           <img
             src={historyBanner}
             alt="Sở Giao dịch Chứng khoán Việt Nam - Vietnam Exchange"
-            className="w-full h-64 md:h-80 object-cover"
+            className="w-full object-cover" style={{ height: 256 }}
           />
           <div className="absolute inset-0 bg-gradient-to-t from-white/30 to-transparent" />
         </div>
