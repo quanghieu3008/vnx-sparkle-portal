@@ -75,7 +75,7 @@ const DevelopmentHistory = () => {
             alt="Sở Giao dịch Chứng khoán Việt Nam - Vietnam Exchange"
             className="w-full object-cover" style={{ height: 256 }}
           />
-          <div className="absolute inset-0" style={{ backgroundColor: '#0033661A', opacity: 0.1 }} />
+          
         </div>
 
         {/* Content */}
