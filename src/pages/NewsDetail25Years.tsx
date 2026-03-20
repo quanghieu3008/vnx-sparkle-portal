@@ -16,7 +16,7 @@ const NewsDetail25Years = () => {
       <Header />
       <MarketTicker />
 
-      <main className="pt-20">
+      <main className="pt-[121px]">
         {/* Hero Banner */}
         <div className="relative h-[300px] md:h-[420px] overflow-hidden">
           <img

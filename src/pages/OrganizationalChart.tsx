@@ -13,7 +13,7 @@ const OrganizationalChart = () => {
       <MarketTicker />
       <ScrollToTop />
 
-      <main className="pt-20 lg:pt-24">
+      <main className="pt-[121px]">
         {/* Breadcrumb */}
         <div className="bg-white border-b border-slate-200">
           <div className="container mx-auto px-4 py-3">
