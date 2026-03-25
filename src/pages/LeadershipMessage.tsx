@@ -72,8 +72,9 @@ const LeadershipMessage = () => {
                   <p className="font-bold">Trân trọng./.</p>
                 </div>
 
-                <div className="h-1.5 mt-10 rounded-full" style={{ background: 'linear-gradient(90deg, #003366, #0066cc, #00a86b, #8bc34a, #e8930a)' }}></div>
               </div>
+              {/* Gradient bottom border */}
+              <div className="h-1.5" style={{ background: 'linear-gradient(90deg, #003366, #0066cc, #00a86b, #8bc34a, #e8930a)' }}></div>
             </div>
           </div>
         </div>
