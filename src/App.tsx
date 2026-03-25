@@ -12,6 +12,7 @@ import AnnualHolidays from "./pages/AnnualHolidays";
 import LeadershipMessage from "./pages/LeadershipMessage";
 import DevelopmentHistory from "./pages/DevelopmentHistory";
 import OrganizationalChart from "./pages/OrganizationalChart";
+import LeadershipTeam from "./pages/LeadershipTeam";
 import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
