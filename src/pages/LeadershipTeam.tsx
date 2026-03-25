@@ -188,7 +188,7 @@ export default function LeadershipTeam() {
         </div>
 
         {/* Content */}
-        <div className="bg-white pb-16">
+        <div className="bg-slate-100 pb-16">
           <div className="container mx-auto px-4 py-10 max-w-5xl">
             <h2 className="text-2xl md:text-3xl font-heading font-bold text-[#003366] text-center mb-12 uppercase tracking-wide">
               Ban lãnh đạo
