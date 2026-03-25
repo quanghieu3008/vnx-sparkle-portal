@@ -175,7 +175,7 @@ export default function LeadershipTeam() {
                 return (
                   <motion.div
                     key={leader.id}
-                    className="relative mb-16 last:mb-0"
+                    className="relative mb-8 last:mb-0"
                     initial={{ opacity: 0, y: 40 }}
                     whileInView={{ opacity: 1, y: 0 }}
                     viewport={{ once: true, margin: "-50px" }}
