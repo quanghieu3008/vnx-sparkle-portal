@@ -210,7 +210,7 @@ export default function LeadershipTeam() {
                         viewport={{ once: true, margin: "-50px" }}
                         transition={{ duration: 0.4, delay: 0.35 }}
                       >
-                        <div className={`w-12 h-0.5 bg-[#003366] mb-2 ${isLeft ? "md:mx-0" : "md:ml-auto"} mx-auto`} />
+                        <div className={`w-12 h-0.5 bg-[#003366] mb-2 mx-auto ${isLeft ? "md:mx-0 md:ml-0" : "md:mx-0 md:ml-auto"}`} />
                         <p className="text-[#003366] font-bold text-lg">
                           {leader.gender} {leader.name}
                         </p>
