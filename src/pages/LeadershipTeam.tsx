@@ -175,8 +175,6 @@ export default function LeadershipTeam() {
                 return (
                   <div key={leader.id} className="relative mb-16 last:mb-0">
                     <div className={`flex flex-col md:flex-row items-center ${isLeft ? "" : "md:flex-row-reverse"}`}>
-                      {/* Horizontal connector between photo and info */}
-                      <div className="hidden md:block w-12 h-px bg-slate-300 flex-shrink-0" />
                       {/* Photo */}
                       <div className="flex-shrink-0 relative z-10">
                         <div className="w-48 h-48 md:w-56 md:h-56 rounded-full overflow-hidden border-4 border-white shadow-lg bg-white ring-4 ring-cyan-200/50">
@@ -187,6 +185,9 @@ export default function LeadershipTeam() {
                           />
                         </div>
                       </div>
+
+                      {/* Horizontal connector between photo and info */}
+                      <div className="hidden md:block w-12 h-px bg-slate-300 flex-shrink-0" />
 
                       {/* Info */}
                       <div className={`relative z-10 bg-white/80 backdrop-blur-sm rounded-lg p-4 shadow-sm max-w-sm ${isLeft ? "md:text-left" : "md:text-right"} text-center`}>
