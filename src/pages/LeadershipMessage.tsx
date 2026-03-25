@@ -74,7 +74,7 @@ const LeadershipMessage = () => {
 
               </div>
               {/* Gradient bottom border */}
-              <div className="h-1.5" style={{ background: 'linear-gradient(90deg, #003366, #0066cc, #00a86b, #8bc34a, #e8930a)' }}></div>
+              <div className="h-[3px]" style={{ background: 'linear-gradient(90deg, #003366, #0066cc, #00a86b, #8bc34a, #e8930a)' }}></div>
             </div>
           </div>
         </div>
