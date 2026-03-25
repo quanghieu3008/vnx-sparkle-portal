@@ -204,7 +204,7 @@ export default function LeadershipTeam() {
 
                       {/* Info */}
                       <motion.div
-                        className={`relative z-10 bg-white/80 backdrop-blur-sm rounded-lg p-4 shadow-sm max-w-sm ${isLeft ? "md:text-left" : "md:text-right"} text-center`}
+                        className={`relative z-10 bg-white/80 backdrop-blur-sm rounded-lg p-4 shadow-sm w-[340px] ${isLeft ? "md:text-left" : "md:text-right"} text-center`}
                         initial={{ opacity: 0, x: isLeft ? 30 : -30 }}
                         whileInView={{ opacity: 1, x: 0 }}
                         viewport={{ once: true, margin: "-50px" }}
