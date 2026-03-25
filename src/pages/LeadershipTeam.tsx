@@ -168,19 +168,13 @@ export default function LeadershipTeam() {
 
             {/* Zigzag Leader Cards */}
             <div className="relative">
-              {/* Vertical connecting line */}
-              <div className="hidden md:block absolute left-1/2 top-0 bottom-0 w-px bg-slate-300 -translate-x-1/2" />
-
               {leaders.map((leader, index) => {
                 const pos = layoutPositions[index];
                 const isLeft = pos.photoSide === "left";
 
                 return (
                   <div key={leader.id} className="relative mb-16 last:mb-0">
-                    {/* Horizontal connector */}
-                    <div className="hidden md:block absolute top-1/2 left-1/2 -translate-y-1/2 -translate-x-1/2 w-[60%] h-px bg-slate-300" />
-
-                    <div className={`flex flex-col md:flex-row items-center gap-6 ${isLeft ? "" : "md:flex-row-reverse"}`}>
+                    <div className={`flex flex-col md:flex-row items-center ${isLeft ? "" : "md:flex-row-reverse"}`}>
                       {/* Photo */}
                       <div className="flex-shrink-0 relative z-10">
                         <div className="w-48 h-48 md:w-56 md:h-56 rounded-full overflow-hidden border-4 border-white shadow-lg bg-white ring-4 ring-cyan-200/50">
@@ -191,6 +185,9 @@ export default function LeadershipTeam() {
                           />
                         </div>
                       </div>
+
+                      {/* Horizontal connector between photo and info */}
+                      <div className="hidden md:block w-12 h-px bg-slate-300 flex-shrink-0" />
 
                       {/* Info */}
                       <div className={`relative z-10 bg-white/80 backdrop-blur-sm rounded-lg p-4 shadow-sm max-w-sm ${isLeft ? "md:text-left" : "md:text-right"} text-center`}>
