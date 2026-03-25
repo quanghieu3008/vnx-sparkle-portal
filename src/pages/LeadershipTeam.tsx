@@ -173,10 +173,23 @@ export default function LeadershipTeam() {
                 const isLeft = pos.photoSide === "left";
 
                 return (
-                  <div key={leader.id} className="relative mb-16 last:mb-0">
+                  <motion.div
+                    key={leader.id}
+                    className="relative mb-16 last:mb-0"
+                    initial={{ opacity: 0, y: 40 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true, margin: "-50px" }}
+                    transition={{ duration: 0.5, delay: 0.1 }}
+                  >
                     <div className={`flex flex-col md:flex-row items-center ${isLeft ? "" : "md:flex-row-reverse"}`}>
                       {/* Photo */}
-                      <div className="flex-shrink-0 relative z-10">
+                      <motion.div
+                        className="flex-shrink-0 relative z-10"
+                        initial={{ opacity: 0, scale: 0.8 }}
+                        whileInView={{ opacity: 1, scale: 1 }}
+                        viewport={{ once: true, margin: "-50px" }}
+                        transition={{ duration: 0.4, delay: 0.2 }}
+                      >
                         <div className="w-48 h-48 md:w-56 md:h-56 rounded-full overflow-hidden border-4 border-white shadow-lg bg-white ring-4 ring-cyan-200/50">
                           <img
                             src={leader.photo}
@@ -184,13 +197,19 @@ export default function LeadershipTeam() {
                             className="w-full h-full object-cover"
                           />
                         </div>
-                      </div>
+                      </motion.div>
 
                       {/* Horizontal connector between photo and info */}
                       <div className="hidden md:block w-12 h-px bg-slate-300 flex-shrink-0" />
 
                       {/* Info */}
-                      <div className={`relative z-10 bg-white/80 backdrop-blur-sm rounded-lg p-4 shadow-sm max-w-sm ${isLeft ? "md:text-left" : "md:text-right"} text-center`}>
+                      <motion.div
+                        className={`relative z-10 bg-white/80 backdrop-blur-sm rounded-lg p-4 shadow-sm max-w-sm ${isLeft ? "md:text-left" : "md:text-right"} text-center`}
+                        initial={{ opacity: 0, x: isLeft ? 30 : -30 }}
+                        whileInView={{ opacity: 1, x: 0 }}
+                        viewport={{ once: true, margin: "-50px" }}
+                        transition={{ duration: 0.4, delay: 0.35 }}
+                      >
                         <div className={`w-12 h-0.5 bg-[#003366] mb-2 ${isLeft ? "md:mx-0" : "md:ml-auto"} mx-auto`} />
                         <p className="text-[#003366] font-bold text-lg">
                           {leader.gender} {leader.name}
@@ -202,9 +221,9 @@ export default function LeadershipTeam() {
                         >
                           Chi tiết tiểu sử
                         </button>
-                      </div>
+                      </motion.div>
                     </div>
-                  </div>
+                  </motion.div>
                 );
               })}
             </div>
