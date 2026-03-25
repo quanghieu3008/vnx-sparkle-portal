@@ -3,6 +3,7 @@ import MarketTicker from "@/components/MarketTicker";
 import Footer from "@/components/Footer";
 import ScrollToTop from "@/components/ScrollToTop";
 import { Link } from "react-router-dom";
+import vnxInfographic from "@/assets/vnx-duties-infographic.png";
 import { ChevronRight } from "lucide-react";
 import { motion } from "framer-motion";
 
@@ -55,9 +56,10 @@ interface SectionProps {
   items: string[];
   accentColor: string;
   index: number;
+  image?: string;
 }
 
-function DutySection({ title, subtitle, items, accentColor, index }: SectionProps) {
+function DutySection({ title, subtitle, items, accentColor, index, image }: SectionProps) {
   return (
     <motion.div
       initial={{ opacity: 0, y: 30 }}
@@ -70,6 +72,15 @@ function DutySection({ title, subtitle, items, accentColor, index }: SectionProp
         <h2 className="text-lg md:text-xl font-heading font-bold text-[#003366]">{title}</h2>
         {subtitle && <p className="text-sm text-slate-500 mt-1">{subtitle}</p>}
       </div>
+      {image && (
+        <div className="px-6 pt-4">
+          <img
+            src={image}
+            alt={title}
+            className="w-full rounded-lg shadow-sm"
+          />
+        </div>
+      )}
       <div className="px-6 pb-6">
         <ul className="space-y-3 mt-4">
           {items.map((item, i) => (
@@ -164,6 +175,7 @@ export default function FunctionsAndDuties() {
                 items={vnxDuties}
                 accentColor="#003366"
                 index={0}
+                image={vnxInfographic}
               />
 
               <DutySection
