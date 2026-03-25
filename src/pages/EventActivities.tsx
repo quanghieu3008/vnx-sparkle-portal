@@ -125,7 +125,7 @@ const EventActivities = () => {
       
       <main className="pt-[121px]">
         {/* Breadcrumb - light background */}
-        <div className="bg-white border-b border-slate-200">
+        <div className="bg-white border-b border-slate-200 sticky top-[121px] z-30">
           <div className="container mx-auto px-4 py-3">
             <nav className="flex items-center text-sm text-slate-500 leading-none">
               <Link to="/" className="hover:text-[#003366] transition-colors">Trang chủ</Link>
