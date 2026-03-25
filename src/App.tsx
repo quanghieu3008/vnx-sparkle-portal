@@ -32,6 +32,7 @@ const App = () => (
           <Route path="/gioi-thieu/thong-diep-lanh-dao" element={<LeadershipMessage />} />
           <Route path="/gioi-thieu/lich-su-phat-trien" element={<DevelopmentHistory />} />
           <Route path="/gioi-thieu/so-do-to-chuc" element={<OrganizationalChart />} />
+          <Route path="/gioi-thieu/ban-lanh-dao" element={<LeadershipTeam />} />
           {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
           <Route path="*" element={<NotFound />} />
         </Routes>

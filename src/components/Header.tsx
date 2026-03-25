@@ -24,7 +24,7 @@ const menuItems: MenuItem[] = [
       { label: "Lịch sử phát triển", href: "/gioi-thieu/lich-su-phat-trien" },
       { label: "Sơ đồ tổ chức", href: "/gioi-thieu/so-do-to-chuc" },
       { label: "Chức năng, nhiệm vụ" },
-      { label: "Ban lãnh đạo" },
+      { label: "Ban lãnh đạo", href: "/gioi-thieu/ban-lanh-dao" },
       { label: "Ấn phẩm" },
     ],
   },
