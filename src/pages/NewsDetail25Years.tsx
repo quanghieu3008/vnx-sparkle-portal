@@ -36,7 +36,7 @@ const NewsDetail25Years = () => {
         </div>
 
         {/* Content */}
-        <div className="bg-white pb-16">
+        <div className="bg-slate-100 pb-16">
           <div className="container mx-auto px-4 py-8 md:py-12">
             <div className="max-w-4xl mx-auto">
               {/* Back button & Meta */}
