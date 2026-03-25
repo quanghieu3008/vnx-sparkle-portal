@@ -175,6 +175,7 @@ export default function FunctionsAndDuties() {
                 items={vnxDuties}
                 accentColor="#003366"
                 index={0}
+                image={vnxInfographic}
               />
 
               <DutySection
