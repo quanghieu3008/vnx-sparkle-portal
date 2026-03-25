@@ -27,34 +27,18 @@ const LeadershipMessage = () => {
           </div>
         </div>
 
-        {/* Page Title Header */}
-        <div className="relative overflow-hidden bg-[#003366]" style={{ height: 110 }}>
-          <svg
-            className="absolute right-0 top-0 h-full w-auto"
-            viewBox="0 0 300 100"
-            preserveAspectRatio="xMaxYMin slice"
-            fill="none"
-            style={{ minWidth: '400px' }}
-          >
-            <defs>
-              <linearGradient id="swooshLeadership" x1="0%" y1="0%" x2="100%" y2="100%">
-                <stop offset="0%" stopColor="hsl(145, 80%, 45%)" />
-                <stop offset="50%" stopColor="hsl(80, 70%, 50%)" />
-                <stop offset="100%" stopColor="hsl(25, 95%, 53%)" />
-              </linearGradient>
-            </defs>
-            <path d="M100,0 Q180,20 220,50 T300,100 L300,0 Z" fill="url(#swooshLeadership)" opacity="0.15" />
-            <path d="M120,0 Q200,30 250,60 T300,100" stroke="url(#swooshLeadership)" strokeWidth="4" fill="none" opacity="0.8" />
-          </svg>
-          <div className="container mx-auto px-4 relative z-10 h-full flex flex-col justify-center">
-            <h1 className="text-2xl md:text-3xl font-heading font-bold text-white mb-2">
-              Thông điệp của lãnh đạo
-            </h1>
-            <p className="text-white/60 text-sm">
-              Sứ mệnh, tầm nhìn và định hướng phát triển của Sở Giao dịch Chứng khoán Việt Nam.
-            </p>
-          </div>
-        </div>
+        {/* Content Card */}
+        <div className="bg-slate-100 py-10 pb-16">
+          <div className="container mx-auto px-4 max-w-5xl">
+            <div className="bg-white rounded-lg shadow-md overflow-hidden">
+              {/* Gradient top border */}
+              <div className="h-1.5" style={{ background: 'linear-gradient(90deg, #003366, #0066cc, #00a86b, #8bc34a, #e8930a)' }}></div>
+
+              <div className="px-8 md:px-16 py-12">
+                <h1 className="text-2xl md:text-3xl font-heading font-bold text-center text-slate-800 mb-2">
+                  THÔNG ĐIỆP CỦA LÃNH ĐẠO
+                </h1>
+                <div className="w-24 h-0.5 bg-slate-300 mx-auto mb-10"></div>
 
         {/* Content */}
         <div className="bg-white pb-16">
