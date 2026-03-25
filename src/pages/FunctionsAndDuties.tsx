@@ -56,6 +56,7 @@ interface SectionProps {
   items: string[];
   accentColor: string;
   index: number;
+  image?: string;
 }
 
 function DutySection({ title, subtitle, items, accentColor, index }: SectionProps) {
