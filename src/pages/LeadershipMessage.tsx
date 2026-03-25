@@ -41,7 +41,7 @@ const LeadershipMessage = () => {
                 <div className="w-24 h-0.5 bg-slate-300 mx-auto mb-10"></div>
 
                 <div className="text-justify">
-                  <div className="float-left mr-8 mb-4 w-full sm:w-[380px] md:w-[420px]">
+                  <div className="float-left mr-8 mb-4 w-full sm:w-[440px] md:w-[520px]">
                     <img
                       src={leadershipPortrait}
                       alt="Ông Lương Hải Sinh - Chủ tịch Hội đồng thành viên"
