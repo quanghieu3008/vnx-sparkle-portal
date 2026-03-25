@@ -13,6 +13,7 @@ import LeadershipMessage from "./pages/LeadershipMessage";
 import DevelopmentHistory from "./pages/DevelopmentHistory";
 import OrganizationalChart from "./pages/OrganizationalChart";
 import LeadershipTeam from "./pages/LeadershipTeam";
+import FunctionsAndDuties from "./pages/FunctionsAndDuties";
 import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
@@ -33,6 +34,7 @@ const App = () => (
           <Route path="/gioi-thieu/lich-su-phat-trien" element={<DevelopmentHistory />} />
           <Route path="/gioi-thieu/so-do-to-chuc" element={<OrganizationalChart />} />
           <Route path="/gioi-thieu/ban-lanh-dao" element={<LeadershipTeam />} />
+          <Route path="/gioi-thieu/chuc-nang-nhiem-vu" element={<FunctionsAndDuties />} />
           {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
           <Route path="*" element={<NotFound />} />
         </Routes>
