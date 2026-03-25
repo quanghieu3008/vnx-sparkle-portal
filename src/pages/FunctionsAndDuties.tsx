@@ -132,7 +132,7 @@ export default function FunctionsAndDuties() {
               Chức năng, nhiệm vụ
             </h1>
             <p className="text-white/60 text-sm">
-              Căn cứ Điều 2 Quyết định số 37/2020/QĐ-TTg ngày 23/12/2020 của Thủ tướng Chính phủ
+              Chức năng, nhiệm vụ của Sở GDCK Việt Nam và các đơn vị trực thuộc liên quan
             </p>
           </div>
         </div>
