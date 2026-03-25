@@ -32,7 +32,7 @@ const LeadershipMessage = () => {
           <div className="container mx-auto px-4 max-w-5xl">
             <div className="bg-white rounded-lg shadow-md overflow-hidden">
               {/* Gradient top border */}
-              <div className="h-1.5" style={{ background: 'linear-gradient(90deg, #003366, #0066cc, #00a86b, #8bc34a, #e8930a)' }}></div>
+              <div className="h-[3px]" style={{ background: 'linear-gradient(90deg, #003366, #0066cc, #00a86b, #8bc34a, #e8930a)' }}></div>
 
               <div className="px-8 md:px-16 py-12">
                 <h1 className="text-2xl md:text-3xl font-heading font-bold text-center text-slate-800 mb-2">
