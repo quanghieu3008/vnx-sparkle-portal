@@ -57,7 +57,7 @@ const OrganizationalChart = () => {
         </div>
 
         {/* Content */}
-        <div className="bg-white pb-16">
+        <div className="bg-slate-100 pb-16">
           <div className="container mx-auto px-4 py-12 max-w-5xl">
 
             {/* Org Chart Visual */}
