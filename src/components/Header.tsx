@@ -23,7 +23,7 @@ const menuItems: MenuItem[] = [
       { label: "Thông điệp của lãnh đạo", href: "/gioi-thieu/thong-diep-lanh-dao" },
       { label: "Lịch sử phát triển", href: "/gioi-thieu/lich-su-phat-trien" },
       { label: "Sơ đồ tổ chức", href: "/gioi-thieu/so-do-to-chuc" },
-      { label: "Chức năng, nhiệm vụ" },
+      { label: "Chức năng, nhiệm vụ", href: "/gioi-thieu/chuc-nang-nhiem-vu" },
       { label: "Ban lãnh đạo", href: "/gioi-thieu/ban-lanh-dao" },
       { label: "Ấn phẩm" },
     ],
