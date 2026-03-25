@@ -149,6 +149,9 @@ export default function FunctionsAndDuties() {
               viewport={{ once: true }}
               className="bg-white rounded-xl shadow-sm border border-slate-200 p-6 mb-8"
             >
+              <p className="text-xs text-slate-500 italic mb-2">
+                Căn cứ Điều 2 Quyết định số 37/2020/QĐ-TTg ngày 23/12/2020 của Thủ tướng Chính phủ
+              </p>
               <p className="text-slate-700 leading-relaxed text-sm md:text-base">
                 Sở Giao dịch Chứng khoán Việt Nam và các công ty con có chức năng tổ chức thị trường giao dịch chứng khoán theo quy định của pháp luật chứng khoán; các chức năng khác theo quy định của pháp luật và Điều lệ tổ chức và hoạt động của Sở Giao dịch Chứng khoán Việt Nam.
               </p>
