@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { Link } from 'react-router-dom';
-import { ChevronRight, ChevronLeft, Search, Calendar, FileText, Download, X } from 'lucide-react';
+import { ChevronRight, ChevronLeft, Search, Calendar, FileText, Download, X, Bell } from 'lucide-react';
 import { AnimatePresence, motion } from 'framer-motion';
 import Header from '@/components/Header';
 import MarketTicker from '@/components/MarketTicker';
