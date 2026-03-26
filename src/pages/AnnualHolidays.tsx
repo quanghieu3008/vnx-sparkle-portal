@@ -209,7 +209,7 @@ const AnnualHolidays = () => {
                         <td className="px-4 py-4 text-right whitespace-nowrap">
                           <button
                             onClick={() => setSelectedId(item.id)}
-                            className="text-red-500 font-medium hover:text-red-600 hover:underline text-sm"
+                            className="text-[#F97316] font-medium hover:text-[#EA580C] hover:underline text-sm"
                           >
                             Xem chi tiết
                           </button>
