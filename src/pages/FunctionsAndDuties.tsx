@@ -195,6 +195,7 @@ export default function FunctionsAndDuties() {
                 items={hnxDuties}
                 accentColor="#2E7D32"
                 index={2}
+                image={hnxInfographic}
               />
             </div>
           </div>
