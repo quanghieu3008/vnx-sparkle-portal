@@ -1,5 +1,6 @@
+import { useState } from 'react';
 import { Link } from 'react-router-dom';
-import { ChevronRight, Search } from 'lucide-react';
+import { ChevronRight, ChevronLeft, Search } from 'lucide-react';
 import Header from '@/components/Header';
 import MarketTicker from '@/components/MarketTicker';
 import Footer from '@/components/Footer';
@@ -25,6 +26,11 @@ const holidaysData: HolidayItem[] = [
 const latestHoliday = holidaysData[0];
 
 const AnnualHolidays = () => {
+  const ITEMS_PER_PAGE = 5;
+  const [currentPage, setCurrentPage] = useState(1);
+  const totalPages = Math.ceil(holidaysData.length / ITEMS_PER_PAGE);
+  const paginatedData = holidaysData.slice((currentPage - 1) * ITEMS_PER_PAGE, currentPage * ITEMS_PER_PAGE);
+
   return (
     <div className="min-h-screen bg-[#003366]">
       <Header />
@@ -111,7 +117,7 @@ const AnnualHolidays = () => {
                     </tr>
                   </thead>
                   <tbody>
-                    {holidaysData.map((item) => (
+                    {paginatedData.map((item) => (
                       <tr
                         key={item.id}
                         className="border-b border-slate-100 last:border-0 hover:bg-slate-50 transition-colors"
@@ -128,6 +134,39 @@ const AnnualHolidays = () => {
                   </tbody>
                 </table>
               </div>
+
+              {/* Pagination */}
+              {totalPages > 1 && (
+                <div className="flex items-center justify-center gap-2 mt-6">
+                  <button
+                    onClick={() => setCurrentPage(p => Math.max(1, p - 1))}
+                    disabled={currentPage === 1}
+                    className="flex items-center justify-center w-9 h-9 rounded-md border border-slate-200 bg-white text-slate-600 hover:bg-slate-50 disabled:opacity-40 disabled:cursor-not-allowed transition-colors"
+                  >
+                    <ChevronLeft className="h-4 w-4" />
+                  </button>
+                  {Array.from({ length: totalPages }, (_, i) => i + 1).map(page => (
+                    <button
+                      key={page}
+                      onClick={() => setCurrentPage(page)}
+                      className={`w-9 h-9 rounded-md text-sm font-medium transition-colors ${
+                        page === currentPage
+                          ? 'bg-[#003366] text-white'
+                          : 'border border-slate-200 bg-white text-slate-600 hover:bg-slate-50'
+                      }`}
+                    >
+                      {page}
+                    </button>
+                  ))}
+                  <button
+                    onClick={() => setCurrentPage(p => Math.min(totalPages, p + 1))}
+                    disabled={currentPage === totalPages}
+                    className="flex items-center justify-center w-9 h-9 rounded-md border border-slate-200 bg-white text-slate-600 hover:bg-slate-50 disabled:opacity-40 disabled:cursor-not-allowed transition-colors"
+                  >
+                    <ChevronRight className="h-4 w-4" />
+                  </button>
+                </div>
+              )}
 
               {holidaysData.length === 0 && (
                 <div className="bg-white rounded-lg p-8 text-center border border-slate-200">
