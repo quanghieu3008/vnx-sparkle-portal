@@ -71,7 +71,7 @@ const AnnualHolidays = () => {
             <div className="bg-gradient-to-r from-[#003366] to-[#004d99] rounded-xl px-6 py-4 md:px-8 md:py-5 mb-10 shadow-lg">
               <div className="flex flex-col md:flex-row items-center gap-6">
                 {/* Logo */}
-                <div className="shrink-0 bg-white rounded-lg p-3 w-[120px] h-[80px] flex items-center justify-center">
+                <div className="shrink-0 bg-white rounded-lg p-3 w-[140px] h-[95px] flex items-center justify-center">
                   <img src={vnxLogo} alt="Vietnam Exchange" className="w-full h-full object-contain" />
                 </div>
 
