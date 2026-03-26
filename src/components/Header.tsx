@@ -27,10 +27,6 @@ const menuItems: MenuItem[] = [
       { label: "Sơ đồ tổ chức", isChild: true, href: "/gioi-thieu/so-do-to-chuc" },
       { label: "Chức năng, nhiệm vụ", isChild: true, href: "/gioi-thieu/chuc-nang-nhiem-vu" },
       { label: "Ban lãnh đạo", isChild: true, href: "/gioi-thieu/ban-lanh-dao" },
-      { label: "Tin tức - sự kiện", isGroup: true },
-      { label: "Hoạt động sự kiện", isChild: true, href: "/hoat-dong-su-kien" },
-      { label: "Hoạt động xã hội", isChild: true, href: "/hoat-dong-xa-hoi" },
-      { label: "Lịch nghỉ hàng năm", isChild: true, href: "/lich-nghi-hang-nam" },
       { label: "Nghiên cứu - hợp tác", isGroup: true },
       { label: "Hợp tác quốc tế", isChild: true },
       { label: "Đối tác quốc tế", isChild: true },
@@ -40,6 +36,14 @@ const menuItems: MenuItem[] = [
       { label: "Ấn phẩm", isChild: true },
       { label: "Thư viện", isChild: true },
       { label: "Phòng truyền thống", isChild: true },
+    ],
+  },
+  {
+    label: "Tin tức - Sự kiện",
+    items: [
+      { label: "Hoạt động sự kiện", href: "/hoat-dong-su-kien" },
+      { label: "Hoạt động xã hội", href: "/hoat-dong-xa-hoi" },
+      { label: "Lịch nghỉ hàng năm", href: "/lich-nghi-hang-nam" },
     ],
   },
   {
