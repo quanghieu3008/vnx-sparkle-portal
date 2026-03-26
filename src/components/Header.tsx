@@ -131,25 +131,34 @@ export default function Header() {
                       animate={{ opacity: 1, y: 0 }}
                       exit={{ opacity: 0, y: 10 }}
                       transition={{ duration: 0.2 }}
-                      className="absolute top-full left-0 w-64 bg-slate-50 rounded-lg shadow-card border border-border/50 py-2 mt-1"
+                      className="absolute top-full left-0 w-72 max-h-[70vh] overflow-y-auto bg-slate-50 rounded-lg shadow-card border border-border/50 py-2 mt-1"
                     >
                       {menu.items.map((item, idx) => (
-                        <a
-                          key={idx}
-                          href={item.href || "#"}
-                          onClick={(e) => {
-                            if (item.href) {
-                              e.preventDefault();
-                              navigate(item.href);
-                              setActiveMenu(null);
-                            }
-                          }}
-                          className={`block py-2 text-sm text-slate-700 hover:text-primary hover:bg-primary/5 transition-colors ${
-                            item.isChild ? "pl-8 pr-4 text-slate-500" : "px-4"
-                          }`}
-                        >
-                          {item.label}
-                        </a>
+                        item.isGroup ? (
+                          <div
+                            key={idx}
+                            className="px-4 pt-3 pb-1 text-xs font-bold text-primary uppercase tracking-wide border-t border-border/30 first:border-0 first:pt-2"
+                          >
+                            {item.label}
+                          </div>
+                        ) : (
+                          <a
+                            key={idx}
+                            href={item.href || "#"}
+                            onClick={(e) => {
+                              if (item.href) {
+                                e.preventDefault();
+                                navigate(item.href);
+                                setActiveMenu(null);
+                              }
+                            }}
+                            className={`block py-2 text-sm text-slate-700 hover:text-primary hover:bg-primary/5 transition-colors ${
+                              item.isChild ? "pl-8 pr-4" : "px-4"
+                            }`}
+                          >
+                            {item.label}
+                          </a>
+                        )
                       ))}
                     </motion.div>
                   )}
