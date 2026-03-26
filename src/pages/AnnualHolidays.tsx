@@ -265,23 +265,43 @@ const AnnualHolidays = () => {
       </main>
 
       {/* Detail Popup */}
-      <Dialog open={selectedId !== null} onOpenChange={(open) => { if (!open) setSelectedId(null); }}>
-        <DialogContent className="max-w-2xl p-0 gap-0 overflow-hidden rounded-xl border-0 [&>button]:text-white [&>button]:hover:text-white/80 [&>button]:top-5 [&>button]:right-5">
-          {selectedDetail && (
-            <>
-              {/* Header */}
-              <div className="bg-[#003366] px-6 py-5 pr-12">
-                <h2 className="text-white text-lg font-bold leading-snug">
-                  {selectedDetail.title}
-                </h2>
-                <div className="flex items-center gap-2 mt-2 text-white/60 text-sm">
-                  <Calendar className="h-4 w-4" />
-                  <span>Ngày đăng: {selectedDetail.date}</span>
+      <AnimatePresence>
+        {selectedDetail && (
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            className="fixed inset-0 z-[100] bg-black/50 flex items-center justify-center p-4"
+            onClick={() => setSelectedId(null)}
+          >
+            <motion.div
+              initial={{ opacity: 0, scale: 0.95, y: 20 }}
+              animate={{ opacity: 1, scale: 1, y: 0 }}
+              exit={{ opacity: 0, scale: 0.95, y: 20 }}
+              className="bg-white rounded-xl shadow-2xl max-w-2xl w-full max-h-[80vh] overflow-y-auto"
+              onClick={(e) => e.stopPropagation()}
+            >
+              {/* Modal Header */}
+              <div className="sticky top-0 bg-[#003366] text-white p-5 rounded-t-xl flex items-start justify-between gap-4">
+                <div className="flex-1 min-w-0">
+                  <h3 className="text-lg font-bold leading-snug">
+                    {selectedDetail.title}
+                  </h3>
+                  <div className="flex items-center gap-2 mt-2 text-white/60 text-sm">
+                    <Calendar className="h-4 w-4" />
+                    <span>Ngày đăng: {selectedDetail.date}</span>
+                  </div>
                 </div>
+                <button
+                  onClick={() => setSelectedId(null)}
+                  className="p-1.5 hover:bg-white/10 rounded-full transition-colors flex-shrink-0"
+                >
+                  <X className="h-5 w-5" />
+                </button>
               </div>
 
-              {/* Body */}
-              <div className="px-6 py-6 space-y-4 max-h-[60vh] overflow-y-auto">
+              {/* Modal Body */}
+              <div className="p-5 space-y-4">
                 {selectedDetail.content.map((paragraph, idx) => (
                   <p key={idx} className="text-slate-700 leading-relaxed text-[15px]">
                     {paragraph}
@@ -291,7 +311,7 @@ const AnnualHolidays = () => {
 
               {/* Attachment */}
               {selectedDetail.attachment && (
-                <div className="px-6 pb-6 pt-0">
+                <div className="px-5 pb-5 pt-0">
                   <p className="text-sm font-semibold text-slate-600 mb-3">Tài liệu đính kèm:</p>
                   <a
                     href="#"
@@ -305,10 +325,10 @@ const AnnualHolidays = () => {
                   </a>
                 </div>
               )}
-            </>
-          )}
-        </DialogContent>
-      </Dialog>
+            </motion.div>
+          </motion.div>
+        )}
+      </AnimatePresence>
 
       <Footer />
       <ScrollToTop />
