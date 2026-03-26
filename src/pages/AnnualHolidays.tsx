@@ -91,12 +91,12 @@ const AnnualHolidays = () => {
                     <p className="text-white/60 text-sm italic">
                       Cập nhật lúc: 20:00 ngày {latestHoliday.date}
                     </p>
-                    <a
-                      href="#"
+                    <Link
+                      to={`/lich-nghi-hang-nam/${latestHoliday.id}`}
                       className="shrink-0 bg-white text-[#003366] text-[13px] font-semibold px-4 py-1.5 rounded-md hover:bg-white/90 transition-colors"
                     >
                       Xem chi tiết
-                    </a>
+                    </Link>
                   </div>
                 </div>
               </div>
@@ -125,9 +125,9 @@ const AnnualHolidays = () => {
                         <td className="px-6 py-4 text-slate-500 whitespace-nowrap">{item.date}</td>
                         <td className="px-6 py-4 text-slate-700 leading-relaxed">{item.title}</td>
                         <td className="px-4 py-4 text-right whitespace-nowrap">
-                          <a href="#" className="text-red-500 font-medium hover:text-red-600 hover:underline text-sm">
+                          <Link to={`/lich-nghi-hang-nam/${item.id}`} className="text-red-500 font-medium hover:text-red-600 hover:underline text-sm">
                             Xem chi tiết
-                          </a>
+                          </Link>
                         </td>
                       </tr>
                     ))}
