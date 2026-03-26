@@ -174,22 +174,6 @@ const EventActivities = () => {
         <div className="bg-[#eef1f6] pb-16">
           <div className="container mx-auto px-4 pt-8">
 
-            {/* Filter Categories - pill tabs */}
-            <div className="flex flex-wrap gap-2 mb-6">
-              {filterCategories.map((cat) => (
-                <Link
-                  key={cat.label}
-                  to={cat.href}
-                  className={`px-5 py-2 rounded-full text-sm font-medium transition-colors ${
-                    cat.active 
-                      ? 'bg-[#003366] text-white' 
-                      : 'bg-white text-slate-600 border border-slate-300 hover:border-[#003366] hover:text-[#003366]'
-                  }`}
-                >
-                  {cat.label}
-                </Link>
-              ))}
-            </div>
 
             <div className="grid lg:grid-cols-[1fr_280px] gap-8">
               {/* Main Content */}
