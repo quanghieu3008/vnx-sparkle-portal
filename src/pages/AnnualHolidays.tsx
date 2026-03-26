@@ -6,11 +6,6 @@ import MarketTicker from '@/components/MarketTicker';
 import Footer from '@/components/Footer';
 import ScrollToTop from '@/components/ScrollToTop';
 
-const filterCategories = [
-  { label: 'Hoạt động sự kiện', href: '/hoat-dong-su-kien', active: false },
-  { label: 'Hoạt động xã hội', href: '/hoat-dong-xa-hoi', active: false },
-  { label: 'Lịch nghỉ hàng năm', href: '/lich-nghi-hang-nam', active: true },
-];
 
 interface HolidayItem {
   id: number;
