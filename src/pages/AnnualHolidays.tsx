@@ -87,7 +87,7 @@ const AnnualHolidays = () => {
                     </p>
                     <a
                       href="#"
-                      className="shrink-0 bg-white text-[#003366] text-sm font-semibold px-6 py-2.5 rounded-md hover:bg-white/90 transition-colors"
+                      className="shrink-0 bg-white text-[#003366] text-xs font-semibold px-4 py-1.5 rounded-md hover:bg-white/90 transition-colors"
                     >
                       Xem chi tiết
                     </a>
