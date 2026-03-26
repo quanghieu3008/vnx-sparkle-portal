@@ -81,18 +81,18 @@ const AnnualHolidays = () => {
                   <h2 className="text-white text-lg md:text-xl font-bold leading-snug mb-3">
                     {latestHoliday.title}
                   </h2>
-                  <p className="text-white/60 text-sm italic">
-                    Cập nhật lúc: 20:00 ngày {latestHoliday.date}
-                  </p>
+                  <div className="flex items-center justify-between">
+                    <p className="text-white/60 text-sm italic">
+                      Cập nhật lúc: 20:00 ngày {latestHoliday.date}
+                    </p>
+                    <a
+                      href="#"
+                      className="shrink-0 bg-white text-[#003366] text-sm font-semibold px-6 py-2.5 rounded-md hover:bg-white/90 transition-colors"
+                    >
+                      Xem chi tiết
+                    </a>
+                  </div>
                 </div>
-
-                {/* CTA */}
-                <a
-                  href="#"
-                  className="shrink-0 border border-white text-white text-sm font-semibold px-6 py-2.5 rounded-md hover:bg-white hover:text-[#003366] transition-colors"
-                >
-                  Xem chi tiết
-                </a>
               </div>
             </div>
 
