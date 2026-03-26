@@ -1,5 +1,6 @@
+import { useState } from 'react';
 import { Link } from 'react-router-dom';
-import { ChevronRight, Search } from 'lucide-react';
+import { ChevronRight, ChevronLeft, Search } from 'lucide-react';
 import Header from '@/components/Header';
 import MarketTicker from '@/components/MarketTicker';
 import Footer from '@/components/Footer';
