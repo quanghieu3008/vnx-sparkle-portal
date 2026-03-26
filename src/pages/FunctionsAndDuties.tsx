@@ -186,6 +186,7 @@ export default function FunctionsAndDuties() {
                 items={hoseDuties}
                 accentColor="#E8881C"
                 index={1}
+                image={hoseInfographic}
               />
 
               <DutySection
