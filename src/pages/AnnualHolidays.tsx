@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { Link } from 'react-router-dom';
-import { ChevronRight, ChevronLeft, Search, Calendar, FileText, Download, X } from 'lucide-react';
+import { ChevronRight, ChevronLeft, Search, Calendar, FileText, Download } from 'lucide-react';
 import { Dialog, DialogContent } from '@/components/ui/dialog';
 import Header from '@/components/Header';
 import MarketTicker from '@/components/MarketTicker';
@@ -266,18 +266,12 @@ const AnnualHolidays = () => {
 
       {/* Detail Popup */}
       <Dialog open={selectedId !== null} onOpenChange={(open) => { if (!open) setSelectedId(null); }}>
-        <DialogContent className="max-w-2xl p-0 gap-0 overflow-hidden rounded-xl border-0">
+        <DialogContent className="max-w-2xl p-0 gap-0 overflow-hidden rounded-xl border-0 [&>button]:text-white [&>button]:hover:text-white/80 [&>button]:top-5 [&>button]:right-5">
           {selectedDetail && (
             <>
               {/* Header */}
-              <div className="bg-[#003366] px-6 py-5 relative">
-                <button
-                  onClick={() => setSelectedId(null)}
-                  className="absolute top-4 right-4 text-white/60 hover:text-white transition-colors"
-                >
-                  <X className="h-5 w-5" />
-                </button>
-                <h2 className="text-white text-lg font-bold leading-snug pr-8">
+              <div className="bg-[#003366] px-6 py-5 pr-12">
+                <h2 className="text-white text-lg font-bold leading-snug">
                   {selectedDetail.title}
                 </h2>
                 <div className="flex items-center gap-2 mt-2 text-white/60 text-sm">
