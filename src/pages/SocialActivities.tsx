@@ -9,12 +9,6 @@ import event25years from '@/assets/event-25years.jpg';
 import eventMember2025 from '@/assets/event-member2025.jpg';
 import vnxIntro from '@/assets/vnx-intro.jpg';
 
-const filterCategories = [
-  { label: 'Hoạt động sự kiện', href: '/hoat-dong-su-kien', active: false },
-  { label: 'Hoạt động xã hội', href: '/hoat-dong-xa-hoi', active: true },
-  
-  { label: 'Lịch nghỉ hàng năm', href: '/lich-nghi-hang-nam', active: false },
-];
 
 const activityTypes = [
   { value: 'all', label: 'Tất cả hoạt động' },
