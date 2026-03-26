@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import { Link } from 'react-router-dom';
-import { ChevronRight, ChevronLeft, Search } from 'lucide-react';
+import { ChevronRight, ChevronLeft, Search, Calendar, FileText, Download, X } from 'lucide-react';
+import { Dialog, DialogContent } from '@/components/ui/dialog';
 import Header from '@/components/Header';
 import MarketTicker from '@/components/MarketTicker';
 import Footer from '@/components/Footer';
@@ -13,6 +14,14 @@ interface HolidayItem {
   title: string;
 }
 
+interface HolidayDetailData {
+  id: number;
+  date: string;
+  title: string;
+  content: string[];
+  attachment?: string;
+}
+
 const holidaysData: HolidayItem[] = [
   { id: 1, date: '22/04/2026', title: 'Thông báo lịch nghỉ lễ Chiến thắng 30/4 và ngày Quốc tế lao động 01/5 năm 2026' },
   { id: 2, date: '10/04/2026', title: 'Thông báo lịch nghỉ Giỗ Tổ Hùng Vương (Mùng 10/3 âm lịch) năm 2026' },
@@ -23,13 +32,89 @@ const holidaysData: HolidayItem[] = [
   { id: 7, date: '01/04/2025', title: 'Thông báo lịch nghỉ Giỗ Tổ Hùng Vương (Mùng 10/3 âm lịch) năm 2025' },
 ];
 
+const holidayDetails: Record<number, HolidayDetailData> = {
+  1: {
+    id: 1, date: '22/04/2026',
+    title: 'Thông báo về việc công bố lịch nghỉ lễ Chiến thắng 30/4 và ngày Quốc tế lao động 01/5 năm 2026',
+    content: [
+      'Căn cứ Bộ Luật Lao động năm 2019, Sở Giao dịch Chứng khoán Việt Nam thông báo thời gian nghỉ lễ Chiến thắng 30/4 và ngày Quốc tế lao động 01/5 năm 2026 từ ngày 30/04/2026 đến hết ngày 03/05/2026.',
+      'Thời gian nghỉ giao dịch thực hiện theo Thông báo số 3653/TB-SGDHN ngày 15/12/2025 của Sở Giao dịch Chứng khoán Hà Nội và Thông báo số 1268/TB-SGDHCM ngày 21/12/2025 của Sở GDCK Tp. Hồ Chí Minh về việc công bố lịch nghỉ giao dịch trong năm 2026.',
+      'Sở GDCK Việt Nam xin thông báo./.',
+    ],
+    attachment: 'Thong bao 3004.pdf',
+  },
+  2: {
+    id: 2, date: '10/04/2026',
+    title: 'Thông báo về việc công bố lịch nghỉ Giỗ Tổ Hùng Vương (Mùng 10/3 âm lịch) năm 2026',
+    content: [
+      'Căn cứ Bộ Luật Lao động năm 2019, Sở Giao dịch Chứng khoán Việt Nam thông báo thời gian nghỉ Giỗ Tổ Hùng Vương (Mùng 10/3 âm lịch) năm 2026.',
+      'Thời gian nghỉ giao dịch thực hiện theo thông báo của Sở Giao dịch Chứng khoán Hà Nội và Sở GDCK Tp. Hồ Chí Minh về việc công bố lịch nghỉ giao dịch trong năm 2026.',
+      'Sở GDCK Việt Nam xin thông báo./.',
+    ],
+    attachment: 'Thong bao gio to Hung Vuong 2026.pdf',
+  },
+  3: {
+    id: 3, date: '05/02/2026',
+    title: 'Thông báo về việc công bố lịch nghỉ Tết Âm lịch 2026',
+    content: [
+      'Căn cứ Bộ Luật Lao động năm 2019, Sở Giao dịch Chứng khoán Việt Nam thông báo thời gian nghỉ Tết Âm lịch năm 2026.',
+      'Thời gian nghỉ giao dịch thực hiện theo thông báo của Sở Giao dịch Chứng khoán Hà Nội và Sở GDCK Tp. Hồ Chí Minh về việc công bố lịch nghỉ giao dịch trong năm 2026.',
+      'Sở GDCK Việt Nam xin thông báo./.',
+    ],
+    attachment: 'Thong bao nghi Tet Am lich 2026.pdf',
+  },
+  4: {
+    id: 4, date: '25/12/2025',
+    title: 'Thông báo về việc công bố lịch nghỉ Tết dương lịch 2026',
+    content: [
+      'Căn cứ Bộ Luật Lao động năm 2019, Sở Giao dịch Chứng khoán Việt Nam thông báo thời gian nghỉ Tết dương lịch năm 2026 từ ngày 01/01/2026 đến hết ngày 03/01/2026.',
+      'Thời gian nghỉ giao dịch thực hiện theo thông báo của Sở Giao dịch Chứng khoán Hà Nội và Sở GDCK Tp. Hồ Chí Minh về việc công bố lịch nghỉ giao dịch trong năm 2026.',
+      'Sở GDCK Việt Nam xin thông báo./.',
+    ],
+    attachment: 'Thong bao nghi Tet duong lich 2026.pdf',
+  },
+  5: {
+    id: 5, date: '20/08/2025',
+    title: 'Thông báo về việc công bố lịch nghỉ lễ Quốc khánh 2/9 năm 2025',
+    content: [
+      'Căn cứ Bộ Luật Lao động năm 2019, Sở Giao dịch Chứng khoán Việt Nam thông báo thời gian nghỉ lễ Quốc khánh 2/9 năm 2025.',
+      'Thời gian nghỉ giao dịch thực hiện theo thông báo của Sở Giao dịch Chứng khoán Hà Nội và Sở GDCK Tp. Hồ Chí Minh về việc công bố lịch nghỉ giao dịch trong năm 2025.',
+      'Sở GDCK Việt Nam xin thông báo./.',
+    ],
+    attachment: 'Thong bao nghi le Quoc khanh 2025.pdf',
+  },
+  6: {
+    id: 6, date: '22/04/2025',
+    title: 'Thông báo về việc công bố lịch nghỉ lễ Chiến thắng 30/4 và ngày Quốc tế lao động 01/5 năm 2025',
+    content: [
+      'Căn cứ Bộ Luật Lao động năm 2019, Sở Giao dịch Chứng khoán Việt Nam thông báo thời gian nghỉ lễ Chiến thắng 30/4 và ngày Quốc tế lao động 01/5 năm 2025.',
+      'Thời gian nghỉ giao dịch thực hiện theo thông báo của Sở Giao dịch Chứng khoán Hà Nội và Sở GDCK Tp. Hồ Chí Minh về việc công bố lịch nghỉ giao dịch trong năm 2025.',
+      'Sở GDCK Việt Nam xin thông báo./.',
+    ],
+    attachment: 'Thong bao 3004 nam 2025.pdf',
+  },
+  7: {
+    id: 7, date: '01/04/2025',
+    title: 'Thông báo về việc công bố lịch nghỉ Giỗ Tổ Hùng Vương (Mùng 10/3 âm lịch) năm 2025',
+    content: [
+      'Căn cứ Bộ Luật Lao động năm 2019, Sở Giao dịch Chứng khoán Việt Nam thông báo thời gian nghỉ Giỗ Tổ Hùng Vương (Mùng 10/3 âm lịch) năm 2025.',
+      'Thời gian nghỉ giao dịch thực hiện theo thông báo của Sở Giao dịch Chứng khoán Hà Nội và Sở GDCK Tp. Hồ Chí Minh về việc công bố lịch nghỉ giao dịch trong năm 2025.',
+      'Sở GDCK Việt Nam xin thông báo./.',
+    ],
+    attachment: 'Thong bao gio to Hung Vuong 2025.pdf',
+  },
+};
+
 const latestHoliday = holidaysData[0];
 
 const AnnualHolidays = () => {
   const ITEMS_PER_PAGE = 5;
   const [currentPage, setCurrentPage] = useState(1);
+  const [selectedId, setSelectedId] = useState<number | null>(null);
   const totalPages = Math.ceil(holidaysData.length / ITEMS_PER_PAGE);
   const paginatedData = holidaysData.slice((currentPage - 1) * ITEMS_PER_PAGE, currentPage * ITEMS_PER_PAGE);
+
+  const selectedDetail = selectedId !== null ? holidayDetails[selectedId] : null;
 
   return (
     <div className="min-h-screen bg-[#003366]">
@@ -73,15 +158,12 @@ const AnnualHolidays = () => {
         <div className="bg-[#eef1f6] pb-16">
           <div className="mx-auto pt-8" style={{ maxWidth: 862 }}>
 
-            {/* Featured Latest - with VNX logo */}
+            {/* Featured Latest */}
             <div className="bg-gradient-to-r from-[#003366] to-[#004d99] rounded-xl px-6 py-4 md:px-8 md:py-5 mb-10 shadow-lg">
               <div className="flex flex-col md:flex-row items-center gap-6">
-                {/* Logo */}
                 <div className="shrink-0 bg-white rounded-lg p-3 w-[140px] h-[95px] flex items-center justify-center">
                   <img src={vnxLogo} alt="Vietnam Exchange" className="w-full h-full object-contain" />
                 </div>
-
-                {/* Content */}
                 <div className="flex-1 text-center md:text-left">
                   <p className="text-white/70 text-sm mb-1">Thông báo mới nhất</p>
                   <h2 className="text-white text-lg md:text-xl font-bold leading-snug mb-3">
@@ -91,18 +173,18 @@ const AnnualHolidays = () => {
                     <p className="text-white/60 text-sm italic">
                       Cập nhật lúc: 20:00 ngày {latestHoliday.date}
                     </p>
-                    <Link
-                      to={`/lich-nghi-hang-nam/${latestHoliday.id}`}
+                    <button
+                      onClick={() => setSelectedId(latestHoliday.id)}
                       className="shrink-0 bg-white text-[#003366] text-[13px] font-semibold px-4 py-1.5 rounded-md hover:bg-white/90 transition-colors"
                     >
                       Xem chi tiết
-                    </Link>
+                    </button>
                   </div>
                 </div>
               </div>
             </div>
 
-            {/* All Announcements - Single flat table */}
+            {/* All Announcements */}
             <div>
               <h2 className="text-xl font-bold text-[#003366] mb-1">Tất cả thông báo</h2>
               <div className="w-16 h-1 bg-[#003366] rounded-full mb-6" />
@@ -125,9 +207,12 @@ const AnnualHolidays = () => {
                         <td className="px-6 py-4 text-slate-500 whitespace-nowrap">{item.date}</td>
                         <td className="px-6 py-4 text-slate-700 leading-relaxed">{item.title}</td>
                         <td className="px-4 py-4 text-right whitespace-nowrap">
-                          <Link to={`/lich-nghi-hang-nam/${item.id}`} className="text-red-500 font-medium hover:text-red-600 hover:underline text-sm">
+                          <button
+                            onClick={() => setSelectedId(item.id)}
+                            className="text-red-500 font-medium hover:text-red-600 hover:underline text-sm"
+                          >
                             Xem chi tiết
-                          </Link>
+                          </button>
                         </td>
                       </tr>
                     ))}
@@ -178,6 +263,58 @@ const AnnualHolidays = () => {
           </div>
         </div>
       </main>
+
+      {/* Detail Popup */}
+      <Dialog open={selectedId !== null} onOpenChange={(open) => { if (!open) setSelectedId(null); }}>
+        <DialogContent className="max-w-2xl p-0 gap-0 overflow-hidden rounded-xl border-0">
+          {selectedDetail && (
+            <>
+              {/* Header */}
+              <div className="bg-[#003366] px-6 py-5 relative">
+                <button
+                  onClick={() => setSelectedId(null)}
+                  className="absolute top-4 right-4 text-white/60 hover:text-white transition-colors"
+                >
+                  <X className="h-5 w-5" />
+                </button>
+                <h2 className="text-white text-lg font-bold leading-snug pr-8">
+                  {selectedDetail.title}
+                </h2>
+                <div className="flex items-center gap-2 mt-2 text-white/60 text-sm">
+                  <Calendar className="h-4 w-4" />
+                  <span>Ngày đăng: {selectedDetail.date}</span>
+                </div>
+              </div>
+
+              {/* Body */}
+              <div className="px-6 py-6 space-y-4 max-h-[60vh] overflow-y-auto">
+                {selectedDetail.content.map((paragraph, idx) => (
+                  <p key={idx} className="text-slate-700 leading-relaxed text-[15px]">
+                    {paragraph}
+                  </p>
+                ))}
+              </div>
+
+              {/* Attachment */}
+              {selectedDetail.attachment && (
+                <div className="px-6 pb-6 pt-0">
+                  <p className="text-sm font-semibold text-slate-600 mb-3">Tài liệu đính kèm:</p>
+                  <a
+                    href="#"
+                    className="inline-flex items-center gap-2 bg-slate-50 border border-slate-200 rounded-lg px-4 py-3 hover:bg-slate-100 transition-colors group"
+                  >
+                    <FileText className="h-5 w-5 text-red-500" />
+                    <span className="text-sm text-slate-700 group-hover:text-[#003366] font-medium">
+                      {selectedDetail.attachment}
+                    </span>
+                    <Download className="h-4 w-4 text-slate-400 ml-2" />
+                  </a>
+                </div>
+              )}
+            </>
+          )}
+        </DialogContent>
+      </Dialog>
 
       <Footer />
       <ScrollToTop />
