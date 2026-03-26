@@ -91,12 +91,12 @@ const AnnualHolidays = () => {
                     <p className="text-white/60 text-sm italic">
                       Cập nhật lúc: 20:00 ngày {latestHoliday.date}
                     </p>
-                    <a
-                      href="#"
+                    <Link
+                      to={`/lich-nghi-hang-nam/${latestHoliday.id}`}
                       className="shrink-0 bg-white text-[#003366] text-[13px] font-semibold px-4 py-1.5 rounded-md hover:bg-white/90 transition-colors"
                     >
                       Xem chi tiết
-                    </a>
+                    </Link>
                   </div>
                 </div>
               </div>
