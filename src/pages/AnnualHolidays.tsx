@@ -107,7 +107,7 @@ const AnnualHolidays = () => {
                     <tr className="border-b-2 border-slate-200">
                       <th className="text-left px-6 py-4 font-bold text-slate-700 w-[180px]">Ngày thông báo</th>
                       <th className="text-left px-6 py-4 font-bold text-slate-700">Nội dung</th>
-                      <th className="text-right px-6 py-4 font-bold text-slate-700 w-[120px]">Xem chi tiết</th>
+                      <th className="w-[100px]"></th>
                     </tr>
                   </thead>
                   <tbody>
@@ -118,7 +118,7 @@ const AnnualHolidays = () => {
                       >
                         <td className="px-6 py-4 text-slate-500 whitespace-nowrap">{item.date}</td>
                         <td className="px-6 py-4 text-slate-700 leading-relaxed">{item.title}</td>
-                        <td className="px-6 py-4 text-right">
+                        <td className="px-4 py-4 text-right whitespace-nowrap">
                           <a href="#" className="text-red-500 font-medium hover:text-red-600 hover:underline text-sm">
                             Xem chi tiết
                           </a>
