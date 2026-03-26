@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import { Link } from 'react-router-dom';
-import { ChevronRight, ChevronLeft, Search, Calendar, FileText, Download } from 'lucide-react';
-import { Dialog, DialogContent } from '@/components/ui/dialog';
+import { ChevronRight, ChevronLeft, Search, Calendar, FileText, Download, X } from 'lucide-react';
+import { AnimatePresence, motion } from 'framer-motion';
 import Header from '@/components/Header';
 import MarketTicker from '@/components/MarketTicker';
 import Footer from '@/components/Footer';
