@@ -4,6 +4,8 @@ import Footer from "@/components/Footer";
 import ScrollToTop from "@/components/ScrollToTop";
 import { Link } from "react-router-dom";
 import vnxInfographic from "@/assets/vnx-duties-infographic.png";
+import hoseInfographic from "@/assets/hose-duties-infographic.png";
+import hnxInfographic from "@/assets/hnx-duties-infographic.png";
 import { ChevronRight } from "lucide-react";
 import { motion } from "framer-motion";
 
