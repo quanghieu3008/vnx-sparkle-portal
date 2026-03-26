@@ -165,7 +165,10 @@ const AnnualHolidays = () => {
                   <img src={vnxLogo} alt="Vietnam Exchange" className="w-full h-full object-contain" />
                 </div>
                 <div className="flex-1 text-center md:text-left">
-                  <p className="text-white/70 text-sm mb-1">Thông báo mới nhất</p>
+                  <p className="text-white/70 text-sm mb-1 flex items-center gap-1.5">
+                    <Bell className="h-4 w-4" />
+                    Thông báo mới nhất
+                  </p>
                   <h2 className="text-white text-lg md:text-xl font-bold leading-snug mb-3">
                     {latestHoliday.title}
                   </h2>
