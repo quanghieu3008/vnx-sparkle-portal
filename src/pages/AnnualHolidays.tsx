@@ -128,9 +128,7 @@ const AnnualHolidays = () => {
                           <Link to={`/lich-nghi-hang-nam/${item.id}`} className="text-red-500 font-medium hover:text-red-600 hover:underline text-sm">
                             Xem chi tiết
                           </Link>
-                        </td>
-                          </a>
-                        </td>
+                      </tr>
                       </tr>
                     ))}
                   </tbody>
