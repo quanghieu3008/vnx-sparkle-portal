@@ -6,11 +6,6 @@ import MarketTicker from '@/components/MarketTicker';
 import Footer from '@/components/Footer';
 import ScrollToTop from '@/components/ScrollToTop';
 
-const filterCategories = [
-  { label: 'Hoạt động sự kiện', href: '/hoat-dong-su-kien', active: false },
-  { label: 'Hoạt động xã hội', href: '/hoat-dong-xa-hoi', active: false },
-  { label: 'Lịch nghỉ hàng năm', href: '/lich-nghi-hang-nam', active: true },
-];
 
 interface HolidayItem {
   id: number;
@@ -91,22 +86,6 @@ const AnnualHolidays = () => {
         {/* Content */}
         <div className="bg-[#eef1f6] pb-16">
           <div className="container mx-auto px-4 pt-8">
-            {/* Filter Categories */}
-            <div className="flex flex-wrap gap-2 mb-6">
-              {filterCategories.map((cat) => (
-                <Link
-                  key={cat.label}
-                  to={cat.href}
-                  className={`px-5 py-2 rounded-full text-sm font-medium transition-colors ${
-                    cat.active
-                      ? 'bg-[#003366] text-white'
-                      : 'bg-white text-slate-600 border border-slate-300 hover:border-[#003366] hover:text-[#003366]'
-                  }`}
-                >
-                  {cat.label}
-                </Link>
-              ))}
-            </div>
 
             {/* Search */}
             <div className="bg-white rounded-lg border border-slate-200 p-4 mb-6">
