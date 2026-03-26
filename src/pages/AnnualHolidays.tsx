@@ -65,7 +65,7 @@ const AnnualHolidays = () => {
 
         {/* Content */}
         <div className="bg-[#eef1f6] pb-16">
-          <div className="mx-auto px-4 pt-8" style={{ maxWidth: 862 }}>
+          <div className="mx-auto pt-8" style={{ maxWidth: 862 }}>
 
             {/* Featured Latest - with VNX logo */}
             <div className="bg-gradient-to-r from-[#003366] to-[#004d99] rounded-xl p-6 md:p-8 mb-10 shadow-lg">
