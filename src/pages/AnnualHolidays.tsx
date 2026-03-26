@@ -125,8 +125,10 @@ const AnnualHolidays = () => {
                         <td className="px-6 py-4 text-slate-500 whitespace-nowrap">{item.date}</td>
                         <td className="px-6 py-4 text-slate-700 leading-relaxed">{item.title}</td>
                         <td className="px-4 py-4 text-right whitespace-nowrap">
-                          <a href="#" className="text-red-500 font-medium hover:text-red-600 hover:underline text-sm">
+                          <Link to={`/lich-nghi-hang-nam/${item.id}`} className="text-red-500 font-medium hover:text-red-600 hover:underline text-sm">
                             Xem chi tiết
+                          </Link>
+                        </td>
                           </a>
                         </td>
                       </tr>
