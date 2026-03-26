@@ -244,7 +244,7 @@ export default function LeadershipTeam() {
                           onClick={() => setSelectedLeader(leader)}
                           className="text-orange-500 hover:text-orange-600 text-sm italic mt-2 inline-block transition-colors cursor-pointer"
                         >
-                          Chi tiết tiểu sử
+                          Xem tiểu sử
                         </button>
                       </motion.div>
                     </div>
