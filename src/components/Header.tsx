@@ -8,6 +8,7 @@ import { Button } from "./ui/button";
 interface SubMenuItem {
   label: string;
   isChild?: boolean;
+  isGroup?: boolean;
   href?: string;
 }
 
@@ -18,64 +19,59 @@ interface MenuItem {
 
 const menuItems: MenuItem[] = [
   {
-    label: "Giới thiệu",
+    label: "Tổng quan",
     items: [
-      { label: "Thông điệp của lãnh đạo", href: "/gioi-thieu/thong-diep-lanh-dao" },
-      { label: "Lịch sử phát triển", href: "/gioi-thieu/lich-su-phat-trien" },
-      { label: "Sơ đồ tổ chức", href: "/gioi-thieu/so-do-to-chuc" },
-      { label: "Chức năng, nhiệm vụ", href: "/gioi-thieu/chuc-nang-nhiem-vu" },
-      { label: "Ban lãnh đạo", href: "/gioi-thieu/ban-lanh-dao" },
-      { label: "Ấn phẩm" },
+      { label: "Giới thiệu", isGroup: true },
+      { label: "Thông điệp của Lãnh đạo", isChild: true, href: "/gioi-thieu/thong-diep-lanh-dao" },
+      { label: "Lịch sử phát triển", isChild: true, href: "/gioi-thieu/lich-su-phat-trien" },
+      { label: "Sơ đồ tổ chức", isChild: true, href: "/gioi-thieu/so-do-to-chuc" },
+      { label: "Chức năng, nhiệm vụ", isChild: true, href: "/gioi-thieu/chuc-nang-nhiem-vu" },
+      { label: "Ban lãnh đạo", isChild: true, href: "/gioi-thieu/ban-lanh-dao" },
+      { label: "Tin tức - sự kiện", isGroup: true },
+      { label: "Hoạt động sự kiện", isChild: true, href: "/hoat-dong-su-kien" },
+      { label: "Hoạt động xã hội", isChild: true, href: "/hoat-dong-xa-hoi" },
+      { label: "Lịch nghỉ hàng năm", isChild: true, href: "/lich-nghi-hang-nam" },
+      { label: "Nghiên cứu - hợp tác", isGroup: true },
+      { label: "Hợp tác quốc tế", isChild: true },
+      { label: "Đối tác quốc tế", isChild: true },
+      { label: "Tổ chức quốc tế", isChild: true },
+      { label: "Trung tâm truyền thông", isGroup: true },
+      { label: "Thông cáo báo chí", isChild: true },
+      { label: "Ấn phẩm", isChild: true },
+      { label: "Thư viện", isChild: true },
+      { label: "Phòng truyền thống", isChild: true },
     ],
   },
   {
-    label: "Tin tức và sự kiện",
+    label: "Thông tin từ VNX",
     items: [
-      { label: "Hoạt động sự kiện", href: "/hoat-dong-su-kien" },
-      { label: "Hoạt động xã hội", href: "/hoat-dong-xa-hoi" },
-      
-      { label: "Lịch nghỉ hàng năm", href: "/lich-nghi-hang-nam" },
-      { label: "Thông tin công bố của VNX" },
-      { label: "Thông tin công bố về công ty con" },
-    ],
-  },
-  {
-    label: "Thành viên",
-    items: [
-      { label: "Thông tin công bố về thành viên" },
-      { label: "Thông tin công bố của thành viên" },
-      { label: "Danh sách thành viên" },
-      { label: "Đăng ký thành viên" },
-      { label: "Hoạt động thành viên" },
-      { label: "Hướng dẫn nghiệp vụ" },
+      { label: "Tin công bố của VNX" },
+      { label: "Văn bản pháp lý" },
     ],
   },
   {
     label: "Thông tin thị trường",
     items: [
       { label: "Dữ liệu thị trường" },
-      { label: "Thông tin trong giờ GD", isChild: true },
-      { label: "Thông tin cuối ngày GD", isChild: true },
-      { label: "Bảng giá giao dịch" },
       { label: "Hoạt động giám sát" },
+      { label: "Bảng giá Giao dịch" },
     ],
   },
   {
-    label: "Văn bản pháp lý",
+    label: "Dành cho thành viên",
     items: [
-      { label: "Luật" },
-      { label: "Nghị định" },
-      { label: "Thông tư" },
-      { label: "Quyết định" },
-      { label: "Quy chế" },
+      { label: "Danh sách thành viên" },
+      { label: "Tin công bố về Thành viên" },
+      { label: "Tin công bố của thành viên" },
+      { label: "Đăng ký thành viên" },
     ],
   },
   {
-    label: "Góc Nhà đầu tư",
+    label: "Góc NĐT",
     items: [
-      { label: "Khuyến cáo Nhà đầu tư" },
+      { label: "Khuyến cáo NĐT" },
       { label: "Chương trình đào tạo" },
-      { label: "Hướng dẫn Nhà đầu tư" },
+      { label: "Hướng dẫn NĐT" },
     ],
   },
 ];
@@ -135,25 +131,34 @@ export default function Header() {
                       animate={{ opacity: 1, y: 0 }}
                       exit={{ opacity: 0, y: 10 }}
                       transition={{ duration: 0.2 }}
-                      className="absolute top-full left-0 w-64 bg-slate-50 rounded-lg shadow-card border border-border/50 py-2 mt-1"
+                      className="absolute top-full left-0 w-72 max-h-[70vh] overflow-y-auto bg-slate-50 rounded-lg shadow-card border border-border/50 py-2 mt-1"
                     >
                       {menu.items.map((item, idx) => (
-                        <a
-                          key={idx}
-                          href={item.href || "#"}
-                          onClick={(e) => {
-                            if (item.href) {
-                              e.preventDefault();
-                              navigate(item.href);
-                              setActiveMenu(null);
-                            }
-                          }}
-                          className={`block py-2 text-sm text-slate-700 hover:text-primary hover:bg-primary/5 transition-colors ${
-                            item.isChild ? "pl-8 pr-4 text-slate-500" : "px-4"
-                          }`}
-                        >
-                          {item.label}
-                        </a>
+                        item.isGroup ? (
+                          <div
+                            key={idx}
+                            className="px-4 pt-3 pb-1 text-xs font-bold text-primary uppercase tracking-wide border-t border-border/30 first:border-0 first:pt-2"
+                          >
+                            {item.label}
+                          </div>
+                        ) : (
+                          <a
+                            key={idx}
+                            href={item.href || "#"}
+                            onClick={(e) => {
+                              if (item.href) {
+                                e.preventDefault();
+                                navigate(item.href);
+                                setActiveMenu(null);
+                              }
+                            }}
+                            className={`block py-2 text-sm text-slate-700 hover:text-primary hover:bg-primary/5 transition-colors ${
+                              item.isChild ? "pl-8 pr-4" : "px-4"
+                            }`}
+                          >
+                            {item.label}
+                          </a>
+                        )
                       ))}
                     </motion.div>
                   )}
