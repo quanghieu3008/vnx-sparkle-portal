@@ -9,6 +9,7 @@ import EventActivities from "./pages/EventActivities";
 import SocialActivities from "./pages/SocialActivities";
 import NewsDetail25Years from "./pages/NewsDetail25Years";
 import AnnualHolidays from "./pages/AnnualHolidays";
+import HolidayDetail from "./pages/HolidayDetail";
 import LeadershipMessage from "./pages/LeadershipMessage";
 import DevelopmentHistory from "./pages/DevelopmentHistory";
 import OrganizationalChart from "./pages/OrganizationalChart";
