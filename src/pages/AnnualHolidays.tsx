@@ -180,7 +180,7 @@ const AnnualHolidays = () => {
                     <Bell className="h-4 w-4 text-amber-400" />
                     Thông báo mới nhất
                   </p>
-                  <h2 className="text-white text-lg md:text-xl font-bold leading-snug mb-3">
+                  <h2 className="text-[#F97316] text-lg md:text-xl font-bold leading-snug mb-3">
                     {latestHoliday.title}
                   </h2>
                   <div className="flex items-center justify-between">
