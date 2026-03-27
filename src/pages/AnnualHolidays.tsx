@@ -164,7 +164,7 @@ const AnnualHolidays = () => {
                   <h2
                     className="text-lg md:text-xl font-bold leading-snug mb-3"
                     style={{
-                      background: 'linear-gradient(90deg, #f3a83e, #ff8c2a)',
+                      background: 'linear-gradient(90deg, rgb(253, 222, 154), rgb(244, 197, 100))',
                       WebkitBackgroundClip: 'text',
                       WebkitTextFillColor: 'transparent',
                     }}
