@@ -137,7 +137,7 @@ const AnnualHolidays = () => {
 
         {/* Content */}
         <div className="bg-[#eef1f6] pb-16">
-          <div className="mx-auto pt-8" style={{ maxWidth: 862 }}>
+          <div className="mx-auto pt-8" style={{ maxWidth: 900 }}>
 
             {/* Featured Latest */}
             <div className="relative bg-gradient-to-r from-[#003366] to-[#004d99] rounded-xl px-6 py-4 md:px-8 md:py-5 mb-10 shadow-lg overflow-hidden">
