@@ -180,7 +180,14 @@ const AnnualHolidays = () => {
                     <Bell className="h-4 w-4 text-[#FFFFFF]" />
                     Thông báo mới nhất
                   </p>
-                  <h2 className="text-[#C6864E] text-lg md:text-xl font-bold leading-snug mb-3">
+                  <h2
+                    className="text-lg md:text-xl font-bold leading-snug mb-3"
+                    style={{
+                      background: 'linear-gradient(90deg, #f3a83e, #ff8c2a)',
+                      WebkitBackgroundClip: 'text',
+                      WebkitTextFillColor: 'transparent',
+                    }}
+                  >
                     {latestHoliday.title}
                   </h2>
                   <div className="flex items-center justify-between">
