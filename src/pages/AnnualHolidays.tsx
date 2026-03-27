@@ -159,7 +159,18 @@ const AnnualHolidays = () => {
           <div className="mx-auto pt-8" style={{ maxWidth: 862 }}>
 
             {/* Featured Latest */}
-            <div className="bg-gradient-to-r from-[#003366] to-[#004d99] rounded-xl px-6 py-4 md:px-8 md:py-5 mb-10 shadow-lg">
+            <div className="relative bg-gradient-to-r from-[#003366] to-[#004d99] rounded-xl px-6 py-4 md:px-8 md:py-5 mb-10 shadow-lg overflow-hidden">
+              <svg className="absolute right-0 top-0 h-full w-auto pointer-events-none" viewBox="0 0 300 100" preserveAspectRatio="xMaxYMin slice" fill="none" style={{ minWidth: '350px' }}>
+                <defs>
+                  <linearGradient id="swooshGradientBanner" x1="0%" y1="0%" x2="100%" y2="100%">
+                    <stop offset="0%" stopColor="hsl(145, 80%, 45%)" />
+                    <stop offset="50%" stopColor="hsl(80, 70%, 50%)" />
+                    <stop offset="100%" stopColor="hsl(25, 95%, 53%)" />
+                  </linearGradient>
+                </defs>
+                <path d="M100,0 Q180,20 220,50 T300,100 L300,0 Z" fill="url(#swooshGradientBanner)" opacity="0.12" />
+                <path d="M120,0 Q200,30 250,60 T300,100" stroke="url(#swooshGradientBanner)" strokeWidth="3" fill="none" opacity="0.7" />
+              </svg>
               <div className="flex flex-col md:flex-row items-center gap-6">
                 <div className="shrink-0 bg-white rounded-lg p-3 w-[140px] h-[95px] flex items-center justify-center">
                   <img src={vnxLogo} alt="Vietnam Exchange" className="w-full h-full object-contain" />
