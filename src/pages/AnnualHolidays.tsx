@@ -171,7 +171,7 @@ const AnnualHolidays = () => {
                 <path d="M100,0 Q180,20 220,50 T300,100 L300,0 Z" fill="url(#swooshGradientBanner)" opacity="0.12" />
                 <path d="M120,0 Q200,30 250,60 T300,100" stroke="url(#swooshGradientBanner)" strokeWidth="3" fill="none" opacity="0.7" />
               </svg>
-              <div className="flex flex-col md:flex-row items-center gap-6">
+              <div className="flex flex-col md:flex-row items-center gap-6 relative z-10">
                 <div className="shrink-0 bg-white rounded-lg p-3 w-[140px] h-[95px] flex items-center justify-center">
                   <img src={vnxLogo} alt="Vietnam Exchange" className="w-full h-full object-contain" />
                 </div>
