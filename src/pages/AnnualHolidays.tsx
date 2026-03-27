@@ -184,7 +184,7 @@ const AnnualHolidays = () => {
                     {latestHoliday.title}
                   </h2>
                   <div className="flex items-center justify-between">
-                    <p className="text-white/60 text-sm italic">
+                    <p className="text-white/60 text-[12px] italic">
                       Cập nhật lúc: 20:00 ngày {latestHoliday.date}
                     </p>
                     <button
