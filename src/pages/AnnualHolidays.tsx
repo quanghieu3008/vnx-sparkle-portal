@@ -158,7 +158,7 @@ const AnnualHolidays = () => {
                 </div>
                 <div className="flex-1 text-center md:text-left">
                   <p className="text-[#FFFFFF] text-sm mb-1 flex items-center gap-1.5">
-                    <Bell className="h-4 w-4 text-[#FFFFFF]" />
+                    <Bell className="h-5 w-5 text-[#FFFFFF] animate-[bell-ring_2s_ease-in-out_infinite]" />
                     Thông báo mới nhất
                   </p>
                   <h2
