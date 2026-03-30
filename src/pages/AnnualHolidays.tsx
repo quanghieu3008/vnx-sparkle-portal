@@ -177,10 +177,11 @@ const AnnualHolidays = () => {
                     </p>
                     <button
                       onClick={() => setSelectedId(latestHoliday.id)}
-                      className="shrink-0 relative overflow-hidden bg-white text-[#003366] text-[13px] font-semibold px-4 py-1.5 rounded-md hover:bg-white/90 transition-colors"
+                      className="shrink-0 relative overflow-hidden text-white text-[13px] font-semibold px-5 py-2 rounded-md transition-all hover:shadow-lg hover:shadow-orange-500/30"
+                      style={{ background: 'linear-gradient(135deg, #F97316, #EA580C)' }}
                     >
                       Xem chi tiết
-                      <span className="absolute inset-0 animate-[shine_3s_ease-in-out_infinite] pointer-events-none" style={{ background: 'linear-gradient(120deg, transparent 30%, rgba(255,255,255,0.6) 50%, transparent 70%)', backgroundSize: '200% 100%' }} />
+                      <span className="absolute inset-0 animate-[shine_3s_ease-in-out_infinite] pointer-events-none" style={{ background: 'linear-gradient(120deg, transparent 20%, rgba(255,255,255,0.4) 50%, transparent 80%)', backgroundSize: '200% 100%' }} />
                     </button>
                   </div>
                 </div>
