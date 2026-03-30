@@ -1,6 +1,6 @@
 import { useState, useEffect, useCallback } from 'react';
 import { Link } from 'react-router-dom';
-import { ChevronRight, ChevronLeft, Shield, AlertTriangle, Send, Eye, Clock, TrendingDown, FileWarning, MessageSquareWarning } from 'lucide-react';
+import { ChevronRight, ChevronLeft, Shield, Send, Eye, Clock, ExternalLink, Search, ShieldCheck, AlertTriangle, Lock, BookOpen, MessageSquareWarning } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
 import Header from '@/components/Header';
 import MarketTicker from '@/components/MarketTicker';
@@ -105,17 +105,40 @@ const articles: Article[] = [
   },
 ];
 
-// Featured articles indices (matching user request)
-const featuredIds = [5, 2, 7]; // Pi warning, Sai lầm, HOSE cảnh báo
+const featuredIds = [5, 2, 7];
 const featuredArticles = articles.filter(a => featuredIds.includes(a.id));
+
+const filterTabs = ['Tất cả', 'Cảnh báo', 'Thị trường', 'Kiến thức'];
+
+const tips = [
+  {
+    icon: ShieldCheck,
+    title: 'Kiểm tra giấy phép',
+    desc: 'Luôn xác minh giấy phép hoạt động của công ty chứng khoán trên website UBCKNN trước khi mở tài khoản.',
+  },
+  {
+    icon: AlertTriangle,
+    title: 'Cảnh giác lợi nhuận cao',
+    desc: 'Không tin vào các lời hứa lợi nhuận cố định, cam kết không rủi ro – đây là dấu hiệu lừa đảo.',
+  },
+  {
+    icon: Lock,
+    title: 'Bảo vệ thông tin',
+    desc: 'Không chia sẻ mật khẩu, OTP, thông tin tài khoản với bất kỳ ai, kể cả người tự xưng nhân viên công ty.',
+  },
+  {
+    icon: BookOpen,
+    title: 'Tự nghiên cứu',
+    desc: 'Luôn tự phân tích và nghiên cứu trước khi đưa ra quyết định đầu tư, không nghe theo tin đồn.',
+  },
+];
 
 const InvestorWarnings = () => {
   const [currentFeatured, setCurrentFeatured] = useState(0);
-  const [direction, setDirection] = useState(1);
   const [selectedArticle, setSelectedArticle] = useState<Article | null>(null);
+  const [activeFilter, setActiveFilter] = useState('Tất cả');
   const { toast } = useToast();
 
-  // Report form state
   const [reportForm, setReportForm] = useState({
     name: '',
     email: '',
@@ -126,21 +149,17 @@ const InvestorWarnings = () => {
   });
 
   const goToSlide = useCallback((index: number) => {
-    setDirection(index > currentFeatured ? 1 : -1);
     setCurrentFeatured(index);
-  }, [currentFeatured]);
+  }, []);
 
   const nextSlide = useCallback(() => {
-    setDirection(1);
     setCurrentFeatured(prev => (prev + 1) % featuredArticles.length);
   }, []);
 
   const prevSlide = useCallback(() => {
-    setDirection(-1);
     setCurrentFeatured(prev => (prev - 1 + featuredArticles.length) % featuredArticles.length);
   }, []);
 
-  // Auto-rotate every 6 seconds
   useEffect(() => {
     const timer = setInterval(nextSlide, 6000);
     return () => clearInterval(timer);
@@ -155,14 +174,16 @@ const InvestorWarnings = () => {
     setReportForm({ name: '', email: '', phone: '', subject: '', organization: '', content: '' });
   };
 
-  const slideVariants = {
-    enter: (d: number) => ({ x: d > 0 ? '100%' : '-100%', opacity: 0 }),
-    center: { x: 0, opacity: 1 },
-    exit: (d: number) => ({ x: d > 0 ? '-100%' : '100%', opacity: 0 }),
+  const filteredArticles = activeFilter === 'Tất cả'
+    ? articles
+    : articles.filter(a => a.category === activeFilter);
+
+  const scrollToReport = () => {
+    document.getElementById('report-section')?.scrollIntoView({ behavior: 'smooth' });
   };
 
   return (
-    <div className="min-h-screen bg-background">
+    <div className="min-h-screen bg-[#003366]">
       <Header />
       <MarketTicker />
       <main className="pt-[121px]">
@@ -171,121 +192,156 @@ const InvestorWarnings = () => {
           <div className="container mx-auto px-4 py-3 flex items-center gap-2 text-sm">
             <Link to="/" className="text-muted-foreground hover:text-primary transition-colors leading-none">Trang chủ</Link>
             <ChevronRight className="h-3.5 w-3.5 text-muted-foreground" />
-            <span className="text-foreground font-medium leading-none">Khuyến cáo nhà đầu tư</span>
+            <span className="text-muted-foreground leading-none">Tin tức và sự kiện</span>
+            <ChevronRight className="h-3.5 w-3.5 text-muted-foreground" />
+            <span className="text-foreground font-medium leading-none">Khuyến cáo NĐT</span>
           </div>
         </div>
 
         {/* Hero Title Block */}
-        <div className="relative h-[110px] bg-[#003366] flex items-center justify-center overflow-hidden">
-          <svg className="absolute inset-0 w-full h-full opacity-10" viewBox="0 0 1200 110" fill="none">
-            <circle cx="100" cy="55" r="80" stroke="currentColor" strokeWidth="0.5" className="text-white" />
-            <circle cx="1100" cy="55" r="60" stroke="currentColor" strokeWidth="0.5" className="text-white" />
-            <path d="M0,80 Q300,20 600,60 T1200,40" stroke="currentColor" strokeWidth="0.5" className="text-cyan-400" />
-            <path d="M0,30 Q400,90 800,50 T1200,70" stroke="currentColor" strokeWidth="0.5" className="text-amber-400" />
+        <div className="relative bg-[#003366] py-10 flex flex-col items-center justify-center overflow-hidden">
+          <svg className="absolute inset-0 w-full h-full opacity-10" viewBox="0 0 1200 200" fill="none">
+            <circle cx="100" cy="100" r="120" stroke="currentColor" strokeWidth="0.5" className="text-white" />
+            <circle cx="1100" cy="80" r="90" stroke="currentColor" strokeWidth="0.5" className="text-white" />
+            <path d="M0,120 Q300,40 600,100 T1200,60" stroke="currentColor" strokeWidth="0.5" className="text-cyan-400" />
           </svg>
-          <div className="relative flex items-center gap-3">
-            <Shield className="h-8 w-8 text-amber-400" />
-            <h1 className="text-2xl md:text-3xl font-bold text-white tracking-wide">Khuyến cáo nhà đầu tư</h1>
+          <div className="relative z-10 flex flex-col items-center text-center">
+            <div className="mb-4">
+              <Shield className="h-10 w-10 text-amber-400" />
+            </div>
+            <h1 className="text-3xl md:text-4xl font-bold text-white tracking-wide mb-3">
+              Khuyến Cáo <em className="italic text-amber-400">Nhà Đầu Tư</em>
+            </h1>
+            <p className="text-white/60 text-sm max-w-lg mb-6">
+              Chỉ giao dịch trên các sàn chứng khoán được cấp phép. Hãy gửi phản ánh cho chúng tôi khi phát hiện hành vi vi phạm pháp luật.
+            </p>
+            <Button
+              onClick={scrollToReport}
+              className="bg-amber-500 hover:bg-amber-600 text-[#003366] font-bold rounded-full px-6 h-10"
+            >
+              <Shield className="h-4 w-4 mr-2" />
+              Phản ánh vi phạm
+            </Button>
           </div>
         </div>
 
         {/* Featured Articles Carousel */}
-        <section className="bg-gradient-to-b from-[#001a33] to-[#002d5c] py-10">
+        <section className="bg-[#003366] pb-8">
           <div className="container mx-auto px-4">
-            <div className="flex items-center gap-2 mb-6">
-              <AlertTriangle className="h-5 w-5 text-amber-400" />
-              <h2 className="text-xl font-bold text-white">Bài viết nổi bật</h2>
-            </div>
-
-            <div className="relative rounded-2xl overflow-hidden bg-[#002244] shadow-2xl">
-              <div className="relative h-[320px] md:h-[400px]">
-                <AnimatePresence initial={false} custom={direction} mode="wait">
-                  <motion.div
-                    key={currentFeatured}
-                    custom={direction}
-                    variants={slideVariants}
-                    initial="enter"
-                    animate="center"
-                    exit="exit"
-                    transition={{ duration: 0.5, ease: 'easeInOut' }}
-                    className="absolute inset-0 flex flex-col md:flex-row"
-                  >
-                    <div className="relative w-full md:w-1/2 h-[160px] md:h-full">
-                      <img
-                        src={featuredArticles[currentFeatured].image}
-                        alt={featuredArticles[currentFeatured].title}
-                        className="w-full h-full object-cover"
-                      />
-                      <div className="absolute inset-0 bg-gradient-to-r from-transparent to-[#002244]/80 hidden md:block" />
-                      <div className="absolute inset-0 bg-gradient-to-b from-transparent to-[#002244]/80 md:hidden" />
-                    </div>
-                    <div className="flex-1 p-6 md:p-10 flex flex-col justify-center">
-                      <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-amber-400/20 text-amber-400 text-xs font-semibold w-fit mb-4">
-                        <FileWarning className="h-3.5 w-3.5" />
+            <div className="relative bg-white rounded-2xl overflow-hidden shadow-xl">
+              <AnimatePresence mode="wait">
+                <motion.div
+                  key={currentFeatured}
+                  initial={{ opacity: 0 }}
+                  animate={{ opacity: 1 }}
+                  exit={{ opacity: 0 }}
+                  transition={{ duration: 0.4 }}
+                  className="flex flex-col md:flex-row"
+                >
+                  {/* Image side */}
+                  <div className="relative w-full md:w-[45%] h-[220px] md:h-[320px]">
+                    <img
+                      src={featuredArticles[currentFeatured].image}
+                      alt={featuredArticles[currentFeatured].title}
+                      className="w-full h-full object-cover"
+                    />
+                    <div className="absolute top-4 left-4">
+                      <span className="px-3 py-1 rounded bg-red-600 text-white text-xs font-bold">
                         {featuredArticles[currentFeatured].category}
                       </span>
-                      <h3 className="text-lg md:text-2xl font-bold text-white leading-snug mb-3 line-clamp-3">
-                        {featuredArticles[currentFeatured].title}
-                      </h3>
-                      <p className="text-sm text-white/60 line-clamp-2 mb-5">
-                        {featuredArticles[currentFeatured].description}
-                      </p>
-                      <div className="flex items-center gap-4 text-xs text-white/40">
-                        <span className="flex items-center gap-1"><Clock className="h-3.5 w-3.5" />{featuredArticles[currentFeatured].date}</span>
-                      </div>
                     </div>
-                  </motion.div>
-                </AnimatePresence>
+                  </div>
+                  {/* Content side */}
+                  <div className="flex-1 p-6 md:p-8 flex flex-col justify-center">
+                    <div className="flex items-center gap-2 mb-3">
+                      <span className="text-amber-500 text-sm">★</span>
+                      <span className="text-amber-600 text-xs font-bold uppercase tracking-wider">Bài viết nổi bật</span>
+                    </div>
+                    <h3 className="text-lg md:text-xl font-bold text-[#003366] leading-snug mb-3 line-clamp-3">
+                      {featuredArticles[currentFeatured].title}
+                    </h3>
+                    <p className="text-sm text-muted-foreground line-clamp-3 mb-4">
+                      {featuredArticles[currentFeatured].description}
+                    </p>
+                    <div className="flex items-center justify-between mt-auto">
+                      <span className="flex items-center gap-1.5 text-xs text-muted-foreground">
+                        <Clock className="h-3.5 w-3.5" />
+                        {featuredArticles[currentFeatured].date}
+                      </span>
+                      <button
+                        onClick={() => setSelectedArticle(featuredArticles[currentFeatured])}
+                        className="flex items-center gap-1 text-sm text-amber-600 font-semibold hover:underline"
+                      >
+                        Đọc thêm <ExternalLink className="h-3.5 w-3.5" />
+                      </button>
+                    </div>
+                  </div>
+                </motion.div>
+              </AnimatePresence>
 
-                {/* Nav arrows */}
-                <button
-                  onClick={prevSlide}
-                  className="absolute left-3 top-1/2 -translate-y-1/2 z-10 h-10 w-10 rounded-full bg-black/40 hover:bg-black/60 flex items-center justify-center text-white transition-colors backdrop-blur-sm"
-                >
-                  <ChevronLeft className="h-5 w-5" />
-                </button>
-                <button
-                  onClick={nextSlide}
-                  className="absolute right-3 top-1/2 -translate-y-1/2 z-10 h-10 w-10 rounded-full bg-black/40 hover:bg-black/60 flex items-center justify-center text-white transition-colors backdrop-blur-sm"
-                >
-                  <ChevronRight className="h-5 w-5" />
-                </button>
-              </div>
+              {/* Nav arrows */}
+              <button
+                onClick={prevSlide}
+                className="absolute left-3 top-1/2 -translate-y-1/2 z-10 h-9 w-9 rounded-full bg-black/30 hover:bg-black/50 flex items-center justify-center text-white transition-colors"
+              >
+                <ChevronLeft className="h-5 w-5" />
+              </button>
+              <button
+                onClick={nextSlide}
+                className="absolute right-3 top-1/2 -translate-y-1/2 z-10 h-9 w-9 rounded-full bg-black/30 hover:bg-black/50 flex items-center justify-center text-white transition-colors"
+              >
+                <ChevronRight className="h-5 w-5" />
+              </button>
+            </div>
 
-              {/* Dots */}
-              <div className="flex items-center justify-center gap-2 pb-5">
-                {featuredArticles.map((_, i) => (
-                  <button
-                    key={i}
-                    onClick={() => goToSlide(i)}
-                    className={`h-2 rounded-full transition-all duration-300 ${
-                      i === currentFeatured ? 'w-8 bg-amber-400' : 'w-2 bg-white/30 hover:bg-white/50'
-                    }`}
-                  />
-                ))}
-              </div>
+            {/* Dots */}
+            <div className="flex items-center justify-center gap-2 mt-5">
+              {featuredArticles.map((_, i) => (
+                <button
+                  key={i}
+                  onClick={() => goToSlide(i)}
+                  className={`h-2.5 w-2.5 rounded-full transition-all duration-300 ${
+                    i === currentFeatured ? 'bg-amber-400 scale-125' : 'bg-white/30 hover:bg-white/50'
+                  }`}
+                />
+              ))}
             </div>
           </div>
         </section>
 
-        {/* All Articles Grid */}
-        <section className="py-10 bg-gradient-to-b from-[#f0f4f8] to-white">
+        {/* All Articles */}
+        <section className="bg-slate-100 py-10">
           <div className="container mx-auto px-4">
-            <div className="flex items-center gap-2 mb-8">
-              <TrendingDown className="h-5 w-5 text-[#003366]" />
-              <h2 className="text-xl font-bold text-[#003366]">Tất cả bài viết</h2>
+            {/* Filter tabs */}
+            <div className="flex flex-wrap items-center gap-3 mb-6">
+              <span className="text-[#003366] font-bold text-lg mr-2">↘ Tất cả bài viết</span>
+              <div className="flex gap-2 ml-auto">
+                {filterTabs.map(tab => (
+                  <button
+                    key={tab}
+                    onClick={() => setActiveFilter(tab)}
+                    className={`px-4 py-1.5 rounded-full text-sm font-medium transition-all ${
+                      activeFilter === tab
+                        ? 'bg-[#003366] text-white'
+                        : 'bg-white text-[#003366] border border-[#003366]/20 hover:bg-[#003366]/10'
+                    }`}
+                  >
+                    {tab}
+                  </button>
+                ))}
+              </div>
             </div>
 
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-              {articles.map((article, index) => (
+              {filteredArticles.map((article, index) => (
                 <motion.div
                   key={article.id}
-                  initial={{ opacity: 0, y: 30 }}
+                  initial={{ opacity: 0, y: 20 }}
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true }}
-                  transition={{ delay: index * 0.05, duration: 0.4 }}
+                  transition={{ delay: index * 0.04, duration: 0.35 }}
                   onClick={() => setSelectedArticle(article)}
-                  className="group bg-white rounded-xl overflow-hidden shadow-md hover:shadow-xl transition-all duration-300 hover:-translate-y-1 cursor-pointer border border-border/30"
+                  className="group bg-white rounded-xl overflow-hidden shadow-sm hover:shadow-lg transition-all duration-300 hover:-translate-y-1 cursor-pointer"
                 >
                   <div className="relative h-48 overflow-hidden">
                     <img
@@ -294,7 +350,7 @@ const InvestorWarnings = () => {
                       className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
                     />
                     <div className="absolute top-3 left-3">
-                      <span className="px-2.5 py-1 rounded-full bg-[#003366]/90 text-white text-[11px] font-semibold backdrop-blur-sm">
+                      <span className="px-2.5 py-1 rounded bg-red-600 text-white text-[11px] font-bold">
                         {article.category}
                       </span>
                     </div>
@@ -306,7 +362,7 @@ const InvestorWarnings = () => {
                     <p className="text-xs text-muted-foreground line-clamp-2 mb-3">{article.description}</p>
                     <div className="flex items-center justify-between text-xs text-muted-foreground">
                       <span className="flex items-center gap-1"><Clock className="h-3 w-3" />{article.date}</span>
-                      <span className="flex items-center gap-1 text-[#003366] font-medium group-hover:underline">
+                      <span className="flex items-center gap-1 text-amber-600 font-medium group-hover:underline">
                         <Eye className="h-3 w-3" />Xem chi tiết
                       </span>
                     </div>
@@ -317,23 +373,44 @@ const InvestorWarnings = () => {
           </div>
         </section>
 
+        {/* Tips Section */}
+        <section className="bg-slate-100 pb-10">
+          <div className="container mx-auto px-4">
+            <h2 className="text-xl md:text-2xl font-bold text-[#003366] text-center mb-8 italic">
+              Nhà đầu tư cần lưu ý
+            </h2>
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-5 max-w-4xl mx-auto">
+              {tips.map((tip, i) => (
+                <div key={i} className="bg-white rounded-xl p-6 flex gap-4 items-start shadow-sm">
+                  <div className="flex-shrink-0 h-11 w-11 rounded-full bg-amber-100 flex items-center justify-center">
+                    <tip.icon className="h-5 w-5 text-amber-600" />
+                  </div>
+                  <div>
+                    <h3 className="font-bold text-[#003366] text-sm mb-1">{tip.title}</h3>
+                    <p className="text-xs text-muted-foreground leading-relaxed">{tip.desc}</p>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+        </section>
+
         {/* Violation Report Section */}
-        <section className="py-12 bg-gradient-to-br from-[#003366] via-[#004d99] to-[#002244] relative overflow-hidden">
+        <section id="report-section" className="py-12 bg-gradient-to-br from-[#003366] via-[#004080] to-[#002244] relative overflow-hidden">
           <div className="absolute inset-0 opacity-5">
             <svg className="w-full h-full" viewBox="0 0 1200 600" fill="none">
               <circle cx="200" cy="300" r="200" stroke="white" strokeWidth="0.5" />
               <circle cx="1000" cy="200" r="150" stroke="white" strokeWidth="0.5" />
-              <circle cx="600" cy="500" r="250" stroke="white" strokeWidth="0.5" />
             </svg>
           </div>
           <div className="container mx-auto px-4 relative z-10">
             <div className="max-w-3xl mx-auto">
               <div className="text-center mb-8">
                 <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-amber-400/15 mb-4">
-                  <MessageSquareWarning className="h-5 w-5 text-amber-400" />
+                  <MessageSquareWarning className="h-4 w-4 text-amber-400" />
                   <span className="text-amber-400 font-semibold text-sm">Phản ánh vi phạm</span>
                 </div>
-                <h2 className="text-2xl md:text-3xl font-bold text-white mb-3">
+                <h2 className="text-2xl md:text-3xl font-bold text-white mb-3 italic">
                   Phản ánh hành vi vi phạm
                 </h2>
                 <p className="text-white/60 text-sm max-w-lg mx-auto">
@@ -341,8 +418,8 @@ const InvestorWarnings = () => {
                 </p>
               </div>
 
-              <form onSubmit={handleReportSubmit} className="bg-white/10 backdrop-blur-md rounded-2xl p-6 md:p-8 border border-white/10">
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-4">
+              <form onSubmit={handleReportSubmit} className="space-y-4">
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                   <div>
                     <label className="block text-white/80 text-xs font-medium mb-1.5">Họ và tên <span className="text-amber-400">*</span></label>
                     <Input
@@ -384,7 +461,7 @@ const InvestorWarnings = () => {
                     />
                   </div>
                 </div>
-                <div className="mb-4">
+                <div>
                   <label className="block text-white/80 text-xs font-medium mb-1.5">Tiêu đề phản ánh <span className="text-amber-400">*</span></label>
                   <Input
                     required
@@ -394,7 +471,7 @@ const InvestorWarnings = () => {
                     placeholder="Nhập tiêu đề phản ánh"
                   />
                 </div>
-                <div className="mb-6">
+                <div>
                   <label className="block text-white/80 text-xs font-medium mb-1.5">Nội dung chi tiết <span className="text-amber-400">*</span></label>
                   <Textarea
                     required
@@ -405,7 +482,7 @@ const InvestorWarnings = () => {
                     placeholder="Mô tả chi tiết hành vi vi phạm, thời gian, địa điểm, bằng chứng (nếu có)..."
                   />
                 </div>
-                <Button type="submit" className="w-full bg-gradient-to-r from-amber-400 to-amber-500 hover:from-amber-500 hover:to-amber-600 text-[#003366] font-bold h-11 rounded-xl">
+                <Button type="submit" className="w-full bg-gradient-to-r from-red-500 to-red-600 hover:from-red-600 hover:to-red-700 text-white font-bold h-11 rounded-lg">
                   <Send className="h-4 w-4 mr-2" />
                   Gửi phản ánh
                 </Button>
@@ -433,20 +510,22 @@ const InvestorWarnings = () => {
               className="bg-white rounded-2xl overflow-hidden max-w-2xl w-full max-h-[85vh] overflow-y-auto shadow-2xl"
               onClick={e => e.stopPropagation()}
             >
-              <div className="relative h-56 md:h-72">
-                <img src={selectedArticle.image} alt={selectedArticle.title} className="w-full h-full object-cover" />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent" />
+              {/* Modal header */}
+              <div className="sticky top-0 z-10 bg-[#003366] px-5 py-3 flex items-center justify-between">
+                <h3 className="text-white font-bold text-sm line-clamp-1 flex-1 mr-4">{selectedArticle.title}</h3>
                 <button
                   onClick={() => setSelectedArticle(null)}
-                  className="absolute top-4 right-4 h-8 w-8 rounded-full bg-black/40 hover:bg-black/60 flex items-center justify-center text-white transition-colors"
+                  className="h-7 w-7 rounded-full bg-white/10 hover:bg-white/20 flex items-center justify-center text-white transition-colors flex-shrink-0"
                 >
                   ✕
                 </button>
-                <div className="absolute bottom-4 left-5 right-5">
-                  <span className="inline-block px-2.5 py-1 rounded-full bg-amber-400/90 text-[#003366] text-[11px] font-bold mb-2">
+              </div>
+              <div className="relative h-56 md:h-72">
+                <img src={selectedArticle.image} alt={selectedArticle.title} className="w-full h-full object-cover" />
+                <div className="absolute bottom-3 left-4">
+                  <span className="px-2.5 py-1 rounded bg-red-600 text-white text-[11px] font-bold">
                     {selectedArticle.category}
                   </span>
-                  <h3 className="text-lg md:text-xl font-bold text-white leading-snug">{selectedArticle.title}</h3>
                 </div>
               </div>
               <div className="p-6">
