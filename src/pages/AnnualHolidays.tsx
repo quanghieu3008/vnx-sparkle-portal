@@ -140,7 +140,7 @@ const AnnualHolidays = () => {
           <div className="mx-auto pt-8" style={{ maxWidth: 900 }}>
 
             {/* Featured Latest */}
-            <div className="relative bg-gradient-to-r from-[#003366] to-[#004d99] rounded-xl px-6 py-4 md:px-8 md:py-5 mb-10 shadow-lg overflow-hidden">
+            <div className="relative bg-gradient-to-r from-[#003366] to-[#004d99] rounded-xl px-6 py-4 md:px-8 md:py-5 mb-10 shadow-lg overflow-hidden transition-all duration-300 hover:shadow-2xl hover:scale-[1.015] hover:-translate-y-1 cursor-pointer">
               <svg className="absolute right-0 top-0 h-full w-auto pointer-events-none" viewBox="0 0 300 100" preserveAspectRatio="xMaxYMin slice" fill="none" style={{ minWidth: '350px' }}>
                 <defs>
                   <linearGradient id="swooshGradientBanner" x1="0%" y1="0%" x2="100%" y2="100%">
