@@ -73,7 +73,7 @@ const menuItems: MenuItem[] = [
   {
     label: "Góc NĐT",
     items: [
-      { label: "Khuyến cáo NĐT", href: "/khuyen-cao-ndt" },
+      { label: "Khuyến cáo NĐT", href: "https://sparkle-vault-home.lovable.app/khuyen-cao-ndt" },
       { label: "Chương trình đào tạo" },
       { label: "Hướng dẫn NĐT" },
     ],
