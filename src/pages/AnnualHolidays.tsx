@@ -177,7 +177,7 @@ const AnnualHolidays = () => {
                     </p>
                     <button
                       onClick={() => setSelectedId(latestHoliday.id)}
-                      className="shrink-0 bg-white text-[#003366] text-[13px] font-semibold px-4 py-1.5 rounded-md hover:bg-white/90 transition-colors animate-[bounce-subtle_1.5s_ease-in-out_infinite] shadow-lg hover:shadow-xl"
+                      className="shrink-0 bg-white text-[#003366] text-[13px] font-semibold px-4 py-1.5 rounded-md hover:bg-white/90 transition-colors"
                     >
                       Xem chi tiết
                     </button>
@@ -211,7 +211,7 @@ const AnnualHolidays = () => {
                         <td className="px-4 py-4 text-right whitespace-nowrap">
                           <button
                             onClick={() => setSelectedId(item.id)}
-                            className="text-[#F97316] font-semibold hover:text-[#EA580C] hover:underline text-sm animate-[pulse-orange_2s_ease-in-out_infinite] transition-all duration-300"
+                            className="text-[#F97316] font-normal hover:text-[#EA580C] hover:underline text-sm"
                           >
                             Xem chi tiết
                           </button>
