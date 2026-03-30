@@ -73,7 +73,7 @@ const menuItems: MenuItem[] = [
   {
     label: "Góc NĐT",
     items: [
-      { label: "Khuyến cáo NĐT", href: "/khuyen-cao-ndt" },
+      { label: "Khuyến cáo NĐT", href: "https://sparkle-vault-home.lovable.app/khuyen-cao-ndt" },
       { label: "Chương trình đào tạo" },
       { label: "Hướng dẫn NĐT" },
     ],
@@ -152,7 +152,11 @@ export default function Header() {
                             onClick={(e) => {
                               if (item.href) {
                                 e.preventDefault();
-                                navigate(item.href);
+                                if (item.href.startsWith('http')) {
+                                  window.open(item.href, '_blank');
+                                } else {
+                                  navigate(item.href);
+                                }
                                 setActiveMenu(null);
                               }
                             }}
@@ -236,7 +240,11 @@ export default function Header() {
                             onClick={(e) => {
                               if (item.href) {
                                 e.preventDefault();
-                                navigate(item.href);
+                                if (item.href.startsWith('http')) {
+                                  window.open(item.href, '_blank');
+                                } else {
+                                  navigate(item.href);
+                                }
                                 setIsMobileMenuOpen(false);
                               }
                             }}
