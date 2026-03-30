@@ -240,7 +240,11 @@ export default function Header() {
                             onClick={(e) => {
                               if (item.href) {
                                 e.preventDefault();
-                                navigate(item.href);
+                                if (item.href.startsWith('http')) {
+                                  window.open(item.href, '_blank');
+                                } else {
+                                  navigate(item.href);
+                                }
                                 setIsMobileMenuOpen(false);
                               }
                             }}
