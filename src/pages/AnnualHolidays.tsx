@@ -211,7 +211,7 @@ const AnnualHolidays = () => {
                         <td className="px-4 py-4 text-right whitespace-nowrap">
                           <button
                             onClick={() => setSelectedId(item.id)}
-                            className="text-[#F97316] font-normal hover:text-[#EA580C] hover:underline text-sm"
+                            className="text-[#F97316] font-semibold hover:text-[#EA580C] hover:underline text-sm animate-[pulse-orange_2s_ease-in-out_infinite] transition-all duration-300"
                           >
                             Xem chi tiết
                           </button>
