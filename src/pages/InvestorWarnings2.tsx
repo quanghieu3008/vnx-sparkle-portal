@@ -1,6 +1,6 @@
 import { useState, useEffect, useCallback } from 'react';
 import { Link } from 'react-router-dom';
-import { ChevronRight, ChevronLeft, Shield, Send, Eye, Clock, ExternalLink, Search, ShieldCheck, AlertTriangle, Lock, BookOpen, MessageSquareWarning } from 'lucide-react';
+import { ChevronRight, ChevronLeft, Shield, Send, Eye, Clock, ExternalLink, Search, ShieldCheck, AlertTriangle, Lock, BookOpen, MessageSquareWarning, Ban, BookMarked, TrendingDown } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
 import Header from '@/components/Header';
 import MarketTicker from '@/components/MarketTicker';
@@ -28,6 +28,7 @@ interface Article {
   image: string;
   date: string;
   category: string;
+  views: number;
 }
 
 const articles: Article[] = [
@@ -38,6 +39,7 @@ const articles: Article[] = [
     image: imgWarning1,
     date: '15/03/2026',
     category: 'Cảnh báo',
+    views: 12453,
   },
   {
     id: 2,
@@ -46,6 +48,7 @@ const articles: Article[] = [
     image: imgWarning2,
     date: '12/03/2026',
     category: 'Kiến thức',
+    views: 8921,
   },
   {
     id: 3,
@@ -53,7 +56,8 @@ const articles: Article[] = [
     description: 'Hai nạn nhân tham gia nhóm tư vấn đầu tư chứng khoán trên ứng dụng NEEX đã bị lừa mất 15 tỷ đồng mới trình báo cơ quan công an.',
     image: imgWarning3,
     date: '10/03/2026',
-    category: 'Tin tức',
+    category: 'Cảnh báo',
+    views: 15672,
   },
   {
     id: 4,
@@ -62,6 +66,7 @@ const articles: Article[] = [
     image: imgWarning4,
     date: '08/03/2026',
     category: 'Cảnh báo',
+    views: 9876,
   },
   {
     id: 5,
@@ -70,59 +75,104 @@ const articles: Article[] = [
     image: imgWarning5,
     date: '05/03/2026',
     category: 'Cảnh báo',
+    views: 18340,
   },
   {
     id: 6,
-    title: 'Đầu tư chứng khoán, cẩn thận không mắc bẫy lừa đảo',
-    description: 'Bài viết phân tích cơ chế hoạt động, các yếu tố tâm lý bị lợi dụng, và cung cấp lộ trình phòng vệ, xử lý mang tính hệ thống và thực tế.',
-    image: imgWarning6,
-    date: '01/03/2026',
-    category: 'Phân tích',
-  },
-  {
-    id: 7,
     title: 'HOSE tiếp tục đưa 6 cổ phiếu vào diện cảnh báo',
     description: 'HOSE có các quyết định về việc đưa cổ phiếu DAG, LEC, SJF, VMD vào diện cảnh báo kể từ ngày 21/9/2023, còn cổ phiếu POM và ASP từ ngày 22/9.',
     image: imgWarning7,
     date: '28/02/2026',
-    category: 'Quy định',
+    category: 'Thị trường',
+    views: 6234,
+  },
+  {
+    id: 7,
+    title: 'Đầu tư chứng khoán online, hai nạn nhân bị lừa 15 tỷ đồng',
+    description: 'Hai nạn nhân tham gia nhóm tư vấn đầu tư chứng khoán trên ứng dụng NEEX đã bị lừa mất 15 tỷ đồng mới trình báo cơ quan công an.',
+    image: imgWarning3,
+    date: '05/03/2026',
+    category: 'Cảnh báo',
+    views: 18340,
   },
   {
     id: 8,
+    title: 'Cảnh báo từ Ủy ban Chứng khoán Nhà nước về Tikop, Buff, Topi',
+    description: 'Ủy ban Chứng khoán Nhà nước cảnh báo nhà đầu tư cần thận trọng, tìm hiểu kĩ về pháp lý khi thực hiện giao dịch hợp tác đầu tư qua các ứng dụng, website trên môi trường mạng.',
+    image: imgWarning4,
+    date: '03/03/2026',
+    category: 'Cảnh báo',
+    views: 9876,
+  },
+  {
+    id: 9,
     title: 'Cẩm nang nhận biết và phòng tránh lừa đảo đầu tư sàn chứng khoán ảo, tiền ảo, đa cấp',
     description: 'Trước xu thế đầu tư vào các hoạt động trực tuyến, tội phạm lừa đảo qua mạng đẩy mạnh hoạt động thông qua hình thức này.',
     image: imgWarning8,
     date: '25/02/2026',
-    category: 'Cẩm nang',
+    category: 'Kiến thức',
+    views: 7542,
   },
   {
-    id: 9,
+    id: 10,
     title: '4 tỷ đồng đổi 7,77 tỷ ảo: Cú lừa đầu tư chứng khoán qua app giả mạo',
     description: 'App giả mô phỏng sàn chứng khoán chuyên nghiệp, dụ nhà đầu tư thử "đánh lệnh". Người chơi đầu tư tiền thật, nhận "lợi nhuận ảo" rồi bị xóa tài khoản.',
     image: imgWarning9,
     date: '20/02/2026',
-    category: 'Tin tức',
+    category: 'Cảnh báo',
+    views: 11230,
+  },
+  {
+    id: 11,
+    title: 'Đầu tư chứng khoán, cẩn thận không mắc bẫy lừa đảo',
+    description: 'Bài viết phân tích cơ chế hoạt động, các yếu tố tâm lý bị lợi dụng, và cung cấp lộ trình phòng vệ, xử lý mang tính hệ thống và thực tế.',
+    image: imgWarning6,
+    date: '18/02/2026',
+    category: 'Kiến thức',
+    views: 5430,
   },
 ];
 
-const featuredIds = [5, 2, 7];
+const featuredIds = [5, 2, 6];
 const featuredArticles = articles.filter(a => featuredIds.includes(a.id));
 
 const filterTabs = ['Tất cả', 'Cảnh báo', 'Thị trường', 'Kiến thức'];
 
+const getCategoryIcon = (category: string) => {
+  switch (category) {
+    case 'Cảnh báo': return Ban;
+    case 'Kiến thức': return BookMarked;
+    case 'Thị trường': return TrendingDown;
+    default: return Ban;
+  }
+};
+
+const getCategoryColor = (category: string) => {
+  switch (category) {
+    case 'Cảnh báo': return 'bg-red-600';
+    case 'Kiến thức': return 'bg-blue-600';
+    case 'Thị trường': return 'bg-emerald-600';
+    default: return 'bg-gray-600';
+  }
+};
+
+const formatViews = (views: number) => {
+  return views.toLocaleString('de-DE');
+};
+
 const tips = [
   {
-    icon: ShieldCheck,
+    icon: Search,
     title: 'Kiểm tra giấy phép',
     desc: 'Luôn xác minh giấy phép hoạt động của công ty chứng khoán trên website UBCKNN trước khi mở tài khoản.',
   },
   {
     icon: AlertTriangle,
     title: 'Cảnh giác lợi nhuận cao',
-    desc: 'Không tin vào các lời hứa lợi nhuận cố định, cam kết không rủi ro – đây là dấu hiệu lừa đảo.',
+    desc: 'Không tin vào các lời hứa lợi nhuận cố định, cam kết không rủi ro - đây là dấu hiệu lừa đảo.',
   },
   {
-    icon: Lock,
+    icon: ShieldCheck,
     title: 'Bảo vệ thông tin',
     desc: 'Không chia sẻ mật khẩu, OTP, thông tin tài khoản với bất kỳ ai, kể cả người tự xưng nhân viên công ty.',
   },
@@ -133,10 +183,14 @@ const tips = [
   },
 ];
 
+const ITEMS_PER_PAGE = 6;
+
 const InvestorWarnings2 = () => {
   const [currentFeatured, setCurrentFeatured] = useState(0);
   const [selectedArticle, setSelectedArticle] = useState<Article | null>(null);
   const [activeFilter, setActiveFilter] = useState('Tất cả');
+  const [searchQuery, setSearchQuery] = useState('');
+  const [currentPage, setCurrentPage] = useState(1);
   const { toast } = useToast();
 
   const [reportForm, setReportForm] = useState({
@@ -174,9 +228,20 @@ const InvestorWarnings2 = () => {
     setReportForm({ name: '', email: '', phone: '', subject: '', organization: '', content: '' });
   };
 
-  const filteredArticles = activeFilter === 'Tất cả'
+  const filteredArticles = (activeFilter === 'Tất cả'
     ? articles
-    : articles.filter(a => a.category === activeFilter);
+    : articles.filter(a => a.category === activeFilter)
+  ).filter(a => searchQuery === '' || a.title.toLowerCase().includes(searchQuery.toLowerCase()));
+
+  const totalPages = Math.ceil(filteredArticles.length / ITEMS_PER_PAGE);
+  const paginatedArticles = filteredArticles.slice(
+    (currentPage - 1) * ITEMS_PER_PAGE,
+    currentPage * ITEMS_PER_PAGE
+  );
+
+  useEffect(() => {
+    setCurrentPage(1);
+  }, [activeFilter, searchQuery]);
 
   const scrollToReport = () => {
     document.getElementById('report-section')?.scrollIntoView({ behavior: 'smooth' });
@@ -246,16 +311,23 @@ const InvestorWarnings2 = () => {
                       className="w-full h-full object-cover"
                     />
                     <div className="absolute top-4 left-4">
-                      <span className="px-3 py-1 rounded bg-red-600 text-white text-xs font-bold">
-                        {featuredArticles[currentFeatured].category}
-                      </span>
+                      {(() => {
+                        const cat = featuredArticles[currentFeatured].category;
+                        const Icon = getCategoryIcon(cat);
+                        return (
+                          <span className={`inline-flex items-center gap-1.5 px-3 py-1 rounded ${getCategoryColor(cat)} text-white text-xs font-bold`}>
+                            <Icon className="h-3.5 w-3.5" />
+                            {cat}
+                          </span>
+                        );
+                      })()}
                     </div>
                   </div>
                   {/* Content side */}
                   <div className="flex-1 p-6 md:p-8 flex flex-col justify-center">
                     <div className="flex items-center gap-2 mb-3">
-                      <span className="text-amber-500 text-sm">★</span>
-                      <span className="text-amber-600 text-xs font-bold uppercase tracking-wider">Bài viết nổi bật</span>
+                      <span className="h-2.5 w-2.5 rounded-full bg-amber-500 inline-block" />
+                      <span className="text-amber-600 text-xs font-bold uppercase tracking-wider">ĐÁNG CHÚ Ý</span>
                     </div>
                     <h3 className="text-lg md:text-xl font-bold text-[#003366] leading-snug mb-3 line-clamp-3">
                       {featuredArticles[currentFeatured].title}
@@ -312,78 +384,122 @@ const InvestorWarnings2 = () => {
         {/* All Articles */}
         <section className="bg-slate-100 py-10">
           <div className="container mx-auto px-4">
-            {/* Filter tabs */}
-            <div className="flex flex-wrap items-center gap-3 mb-6">
-              <span className="text-[#003366] font-bold text-lg mr-2">↘ Tất cả bài viết</span>
-              <div className="flex gap-2 ml-auto">
-                {filterTabs.map(tab => (
-                  <button
-                    key={tab}
-                    onClick={() => setActiveFilter(tab)}
-                    className={`px-4 py-1.5 rounded-full text-sm font-medium transition-all ${
-                      activeFilter === tab
-                        ? 'bg-[#003366] text-white'
-                        : 'bg-white text-[#003366] border border-[#003366]/20 hover:bg-[#003366]/10'
-                    }`}
-                  >
-                    {tab}
-                  </button>
-                ))}
+            {/* Filter tabs - centered with search */}
+            <div className="flex flex-wrap items-center justify-center gap-3 mb-8">
+              {filterTabs.map(tab => (
+                <button
+                  key={tab}
+                  onClick={() => setActiveFilter(tab)}
+                  className={`px-5 py-2 rounded-full text-sm font-medium transition-all ${
+                    activeFilter === tab
+                      ? 'bg-[#003366] text-white shadow-md'
+                      : 'bg-white text-[#003366] border border-[#003366]/20 hover:bg-[#003366]/10'
+                  }`}
+                >
+                  {tab}
+                </button>
+              ))}
+              <div className="relative">
+                <Search className="absolute left-3 top-1/2 -translate-y-1/2 h-4 w-4 text-muted-foreground" />
+                <input
+                  type="text"
+                  value={searchQuery}
+                  onChange={e => setSearchQuery(e.target.value)}
+                  placeholder="Tìm kiếm..."
+                  className="pl-9 pr-4 py-2 rounded-full text-sm border border-[#003366]/20 bg-white text-[#003366] placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-[#003366]/30 w-40"
+                />
               </div>
             </div>
 
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-              {filteredArticles.map((article, index) => (
-                <motion.div
-                  key={article.id}
-                  initial={{ opacity: 0, y: 20 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ delay: index * 0.04, duration: 0.35 }}
-                  onClick={() => setSelectedArticle(article)}
-                  className="group bg-white rounded-xl overflow-hidden shadow-sm hover:shadow-lg transition-all duration-300 hover:-translate-y-1 cursor-pointer"
-                >
-                  <div className="relative h-48 overflow-hidden">
-                    <img
-                      src={article.image}
-                      alt={article.title}
-                      className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
-                    />
-                    <div className="absolute top-3 left-3">
-                      <span className="px-2.5 py-1 rounded bg-red-600 text-white text-[11px] font-bold">
-                        {article.category}
-                      </span>
+              {paginatedArticles.map((article, index) => {
+                const CatIcon = getCategoryIcon(article.category);
+                return (
+                  <motion.div
+                    key={article.id + '-' + currentPage}
+                    initial={{ opacity: 0, y: 20 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true }}
+                    transition={{ delay: index * 0.04, duration: 0.35 }}
+                    onClick={() => setSelectedArticle(article)}
+                    className="group bg-white rounded-xl overflow-hidden shadow-sm hover:shadow-lg transition-all duration-300 hover:-translate-y-1 cursor-pointer"
+                  >
+                    <div className="relative h-48 overflow-hidden">
+                      <img
+                        src={article.image}
+                        alt={article.title}
+                        className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                      />
+                      <div className="absolute top-3 left-3">
+                        <span className={`inline-flex items-center gap-1.5 px-2.5 py-1 rounded ${getCategoryColor(article.category)} text-white text-[11px] font-bold`}>
+                          <CatIcon className="h-3 w-3" />
+                          {article.category}
+                        </span>
+                      </div>
                     </div>
-                  </div>
-                  <div className="p-5">
-                    <h3 className="text-sm font-bold text-[#003366] leading-snug mb-2 line-clamp-2 group-hover:text-[#0066cc] transition-colors">
-                      {article.title}
-                    </h3>
-                    <p className="text-xs text-muted-foreground line-clamp-2 mb-3">{article.description}</p>
-                    <div className="flex items-center justify-between text-xs text-muted-foreground">
-                      <span className="flex items-center gap-1"><Clock className="h-3 w-3" />{article.date}</span>
-                      <span className="flex items-center gap-1 text-amber-600 font-medium group-hover:underline">
-                        <Eye className="h-3 w-3" />Xem chi tiết
-                      </span>
+                    <div className="p-5">
+                      <h3 className="text-sm font-bold text-[#003366] leading-snug mb-2 line-clamp-2 group-hover:text-[#0066cc] transition-colors">
+                        {article.title}
+                      </h3>
+                      <p className="text-xs text-muted-foreground line-clamp-2 mb-3">{article.description}</p>
+                      <div className="flex items-center justify-between text-xs text-muted-foreground">
+                        <span className="flex items-center gap-1"><Clock className="h-3 w-3" />{article.date}</span>
+                        <span className="flex items-center gap-1">
+                          <Eye className="h-3 w-3" />{formatViews(article.views)}
+                        </span>
+                      </div>
                     </div>
-                  </div>
-                </motion.div>
-              ))}
+                  </motion.div>
+                );
+              })}
             </div>
+
+            {/* Pagination */}
+            {totalPages > 1 && (
+              <div className="flex items-center justify-center gap-2 mt-8">
+                <button
+                  onClick={() => setCurrentPage(p => Math.max(1, p - 1))}
+                  disabled={currentPage === 1}
+                  className="h-9 w-9 rounded-full border border-[#003366]/20 flex items-center justify-center text-[#003366] hover:bg-[#003366]/10 disabled:opacity-30 disabled:cursor-not-allowed transition-colors"
+                >
+                  <ChevronLeft className="h-4 w-4" />
+                </button>
+                {Array.from({ length: totalPages }, (_, i) => i + 1).map(page => (
+                  <button
+                    key={page}
+                    onClick={() => setCurrentPage(page)}
+                    className={`h-9 w-9 rounded-full text-sm font-medium transition-all ${
+                      page === currentPage
+                        ? 'bg-[#003366] text-white shadow-md'
+                        : 'border border-[#003366]/20 text-[#003366] hover:bg-[#003366]/10'
+                    }`}
+                  >
+                    {page}
+                  </button>
+                ))}
+                <button
+                  onClick={() => setCurrentPage(p => Math.min(totalPages, p + 1))}
+                  disabled={currentPage === totalPages}
+                  className="h-9 w-9 rounded-full border border-[#003366]/20 flex items-center justify-center text-[#003366] hover:bg-[#003366]/10 disabled:opacity-30 disabled:cursor-not-allowed transition-colors"
+                >
+                  <ChevronRight className="h-4 w-4" />
+                </button>
+              </div>
+            )}
           </div>
         </section>
 
         {/* Tips Section */}
-        <section className="bg-slate-100 pb-10">
+        <section className="bg-white py-12">
           <div className="container mx-auto px-4">
-            <h2 className="text-xl md:text-2xl font-bold text-[#003366] text-center mb-8 italic">
+            <h2 className="text-xl md:text-2xl font-bold text-[#003366] text-center mb-8">
               Nhà đầu tư cần lưu ý
             </h2>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-5 max-w-4xl mx-auto">
               {tips.map((tip, i) => (
-                <div key={i} className="bg-white rounded-xl p-6 flex gap-4 items-start shadow-sm">
-                  <div className="flex-shrink-0 h-11 w-11 rounded-full bg-amber-100 flex items-center justify-center">
-                    <tip.icon className="h-5 w-5 text-amber-600" />
+                <div key={i} className="bg-slate-50 rounded-xl p-6 flex gap-4 items-start border border-slate-100">
+                  <div className="flex-shrink-0 h-12 w-12 rounded-full bg-white border border-slate-200 flex items-center justify-center shadow-sm">
+                    <tip.icon className="h-5 w-5 text-[#003366]" />
                   </div>
                   <div>
                     <h3 className="font-bold text-[#003366] text-sm mb-1">{tip.title}</h3>
@@ -406,11 +522,7 @@ const InvestorWarnings2 = () => {
           <div className="container mx-auto px-4 relative z-10">
             <div className="max-w-3xl mx-auto">
               <div className="text-center mb-8">
-                <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-amber-400/15 mb-4">
-                  <MessageSquareWarning className="h-4 w-4 text-amber-400" />
-                  <span className="text-amber-400 font-semibold text-sm">Phản ánh vi phạm</span>
-                </div>
-                <h2 className="text-2xl md:text-3xl font-bold text-white mb-3 italic">
+                <h2 className="text-2xl md:text-3xl font-bold text-white mb-3">
                   Phản ánh hành vi vi phạm
                 </h2>
                 <p className="text-white/60 text-sm max-w-lg mx-auto">
@@ -421,7 +533,7 @@ const InvestorWarnings2 = () => {
               <form onSubmit={handleReportSubmit} className="space-y-4">
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                   <div>
-                    <label className="block text-white/80 text-xs font-medium mb-1.5">Họ và tên <span className="text-amber-400">*</span></label>
+                    <label className="block text-white/80 text-xs font-medium mb-1.5">Họ và tên <span className="text-red-400">*</span></label>
                     <Input
                       required
                       value={reportForm.name}
@@ -431,7 +543,7 @@ const InvestorWarnings2 = () => {
                     />
                   </div>
                   <div>
-                    <label className="block text-white/80 text-xs font-medium mb-1.5">Email <span className="text-amber-400">*</span></label>
+                    <label className="block text-white/80 text-xs font-medium mb-1.5">Email <span className="text-red-400">*</span></label>
                     <Input
                       required
                       type="email"
@@ -451,7 +563,7 @@ const InvestorWarnings2 = () => {
                     />
                   </div>
                   <div>
-                    <label className="block text-white/80 text-xs font-medium mb-1.5">Tổ chức/cá nhân vi phạm <span className="text-amber-400">*</span></label>
+                    <label className="block text-white/80 text-xs font-medium mb-1.5">Tổ chức/cá nhân vi phạm <span className="text-red-400">*</span></label>
                     <Input
                       required
                       value={reportForm.organization}
@@ -462,7 +574,7 @@ const InvestorWarnings2 = () => {
                   </div>
                 </div>
                 <div>
-                  <label className="block text-white/80 text-xs font-medium mb-1.5">Tiêu đề phản ánh <span className="text-amber-400">*</span></label>
+                  <label className="block text-white/80 text-xs font-medium mb-1.5">Tiêu đề phản ánh <span className="text-red-400">*</span></label>
                   <Input
                     required
                     value={reportForm.subject}
@@ -472,7 +584,7 @@ const InvestorWarnings2 = () => {
                   />
                 </div>
                 <div>
-                  <label className="block text-white/80 text-xs font-medium mb-1.5">Nội dung chi tiết <span className="text-amber-400">*</span></label>
+                  <label className="block text-white/80 text-xs font-medium mb-1.5">Nội dung chi tiết <span className="text-red-400">*</span></label>
                   <Textarea
                     required
                     rows={5}
@@ -482,7 +594,7 @@ const InvestorWarnings2 = () => {
                     placeholder="Mô tả chi tiết hành vi vi phạm, thời gian, địa điểm, bằng chứng (nếu có)..."
                   />
                 </div>
-                <Button type="submit" className="w-full bg-gradient-to-r from-red-500 to-red-600 hover:from-red-600 hover:to-red-700 text-white font-bold h-11 rounded-lg">
+                <Button type="submit" className="w-full bg-gradient-to-r from-amber-500 to-amber-600 hover:from-amber-600 hover:to-amber-700 text-[#003366] font-bold h-11 rounded-lg">
                   <Send className="h-4 w-4 mr-2" />
                   Gửi phản ánh
                 </Button>
@@ -523,14 +635,21 @@ const InvestorWarnings2 = () => {
               <div className="relative h-56 md:h-72">
                 <img src={selectedArticle.image} alt={selectedArticle.title} className="w-full h-full object-cover" />
                 <div className="absolute bottom-3 left-4">
-                  <span className="px-2.5 py-1 rounded bg-red-600 text-white text-[11px] font-bold">
-                    {selectedArticle.category}
-                  </span>
+                  {(() => {
+                    const CatIcon = getCategoryIcon(selectedArticle.category);
+                    return (
+                      <span className={`inline-flex items-center gap-1.5 px-2.5 py-1 rounded ${getCategoryColor(selectedArticle.category)} text-white text-[11px] font-bold`}>
+                        <CatIcon className="h-3 w-3" />
+                        {selectedArticle.category}
+                      </span>
+                    );
+                  })()}
                 </div>
               </div>
               <div className="p-6">
                 <div className="flex items-center gap-3 text-xs text-muted-foreground mb-4">
                   <span className="flex items-center gap-1"><Clock className="h-3.5 w-3.5" />{selectedArticle.date}</span>
+                  <span className="flex items-center gap-1"><Eye className="h-3.5 w-3.5" />{formatViews(selectedArticle.views)}</span>
                 </div>
                 <p className="text-sm text-foreground leading-relaxed">{selectedArticle.description}</p>
               </div>
