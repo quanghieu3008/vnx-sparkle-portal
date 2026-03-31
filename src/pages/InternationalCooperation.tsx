@@ -215,9 +215,11 @@ export default function InternationalCooperation() {
               ))}
             </div>
           </div>
+        </div>
 
-          {/* Milestones Section */}
-          <div className="mb-10 py-10 px-6 rounded-2xl" style={{ background: 'linear-gradient(135deg, #0a1628 0%, #122a4e 100%)' }}>
+        {/* Milestones Section - full width */}
+        <div className="mb-10 py-10" style={{ background: 'linear-gradient(135deg, #0a1628 0%, #122a4e 100%)' }}>
+          <div className="container mx-auto px-4">
             <h2 className="text-[28px] font-bold text-white text-center mb-2">Dấu mốc hội nhập quốc tế</h2>
             <p className="text-center text-slate-400 text-sm mb-8">Những thành tựu quan trọng trong hành trình hội nhập của VNX</p>
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5">
@@ -243,6 +245,9 @@ export default function InternationalCooperation() {
               ))}
             </div>
           </div>
+        </div>
+
+        <div className="container mx-auto px-4">
           {/* Article List */}
           <div className="space-y-4">
             {paginatedData.map((article, index) => (
