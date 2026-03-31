@@ -69,6 +69,7 @@ const articlesData: Article[] = [
     description: "Sở Giao dịch chứng khoán Việt Nam và Sở Giao dịch chứng khoán Singapore ký Biên bản ghi nhớ nâng tầm hợp tác.",
     image: imgP2_1,
     date: "15/10/2024",
+    location: "Singapore",
   },
   {
     id: 6,
