@@ -66,7 +66,7 @@ const podcastItems = [
 
 export default function InfoSection() {
   return (
-    <section className="py-8">
+    <section className="py-0">
       <div className="container mx-auto px-4">
         {/* Main Grid */}
         <div className="grid lg:grid-cols-3 gap-6 mb-12">
