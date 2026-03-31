@@ -24,22 +24,28 @@ interface Article {
   description: string;
   image: string;
   date: string;
+  tag?: string;
+  location?: string;
 }
 
 const articlesData: Article[] = [
   {
     id: 1,
-    title: "Thông cáo báo chí về việc ký MOU giữa VNX và FTSE",
-    description: "Sở Giao dịch Chứng khoán Việt Nam (VNX) vui mừng thông báo đã ký kết Biên bản Ghi nhớ (MOU) với Công ty FTSE International Limited (FTSE).",
+    title: "Ký MOU giữa VNX và FTSE Russell",
+    description: "Sở Giao dịch Chứng khoán Việt Nam (VNX) ký kết Biên bản Ghi nhớ (MOU) với Công ty FTSE International Limited, mở ra cơ hội hợp tác chiến lược nhằm thúc đẩy nâng hạng thị trường.",
     image: imgP0_1,
     date: "15/09/2025",
+    tag: "Nổi bật",
+    location: "London, Anh",
   },
   {
     id: 2,
-    title: "Các Sở GDCK khu vực ASEAN ký Biên bản hợp tác (MOU) về sản phẩm Chứng chỉ Lưu ký (Depositary Receipts - DR)",
-    description: "Các Sở GDCK khu vực ASEAN ký Biên bản hợp tác (MOU) hợp tác về sản phẩm Chứng chỉ Lưu ký (Depositary Receipts - DR).",
+    title: "Hợp tác sản phẩm Chứng chỉ Lưu ký (DR) khu vực ASEAN",
+    description: "Các Sở GDCK khu vực ASEAN ký Biên bản hợp tác (MOU) về sản phẩm Depositary Receipts, tạo tiền đề cho giao dịch xuyên biên giới.",
     image: imgP0_2,
-    date: "20/11/2024",
+    date: "2024",
+    tag: "ASEAN",
+    location: "ASEAN",
   },
   {
     id: 3,
