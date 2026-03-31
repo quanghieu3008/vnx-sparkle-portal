@@ -161,12 +161,6 @@ export default function InternationalCooperation() {
             <span className="text-foreground font-medium">Hợp tác quốc tế</span>
           </nav>
 
-          {/* Title */}
-          <div className="mb-8">
-            <h1 className="text-3xl md:text-4xl font-bold mb-2 text-[#2a4360]">
-              Hợp tác quốc tế
-            </h1>
-          </div>
 
           {/* Featured Events */}
           <div className="mb-10">
