@@ -15,6 +15,7 @@ import OrganizationalChart from "./pages/OrganizationalChart";
 import LeadershipTeam from "./pages/LeadershipTeam";
 import FunctionsAndDuties from "./pages/FunctionsAndDuties";
 import InvestorWarnings from "./pages/InvestorWarnings";
+import InvestorWarnings2 from "./pages/InvestorWarnings2";
 import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
