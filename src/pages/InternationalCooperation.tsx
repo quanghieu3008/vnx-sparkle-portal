@@ -211,7 +211,7 @@ export default function InternationalCooperation() {
                         </span>
                       )}
                     </div>
-                    <h3 className="text-base md:text-lg font-bold text-foreground mb-2 line-clamp-2 group-hover:text-primary transition-colors">
+                    <h3 className="text-base md:text-lg font-bold text-[#1a212d] mb-2 line-clamp-2 group-hover:text-[#F97415] transition-colors">
                       {article.title}
                     </h3>
                     <p className="text-sm text-muted-foreground line-clamp-2">
@@ -242,7 +242,7 @@ export default function InternationalCooperation() {
                   />
                 </div>
                 <div className="flex-1 min-w-0">
-                  <h3 className="text-sm md:text-base font-semibold text-foreground line-clamp-2 group-hover:text-primary transition-colors mb-2">
+                  <h3 className="text-sm md:text-base font-semibold text-[#1a212d] line-clamp-2 group-hover:text-[#F97415] transition-colors mb-2">
                     {article.title}
                   </h3>
                   <p className="text-xs md:text-sm text-muted-foreground line-clamp-2 mb-2 hidden md:block">
