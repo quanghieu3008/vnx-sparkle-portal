@@ -101,6 +101,7 @@ const articlesData: Article[] = [
     description: "Sở GDCK Việt Nam trở thành thành viên chính thức của Liên đoàn các Sở Giao dịch Chứng khoán Thế giới – WFE.",
     image: imgP6_1,
     date: "20/03/2024",
+    location: "Quốc tế",
   },
   {
     id: 10,
