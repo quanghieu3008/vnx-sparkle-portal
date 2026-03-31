@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { Calendar, ChevronLeft, ChevronRight, X, ArrowRight } from "lucide-react";
+import { Calendar, ChevronLeft, ChevronRight, X, ArrowRight, Globe, MapPin } from "lucide-react";
 import Header from "@/components/Header";
 import MarketTicker from "@/components/MarketTicker";
 import Footer from "@/components/Footer";
