@@ -214,7 +214,7 @@ export default function InternationalCooperation() {
                   <h3 className="text-sm md:text-base font-semibold text-foreground line-clamp-2 group-hover:text-primary transition-colors mb-2">
                     {article.title}
                   </h3>
-                  <p className="text-xs md:text-sm line-clamp-2 mb-2 hidden md:block text-[#65758b]">
+                  <p className="text-xs md:text-sm text-muted-foreground line-clamp-2 mb-2 hidden md:block">
                     {article.description}
                   </p>
                   <div className="flex items-center gap-2 text-xs text-muted-foreground">
