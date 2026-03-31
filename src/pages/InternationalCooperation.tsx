@@ -424,6 +424,10 @@ export default function InternationalCooperation() {
         )}
       </AnimatePresence>
 
+        </div>
+        </div>
+      </main>
+
       <Footer />
       <ScrollToTop />
     </div>
