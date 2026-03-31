@@ -145,7 +145,7 @@ export default function InternationalCooperation() {
     currentPage * ITEMS_PER_PAGE
   );
 
-  const latestArticle = articlesData[0];
+  const featuredArticles = articlesData.slice(0, 2);
 
   return (
     <div className="min-h-screen bg-background">
@@ -169,34 +169,59 @@ export default function InternationalCooperation() {
             <div className="w-24 h-1 rounded-full bg-secondary" />
           </div>
 
-          {/* Featured / Latest */}
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            className="mb-10 cursor-pointer group"
-            onClick={() => setSelectedArticle(latestArticle)}
-          >
-            <div className="relative rounded-xl overflow-hidden shadow-lg">
-              <img
-                src={latestArticle.image}
-                alt={latestArticle.title}
-                className="w-full h-64 md:h-80 object-cover group-hover:scale-105 transition-transform duration-500"
-              />
-              <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/30 to-transparent" />
-              <div className="absolute bottom-0 left-0 right-0 p-6 md:p-8">
-                <span className="inline-block px-3 py-1 bg-primary text-primary-foreground text-xs font-semibold rounded-full mb-3">
-                  Mới nhất
-                </span>
-                <h2 className="text-xl md:text-2xl font-bold text-white mb-2 line-clamp-2">
-                  {latestArticle.title}
-                </h2>
-                <div className="flex items-center gap-2 text-white/80 text-sm">
-                  <Calendar className="h-4 w-4" />
-                  <span>{latestArticle.date}</span>
-                </div>
-              </div>
+          {/* Featured Events */}
+          <div className="mb-10">
+            <div className="flex items-center gap-2 mb-6">
+              <Globe className="h-5 w-5 text-[#2a4360]" />
+              <h2 className="text-xl md:text-2xl font-bold text-[#2a4360]">Sự kiện hợp tác nổi bật</h2>
             </div>
-          </motion.div>
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+              {featuredArticles.map((article, index) => (
+                <motion.div
+                  key={article.id}
+                  initial={{ opacity: 0, y: 20 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ delay: index * 0.1 }}
+                  className="cursor-pointer group bg-white rounded-xl overflow-hidden shadow-md hover:shadow-lg transition-shadow"
+                  onClick={() => setSelectedArticle(article)}
+                >
+                  <div className="relative h-52 md:h-60 overflow-hidden">
+                    <img
+                      src={article.image}
+                      alt={article.title}
+                      className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                    />
+                    <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent" />
+                    {article.tag && (
+                      <span className="absolute top-4 left-4 px-3 py-1 bg-primary text-primary-foreground text-xs font-semibold rounded-md">
+                        {article.tag}
+                      </span>
+                    )}
+                  </div>
+                  <div className="p-5">
+                    <div className="flex items-center gap-4 text-xs text-muted-foreground mb-2">
+                      <span className="flex items-center gap-1">
+                        <Calendar className="h-3.5 w-3.5" />
+                        {article.date}
+                      </span>
+                      {article.location && (
+                        <span className="flex items-center gap-1">
+                          <MapPin className="h-3.5 w-3.5" />
+                          {article.location}
+                        </span>
+                      )}
+                    </div>
+                    <h3 className="text-base md:text-lg font-bold text-foreground mb-2 line-clamp-2 group-hover:text-primary transition-colors">
+                      {article.title}
+                    </h3>
+                    <p className="text-sm text-muted-foreground line-clamp-2">
+                      {article.description}
+                    </p>
+                  </div>
+                </motion.div>
+              ))}
+            </div>
+          </div>
 
           {/* Article List */}
           <div className="space-y-4">
