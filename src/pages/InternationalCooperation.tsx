@@ -166,7 +166,7 @@ export default function InternationalCooperation() {
           <div className="mb-10">
             <div className="flex items-center gap-2 mb-6">
               <Globe className="h-5 w-5 text-[#2a4360]" />
-              <h2 className="text-xl md:text-2xl font-bold text-[#2a4360]">Sự kiện hợp tác nổi bật</h2>
+              <h2 className="text-xl md:text-2xl font-bold text-[#1a212d]">Sự kiện hợp tác nổi bật</h2>
             </div>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
               {featuredArticles.map((article, index) => (
