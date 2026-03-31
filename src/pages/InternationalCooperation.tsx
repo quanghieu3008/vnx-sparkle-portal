@@ -45,7 +45,7 @@ const articlesData: Article[] = [
     description: "Các Sở GDCK khu vực ASEAN ký Biên bản hợp tác (MOU) về sản phẩm Depositary Receipts, tạo tiền đề cho giao dịch xuyên biên giới.",
     image: imgP0_2,
     date: "2024",
-    tag: "ASEAN",
+    tag: "Nổi bật",
     location: "ASEAN",
   },
   {
