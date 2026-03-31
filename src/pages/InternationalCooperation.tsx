@@ -260,6 +260,15 @@ export default function InternationalCooperation() {
         </div>
 
         <div className="container mx-auto px-4">
+          {/* Section Header */}
+          <div className="text-center mb-8">
+            <div className="flex items-center justify-center gap-2 mb-2">
+              <Handshake className="w-[30px] h-[30px] text-[#f97415]" />
+              <h2 className="text-[28px] font-bold text-[#1a212d]">Hoạt động hợp tác</h2>
+            </div>
+            <p className="text-sm text-[#65778B] italic">Các hoạt động hợp tác quốc tế tiêu biểu của VNX</p>
+          </div>
+
           {/* Article List */}
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5">
             {paginatedData.map((article, index) => (
