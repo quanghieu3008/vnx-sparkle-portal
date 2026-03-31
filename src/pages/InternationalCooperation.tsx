@@ -236,8 +236,8 @@ export default function InternationalCooperation() {
                   transition={{ delay: i * 0.1 }}
                   className="border rounded-xl p-5 transition-colors bg-[#0d3d6e] border-[#0e4475]"
                 >
-                  <div className="w-11 h-11 rounded-lg bg-[#f97415]/15 flex items-center justify-center mb-4">
-                    <item.icon className="w-5 h-5 text-[#f97415]" />
+                  <div className="w-14 h-14 rounded-lg bg-[#f97415]/15 flex items-center justify-center mb-4">
+                    <item.icon className="w-7 h-7 text-[#f97415]" />
                   </div>
                   <h3 className="text-white font-bold text-sm mb-2">{item.title}</h3>
                   <p className="text-slate-400 text-xs leading-relaxed">{item.desc}</p>
