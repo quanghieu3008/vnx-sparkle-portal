@@ -15,6 +15,7 @@ import OrganizationalChart from "./pages/OrganizationalChart";
 import LeadershipTeam from "./pages/LeadershipTeam";
 import FunctionsAndDuties from "./pages/FunctionsAndDuties";
 import InvestorWarnings from "./pages/InvestorWarnings";
+import InvestorWarnings2 from "./pages/InvestorWarnings2";
 import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
@@ -37,6 +38,7 @@ const App = () => (
           <Route path="/gioi-thieu/ban-lanh-dao" element={<LeadershipTeam />} />
           <Route path="/gioi-thieu/chuc-nang-nhiem-vu" element={<FunctionsAndDuties />} />
           <Route path="/khuyen-cao-ndt" element={<InvestorWarnings />} />
+          <Route path="/khuyen-cao-ndt-2" element={<InvestorWarnings2 />} />
           {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
           <Route path="*" element={<NotFound />} />
         </Routes>
