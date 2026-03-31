@@ -36,7 +36,7 @@ const articlesData: Article[] = [
     image: imgP0_1,
     date: "15/09/2025",
     tag: "Nổi bật",
-    location: "London, Anh",
+    location: "Anh",
   },
   {
     id: 2,
