@@ -133,6 +133,7 @@ const articlesData: Article[] = [
     description: "Hoạt động hội nhập quốc tế của Sở GDCK Việt Nam.",
     image: imgP6_1,
     date: "10/09/2022",
+    location: "Việt Nam",
   },
   {
     id: 14,
