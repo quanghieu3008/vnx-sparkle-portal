@@ -160,7 +160,7 @@ export default function InternationalCooperation() {
             <h1 className="text-3xl md:text-4xl font-bold mb-2 text-secondary">
               Hợp tác quốc tế
             </h1>
-            <div className="w-24 h-1 bg-primary rounded-full" />
+            <div className="w-24 h-1 rounded-full bg-secondary" />
           </div>
 
           {/* Featured / Latest */}
