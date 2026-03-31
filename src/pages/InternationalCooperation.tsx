@@ -146,17 +146,14 @@ const articlesData: Article[] = [
   },
 ];
 
-const ITEMS_PER_PAGE = 10;
+const ITEMS_PER_PAGE = 8;
 
 export default function InternationalCooperation() {
-  const [currentPage, setCurrentPage] = useState(1);
+  const [visibleCount, setVisibleCount] = useState(ITEMS_PER_PAGE);
   const [selectedArticle, setSelectedArticle] = useState<Article | null>(null);
 
-  const totalPages = Math.ceil(articlesData.length / ITEMS_PER_PAGE);
-  const paginatedData = articlesData.slice(
-    (currentPage - 1) * ITEMS_PER_PAGE,
-    currentPage * ITEMS_PER_PAGE
-  );
+  const visibleData = articlesData.slice(0, visibleCount);
+  const hasMore = visibleCount < articlesData.length;
 
   const featuredArticles = articlesData.slice(0, 2);
 
@@ -303,7 +300,7 @@ export default function InternationalCooperation() {
 
           {/* Article List */}
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5">
-            {paginatedData.map((article, index) => (
+            {visibleData.map((article, index) => (
               <motion.div
                 key={article.id}
                 initial={{ opacity: 0, y: 25 }}
@@ -342,37 +339,14 @@ export default function InternationalCooperation() {
             ))}
           </div>
 
-          {/* Pagination */}
-          {totalPages > 1 && (
-            <div className="flex items-center justify-center gap-2 mt-8">
+          {/* Load More */}
+          {hasMore && (
+            <div className="flex justify-center mt-8">
               <button
-                onClick={() => setCurrentPage((p) => Math.max(1, p - 1))}
-                disabled={currentPage === 1}
-                className="flex items-center gap-1 px-4 py-2 rounded-lg bg-card border border-border text-sm font-medium text-foreground hover:bg-accent disabled:opacity-50 disabled:cursor-not-allowed transition-colors"
+                onClick={() => setVisibleCount((prev) => prev + ITEMS_PER_PAGE)}
+                className="text-[#003366] hover:text-[#f97415] font-semibold text-sm transition-colors underline underline-offset-4"
               >
-                <ChevronLeft className="h-4 w-4" />
-                Trước
-              </button>
-              {Array.from({ length: totalPages }, (_, i) => i + 1).map((page) => (
-                <button
-                  key={page}
-                  onClick={() => setCurrentPage(page)}
-                  className={`w-10 h-10 rounded-lg text-sm font-medium transition-colors ${
-                    currentPage === page
-                      ? "bg-primary text-primary-foreground"
-                      : "bg-card border border-border text-foreground hover:bg-accent"
-                  }`}
-                >
-                  {page}
-                </button>
-              ))}
-              <button
-                onClick={() => setCurrentPage((p) => Math.min(totalPages, p + 1))}
-                disabled={currentPage === totalPages}
-                className="flex items-center gap-1 px-4 py-2 rounded-lg bg-card border border-border text-sm font-medium text-foreground hover:bg-accent disabled:opacity-50 disabled:cursor-not-allowed transition-colors"
-              >
-                Sau
-                <ChevronRight className="h-4 w-4" />
+                Xem thêm
               </button>
             </div>
           )}
