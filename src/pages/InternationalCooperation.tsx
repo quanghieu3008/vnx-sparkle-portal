@@ -249,37 +249,31 @@ export default function InternationalCooperation() {
 
         <div className="container mx-auto px-4">
           {/* Article List */}
-          <div className="space-y-4">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5">
             {paginatedData.map((article, index) => (
               <motion.div
                 key={article.id}
                 initial={{ opacity: 0, y: 15 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: index * 0.05 }}
-                className="flex gap-4 md:gap-6 p-4 rounded-xl border hover:shadow-md transition-all cursor-pointer group bg-[#fcfcfc] border-white"
+                className="rounded-xl border overflow-hidden hover:shadow-md transition-all cursor-pointer group bg-[#fcfcfc] border-white"
                 onClick={() => setSelectedArticle(article)}
               >
-                <div className="flex-shrink-0 w-28 h-20 md:w-40 md:h-28 rounded-lg overflow-hidden">
+                <div className="h-40 overflow-hidden">
                   <img
                     src={article.image}
                     alt={article.title}
                     className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
                   />
                 </div>
-                <div className="flex-1 min-w-0">
-                  <h3 className="text-sm md:text-base font-semibold text-[#1a212d] line-clamp-2 group-hover:text-[#F97415] transition-colors mb-2">
+                <div className="p-4">
+                  <h3 className="text-sm font-semibold text-[#1a212d] line-clamp-2 group-hover:text-[#F97415] transition-colors mb-2">
                     {article.title}
                   </h3>
-                  <p className="text-xs md:text-sm text-[#65778B] line-clamp-2 mb-2 hidden md:block">
-                    {article.description}
-                  </p>
                   <div className="flex items-center gap-2 text-xs text-[#65778B]">
                     <Calendar className="h-3.5 w-3.5" />
                     <span>{article.date}</span>
                   </div>
-                </div>
-                <div className="hidden md:flex items-center">
-                  <ArrowRight className="h-5 w-5 text-muted-foreground group-hover:text-primary transition-colors" />
                 </div>
               </motion.div>
             ))}
