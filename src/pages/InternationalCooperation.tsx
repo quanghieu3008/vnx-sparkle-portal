@@ -344,7 +344,7 @@ export default function InternationalCooperation() {
             <div className="flex justify-center mt-8">
               <button
                 onClick={() => setVisibleCount((prev) => prev + ITEMS_PER_PAGE)}
-                className="text-[#003366] hover:text-[#f97415] font-semibold text-sm transition-colors underline underline-offset-4"
+                className="text-[#003366] hover:text-[#f97415] font-semibold transition-colors underline underline-offset-4 text-base"
               >
                 Xem thêm
               </button>
