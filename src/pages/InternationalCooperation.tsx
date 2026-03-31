@@ -125,6 +125,7 @@ const articlesData: Article[] = [
     description: "Thông cáo báo chí Phiên họp các Tổng Giám đốc các Sở Giao dịch Chứng Khoán ASEAN lần thứ 35.",
     image: imgP9_1,
     date: "02/12/2022",
+    location: "ASEAN",
   },
   {
     id: 13,
