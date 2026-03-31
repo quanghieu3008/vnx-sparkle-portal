@@ -278,11 +278,11 @@ export default function InternationalCooperation() {
                     className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
                   />
                   <div className="absolute bottom-3 left-3 flex items-center gap-2">
-                    <span className="px-3 py-1 text-xs font-semibold rounded-full bg-[#f97415] text-white">
+                    <span className="px-3 text-xs font-semibold text-white bg-[#113b64] py-[4px] rounded-sm">
                       {article.date.split("/").pop()}
                     </span>
                     {article.location && (
-                      <span className="px-3 py-1 text-xs font-semibold rounded-full text-white bg-[#d3691d]">
+                      <span className="px-3 py-1 text-xs font-semibold text-white bg-[#d3691d] rounded-sm">
                         {article.location}
                       </span>
                     )}
