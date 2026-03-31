@@ -77,7 +77,7 @@ export default function HeroSection() {
   }, []);
 
   return (
-    <section className="relative">
+    <section className="relative pt-4">
       {/* Content */}
       <div className="relative container mx-auto px-4 py-6 lg:py-8">
         <div className="grid lg:grid-cols-2 gap-8 lg:gap-12 items-start">
