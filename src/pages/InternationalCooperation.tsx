@@ -53,6 +53,7 @@ const articlesData: Article[] = [
     description: "Sáng 13/11/2024, tại trụ sở Sở Giao dịch Chứng khoán Việt Nam (VNX), VNX đã tiếp và làm việc với Đoàn công tác Văn phòng Ủy ban Chứng khoán Lào (LSCO). Chuyến làm việc này nằm trong khuôn khổ các hoạt động hợp tác trong lĩnh vực chứng khoán giữa UBCKNN và LSCO.",
     image: imgP1_1,
     date: "13/11/2024",
+    location: "Hà Nội, Việt Nam",
   },
   {
     id: 4,
