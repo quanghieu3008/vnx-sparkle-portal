@@ -199,7 +199,7 @@ export default function InternationalCooperation() {
                     )}
                   </div>
                   <div className="p-5">
-                    <div className="flex items-center gap-4 text-xs text-muted-foreground mb-2">
+                    <div className="flex items-center gap-4 text-xs text-[#65778B] mb-2">
                       <span className="flex items-center gap-1">
                         <Calendar className="h-3.5 w-3.5" />
                         {article.date}
@@ -214,7 +214,7 @@ export default function InternationalCooperation() {
                     <h3 className="text-base md:text-lg font-bold text-[#1a212d] mb-2 line-clamp-2 group-hover:text-[#F97415] transition-colors">
                       {article.title}
                     </h3>
-                    <p className="text-sm text-muted-foreground line-clamp-2">
+                    <p className="text-sm text-[#65778B] line-clamp-2">
                       {article.description}
                     </p>
                   </div>
@@ -245,10 +245,10 @@ export default function InternationalCooperation() {
                   <h3 className="text-sm md:text-base font-semibold text-[#1a212d] line-clamp-2 group-hover:text-[#F97415] transition-colors mb-2">
                     {article.title}
                   </h3>
-                  <p className="text-xs md:text-sm text-muted-foreground line-clamp-2 mb-2 hidden md:block">
+                  <p className="text-xs md:text-sm text-[#65778B] line-clamp-2 mb-2 hidden md:block">
                     {article.description}
                   </p>
-                  <div className="flex items-center gap-2 text-xs text-muted-foreground">
+                  <div className="flex items-center gap-2 text-xs text-[#65778B]">
                     <Calendar className="h-3.5 w-3.5" />
                     <span>{article.date}</span>
                   </div>
