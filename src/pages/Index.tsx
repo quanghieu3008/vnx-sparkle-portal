@@ -5,24 +5,29 @@ import InfoSection from "@/components/InfoSection";
 import PartnersSection from "@/components/PartnersSection";
 import Footer from "@/components/Footer";
 import ScrollToTop from "@/components/ScrollToTop";
+import FixedBackground from "@/components/FixedBackground";
 
 const Index = () => {
   return (
-    <div className="min-h-screen bg-[#003366]">
-      <Header />
+    <div className="min-h-screen relative">
+      <FixedBackground />
 
-      <main className="pt-[80px]">
-        <div className="sticky top-[80px] z-40">
-          <MarketTicker />
-        </div>
+      <div className="relative z-10">
+        <Header />
 
-        <HeroSection />
-        <InfoSection />
-        <PartnersSection />
-      </main>
+        <main className="pt-[80px]">
+          <div className="sticky top-[80px] z-40">
+            <MarketTicker />
+          </div>
 
-      <Footer />
-      <ScrollToTop />
+          <HeroSection />
+          <InfoSection />
+          <PartnersSection />
+        </main>
+
+        <Footer />
+        <ScrollToTop />
+      </div>
     </div>
   );
 };
