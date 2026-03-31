@@ -117,6 +117,7 @@ const articlesData: Article[] = [
     description: "Sở Giao dịch Chứng khoán Luxembourg và Sở Giao dịch Chứng khoán Việt Nam hợp tác thúc đẩy phát triển tài chính bền vững.",
     image: imgP8_1,
     date: "15/11/2023",
+    location: "Luxembourg",
   },
   {
     id: 12,
