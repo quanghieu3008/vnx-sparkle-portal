@@ -193,9 +193,9 @@ export default function InternationalCooperation() {
               {featuredArticles.map((article, index) => (
                 <motion.div
                   key={article.id}
-                  initial={{ opacity: 0, y: 20 }}
+                  initial={{ opacity: 0, y: 30 }}
                   animate={{ opacity: 1, y: 0 }}
-                  transition={{ delay: index * 0.1 }}
+                  transition={{ duration: 0.8, delay: index * 0.3, ease: "easeOut" }}
                   className="cursor-pointer group bg-white rounded-xl overflow-hidden shadow-md hover:shadow-lg transition-shadow"
                   onClick={() => setSelectedArticle(article)}
                 >
