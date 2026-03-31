@@ -282,7 +282,7 @@ export default function InternationalCooperation() {
                       {article.date.split("/").pop()}
                     </span>
                     {article.location && (
-                      <span className="px-3 py-1 text-xs font-semibold rounded-full bg-[#e53e3e] text-white">
+                      <span className="px-3 py-1 text-xs font-semibold rounded-full text-white bg-[#d3691d]">
                         {article.location}
                       </span>
                     )}
