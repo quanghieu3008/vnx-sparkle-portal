@@ -218,7 +218,7 @@ export default function InternationalCooperation() {
         </div>
 
         {/* Milestones Section - full width */}
-        <div className="mb-10 py-10" style={{ background: 'linear-gradient(135deg, #0a1628 0%, #122a4e 100%)' }}>
+        <div className="mb-10 py-10 bg-[#003366]">
           <div className="container mx-auto px-4">
             <h2 className="text-[28px] font-bold text-white text-center mb-2">Dấu mốc hội nhập quốc tế</h2>
             <p className="text-center text-slate-400 text-sm mb-8">Những thành tựu quan trọng trong hành trình hội nhập của VNX</p>
