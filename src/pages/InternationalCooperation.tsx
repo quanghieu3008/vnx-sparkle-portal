@@ -146,7 +146,7 @@ export default function InternationalCooperation() {
       <Header />
       <MarketTicker />
 
-      <main className="pt-28 pb-16 bg-secondary-foreground">
+      <main className="pt-28 pb-16 bg-[#eef1f6]">
         <div className="container mx-auto px-4">
           {/* Breadcrumb */}
           <nav className="flex items-center gap-2 text-sm text-muted-foreground mb-6">
