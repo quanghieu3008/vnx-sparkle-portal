@@ -161,18 +161,26 @@ export default function InternationalCooperation() {
   const featuredArticles = articlesData.slice(0, 2);
 
   return (
-    <div className="min-h-screen bg-background">
+    <div className="min-h-screen bg-[#003366]">
       <Header />
       <MarketTicker />
 
-      <main className="pt-28 pb-16 bg-[#eef1f6]">
-        <div className="container mx-auto px-4">
-          {/* Breadcrumb */}
-          <nav className="flex items-center gap-2 text-sm text-muted-foreground mb-6">
-            <a href="/" className="hover:text-primary transition-colors">Trang chủ</a>
-            <span>/</span>
-            <span className="text-foreground font-medium">Hợp tác quốc tế</span>
-          </nav>
+      <main className="pt-[121px]">
+        {/* Breadcrumb - sticky */}
+        <div className="bg-white border-b border-slate-200 sticky top-[121px] z-30">
+          <div className="container mx-auto px-4 py-3">
+            <nav className="flex items-center text-sm text-slate-500 leading-none">
+              <Link to="/" className="hover:text-[#003366] transition-colors">Trang chủ</Link>
+              <ChevronRight className="h-4 w-4 mx-2" />
+              <span className="text-[#003366] font-medium">Tổng quan</span>
+              <ChevronRight className="h-4 w-4 mx-2" />
+              <span className="text-slate-700">Hợp tác quốc tế</span>
+            </nav>
+          </div>
+        </div>
+
+        <div className="bg-[#eef1f6] pb-16">
+        <div className="container mx-auto px-4 pt-8">
 
 
           {/* Featured Events */}
