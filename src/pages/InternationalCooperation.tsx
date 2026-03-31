@@ -240,7 +240,7 @@ export default function InternationalCooperation() {
                     <item.icon className="w-7 h-7 text-[#f97415]" />
                   </div>
                   <h3 className="text-white font-bold mb-2 text-base">{item.title}</h3>
-                  <p className="text-slate-400 text-xs leading-relaxed">{item.desc}</p>
+                  <p className="text-slate-400 leading-relaxed text-sm">{item.desc}</p>
                 </motion.div>
               ))}
             </div>
