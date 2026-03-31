@@ -234,7 +234,7 @@ export default function InternationalCooperation() {
                   initial={{ opacity: 0, y: 15 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ delay: i * 0.1 }}
-                  className="border rounded-xl p-5 transition-colors bg-[#0d3d6e] border-secondary-foreground"
+                  className="border rounded-xl p-5 transition-colors bg-[#0d3d6e] border-card-foreground"
                 >
                   <div className="w-11 h-11 rounded-lg bg-[#f97415]/15 flex items-center justify-center mb-4">
                     <item.icon className="w-5 h-5 text-[#f97415]" />
