@@ -375,7 +375,6 @@ export default function InternationalCooperation() {
             </div>
           )}
         </div>
-      </main>
 
       {/* Article Detail Modal */}
       <AnimatePresence>
