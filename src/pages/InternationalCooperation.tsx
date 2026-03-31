@@ -259,21 +259,30 @@ export default function InternationalCooperation() {
                 className="rounded-xl border overflow-hidden hover:shadow-md transition-all cursor-pointer group bg-[#fcfcfc] border-white"
                 onClick={() => setSelectedArticle(article)}
               >
-                <div className="h-40 overflow-hidden">
+                <div className="relative h-44 overflow-hidden">
                   <img
                     src={article.image}
                     alt={article.title}
                     className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
                   />
+                  <div className="absolute bottom-3 left-3 flex items-center gap-2">
+                    <span className="px-3 py-1 text-xs font-semibold rounded-full bg-[#f97415] text-white">
+                      {article.date.split("/").pop()}
+                    </span>
+                    {article.location && (
+                      <span className="px-3 py-1 text-xs font-semibold rounded-full bg-[#e53e3e] text-white">
+                        {article.location}
+                      </span>
+                    )}
+                  </div>
                 </div>
                 <div className="p-4">
-                  <h3 className="text-sm font-semibold text-[#1a212d] line-clamp-2 group-hover:text-[#F97415] transition-colors mb-2">
+                  <h3 className="text-sm font-bold text-[#1a212d] line-clamp-2 group-hover:text-[#F97415] transition-colors mb-2">
                     {article.title}
                   </h3>
-                  <div className="flex items-center gap-2 text-xs text-[#65778B]">
-                    <Calendar className="h-3.5 w-3.5" />
-                    <span>{article.date}</span>
-                  </div>
+                  <p className="text-xs text-[#65778B] line-clamp-3">
+                    {article.description}
+                  </p>
                 </div>
               </motion.div>
             ))}
