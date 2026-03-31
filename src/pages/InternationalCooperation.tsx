@@ -211,7 +211,7 @@ export default function InternationalCooperation() {
                         </span>
                       )}
                     </div>
-                    <h3 className="text-base md:text-lg font-bold text-foreground mb-2 line-clamp-2 group-hover:text-primary transition-colors">
+                    <h3 className="text-base md:text-lg font-bold text-[#1a212d] mb-2 line-clamp-2 group-hover:text-[#F97415] transition-colors">
                       {article.title}
                     </h3>
                     <p className="text-sm text-muted-foreground line-clamp-2">
