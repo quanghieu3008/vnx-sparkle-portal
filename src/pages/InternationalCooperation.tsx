@@ -175,7 +175,7 @@ export default function InternationalCooperation() {
 
 
           {/* Featured Events */}
-          <div className="mb-10">
+          <div className="mb-16">
             <div className="flex items-center gap-2 mb-6">
               <Globe className="text-[#f97415] w-[30px] h-[30px]" />
               <h2 className="text-[30px] font-bold text-[#1a212d]">Sự kiện hợp tác nổi bật</h2>
