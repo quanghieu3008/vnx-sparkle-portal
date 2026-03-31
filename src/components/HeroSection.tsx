@@ -80,7 +80,7 @@ export default function HeroSection() {
     <section className="relative pt-4">
       {/* Content */}
       <div className="relative container mx-auto px-4 py-6 lg:py-8">
-        <div className="grid lg:grid-cols-2 gap-8 lg:gap-12 items-start">
+        <div className="grid lg:grid-cols-2 gap-8 lg:gap-12 items-start py-[25px]">
           {/* Left Side - News */}
           <div className="space-y-8">
             <AnimatePresence mode="wait">
