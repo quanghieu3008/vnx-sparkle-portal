@@ -109,6 +109,7 @@ const articlesData: Article[] = [
     description: "Tiếp và làm việc với đoàn công tác cấp cao của Ủy ban Chứng khoán Lào.",
     image: imgP7_1,
     date: "10/01/2024",
+    location: "Hà Nội, Việt Nam",
   },
   {
     id: 11,
