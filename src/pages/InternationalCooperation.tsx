@@ -141,6 +141,7 @@ const articlesData: Article[] = [
     description: "Sở GDCK Việt Nam trở thành Thành viên của Hiệp hội các Sở GDCK khu vực ASEAN – ASEAN Exchanges.",
     image: imgP6_1,
     date: "05/06/2022",
+    location: "ASEAN",
   },
 ];
 
