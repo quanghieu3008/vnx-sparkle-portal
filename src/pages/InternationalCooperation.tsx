@@ -53,6 +53,7 @@ const articlesData: Article[] = [
     description: "Sáng 13/11/2024, tại trụ sở Sở Giao dịch Chứng khoán Việt Nam (VNX), VNX đã tiếp và làm việc với Đoàn công tác Văn phòng Ủy ban Chứng khoán Lào (LSCO). Chuyến làm việc này nằm trong khuôn khổ các hoạt động hợp tác trong lĩnh vực chứng khoán giữa UBCKNN và LSCO.",
     image: imgP1_1,
     date: "13/11/2024",
+    location: "Hà Nội, Việt Nam",
   },
   {
     id: 4,
@@ -60,6 +61,7 @@ const articlesData: Article[] = [
     description: "Sáng ngày 06/11/2024, tại trụ sở của VNX, Chủ tịch Hội đồng thành viên Lương Hải Sinh đã chủ trì buổi tiếp, làm việc và trao đổi thông tin với đoàn công tác của FTSE Russell về các hoạt động nhằm thúc đẩy việc nâng hạng thị trường chứng khoán Việt Nam.",
     image: imgP2_1,
     date: "06/11/2024",
+    location: "Hà Nội, Việt Nam",
   },
   {
     id: 5,
@@ -67,6 +69,7 @@ const articlesData: Article[] = [
     description: "Sở Giao dịch chứng khoán Việt Nam và Sở Giao dịch chứng khoán Singapore ký Biên bản ghi nhớ nâng tầm hợp tác.",
     image: imgP2_1,
     date: "15/10/2024",
+    location: "Singapore",
   },
   {
     id: 6,
@@ -74,6 +77,7 @@ const articlesData: Article[] = [
     description: "Bộ trưởng Bộ Tài chính Hồ Đức Phớc làm việc với Ngân hàng Mizuho.",
     image: imgP3_1,
     date: "20/09/2024",
+    location: "Nhật Bản",
   },
   {
     id: 7,
@@ -81,6 +85,7 @@ const articlesData: Article[] = [
     description: "Chủ tịch UBCKNN làm việc với Thống đốc Cơ quan giám sát tài chính Hàn Quốc.",
     image: imgP4_1,
     date: "10/08/2024",
+    location: "Hàn Quốc",
   },
   {
     id: 8,
@@ -88,6 +93,7 @@ const articlesData: Article[] = [
     description: "Sở GDCK Việt Nam tham dự cuộc họp lần thứ 36 của các Tổng Giám đốc các Sở GDCK ASEAN.",
     image: imgP5_1,
     date: "15/06/2024",
+    location: "ASEAN",
   },
   {
     id: 9,
@@ -95,6 +101,7 @@ const articlesData: Article[] = [
     description: "Sở GDCK Việt Nam trở thành thành viên chính thức của Liên đoàn các Sở Giao dịch Chứng khoán Thế giới – WFE.",
     image: imgP6_1,
     date: "20/03/2024",
+    location: "Quốc tế",
   },
   {
     id: 10,
@@ -102,6 +109,7 @@ const articlesData: Article[] = [
     description: "Tiếp và làm việc với đoàn công tác cấp cao của Ủy ban Chứng khoán Lào.",
     image: imgP7_1,
     date: "10/01/2024",
+    location: "Hà Nội, Việt Nam",
   },
   {
     id: 11,
@@ -109,6 +117,7 @@ const articlesData: Article[] = [
     description: "Sở Giao dịch Chứng khoán Luxembourg và Sở Giao dịch Chứng khoán Việt Nam hợp tác thúc đẩy phát triển tài chính bền vững.",
     image: imgP8_1,
     date: "15/11/2023",
+    location: "Luxembourg",
   },
   {
     id: 12,
@@ -116,6 +125,7 @@ const articlesData: Article[] = [
     description: "Thông cáo báo chí Phiên họp các Tổng Giám đốc các Sở Giao dịch Chứng Khoán ASEAN lần thứ 35.",
     image: imgP9_1,
     date: "02/12/2022",
+    location: "ASEAN",
   },
   {
     id: 13,
@@ -123,6 +133,7 @@ const articlesData: Article[] = [
     description: "Hoạt động hội nhập quốc tế của Sở GDCK Việt Nam.",
     image: imgP6_1,
     date: "10/09/2022",
+    location: "Việt Nam",
   },
   {
     id: 14,
@@ -130,6 +141,7 @@ const articlesData: Article[] = [
     description: "Sở GDCK Việt Nam trở thành Thành viên của Hiệp hội các Sở GDCK khu vực ASEAN – ASEAN Exchanges.",
     image: imgP6_1,
     date: "05/06/2022",
+    location: "ASEAN",
   },
 ];
 
