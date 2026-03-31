@@ -186,7 +186,7 @@ export default function InternationalCooperation() {
                     />
                     <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent" />
                     {article.tag && (
-                      <span className="absolute top-4 left-4 px-3 py-1 bg-primary text-primary-foreground text-xs font-semibold rounded-md">
+                      <span className="absolute top-4 left-4 px-3 py-1 text-xs font-semibold rounded-md text-white bg-[#f97415]">
                         {article.tag}
                       </span>
                     )}
