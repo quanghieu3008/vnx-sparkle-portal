@@ -232,8 +232,24 @@ export default function InternationalCooperation() {
         {/* Milestones Section - full width */}
         <div className="mb-10 py-10 bg-[#003366]">
           <div className="container mx-auto px-4">
-            <h2 className="text-[28px] font-bold text-white text-center mb-2">Dấu mốc hội nhập quốc tế</h2>
-            <p className="text-center text-slate-400 text-sm mb-8">Những thành tựu quan trọng trong hành trình hội nhập của VNX</p>
+            <motion.h2
+              className="text-[28px] font-bold text-white text-center mb-2"
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, amount: 0.5 }}
+              transition={{ duration: 0.5 }}
+            >
+              Dấu mốc hội nhập quốc tế
+            </motion.h2>
+            <motion.p
+              className="text-center text-slate-400 text-sm mb-8"
+              initial={{ opacity: 0, y: 15 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, amount: 0.5 }}
+              transition={{ duration: 0.5, delay: 0.1 }}
+            >
+              Những thành tựu quan trọng trong hành trình hội nhập của VNX
+            </motion.p>
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5">
               {[
                 { icon: Users, title: "Thành viên WFE", desc: "VNX trở thành thành viên chính thức của Liên đoàn các Sở GDCK Thế giới (WFE)." },
@@ -243,9 +259,10 @@ export default function InternationalCooperation() {
               ].map((item, i) => (
                 <motion.div
                   key={i}
-                  initial={{ opacity: 0, y: 15 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  transition={{ delay: i * 0.1 }}
+                  initial={{ opacity: 0, y: 25 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true, amount: 0.3 }}
+                  transition={{ duration: 0.5, delay: 0.2 + i * 0.1 }}
                   className="border rounded-xl p-5 transition-colors bg-[#0d3d6e] border-[#0e4475]"
                 >
                   <div className="w-14 h-14 rounded-lg bg-[#f97415]/15 flex items-center justify-center mb-4">
