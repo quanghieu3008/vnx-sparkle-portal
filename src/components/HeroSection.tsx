@@ -78,12 +78,7 @@ export default function HeroSection() {
   }, []);
 
   return (
-    <section className="relative pt-20">
-      {/* Background Image */}
-      <div className="absolute inset-0 z-0">
-        <img src={heroBg1} alt="" className="w-full h-full object-cover opacity-30" />
-        <div className="absolute inset-0 bg-gradient-to-r from-[#003366]/80 to-[#003366]/40" />
-      </div>
+    <section className="relative">
       {/* Content */}
       <div className="relative container mx-auto px-4 py-6 lg:py-8">
         <div className="grid lg:grid-cols-2 gap-8 lg:gap-12 items-start">
