@@ -1,6 +1,5 @@
 import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import heroBg1 from "@/assets/hero-bg-1.jpg";
 import { ChevronRight, TrendingUp, TrendingDown, Clock } from "lucide-react";
 import { Button } from "./ui/button";
 
