@@ -28,7 +28,7 @@ const menuItems: MenuItem[] = [
       { label: "Chức năng, nhiệm vụ", isChild: true, href: "/gioi-thieu/chuc-nang-nhiem-vu" },
       { label: "Ban lãnh đạo", isChild: true, href: "/gioi-thieu/ban-lanh-dao" },
       { label: "Nghiên cứu - hợp tác", isGroup: true },
-      { label: "Hợp tác quốc tế", isChild: true },
+      { label: "Hợp tác quốc tế", isChild: true, href: "/hop-tac-quoc-te" },
       { label: "Đối tác quốc tế", isChild: true },
       { label: "Tổ chức quốc tế", isChild: true },
       { label: "Trung tâm truyền thông", isGroup: true },
