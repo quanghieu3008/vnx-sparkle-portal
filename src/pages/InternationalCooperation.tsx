@@ -36,7 +36,7 @@ const articlesData: Article[] = [
     image: imgP0_1,
     date: "15/09/2025",
     tag: "Nổi bật",
-    location: "London, Anh",
+    location: "Anh",
   },
   {
     id: 2,
@@ -53,7 +53,7 @@ const articlesData: Article[] = [
     description: "Sáng 13/11/2024, tại trụ sở Sở Giao dịch Chứng khoán Việt Nam (VNX), VNX đã tiếp và làm việc với Đoàn công tác Văn phòng Ủy ban Chứng khoán Lào (LSCO). Chuyến làm việc này nằm trong khuôn khổ các hoạt động hợp tác trong lĩnh vực chứng khoán giữa UBCKNN và LSCO.",
     image: imgP1_1,
     date: "13/11/2024",
-    location: "Hà Nội, Việt Nam",
+    location: "Việt Nam",
   },
   {
     id: 4,
@@ -61,7 +61,7 @@ const articlesData: Article[] = [
     description: "Sáng ngày 06/11/2024, tại trụ sở của VNX, Chủ tịch Hội đồng thành viên Lương Hải Sinh đã chủ trì buổi tiếp, làm việc và trao đổi thông tin với đoàn công tác của FTSE Russell về các hoạt động nhằm thúc đẩy việc nâng hạng thị trường chứng khoán Việt Nam.",
     image: imgP2_1,
     date: "06/11/2024",
-    location: "Hà Nội, Việt Nam",
+    location: "Việt Nam",
   },
   {
     id: 5,
@@ -109,7 +109,7 @@ const articlesData: Article[] = [
     description: "Tiếp và làm việc với đoàn công tác cấp cao của Ủy ban Chứng khoán Lào.",
     image: imgP7_1,
     date: "10/01/2024",
-    location: "Hà Nội, Việt Nam",
+    location: "Việt Nam",
   },
   {
     id: 11,
@@ -282,7 +282,7 @@ export default function InternationalCooperation() {
                       {article.date.split("/").pop()}
                     </span>
                     {article.location && (
-                      <span className="px-3 py-1 text-xs font-semibold rounded-full bg-[#e53e3e] text-white">
+                      <span className="px-3 py-1 text-xs font-semibold rounded-full text-white bg-[#d3691d]">
                         {article.location}
                       </span>
                     )}
