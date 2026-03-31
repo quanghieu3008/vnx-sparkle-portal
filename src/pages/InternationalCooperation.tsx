@@ -375,6 +375,9 @@ export default function InternationalCooperation() {
             </div>
           )}
         </div>
+        </div>
+        </div>
+      </main>
 
       {/* Article Detail Modal */}
       <AnimatePresence>
@@ -383,14 +386,15 @@ export default function InternationalCooperation() {
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
-            className="fixed inset-0 z-50 bg-black/60 flex items-center justify-center p-4"
+            className="fixed inset-0 z-50 flex items-center justify-center bg-black/60 backdrop-blur-sm p-4"
             onClick={() => setSelectedArticle(null)}
           >
             <motion.div
-              initial={{ opacity: 0, scale: 0.95, y: 20 }}
-              animate={{ opacity: 1, scale: 1, y: 0 }}
-              exit={{ opacity: 0, scale: 0.95, y: 20 }}
-              className="bg-card rounded-2xl shadow-2xl max-w-3xl w-full max-h-[85vh] overflow-y-auto"
+              initial={{ scale: 0.9, opacity: 0 }}
+              animate={{ scale: 1, opacity: 1 }}
+              exit={{ scale: 0.9, opacity: 0 }}
+              transition={{ type: "spring", duration: 0.5 }}
+              className="bg-card rounded-2xl shadow-2xl max-w-2xl w-full max-h-[90vh] overflow-y-auto"
               onClick={(e) => e.stopPropagation()}
             >
               <div className="relative">
@@ -422,10 +426,6 @@ export default function InternationalCooperation() {
           </motion.div>
         )}
       </AnimatePresence>
-
-        </div>
-        </div>
-      </main>
 
       <Footer />
       <ScrollToTop />
