@@ -200,7 +200,7 @@ export default function InternationalCooperation() {
                 initial={{ opacity: 0, y: 15 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: index * 0.05 }}
-                className="flex gap-4 md:gap-6 p-4 rounded-xl bg-card border border-border/50 hover:shadow-md hover:border-primary/30 transition-all cursor-pointer group"
+                className="flex gap-4 md:gap-6 p-4 rounded-xl border hover:shadow-md transition-all cursor-pointer group bg-[#fcfcfc] border-white"
                 onClick={() => setSelectedArticle(article)}
               >
                 <div className="flex-shrink-0 w-28 h-20 md:w-40 md:h-28 rounded-lg overflow-hidden">
