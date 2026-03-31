@@ -93,6 +93,7 @@ const articlesData: Article[] = [
     description: "Sở GDCK Việt Nam tham dự cuộc họp lần thứ 36 của các Tổng Giám đốc các Sở GDCK ASEAN.",
     image: imgP5_1,
     date: "15/06/2024",
+    location: "ASEAN",
   },
   {
     id: 9,
