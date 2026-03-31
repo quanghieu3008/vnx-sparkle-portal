@@ -199,7 +199,7 @@ export default function InternationalCooperation() {
                     )}
                   </div>
                   <div className="p-5">
-                    <div className="flex items-center gap-4 text-xs text-muted-foreground mb-2">
+                    <div className="flex items-center gap-4 text-xs text-[#65778B] mb-2">
                       <span className="flex items-center gap-1">
                         <Calendar className="h-3.5 w-3.5" />
                         {article.date}
