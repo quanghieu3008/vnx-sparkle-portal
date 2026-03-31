@@ -217,36 +217,6 @@ export default function InternationalCooperation() {
           </div>
         </div>
 
-        {/* Milestones Section - full width */}
-        <div className="mb-10 py-10 bg-[#003366]">
-          <div className="container mx-auto px-4">
-            <h2 className="text-[28px] font-bold text-white text-center mb-2">Dấu mốc hội nhập quốc tế</h2>
-            <p className="text-center text-slate-400 text-sm mb-8">Những thành tựu quan trọng trong hành trình hội nhập của VNX</p>
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5">
-              {[
-                { icon: Users, title: "Thành viên WFE", desc: "VNX trở thành thành viên chính thức của Liên đoàn các Sở GDCK Thế giới (WFE)." },
-                { icon: Handshake, title: "Thành viên ASEAN Exchanges", desc: "VNX là thành viên của Hiệp hội các Sở GDCK khu vực ASEAN." },
-                { icon: TrendingUp, title: "MOU với FTSE Russell", desc: "Ký kết hợp tác chiến lược nhằm thúc đẩy nâng hạng TTCK Việt Nam." },
-                { icon: FileSignature, title: "Hợp tác với SGX Singapore", desc: "Ký MOU nâng tầm hợp tác với Sở GDCK Singapore." },
-              ].map((item, i) => (
-                <motion.div
-                  key={i}
-                  initial={{ opacity: 0, y: 15 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  transition={{ delay: i * 0.1 }}
-                  className="border rounded-xl p-5 transition-colors bg-[#0d3d6e] border-[#0e4475]"
-                >
-                  <div className="w-14 h-14 rounded-lg bg-[#f97415]/15 flex items-center justify-center mb-4">
-                    <item.icon className="w-7 h-7 text-[#f97415]" />
-                  </div>
-                  <h3 className="text-white font-bold mb-2 text-base">{item.title}</h3>
-                  <p className="text-slate-400 leading-relaxed text-sm">{item.desc}</p>
-                </motion.div>
-              ))}
-            </div>
-          </div>
-        </div>
-
         <div className="container mx-auto px-4">
           {/* Article List */}
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5">
@@ -322,6 +292,36 @@ export default function InternationalCooperation() {
               </button>
             </div>
           )}
+        </div>
+
+        {/* Milestones Section - full width */}
+        <div className="mt-10 py-10 bg-[#003366]">
+          <div className="container mx-auto px-4">
+            <h2 className="text-[28px] font-bold text-white text-center mb-2">Dấu mốc hội nhập quốc tế</h2>
+            <p className="text-center text-slate-400 text-sm mb-8">Những thành tựu quan trọng trong hành trình hội nhập của VNX</p>
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5">
+              {[
+                { icon: Users, title: "Thành viên WFE", desc: "VNX trở thành thành viên chính thức của Liên đoàn các Sở GDCK Thế giới (WFE)." },
+                { icon: Handshake, title: "Thành viên ASEAN Exchanges", desc: "VNX là thành viên của Hiệp hội các Sở GDCK khu vực ASEAN." },
+                { icon: TrendingUp, title: "MOU với FTSE Russell", desc: "Ký kết hợp tác chiến lược nhằm thúc đẩy nâng hạng TTCK Việt Nam." },
+                { icon: FileSignature, title: "Hợp tác với SGX Singapore", desc: "Ký MOU nâng tầm hợp tác với Sở GDCK Singapore." },
+              ].map((item, i) => (
+                <motion.div
+                  key={i}
+                  initial={{ opacity: 0, y: 15 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ delay: i * 0.1 }}
+                  className="border rounded-xl p-5 transition-colors bg-[#0d3d6e] border-[#0e4475]"
+                >
+                  <div className="w-14 h-14 rounded-lg bg-[#f97415]/15 flex items-center justify-center mb-4">
+                    <item.icon className="w-7 h-7 text-[#f97415]" />
+                  </div>
+                  <h3 className="text-white font-bold mb-2 text-base">{item.title}</h3>
+                  <p className="text-slate-400 leading-relaxed text-sm">{item.desc}</p>
+                </motion.div>
+              ))}
+            </div>
+          </div>
         </div>
       </main>
 
