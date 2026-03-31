@@ -216,6 +216,33 @@ export default function InternationalCooperation() {
             </div>
           </div>
 
+          {/* Milestones Section */}
+          <div className="mb-10 py-10 px-6 rounded-2xl" style={{ background: 'linear-gradient(135deg, #0a1628 0%, #122a4e 100%)' }}>
+            <h2 className="text-[28px] font-bold text-white text-center mb-2">Dấu mốc hội nhập quốc tế</h2>
+            <p className="text-center text-slate-400 text-sm mb-8">Những thành tựu quan trọng trong hành trình hội nhập của VNX</p>
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5">
+              {[
+                { icon: Users, title: "Thành viên WFE", desc: "VNX trở thành thành viên chính thức của Liên đoàn các Sở GDCK Thế giới (WFE)." },
+                { icon: Handshake, title: "Thành viên ASEAN Exchanges", desc: "VNX là thành viên của Hiệp hội các Sở GDCK khu vực ASEAN." },
+                { icon: TrendingUp, title: "MOU với FTSE Russell", desc: "Ký kết hợp tác chiến lược nhằm thúc đẩy nâng hạng TTCK Việt Nam." },
+                { icon: FileSignature, title: "Hợp tác với SGX Singapore", desc: "Ký MOU nâng tầm hợp tác với Sở GDCK Singapore." },
+              ].map((item, i) => (
+                <motion.div
+                  key={i}
+                  initial={{ opacity: 0, y: 15 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ delay: i * 0.1 }}
+                  className="bg-[#1a2d4a]/60 border border-[#2a3f5f] rounded-xl p-5 hover:border-[#f97415]/40 transition-colors"
+                >
+                  <div className="w-11 h-11 rounded-lg bg-[#f97415]/15 flex items-center justify-center mb-4">
+                    <item.icon className="w-5 h-5 text-[#f97415]" />
+                  </div>
+                  <h3 className="text-white font-bold text-sm mb-2">{item.title}</h3>
+                  <p className="text-slate-400 text-xs leading-relaxed">{item.desc}</p>
+                </motion.div>
+              ))}
+            </div>
+          </div>
           {/* Article List */}
           <div className="space-y-4">
             {paginatedData.map((article, index) => (
