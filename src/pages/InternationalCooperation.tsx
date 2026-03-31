@@ -248,7 +248,7 @@ export default function InternationalCooperation() {
                   <p className="text-xs md:text-sm text-[#65778B] line-clamp-2 mb-2 hidden md:block">
                     {article.description}
                   </p>
-                  <div className="flex items-center gap-2 text-xs text-muted-foreground">
+                  <div className="flex items-center gap-2 text-xs text-[#65778B]">
                     <Calendar className="h-3.5 w-3.5" />
                     <span>{article.date}</span>
                   </div>
