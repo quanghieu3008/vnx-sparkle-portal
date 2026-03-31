@@ -146,17 +146,14 @@ const articlesData: Article[] = [
   },
 ];
 
-const ITEMS_PER_PAGE = 10;
+const ITEMS_PER_PAGE = 8;
 
 export default function InternationalCooperation() {
-  const [currentPage, setCurrentPage] = useState(1);
+  const [visibleCount, setVisibleCount] = useState(ITEMS_PER_PAGE);
   const [selectedArticle, setSelectedArticle] = useState<Article | null>(null);
 
-  const totalPages = Math.ceil(articlesData.length / ITEMS_PER_PAGE);
-  const paginatedData = articlesData.slice(
-    (currentPage - 1) * ITEMS_PER_PAGE,
-    currentPage * ITEMS_PER_PAGE
-  );
+  const visibleData = articlesData.slice(0, visibleCount);
+  const hasMore = visibleCount < articlesData.length;
 
   const featuredArticles = articlesData.slice(0, 2);
 
