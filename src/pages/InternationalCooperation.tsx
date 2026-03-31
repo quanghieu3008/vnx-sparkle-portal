@@ -290,7 +290,8 @@ export default function InternationalCooperation() {
           <motion.div
             className="text-center mb-8"
             initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, amount: 0.5 }}
             transition={{ duration: 0.5 }}
           >
             <div className="flex items-center justify-center gap-2 mb-2">
@@ -305,9 +306,10 @@ export default function InternationalCooperation() {
             {paginatedData.map((article, index) => (
               <motion.div
                 key={article.id}
-                initial={{ opacity: 0, y: 15 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ delay: index * 0.05 }}
+                initial={{ opacity: 0, y: 25 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true, amount: 0.2 }}
+                transition={{ duration: 0.4, delay: index * 0.08 }}
                 className="rounded-xl border overflow-hidden hover:shadow-md transition-all cursor-pointer group bg-[#fcfcfc] border-white"
                 onClick={() => setSelectedArticle(article)}
               >
