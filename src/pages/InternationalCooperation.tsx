@@ -61,6 +61,7 @@ const articlesData: Article[] = [
     description: "Sáng ngày 06/11/2024, tại trụ sở của VNX, Chủ tịch Hội đồng thành viên Lương Hải Sinh đã chủ trì buổi tiếp, làm việc và trao đổi thông tin với đoàn công tác của FTSE Russell về các hoạt động nhằm thúc đẩy việc nâng hạng thị trường chứng khoán Việt Nam.",
     image: imgP2_1,
     date: "06/11/2024",
+    location: "Hà Nội, Việt Nam",
   },
   {
     id: 5,
