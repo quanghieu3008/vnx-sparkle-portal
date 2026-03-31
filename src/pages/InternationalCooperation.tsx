@@ -85,6 +85,7 @@ const articlesData: Article[] = [
     description: "Chủ tịch UBCKNN làm việc với Thống đốc Cơ quan giám sát tài chính Hàn Quốc.",
     image: imgP4_1,
     date: "10/08/2024",
+    location: "Hàn Quốc",
   },
   {
     id: 8,
