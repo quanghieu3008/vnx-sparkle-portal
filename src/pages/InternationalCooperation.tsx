@@ -77,6 +77,7 @@ const articlesData: Article[] = [
     description: "Bộ trưởng Bộ Tài chính Hồ Đức Phớc làm việc với Ngân hàng Mizuho.",
     image: imgP3_1,
     date: "20/09/2024",
+    location: "Nhật Bản",
   },
   {
     id: 7,
