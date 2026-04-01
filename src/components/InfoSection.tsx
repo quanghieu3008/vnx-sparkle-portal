@@ -15,7 +15,7 @@ interface InfoBlock {
 const infoBlocks: InfoBlock[] = [
   {
     id: 1,
-    title: "Giới thiệu về Sở Giao dịch Chứng khoán Việt Nam",
+    title: "Lịch sử phát triển của Sở Giao dịch Chứng khoán Việt Nam",
     description: "VNX được thành lập với sứ mệnh phát triển thị trường vốn Việt Nam trở thành trung tâm tài chính hàng đầu khu vực, đảm bảo tính minh bạch và hiệu quả.",
     type: "intro",
   },
