@@ -62,7 +62,7 @@ const menuItems: MenuItem[] = [
     ],
   },
   {
-    label: "Dành cho\n",
+    label: "Dành cho \n",
     items: [
       { label: "Danh sách thành viên" },
       { label: "Tin công bố về Thành viên" },
