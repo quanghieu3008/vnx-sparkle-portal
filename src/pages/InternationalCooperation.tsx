@@ -342,22 +342,22 @@ export default function InternationalCooperation() {
           {/* Pagination */}
           {totalPages > 1 && (
             <div className="flex justify-center mt-8">
-              <div className="flex items-center gap-2">
+              <div className="inline-flex items-center gap-2 bg-[#f0f2f5] rounded-xl p-1.5">
                 <button
                   onClick={() => setCurrentPage((p) => Math.max(1, p - 1))}
                   disabled={currentPage === 1}
-                  className="px-4 py-2 border border-slate-300 rounded text-sm font-medium text-[#1a212d] bg-white hover:bg-slate-50 disabled:opacity-40 disabled:cursor-not-allowed transition-colors"
+                  className="w-10 h-10 flex items-center justify-center rounded-lg text-[#48566a] bg-white shadow-sm border border-[#e1e7ef] hover:bg-slate-50 disabled:opacity-40 disabled:cursor-not-allowed transition-colors"
                 >
-                  Trước
+                  <ChevronLeft className="h-4 w-4" />
                 </button>
                 {Array.from({ length: totalPages }, (_, i) => i + 1).map((page) => (
                   <button
                     key={page}
                     onClick={() => setCurrentPage(page)}
-                    className={`w-10 h-10 text-sm font-semibold transition-colors border rounded-md ${
+                    className={`w-10 h-10 flex items-center justify-center text-sm font-semibold transition-colors rounded-lg ${
                       currentPage === page
-                        ? "bg-[#003366] text-white"
-                        : "text-[#48566a] border-[#e1e7ef] bg-white"
+                        ? "bg-[#003366] text-white shadow-md"
+                        : "bg-white text-[#48566a] border border-[#e1e7ef] shadow-sm hover:bg-slate-50"
                     }`}
                   >
                     {page}
@@ -366,9 +366,9 @@ export default function InternationalCooperation() {
                 <button
                   onClick={() => setCurrentPage((p) => Math.min(totalPages, p + 1))}
                   disabled={currentPage === totalPages}
-                  className="px-4 py-2 border border-slate-300 rounded text-sm font-medium text-[#1a212d] bg-white hover:bg-slate-50 disabled:opacity-40 disabled:cursor-not-allowed transition-colors"
+                  className="w-10 h-10 flex items-center justify-center rounded-lg text-[#48566a] bg-white shadow-sm border border-[#e1e7ef] hover:bg-slate-50 disabled:opacity-40 disabled:cursor-not-allowed transition-colors"
                 >
-                  Tiếp
+                  <ChevronRight className="h-4 w-4" />
                 </button>
               </div>
             </div>
