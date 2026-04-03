@@ -354,10 +354,10 @@ export default function InternationalCooperation() {
                   <button
                     key={page}
                     onClick={() => setCurrentPage(page)}
-                    className={`w-10 h-10 flex items-center justify-center text-sm font-semibold transition-colors rounded-lg ${
+                    className={`w-10 h-10 flex items-center justify-center text-sm font-semibold transition-colors rounded-lg border ${
                       currentPage === page
-                        ? "bg-[#003366] text-white shadow-md"
-                        : "bg-white text-[#48566a] border border-[#e1e7ef] shadow-sm hover:bg-slate-50"
+                        ? "bg-[#003366] text-white shadow-md border-[#003366]"
+                        : "bg-white text-[#48566a] border-[#e1e7ef] shadow-sm hover:bg-slate-50"
                     }`}
                   >
                     {page}
