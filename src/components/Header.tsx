@@ -62,16 +62,16 @@ const menuItems: MenuItem[] = [
     ],
   },
   {
-    label: "Dành cho \n",
+    label: "Dành cho thành viên",
     items: [
-      { label: "Danh sách \n" },
+      { label: "Danh sách thành viên" },
       { label: "Tin công bố về Thành viên" },
-      { label: "Tin công bố của \n" },
-      { label: "Đăng ký \n" },
+      { label: "Tin công bố của thành viên" },
+      { label: "Đăng ký thành viên" },
     ],
   },
   {
-    label: "Góc Nhà đầu tư",
+    label: "Góc Nhàđầutư",
     items: [
       { label: "Khuyến cáo NĐT", href: "https://sparkle-vault-home.lovable.app/khuyen-cao-ndt" },
       { label: "Chương trình đào tạo" },
@@ -123,7 +123,7 @@ export default function Header() {
                 onMouseEnter={() => setActiveMenu(index)}
                 onMouseLeave={() => setActiveMenu(null)}
               >
-                <button className="flex items-center gap-1 px-4 py-2 text-sm font-medium text-foreground/90 hover:text-primary transition-colors whitespace-pre-line">
+                <button className="flex items-center gap-1 px-4 py-2 text-sm font-medium text-foreground/90 hover:text-primary transition-colors">
                   {menu.label}
                   <ChevronDown className="h-4 w-4" />
                 </button>
