@@ -123,7 +123,7 @@ export default function Header() {
                 onMouseEnter={() => setActiveMenu(index)}
                 onMouseLeave={() => setActiveMenu(null)}
               >
-                <button className="flex items-center gap-1 px-4 py-2 text-sm font-medium text-foreground/90 hover:text-primary transition-colors">
+                <button className="flex items-center gap-1 px-4 py-2 text-sm font-medium text-foreground/90 hover:text-primary transition-colors whitespace-pre-line">
                   {menu.label}
                   <ChevronDown className="h-4 w-4" />
                 </button>
