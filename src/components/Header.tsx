@@ -64,10 +64,10 @@ const menuItems: MenuItem[] = [
   {
     label: "Dành cho \n",
     items: [
-      { label: "Danh sách thành viên" },
+      { label: "Danh sách \n" },
       { label: "Tin công bố về Thành viên" },
-      { label: "Tin công bố của thành viên" },
-      { label: "Đăng ký thành viên" },
+      { label: "Tin công bố của \n" },
+      { label: "Đăng ký \n" },
     ],
   },
   {
