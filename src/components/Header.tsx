@@ -62,7 +62,7 @@ const menuItems: MenuItem[] = [
     ],
   },
   {
-    label: "Dành cho thành viên",
+    label: "Dành cho\n",
     items: [
       { label: "Danh sách thành viên" },
       { label: "Tin công bố về Thành viên" },
@@ -71,7 +71,7 @@ const menuItems: MenuItem[] = [
     ],
   },
   {
-    label: "Góc Nhàđầutư",
+    label: "Góc Nhà đầu tư",
     items: [
       { label: "Khuyến cáo NĐT", href: "https://sparkle-vault-home.lovable.app/khuyen-cao-ndt" },
       { label: "Chương trình đào tạo" },
