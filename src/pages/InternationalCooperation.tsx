@@ -339,15 +339,38 @@ export default function InternationalCooperation() {
             ))}
           </div>
 
-          {/* Load More */}
-          {hasMore && (
+          {/* Pagination */}
+          {totalPages > 1 && (
             <div className="flex justify-center mt-8">
-              <button
-                onClick={() => setVisibleCount((prev) => prev + ITEMS_PER_PAGE)}
-                className="text-[#003366] hover:text-[#f97415] font-semibold transition-colors underline underline-offset-4 text-base"
-              >
-                Xem thêm
-              </button>
+              <div className="flex items-center gap-2">
+                <button
+                  onClick={() => setCurrentPage((p) => Math.max(1, p - 1))}
+                  disabled={currentPage === 1}
+                  className="px-4 py-2 border border-slate-300 rounded text-sm font-medium text-[#1a212d] bg-white hover:bg-slate-50 disabled:opacity-40 disabled:cursor-not-allowed transition-colors"
+                >
+                  Trước
+                </button>
+                {Array.from({ length: totalPages }, (_, i) => i + 1).map((page) => (
+                  <button
+                    key={page}
+                    onClick={() => setCurrentPage(page)}
+                    className={`w-10 h-10 rounded text-sm font-semibold transition-colors ${
+                      currentPage === page
+                        ? "bg-[#003366] text-white"
+                        : "bg-white border border-slate-300 text-[#1a212d] hover:bg-slate-50"
+                    }`}
+                  >
+                    {page}
+                  </button>
+                ))}
+                <button
+                  onClick={() => setCurrentPage((p) => Math.min(totalPages, p + 1))}
+                  disabled={currentPage === totalPages}
+                  className="px-4 py-2 border border-slate-300 rounded text-sm font-medium text-[#1a212d] bg-white hover:bg-slate-50 disabled:opacity-40 disabled:cursor-not-allowed transition-colors"
+                >
+                  Tiếp
+                </button>
+              </div>
             </div>
           )}
         </div>
