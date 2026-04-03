@@ -149,11 +149,11 @@ const articlesData: Article[] = [
 const ITEMS_PER_PAGE = 8;
 
 export default function InternationalCooperation() {
-  const [visibleCount, setVisibleCount] = useState(ITEMS_PER_PAGE);
+  const [currentPage, setCurrentPage] = useState(1);
   const [selectedArticle, setSelectedArticle] = useState<Article | null>(null);
 
-  const visibleData = articlesData.slice(0, visibleCount);
-  const hasMore = visibleCount < articlesData.length;
+  const totalPages = Math.ceil(articlesData.length / ITEMS_PER_PAGE);
+  const visibleData = articlesData.slice((currentPage - 1) * ITEMS_PER_PAGE, currentPage * ITEMS_PER_PAGE);
 
   const featuredArticles = articlesData.slice(0, 2);
 
