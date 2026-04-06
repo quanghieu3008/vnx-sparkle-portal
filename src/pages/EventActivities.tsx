@@ -284,7 +284,7 @@ const EventActivities = () => {
                 <div>
                   <h2 className="text-base font-bold text-[#003366] mb-4 flex items-center gap-2">
                     <span className="w-1 h-5 bg-[#e8930a] rounded-full"></span>
-                    Danh sách sự kiện ({regularEvents.length})
+                    Tất cả sự kiện ({regularEvents.length})
                   </h2>
                   <div className="space-y-4">
                     {regularEvents.map((event) => (
