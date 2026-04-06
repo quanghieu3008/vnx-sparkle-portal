@@ -178,50 +178,6 @@ const EventActivities = () => {
             <div className="grid lg:grid-cols-[1fr_280px] gap-8">
               {/* Main Content */}
               <div>
-                {/* Filters Row */}
-                <div className="bg-white rounded-lg border border-slate-200 p-4 mb-6">
-                  <div className="flex flex-col md:flex-row gap-3">
-                    {/* Search */}
-                    <div className="flex-1 relative">
-                      <Search className="absolute left-3 top-1/2 -translate-y-1/2 h-4 w-4 text-slate-400" />
-                      <input
-                        type="text"
-                        placeholder="Tìm kiếm theo tiêu đề..."
-                        value={searchQuery}
-                        onChange={(e) => setSearchQuery(e.target.value)}
-                        className="w-full h-10 pl-10 pr-3 rounded-md border border-slate-300 bg-white text-slate-700 text-sm placeholder:text-slate-400 focus:outline-none focus:ring-2 focus:ring-[#003366]/30 focus:border-[#003366]"
-                      />
-                    </div>
-                    {/* Year Filter */}
-                    <select 
-                      value={selectedYear} 
-                      onChange={(e) => setSelectedYear(e.target.value)}
-                      className="h-10 px-3 rounded-md border border-slate-300 bg-white text-slate-700 text-sm focus:outline-none focus:ring-2 focus:ring-[#003366]/30 focus:border-[#003366] md:w-[140px]"
-                    >
-                      <option value="all">Tất cả năm</option>
-                      <option value="2025">Năm 2025</option>
-                      <option value="2024">Năm 2024</option>
-                      <option value="2023">Năm 2023</option>
-                    </select>
-                    {/* Type Filter */}
-                    <div className="relative md:w-[200px]">
-                      <Filter className="absolute left-3 top-1/2 -translate-y-1/2 h-4 w-4 text-slate-400 pointer-events-none" />
-                      <select 
-                        value={selectedType} 
-                        onChange={(e) => setSelectedType(e.target.value)}
-                        className="w-full h-10 pl-9 pr-3 rounded-md border border-slate-300 bg-white text-slate-700 text-sm focus:outline-none focus:ring-2 focus:ring-[#003366]/30 focus:border-[#003366] appearance-none"
-                      >
-                        {eventTypes.map((type) => (
-                          <option key={type.value} value={type.value}>
-                            {type.label}
-                          </option>
-                        ))}
-                      </select>
-                      <ChevronRight className="absolute right-3 top-1/2 -translate-y-1/2 h-4 w-4 text-slate-400 rotate-90 pointer-events-none" />
-                    </div>
-                  </div>
-                </div>
-
                 {/* Featured Events */}
                 {featuredEvents.length > 0 && (
                   <div className="mb-8">
@@ -286,6 +242,46 @@ const EventActivities = () => {
                     <span className="w-1 h-5 bg-[#e8930a] rounded-full"></span>
                     Tất cả sự kiện ({regularEvents.length})
                   </h2>
+                  {/* Filters Row */}
+                  <div className="bg-white rounded-lg border border-slate-200 p-4 mb-4">
+                    <div className="flex flex-col md:flex-row gap-3">
+                      <div className="flex-1 relative">
+                        <Search className="absolute left-3 top-1/2 -translate-y-1/2 h-4 w-4 text-slate-400" />
+                        <input
+                          type="text"
+                          placeholder="Tìm kiếm theo tiêu đề..."
+                          value={searchQuery}
+                          onChange={(e) => setSearchQuery(e.target.value)}
+                          className="w-full h-10 pl-10 pr-3 rounded-md border border-slate-300 bg-white text-slate-700 text-sm placeholder:text-slate-400 focus:outline-none focus:ring-2 focus:ring-[#003366]/30 focus:border-[#003366]"
+                        />
+                      </div>
+                      <select 
+                        value={selectedYear} 
+                        onChange={(e) => setSelectedYear(e.target.value)}
+                        className="h-10 px-3 rounded-md border border-slate-300 bg-white text-slate-700 text-sm focus:outline-none focus:ring-2 focus:ring-[#003366]/30 focus:border-[#003366] md:w-[140px]"
+                      >
+                        <option value="all">Tất cả năm</option>
+                        <option value="2025">Năm 2025</option>
+                        <option value="2024">Năm 2024</option>
+                        <option value="2023">Năm 2023</option>
+                      </select>
+                      <div className="relative md:w-[200px]">
+                        <Filter className="absolute left-3 top-1/2 -translate-y-1/2 h-4 w-4 text-slate-400 pointer-events-none" />
+                        <select 
+                          value={selectedType} 
+                          onChange={(e) => setSelectedType(e.target.value)}
+                          className="w-full h-10 pl-9 pr-3 rounded-md border border-slate-300 bg-white text-slate-700 text-sm focus:outline-none focus:ring-2 focus:ring-[#003366]/30 focus:border-[#003366] appearance-none"
+                        >
+                          {eventTypes.map((type) => (
+                            <option key={type.value} value={type.value}>
+                              {type.label}
+                            </option>
+                          ))}
+                        </select>
+                        <ChevronRight className="absolute right-3 top-1/2 -translate-y-1/2 h-4 w-4 text-slate-400 rotate-90 pointer-events-none" />
+                      </div>
+                    </div>
+                  </div>
                   <div className="space-y-4">
                     {regularEvents.map((event) => (
                       <article 
