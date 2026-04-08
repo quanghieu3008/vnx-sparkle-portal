@@ -211,7 +211,7 @@ export default function InternationalPartners() {
               <p className="text-sm text-slate-500">
                 Hiển thị {(currentPage - 1) * ITEMS_PER_PAGE + 1}–{Math.min(currentPage * ITEMS_PER_PAGE, partnersData.length)} / {partnersData.length}
               </p>
-              <div className="flex items-center gap-1 bg-[#f0f2f5] rounded-xl p-1">
+              <div className="flex items-center gap-1 rounded-xl p-1 bg-white">
                 <button
                   onClick={() => setCurrentPage(p => Math.max(1, p - 1))}
                   disabled={currentPage === 1}
