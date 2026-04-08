@@ -18,6 +18,7 @@ import InvestorWarnings from "./pages/InvestorWarnings";
 import InvestorWarnings2 from "./pages/InvestorWarnings2";
 import InternationalCooperation from "./pages/InternationalCooperation";
 import InternationalPartners from "./pages/InternationalPartners";
+import TrainingPrograms from "./pages/TrainingPrograms";
 import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
@@ -43,6 +44,7 @@ const App = () => (
           <Route path="/khuyen-cao-ndt-2" element={<InvestorWarnings2 />} />
           <Route path="/hop-tac-quoc-te" element={<InternationalCooperation />} />
           <Route path="/doi-tac-quoc-te" element={<InternationalPartners />} />
+          <Route path="/chuong-trinh-dao-tao" element={<TrainingPrograms />} />
           {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
           <Route path="*" element={<NotFound />} />
         </Routes>
