@@ -378,7 +378,11 @@ export default function TrainingPrograms() {
                     <h3 className="font-bold text-sm text-[#003366] mb-2 leading-snug line-clamp-2">{sem.title}</h3>
                     <p className="text-xs text-slate-500 mb-3 line-clamp-2 flex-1">{sem.description}</p>
                     <div className="flex items-center justify-between mt-auto pt-2 border-t border-slate-100">
-                      <span className="text-[10px] font-bold text-slate-400 uppercase tracking-wider">{sem.org}</span>
+                      {orgLogos[sem.org] ? (
+                        <img src={orgLogos[sem.org]} alt={sem.org} className="h-5 object-contain" />
+                      ) : (
+                        <span className="text-[10px] font-bold text-slate-400 uppercase tracking-wider">{sem.org}</span>
+                      )}
                       <button
                         onClick={() => setSelectedSeminar(sem)}
                         className="text-xs text-primary font-semibold hover:underline"
