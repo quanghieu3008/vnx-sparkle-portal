@@ -137,7 +137,7 @@ function BannerCarousel() {
             >
               <img src={slide.image} alt={slide.title} className="w-full h-full object-cover" />
               <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent" />
-              <div className="absolute bottom-0 left-0 right-0 p-6 md:p-10">
+              <div className="absolute bottom-0 left-0 right-0 p-6 md:p-10 px-[50px] py-[20px]">
                 <span className="inline-block px-3 py-1 bg-red-600 text-white font-bold rounded-full mb-3 uppercase tracking-wider text-2xl">
                   {slide.tag}
                 </span>
@@ -145,8 +145,8 @@ function BannerCarousel() {
                   {slide.title}
                 </h2>
                 <div className="flex flex-wrap gap-4 text-white/90 text-sm">
-                  <span className="flex items-center gap-1.5"><Clock className="h-4 w-4" />{slide.time}</span>
-                  <span className="flex items-center gap-1.5"><MapPin className="h-4 w-4" />{slide.format}</span>
+                  <span className="flex items-center gap-1.5 text-base"><Clock className="h-4 w-4" />{slide.time}</span>
+                  <span className="flex items-center gap-1.5 text-base"><MapPin className="h-4 w-4" />{slide.format}</span>
                 </div>
               </div>
             </motion.div>
