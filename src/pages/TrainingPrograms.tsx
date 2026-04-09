@@ -399,7 +399,7 @@ export default function TrainingPrograms() {
 
           {/* 6. FAQ */}
           <section className="mb-8">
-            <h2 className="text-3xl font-bold text-[#003366] mb-5 flex items-center gap-2 mx-[300px] text-center">
+            <h2 className="text-3xl font-bold text-[#003366] mb-5 flex items-center gap-2 mx-[300px] text-center px-[150px]">
               <span className="text-primary text-2xl">​</span>
               {"\n"}                    Câu Hỏi Thường Gặp
             </h2>
