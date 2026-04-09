@@ -237,7 +237,7 @@ export default function TrainingPrograms() {
       <main className="pt-28 pb-16">
         <div className="container mx-auto px-4">
           {/* Breadcrumb */}
-          <nav className="flex items-center gap-2 text-sm text-slate-500 mb-6">
+          <nav className="gap-2 text-sm text-slate-500 mb-6 items-center justify-start flex flex-row py-[30px]">
             <a href="/" className="hover:text-primary">Trang chủ</a>
             <ChevronRight className="h-3.5 w-3.5" />
             <span>Góc Nhà đầu tư</span>
@@ -403,14 +403,14 @@ export default function TrainingPrograms() {
               <span className="text-primary text-2xl">?</span>
               Câu hỏi thường gặp
             </h2>
-            <div className="max-w-3xl space-y-2">
+            <div className="max-w-3xl space-y-2 text-justify text-sm">
               {faqData.map((faq, i) => (
                 <div key={i} className="bg-white rounded-lg border border-slate-200 overflow-hidden">
                   <button
                     onClick={() => setExpandedFaq(expandedFaq === i ? null : i)}
                     className="w-full flex items-center justify-between px-5 py-4 text-left text-sm font-medium text-[#003366] hover:bg-slate-50 transition-colors"
                   >
-                    <span>{faq.q}</span>
+                    <span className="text-lg text-left">{faq.q}</span>
                     {expandedFaq === i ? <ChevronUp className="h-4 w-4 flex-shrink-0" /> : <ChevronDown className="h-4 w-4 flex-shrink-0" />}
                   </button>
                   <AnimatePresence>
