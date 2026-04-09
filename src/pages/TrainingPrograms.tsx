@@ -173,10 +173,10 @@ function DateBadge({ dateStr }: { dateStr: string }) {
   const monthYear = `${(d.getMonth() + 1).toString().padStart(2, "0")}/${d.getFullYear()}`;
   return (
     <div className="flex-shrink-0 w-16 h-20 rounded-lg overflow-hidden shadow-md">
-      <div className="bg-[#8b1a1a] text-white text-center py-1.5">
-        <span className="text-2xl font-bold leading-none">{day}</span>
+      <div className="bg-[#8b1a1a] text-white text-center py-[11px]">
+        <span className="font-bold leading-none text-3xl">{day}</span>
       </div>
-      <div className="bg-[#b84a4a] text-white text-center py-1 border-t border-white/20">
+      <div className="bg-[#b84a4a] text-white text-center border-t border-white/20 py-px">
         <span className="text-[10px] font-medium">{monthYear}</span>
       </div>
     </div>
