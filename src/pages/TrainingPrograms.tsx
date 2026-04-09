@@ -138,10 +138,10 @@ function BannerCarousel() {
               <img src={slide.image} alt={slide.title} className="w-full h-full object-cover" />
               <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent" />
               <div className="absolute bottom-0 left-0 right-0 p-6 md:p-10">
-                <span className="inline-block px-3 py-1 bg-red-600 text-white text-xs font-bold rounded-full mb-3 uppercase tracking-wider">
+                <span className="inline-block px-3 py-1 bg-red-600 text-white font-bold rounded-full mb-3 uppercase tracking-wider text-2xl">
                   {slide.tag}
                 </span>
-                <h2 className="text-white text-xl md:text-2xl lg:text-3xl font-bold leading-tight mb-3">
+                <h2 className="text-white text-xl md:text-2xl font-bold leading-tight mb-3 lg:text-5xl">
                   {slide.title}
                 </h2>
                 <div className="flex flex-wrap gap-4 text-white/90 text-sm">
