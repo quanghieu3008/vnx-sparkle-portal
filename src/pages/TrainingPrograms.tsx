@@ -238,11 +238,11 @@ export default function TrainingPrograms() {
         <div className="container mx-auto px-4">
           {/* Breadcrumb */}
           <nav className="gap-2 text-sm text-slate-500 mb-6 items-center justify-start flex flex-row py-[30px]">
-            <a href="/" className="hover:text-primary">Trang chủ</a>
+            <a href="/" className="text-primary-foreground">Trang chủ</a>
             <ChevronRight className="h-3.5 w-3.5" />
-            <span>Góc Nhà đầu tư</span>
+            <span className="text-black">Góc Nhà đầu tư</span>
             <ChevronRight className="h-3.5 w-3.5" />
-            <span className="text-primary font-medium">Chương trình đào tạo</span>
+            <span className="font-medium text-primary-foreground">Chương trình đào tạo</span>
           </nav>
 
           <h1 className="text-2xl md:text-3xl font-bold text-[#003366] mb-6">Chương trình đào tạo</h1>
