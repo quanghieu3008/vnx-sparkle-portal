@@ -194,7 +194,7 @@ function BookCard({ book }: { book: typeof documentBooks[0] }) {
         <div className="absolute top-2 right-2 w-8 h-8 bg-white/10 rounded-full" />
         <div className="pl-4">
           <BookOpen className="h-6 w-6 text-white/60 mb-3" />
-          <h4 className="text-white font-bold text-sm leading-snug">{book.title}</h4>
+          <h4 className="text-white font-bold text-base leading-snug">{book.title}</h4>
         </div>
         <div className="pl-4 flex items-center gap-1 text-white/70 text-xs group-hover:text-white transition-colors">
           <span>Xem chi tiết</span>
@@ -284,7 +284,7 @@ export default function TrainingPrograms() {
 
           {/* 3. Courses: Sidebar + Grid */}
           <section className="mb-12">
-            <h2 className="text-xl font-bold text-[#003366] mb-5 flex items-center gap-2">
+            <h2 className="text-3xl font-bold text-[#003366] mb-5 flex items-center gap-2">
               <BookOpen className="h-5 w-5 text-primary" />
               Khóa đào tạo
             </h2>
@@ -292,14 +292,14 @@ export default function TrainingPrograms() {
               {/* Sidebar */}
               <div className="lg:w-64 flex-shrink-0">
                 <div className="bg-white rounded-xl border border-slate-200 overflow-hidden shadow-sm">
-                  <div className="bg-[#003366] text-white px-4 py-3 font-semibold text-sm">
+                  <div className="bg-[#003366] text-white px-4 py-3 font-semibold text-base">
                     Danh mục khóa học
                   </div>
                   {courseCategories.map((cat) => (
                     <button
                       key={cat.id}
                       onClick={() => setActiveCategory(cat.id)}
-                      className={`w-full text-left px-4 py-[34px] text-sm border-b border-slate-100 last:border-0 transition-colors ${
+                      className={`w-full text-left px-4 py-[31px] text-base border-b border-slate-100 last:border-0 transition-colors ${
                         activeCategory === cat.id
                           ? "bg-primary/10 text-primary font-semibold border-l-4 border-l-primary"
                           : "text-slate-600 hover:bg-slate-50 hover:text-primary"
@@ -329,7 +329,7 @@ export default function TrainingPrograms() {
                       >
                         <DateBadge dateStr={course.date} />
                         <div className="flex-1 min-w-0">
-                          <h4 className="text-xs font-bold text-[#003366] group-hover:text-primary transition-colors leading-snug mb-1.5 uppercase">
+                          <h4 className="text-lg font-bold text-[#003366] group-hover:text-primary transition-colors leading-snug mb-1.5 uppercase">
                             {course.title}
                           </h4>
                           <p className="text-[11px] text-slate-500 flex items-center gap-1">
@@ -347,7 +347,7 @@ export default function TrainingPrograms() {
 
           {/* 4. Seminars */}
           <section className="mb-12">
-            <h2 className="text-xl font-bold text-[#003366] mb-5 flex items-center gap-2">
+            <h2 className="text-3xl font-bold text-[#003366] mb-5 flex items-center gap-2">
               <Calendar className="h-5 w-5 text-primary" />
               Hội thảo
             </h2>
@@ -385,7 +385,7 @@ export default function TrainingPrograms() {
 
           {/* 5. Documents (Book-style) */}
           <section className="mb-12">
-            <h2 className="text-xl font-bold text-[#003366] mb-5 flex items-center gap-2">
+            <h2 className="text-3xl font-bold text-[#003366] mb-5 flex items-center gap-2">
               <BookOpen className="h-5 w-5 text-primary" />
               Tài liệu
             </h2>
@@ -399,7 +399,7 @@ export default function TrainingPrograms() {
 
           {/* 6. FAQ */}
           <section className="mb-8">
-            <h2 className="text-xl font-bold text-[#003366] mb-5 flex items-center gap-2">
+            <h2 className="text-3xl font-bold text-[#003366] mb-5 flex items-center gap-2">
               <span className="text-primary text-2xl">?</span>
               Câu hỏi thường gặp
             </h2>
