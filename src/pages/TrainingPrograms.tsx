@@ -403,6 +403,7 @@ export default function TrainingPrograms() {
               <span className="text-primary text-2xl">?</span>
               Câu hỏi thường gặp
             </h2>
+            <div className="max-w-3xl space-y-2 text-justify text-sm">
               {faqData.map((faq, i) => (
                 <div key={i} className="bg-white rounded-lg border border-slate-200 overflow-hidden">
                   <button
