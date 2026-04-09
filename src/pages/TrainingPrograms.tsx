@@ -18,6 +18,9 @@ import seminar5 from "@/assets/seminar-5.jpg";
 import seminar6 from "@/assets/seminar-6.jpg";
 import seminar7 from "@/assets/seminar-7.jpg";
 import seminar8 from "@/assets/seminar-8.jpg";
+import logoVnx from "@/assets/logo-vnx.jpg";
+import logoHnx from "@/assets/logo-hnx.png";
+import logoHose from "@/assets/logo-hose.png";
 
 // ==================== DATA ====================
 
@@ -83,15 +86,21 @@ const coursesData = [
   { id: 18, title: "PHÂN TÍCH KỸ THUẬT NÂNG CAO", category: "basic-trading", date: "2025-09-05", time: "Thứ 7, Chủ nhật", monthYear: "09/2025" },
 ];
 
+const orgLogos: Record<string, string> = {
+  "VNX": logoVnx,
+  "HNX": logoHnx,
+  "HOSE": logoHose,
+};
+
 const seminarsData = [
-  { id: 1, title: "Dòng vốn và cơ hội đầu tư trong bối cảnh toàn cầu hóa", date: "15/07/2025", time: "09:00", image: seminar1, description: "Phân tích xu hướng dòng vốn toàn cầu và cơ hội đầu tư cho nhà đầu tư Việt Nam trong bối cảnh hội nhập kinh tế quốc tế.", org: "​" },
+  { id: 1, title: "Dòng vốn và cơ hội đầu tư trong bối cảnh toàn cầu hóa", date: "15/07/2025", time: "09:00", image: seminar1, description: "Phân tích xu hướng dòng vốn toàn cầu và cơ hội đầu tư cho nhà đầu tư Việt Nam trong bối cảnh hội nhập kinh tế quốc tế.", org: "VNX" },
   { id: 2, title: "Chuyển đổi số trong thị trường chứng khoán", date: "20/07/2025", time: "14:00", image: seminar2, description: "Tìm hiểu về các công nghệ mới đang thay đổi cách thức giao dịch và quản lý đầu tư trên thị trường chứng khoán.", org: "HNX" },
-  { id: 3, title: "Nâng cao nhận thức nhà đầu tư: Hướng tới nâng hạng thị trường chứng khoán", date: "25/07/2025", time: "08:30", image: seminar3, description: "Hội thảo chuyên đề về các tiêu chí nâng hạng thị trường và vai trò của nhà đầu tư trong quá trình này.", org: "​" },
+  { id: 3, title: "Nâng cao nhận thức nhà đầu tư: Hướng tới nâng hạng thị trường chứng khoán", date: "25/07/2025", time: "08:30", image: seminar3, description: "Hội thảo chuyên đề về các tiêu chí nâng hạng thị trường và vai trò của nhà đầu tư trong quá trình này.", org: "VNX" },
   { id: 4, title: "Toàn cảnh thị trường chứng khoán Việt Nam: Cơ hội và thách thức", date: "01/08/2025", time: "09:00", image: seminar4, description: "Đánh giá toàn diện về thị trường chứng khoán Việt Nam, nhận diện cơ hội đầu tư và các rủi ro cần lưu ý.", org: "HOSE" },
-  { id: 5, title: "Khám phá bí mật kỳ diệu của ngành chứng khoán dành cho người không chuyên", date: "10/08/2025", time: "14:00", image: seminar5, description: "Chương trình dành cho người mới bắt đầu, giúp hiểu rõ cách thức hoạt động của thị trường chứng khoán.", org: "​" },
+  { id: 5, title: "Khám phá bí mật kỳ diệu của ngành chứng khoán dành cho người không chuyên", date: "10/08/2025", time: "14:00", image: seminar5, description: "Chương trình dành cho người mới bắt đầu, giúp hiểu rõ cách thức hoạt động của thị trường chứng khoán.", org: "VNX" },
   { id: 6, title: "Chiến lược đầu tư hiệu quả trong thị trường biến động", date: "18/08/2025", time: "09:00", image: seminar6, description: "Chia sẻ các chiến lược đầu tư linh hoạt giúp nhà đầu tư bảo toàn và tăng trưởng tài sản trong môi trường biến động.", org: "HNX" },
   { id: 7, title: "Nhận diện cơ hội đầu tư từ dữ liệu thị trường", date: "25/08/2025", time: "14:00", image: seminar7, description: "Hướng dẫn sử dụng dữ liệu và các công cụ phân tích để nhận diện cơ hội đầu tư tiềm năng.", org: "HOSE" },
-  { id: 8, title: "Tác động của kinh tế vĩ mô đến thị trường chứng khoán Việt Nam", date: "05/09/2025", time: "08:30", image: seminar8, description: "Phân tích mối quan hệ giữa các chỉ số kinh tế vĩ mô và diễn biến thị trường chứng khoán.", org: "​" },
+  { id: 8, title: "Tác động của kinh tế vĩ mô đến thị trường chứng khoán Việt Nam", date: "05/09/2025", time: "08:30", image: seminar8, description: "Phân tích mối quan hệ giữa các chỉ số kinh tế vĩ mô và diễn biến thị trường chứng khoán.", org: "VNX" },
 ];
 
 const documentBooks = [
@@ -369,7 +378,11 @@ export default function TrainingPrograms() {
                     <h3 className="font-bold text-sm text-[#003366] mb-2 leading-snug line-clamp-2">{sem.title}</h3>
                     <p className="text-xs text-slate-500 mb-3 line-clamp-2 flex-1">{sem.description}</p>
                     <div className="flex items-center justify-between mt-auto pt-2 border-t border-slate-100">
-                      <span className="text-[10px] font-bold text-slate-400 uppercase tracking-wider">{sem.org}</span>
+                      {orgLogos[sem.org] ? (
+                        <img src={orgLogos[sem.org]} alt={sem.org} className="h-5 object-contain" />
+                      ) : (
+                        <span className="text-[10px] font-bold text-slate-400 uppercase tracking-wider">{sem.org}</span>
+                      )}
                       <button
                         onClick={() => setSelectedSeminar(sem)}
                         className="text-xs text-primary font-semibold hover:underline"
