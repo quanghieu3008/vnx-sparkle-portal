@@ -84,14 +84,14 @@ const coursesData = [
 ];
 
 const seminarsData = [
-  { id: 1, title: "Dòng vốn và cơ hội đầu tư trong bối cảnh toàn cầu hóa", date: "15/07/2025", time: "09:00", image: seminar1, description: "Phân tích xu hướng dòng vốn toàn cầu và cơ hội đầu tư cho nhà đầu tư Việt Nam trong bối cảnh hội nhập kinh tế quốc tế.", org: "VNX" },
+  { id: 1, title: "Dòng vốn và cơ hội đầu tư trong bối cảnh toàn cầu hóa", date: "15/07/2025", time: "09:00", image: seminar1, description: "Phân tích xu hướng dòng vốn toàn cầu và cơ hội đầu tư cho nhà đầu tư Việt Nam trong bối cảnh hội nhập kinh tế quốc tế.", org: "​" },
   { id: 2, title: "Chuyển đổi số trong thị trường chứng khoán", date: "20/07/2025", time: "14:00", image: seminar2, description: "Tìm hiểu về các công nghệ mới đang thay đổi cách thức giao dịch và quản lý đầu tư trên thị trường chứng khoán.", org: "HNX" },
-  { id: 3, title: "Nâng cao nhận thức nhà đầu tư: Hướng tới nâng hạng thị trường chứng khoán", date: "25/07/2025", time: "08:30", image: seminar3, description: "Hội thảo chuyên đề về các tiêu chí nâng hạng thị trường và vai trò của nhà đầu tư trong quá trình này.", org: "VNX" },
+  { id: 3, title: "Nâng cao nhận thức nhà đầu tư: Hướng tới nâng hạng thị trường chứng khoán", date: "25/07/2025", time: "08:30", image: seminar3, description: "Hội thảo chuyên đề về các tiêu chí nâng hạng thị trường và vai trò của nhà đầu tư trong quá trình này.", org: "​" },
   { id: 4, title: "Toàn cảnh thị trường chứng khoán Việt Nam: Cơ hội và thách thức", date: "01/08/2025", time: "09:00", image: seminar4, description: "Đánh giá toàn diện về thị trường chứng khoán Việt Nam, nhận diện cơ hội đầu tư và các rủi ro cần lưu ý.", org: "HOSE" },
-  { id: 5, title: "Khám phá bí mật kỳ diệu của ngành chứng khoán dành cho người không chuyên", date: "10/08/2025", time: "14:00", image: seminar5, description: "Chương trình dành cho người mới bắt đầu, giúp hiểu rõ cách thức hoạt động của thị trường chứng khoán.", org: "VNX" },
+  { id: 5, title: "Khám phá bí mật kỳ diệu của ngành chứng khoán dành cho người không chuyên", date: "10/08/2025", time: "14:00", image: seminar5, description: "Chương trình dành cho người mới bắt đầu, giúp hiểu rõ cách thức hoạt động của thị trường chứng khoán.", org: "​" },
   { id: 6, title: "Chiến lược đầu tư hiệu quả trong thị trường biến động", date: "18/08/2025", time: "09:00", image: seminar6, description: "Chia sẻ các chiến lược đầu tư linh hoạt giúp nhà đầu tư bảo toàn và tăng trưởng tài sản trong môi trường biến động.", org: "HNX" },
   { id: 7, title: "Nhận diện cơ hội đầu tư từ dữ liệu thị trường", date: "25/08/2025", time: "14:00", image: seminar7, description: "Hướng dẫn sử dụng dữ liệu và các công cụ phân tích để nhận diện cơ hội đầu tư tiềm năng.", org: "HOSE" },
-  { id: 8, title: "Tác động của kinh tế vĩ mô đến thị trường chứng khoán Việt Nam", date: "05/09/2025", time: "08:30", image: seminar8, description: "Phân tích mối quan hệ giữa các chỉ số kinh tế vĩ mô và diễn biến thị trường chứng khoán.", org: "VNX" },
+  { id: 8, title: "Tác động của kinh tế vĩ mô đến thị trường chứng khoán Việt Nam", date: "05/09/2025", time: "08:30", image: seminar8, description: "Phân tích mối quan hệ giữa các chỉ số kinh tế vĩ mô và diễn biến thị trường chứng khoán.", org: "​" },
 ];
 
 const documentBooks = [
@@ -268,7 +268,7 @@ export default function TrainingPrograms() {
               <select
                 value={searchTopic}
                 onChange={(e) => setSearchTopic(e.target.value)}
-                className="px-4 py-2.5 rounded-lg border border-slate-200 text-sm bg-white focus:outline-none focus:ring-2 focus:ring-primary/30"
+                className="px-4 py-2.5 rounded-lg border border-slate-200 text-sm focus:outline-none focus:ring-2 focus:ring-primary/30 bg-white text-black"
               >
                 <option value="all">Tất cả chủ đề</option>
                 {courseCategories.slice(1).map((c) => (
@@ -299,7 +299,7 @@ export default function TrainingPrograms() {
                     <button
                       key={cat.id}
                       onClick={() => setActiveCategory(cat.id)}
-                      className={`w-full text-left px-4 py-3 text-sm border-b border-slate-100 last:border-0 transition-colors ${
+                      className={`w-full text-left px-4 py-[34px] text-sm border-b border-slate-100 last:border-0 transition-colors ${
                         activeCategory === cat.id
                           ? "bg-primary/10 text-primary font-semibold border-l-4 border-l-primary"
                           : "text-slate-600 hover:bg-slate-50 hover:text-primary"
