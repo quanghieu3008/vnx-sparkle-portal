@@ -299,9 +299,9 @@ export default function TrainingPrograms() {
                     <button
                       key={cat.id}
                       onClick={() => setActiveCategory(cat.id)}
-                      className={`w-full text-left px-4 py-[31px] text-base border-b border-slate-100 last:border-0 transition-colors ${
+                      className={`w-full text-left px-4 py-[31px] text-base border-b border-slate-100 transition-colors ${
                         activeCategory === cat.id
-                          ? "bg-primary/10 text-primary font-semibold border-l-4 border-l-primary"
+                          ? "bg-primary/10 text-primary font-semibold border-l-4 border-l-primary border-0 border-solid"
                           : "text-slate-600 hover:bg-slate-50 hover:text-primary"
                       }`}
                     >
@@ -399,11 +399,11 @@ export default function TrainingPrograms() {
 
           {/* 6. FAQ */}
           <section className="mb-8">
-            <h2 className="text-3xl font-bold text-[#003366] mb-5 flex items-center gap-2">
-              <span className="text-primary text-2xl">?</span>
-              Câu hỏi thường gặp
+            <h2 className="text-3xl font-bold text-[#003366] mb-5 flex items-center gap-2 mx-[300px] text-center">
+              <span className="text-primary text-2xl">​</span>
+              {"\n"}                    Câu Hỏi Thường Gặp
             </h2>
-            <div className="max-w-3xl space-y-2 text-justify text-sm">
+            <div className="max-w-3xl space-y-2 text-justify text-sm mx-[300px]">
               {faqData.map((faq, i) => (
                 <div key={i} className="bg-white rounded-lg border border-slate-200 overflow-hidden">
                   <button
