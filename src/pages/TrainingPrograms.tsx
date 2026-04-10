@@ -24,28 +24,24 @@ import logoHose from "@/assets/logo-hose.png";
 
 const bannerSlides = [
   {
-    image: banner1,
     tag: "Sắp diễn ra",
     title: "Hội thảo: Dòng vốn và cơ hội đầu tư trong bối cảnh toàn cầu hóa",
     time: "09:00 - 11:30, 15/07/2025",
     format: "Trực tiếp – Trung tâm đào tạo Sở GDCK",
   },
   {
-    image: banner2,
     tag: "Sắp diễn ra",
     title: "Khóa đào tạo: Kiến thức cơ bản về đầu tư chứng khoán",
     time: "14:00 - 16:30, 20/07/2025",
     format: "Trực tuyến qua Zoom",
   },
   {
-    image: banner3,
     tag: "Sắp diễn ra",
     title: "Hội thảo: Chuyển đổi số trong thị trường chứng khoán",
     time: "08:30 - 12:00, 25/07/2025",
     format: "Trực tiếp – Trung tâm Hội nghị Quốc gia",
   },
   {
-    image: banner4,
     tag: "Sắp diễn ra",
     title: "Khóa đào tạo: Phân tích kỹ thuật nâng cao",
     time: "09:00 - 17:00, 01/08/2025",
