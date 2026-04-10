@@ -581,9 +581,6 @@ export default function MemberList() {
                 Bản đồ thành viên
               </h2>
               <BubbleChart members={membersData} />
-              <p className="text-xs text-slate-400 mt-3 text-center">
-                Click vào các node để xem thông tin chi tiết • Tự động chuyển đổi mỗi 3 giây
-              </p>
             </div>
           </motion.div>
 
