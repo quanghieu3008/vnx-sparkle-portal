@@ -7,7 +7,7 @@ import Footer from "@/components/Footer";
 import ScrollToTop from "@/components/ScrollToTop";
 
 import trainingBanner from "@/assets/training-banner.jpg";
-import banner4 from "@/assets/training-banner-4.jpg";
+
 import seminar1 from "@/assets/seminar-1.jpg";
 import seminar2 from "@/assets/seminar-2.jpg";
 import seminar3 from "@/assets/seminar-3.jpg";
