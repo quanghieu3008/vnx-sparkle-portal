@@ -6,10 +6,8 @@ import MarketTicker from "@/components/MarketTicker";
 import Footer from "@/components/Footer";
 import ScrollToTop from "@/components/ScrollToTop";
 
-import banner1 from "@/assets/training-banner-1.jpg";
-import banner2 from "@/assets/training-banner-2.jpg";
-import banner3 from "@/assets/training-banner-3.jpg";
-import banner4 from "@/assets/training-banner-4.jpg";
+import trainingBanner from "@/assets/training-banner.jpg";
+
 import seminar1 from "@/assets/seminar-1.jpg";
 import seminar2 from "@/assets/seminar-2.jpg";
 import seminar3 from "@/assets/seminar-3.jpg";
@@ -26,28 +24,24 @@ import logoHose from "@/assets/logo-hose.png";
 
 const bannerSlides = [
   {
-    image: banner1,
     tag: "Sắp diễn ra",
     title: "Hội thảo: Dòng vốn và cơ hội đầu tư trong bối cảnh toàn cầu hóa",
     time: "09:00 - 11:30, 15/07/2025",
     format: "Trực tiếp – Trung tâm đào tạo Sở GDCK",
   },
   {
-    image: banner2,
     tag: "Sắp diễn ra",
     title: "Khóa đào tạo: Kiến thức cơ bản về đầu tư chứng khoán",
     time: "14:00 - 16:30, 20/07/2025",
     format: "Trực tuyến qua Zoom",
   },
   {
-    image: banner3,
     tag: "Sắp diễn ra",
     title: "Hội thảo: Chuyển đổi số trong thị trường chứng khoán",
     time: "08:30 - 12:00, 25/07/2025",
     format: "Trực tiếp – Trung tâm Hội nghị Quốc gia",
   },
   {
-    image: banner4,
     tag: "Sắp diễn ra",
     title: "Khóa đào tạo: Phân tích kỹ thuật nâng cao",
     time: "09:00 - 17:00, 01/08/2025",
@@ -133,35 +127,33 @@ function BannerCarousel() {
 
   return (
     <div className="relative w-full h-[360px] md:h-[420px] rounded-xl overflow-hidden">
+      {/* Fixed background image */}
+      <img src={trainingBanner} alt="Chương trình đào tạo" className="absolute inset-0 w-full h-full object-cover" />
+      <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent" />
+
+      {/* Rotating text content */}
       <AnimatePresence mode="wait">
-        {bannerSlides.map((slide, i) =>
-          i === current ? (
-            <motion.div
-              key={i}
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              exit={{ opacity: 0 }}
-              transition={{ duration: 0.8 }}
-              className="absolute inset-0"
-            >
-              <img src={slide.image} alt={slide.title} className="w-full h-full object-cover" />
-              <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent" />
-              <div className="absolute bottom-0 left-0 right-0 p-6 md:p-10 px-[50px] py-[20px]">
-                <span className="inline-block px-3 py-1 bg-red-600 text-white font-bold rounded-full mb-3 uppercase tracking-wider text-2xl">
-                  {slide.tag}
-                </span>
-                <h2 className="text-white text-xl md:text-2xl font-bold leading-tight mb-3 lg:text-5xl">
-                  {slide.title}
-                </h2>
-                <div className="flex flex-wrap gap-4 text-white/90 text-sm">
-                  <span className="flex items-center gap-1.5 text-base"><Clock className="h-4 w-4" />{slide.time}</span>
-                  <span className="flex items-center gap-1.5 text-base"><MapPin className="h-4 w-4" />{slide.format}</span>
-                </div>
-              </div>
-            </motion.div>
-          ) : null
-        )}
+        <motion.div
+          key={current}
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          exit={{ opacity: 0, y: -20 }}
+          transition={{ duration: 0.6 }}
+          className="absolute bottom-0 left-0 right-0 p-6 md:p-10 px-[50px] py-[20px]"
+        >
+          <span className="inline-block px-3 py-1 bg-red-600 text-white font-bold rounded-full mb-3 uppercase tracking-wider text-2xl">
+            {bannerSlides[current].tag}
+          </span>
+          <h2 className="text-white text-xl md:text-2xl font-bold leading-tight mb-3 lg:text-5xl">
+            {bannerSlides[current].title}
+          </h2>
+          <div className="flex flex-wrap gap-4 text-white/90 text-sm">
+            <span className="flex items-center gap-1.5 text-base"><Clock className="h-4 w-4" />{bannerSlides[current].time}</span>
+            <span className="flex items-center gap-1.5 text-base"><MapPin className="h-4 w-4" />{bannerSlides[current].format}</span>
+          </div>
+        </motion.div>
       </AnimatePresence>
+
       {/* Dots */}
       <div className="absolute bottom-3 right-6 flex gap-2">
         {bannerSlides.map((_, i) => (
