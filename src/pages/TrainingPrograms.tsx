@@ -6,9 +6,7 @@ import MarketTicker from "@/components/MarketTicker";
 import Footer from "@/components/Footer";
 import ScrollToTop from "@/components/ScrollToTop";
 
-import banner1 from "@/assets/training-banner-1.jpg";
-import banner2 from "@/assets/training-banner-2.jpg";
-import banner3 from "@/assets/training-banner-3.jpg";
+import trainingBanner from "@/assets/training-banner.jpg";
 import banner4 from "@/assets/training-banner-4.jpg";
 import seminar1 from "@/assets/seminar-1.jpg";
 import seminar2 from "@/assets/seminar-2.jpg";
