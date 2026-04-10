@@ -1040,10 +1040,9 @@ function BubbleChart({ members }: { members: Member[] }) {
 
       {/* Legend */}
       <div className="absolute bottom-3 left-4 right-4 flex items-center justify-between text-[10px] text-white/40 pointer-events-none">
-        <span>Click vào node để xem chi tiết</span>
+        <span></span>
         <span className="flex items-center gap-1.5">
           <span className="w-2 h-2 rounded-full bg-cyan-400/60" />
-          Tự động chuyển đổi mỗi 2s
         </span>
       </div>
     </div>
