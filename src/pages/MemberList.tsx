@@ -1143,7 +1143,7 @@ export default function MemberList() {
             <div className="bg-white rounded-2xl shadow-lg p-4 md:p-6">
               <h2 className="text-lg font-bold text-[#003366] mb-4 flex items-center gap-2">
                 <span className="w-1.5 h-6 bg-gradient-to-b from-cyan-400 to-[#003366] rounded-full" />
-                Bản đồ thành viên
+                Tổng quan về thành viên
               </h2>
               <BubbleChart members={membersData} />
             </div>
@@ -1195,9 +1195,9 @@ export default function MemberList() {
                 <thead>
                   <tr className="bg-gradient-to-r from-[#003366] to-[#004a8f] text-white">
                     <th className="text-left px-4 py-3 font-semibold w-[80px]">Mã TV</th>
-                    <th className="text-left px-4 py-3 font-semibold w-[100px]">Viết tắt</th>
+                    <th className="text-left px-4 py-3 font-semibold w-[100px]">Tên viết tắt</th>
                     <th className="text-left px-4 py-3 font-semibold">Tên thành viên</th>
-                    <th className="text-left px-4 py-3 font-semibold">Loại thành viên giao dịch</th>
+                    <th className="text-left px-4 py-3 font-semibold">Loại giao dịch</th>
                   </tr>
                 </thead>
                 <tbody>
