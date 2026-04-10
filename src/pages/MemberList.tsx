@@ -133,177 +133,347 @@ const BUBBLE_COLORS = [
   "#F5CBA7", "#A3E4D7", "#F9E79F", "#FADBD8", "#D5F5E3",
 ];
 
-// Simple physics-based bubble chart
+// VNX letter positions (normalized 0-1 coordinates)
+const VNX_POSITIONS: Record<string, { x: number; y: number }[]> = {
+  V: [
+    { x: 0.02, y: 0.1 }, { x: 0.05, y: 0.3 }, { x: 0.08, y: 0.5 },
+    { x: 0.11, y: 0.7 }, { x: 0.14, y: 0.9 },
+    { x: 0.17, y: 0.7 }, { x: 0.20, y: 0.5 },
+    { x: 0.23, y: 0.3 }, { x: 0.26, y: 0.1 },
+  ],
+  N: [
+    { x: 0.34, y: 0.9 }, { x: 0.34, y: 0.7 }, { x: 0.34, y: 0.5 },
+    { x: 0.34, y: 0.3 }, { x: 0.34, y: 0.1 },
+    { x: 0.40, y: 0.35 }, { x: 0.46, y: 0.55 },
+    { x: 0.52, y: 0.75 },
+    { x: 0.58, y: 0.1 }, { x: 0.58, y: 0.3 },
+    { x: 0.58, y: 0.5 }, { x: 0.58, y: 0.7 }, { x: 0.58, y: 0.9 },
+  ],
+  X: [
+    { x: 0.66, y: 0.1 }, { x: 0.70, y: 0.3 },
+    { x: 0.74, y: 0.5 },
+    { x: 0.78, y: 0.7 }, { x: 0.82, y: 0.9 },
+    { x: 0.78, y: 0.3 }, { x: 0.70, y: 0.7 },
+    { x: 0.82, y: 0.1 }, { x: 0.66, y: 0.9 },
+  ],
+};
+
+function getVnxTargets(count: number, w: number, h: number) {
+  const allPos = [...VNX_POSITIONS.V, ...VNX_POSITIONS.N, ...VNX_POSITIONS.X];
+  const padX = 60, padY = 50;
+  const usableW = w - padX * 2;
+  const usableH = h - padY * 2;
+  return Array.from({ length: count }, (_, i) => {
+    const p = allPos[i % allPos.length];
+    return { x: padX + p.x * usableW, y: padY + p.y * usableH };
+  });
+}
+
+interface BubbleNode {
+  x: number;
+  y: number;
+  vx: number;
+  vy: number;
+  baseRadius: number;
+  color: string;
+}
+
 function BubbleChart({ members }: { members: Member[] }) {
   const containerRef = useRef<HTMLDivElement>(null);
   const [selectedId, setSelectedId] = useState<string | null>(null);
-  const [positions, setPositions] = useState<{ x: number; y: number }[]>([]);
-  const [containerSize, setContainerSize] = useState({ w: 900, h: 500 });
+  const [containerSize, setContainerSize] = useState({ w: 0, h: 0 });
+  const [nodes, setNodes] = useState<BubbleNode[]>([]);
+  const [isVnxMode, setIsVnxMode] = useState(false);
+  const [vnxTargets, setVnxTargets] = useState<{ x: number; y: number }[]>([]);
   const autoTimerRef = useRef<ReturnType<typeof setInterval>>();
   const autoIndexRef = useRef(0);
+  const vnxCycleRef = useRef(0);
+  const floatPhaseRef = useRef<number[]>([]);
+  const animFrameRef = useRef<number>(0);
 
-  // Use first 30 members for bubble chart
   const bubbleMembers = useMemo(() => members.slice(0, 30), [members]);
-  const normalRadius = 32;
-  const expandedRadius = 85;
+  const normalRadius = 30;
+  const expandedRadius = 80;
 
-  // Initialize positions in a grid-like layout
+  // Initialize
   useEffect(() => {
     if (!containerRef.current) return;
-    const rect = containerRef.current.getBoundingClientRect();
-    const w = rect.width || 900;
-    const h = 500;
-    setContainerSize({ w, h });
+    const observe = new ResizeObserver(entries => {
+      const { width } = entries[0].contentRect;
+      const h = Math.min(520, Math.max(400, width * 0.45));
+      setContainerSize({ w: width, h });
+    });
+    observe.observe(containerRef.current);
+    return () => observe.disconnect();
+  }, []);
 
-    const cols = Math.ceil(Math.sqrt(bubbleMembers.length * (w / h)));
+  // Create nodes when container is sized
+  useEffect(() => {
+    if (containerSize.w === 0) return;
+    const { w, h } = containerSize;
+    const cols = 6;
     const rows = Math.ceil(bubbleMembers.length / cols);
-    const cellW = w / (cols + 1);
-    const cellH = h / (rows + 1);
+    const cellW = (w - 120) / cols;
+    const cellH = (h - 100) / rows;
 
-    const newPositions = bubbleMembers.map((_, i) => {
+    const newNodes: BubbleNode[] = bubbleMembers.map((_, i) => {
       const col = i % cols;
       const row = Math.floor(i / cols);
       return {
-        x: cellW * (col + 1) + (Math.random() - 0.5) * 20,
-        y: cellH * (row + 1) + (Math.random() - 0.5) * 20,
+        x: 60 + cellW * (col + 0.5) + (Math.random() - 0.5) * 30,
+        y: 50 + cellH * (row + 0.5) + (Math.random() - 0.5) * 20,
+        vx: 0,
+        vy: 0,
+        baseRadius: normalRadius + (Math.random() - 0.5) * 8,
+        color: BUBBLE_COLORS[i % BUBBLE_COLORS.length],
       };
     });
-    setPositions(newPositions);
-  }, [bubbleMembers]);
+    setNodes(newNodes);
+    floatPhaseRef.current = bubbleMembers.map(() => Math.random() * Math.PI * 2);
+    setVnxTargets(getVnxTargets(bubbleMembers.length, w, h));
+  }, [containerSize, bubbleMembers]);
 
-  // Auto-rotate highlighted node every 3s
+  // Floating animation loop
+  useEffect(() => {
+    if (nodes.length === 0 || containerSize.w === 0) return;
+    let lastTime = performance.now();
+
+    const tick = (now: number) => {
+      const dt = Math.min((now - lastTime) / 1000, 0.05);
+      lastTime = now;
+
+      setNodes(prev => {
+        const next = prev.map((n, i) => {
+          const phase = floatPhaseRef.current[i] || 0;
+          floatPhaseRef.current[i] = phase + dt * (0.5 + (i % 3) * 0.2);
+
+          let tx = n.x, ty = n.y;
+          if (isVnxMode && vnxTargets[i]) {
+            tx = vnxTargets[i].x;
+            ty = vnxTargets[i].y;
+          }
+
+          const floatX = isVnxMode ? 0 : Math.sin(floatPhaseRef.current[i]) * 0.3;
+          const floatY = isVnxMode ? 0 : Math.cos(floatPhaseRef.current[i] * 0.7) * 0.4;
+
+          let fx = floatX, fy = floatY;
+          if (isVnxMode) {
+            fx += (tx - n.x) * 3;
+            fy += (ty - n.y) * 3;
+          }
+
+          // Separation force
+          for (let j = 0; j < prev.length; j++) {
+            if (i === j) continue;
+            const dx = n.x - prev[j].x;
+            const dy = n.y - prev[j].y;
+            const dist = Math.sqrt(dx * dx + dy * dy);
+            const minD = (n.baseRadius + prev[j].baseRadius) * 1.15;
+            if (dist < minD && dist > 0) {
+              const force = (minD - dist) / dist * 5;
+              fx += dx * force;
+              fy += dy * force;
+            }
+          }
+
+          // Boundary
+          const r = n.baseRadius;
+          if (n.x < r + 10) fx += 2;
+          if (n.x > containerSize.w - r - 10) fx -= 2;
+          if (n.y < r + 10) fy += 2;
+          if (n.y > containerSize.h - r - 10) fy -= 2;
+
+          const newVx = (n.vx + fx * dt) * 0.92;
+          const newVy = (n.vy + fy * dt) * 0.92;
+
+          return {
+            ...n,
+            x: Math.max(r, Math.min(containerSize.w - r, n.x + newVx)),
+            y: Math.max(r, Math.min(containerSize.h - r, n.y + newVy)),
+            vx: newVx,
+            vy: newVy,
+          };
+        });
+        return next;
+      });
+
+      animFrameRef.current = requestAnimationFrame(tick);
+    };
+    animFrameRef.current = requestAnimationFrame(tick);
+    return () => cancelAnimationFrame(animFrameRef.current);
+  }, [nodes.length, containerSize, isVnxMode, vnxTargets]);
+
+  // Auto-rotate + occasional VNX formation
   useEffect(() => {
     autoTimerRef.current = setInterval(() => {
-      autoIndexRef.current = (autoIndexRef.current + 1) % bubbleMembers.length;
-      setSelectedId(bubbleMembers[autoIndexRef.current].id);
-    }, 3000);
+      vnxCycleRef.current++;
+      // Every 15 cycles (~30s), do VNX formation for 4s
+      if (vnxCycleRef.current % 15 === 0) {
+        setIsVnxMode(true);
+        setSelectedId(null);
+        setTimeout(() => setIsVnxMode(false), 4000);
+      } else if (!isVnxMode) {
+        autoIndexRef.current = (autoIndexRef.current + 1) % bubbleMembers.length;
+        setSelectedId(bubbleMembers[autoIndexRef.current].id);
+      }
+    }, 2000);
     return () => clearInterval(autoTimerRef.current);
-  }, [bubbleMembers]);
+  }, [bubbleMembers, isVnxMode]);
 
   const handleClick = useCallback((id: string) => {
+    if (isVnxMode) return;
     clearInterval(autoTimerRef.current);
     setSelectedId(prev => prev === id ? null : id);
-    // Restart auto after 8s of no interaction
     autoTimerRef.current = setTimeout(() => {
       autoTimerRef.current = setInterval(() => {
         autoIndexRef.current = (autoIndexRef.current + 1) % bubbleMembers.length;
         setSelectedId(bubbleMembers[autoIndexRef.current].id);
-      }, 3000);
-    }, 8000) as unknown as ReturnType<typeof setInterval>;
-  }, [bubbleMembers]);
+      }, 2000);
+    }, 6000) as unknown as ReturnType<typeof setInterval>;
+  }, [bubbleMembers, isVnxMode]);
 
-  // Compute adjusted positions when a node is selected (push others away)
-  const adjustedPositions = useMemo(() => {
-    if (!selectedId || positions.length === 0) return positions;
+  // Push-away positions when selected
+  const displayNodes = useMemo(() => {
+    if (!selectedId || isVnxMode) return nodes;
     const selIdx = bubbleMembers.findIndex(m => m.id === selectedId);
-    if (selIdx === -1) return positions;
+    if (selIdx === -1) return nodes;
 
-    const selPos = positions[selIdx];
-    const minDist = expandedRadius + normalRadius + 10;
+    const selNode = nodes[selIdx];
+    if (!selNode) return nodes;
+    const minDist = expandedRadius + normalRadius + 15;
 
-    return positions.map((pos, i) => {
-      if (i === selIdx) return pos;
-      const dx = pos.x - selPos.x;
-      const dy = pos.y - selPos.y;
+    return nodes.map((n, i) => {
+      if (i === selIdx) return n;
+      const dx = n.x - selNode.x;
+      const dy = n.y - selNode.y;
       const dist = Math.sqrt(dx * dx + dy * dy);
       if (dist < minDist && dist > 0) {
-        const pushFactor = (minDist - dist) / dist;
+        const push = (minDist - dist) / dist;
         return {
-          x: Math.max(normalRadius, Math.min(containerSize.w - normalRadius, pos.x + dx * pushFactor)),
-          y: Math.max(normalRadius, Math.min(containerSize.h - normalRadius, pos.y + dy * pushFactor)),
+          ...n,
+          x: Math.max(normalRadius, Math.min(containerSize.w - normalRadius, n.x + dx * push)),
+          y: Math.max(normalRadius, Math.min(containerSize.h - normalRadius, n.y + dy * push)),
         };
       }
-      return pos;
+      return n;
     });
-  }, [selectedId, positions, bubbleMembers, containerSize]);
+  }, [selectedId, nodes, bubbleMembers, containerSize, isVnxMode]);
 
-  if (positions.length === 0) return null;
+  if (containerSize.w === 0) {
+    return <div ref={containerRef} className="w-full" style={{ height: 500 }} />;
+  }
 
   return (
     <div
       ref={containerRef}
-      className="relative w-full rounded-2xl overflow-hidden"
-      style={{ height: 500, background: "linear-gradient(135deg, #f0f2f5 0%, #e2e8f0 100%)" }}
+      className="relative w-full rounded-2xl overflow-hidden select-none"
+      style={{
+        height: containerSize.h,
+        background: "linear-gradient(145deg, #1e293b 0%, #334155 40%, #1e293b 100%)",
+      }}
     >
-      {/* Decorative grid */}
-      <svg className="absolute inset-0 w-full h-full opacity-10" xmlns="http://www.w3.org/2000/svg">
+      {/* Decorative dots */}
+      <svg className="absolute inset-0 w-full h-full opacity-[0.06]" xmlns="http://www.w3.org/2000/svg">
         <defs>
-          <pattern id="grid" width="40" height="40" patternUnits="userSpaceOnUse">
-            <path d="M 40 0 L 0 0 0 40" fill="none" stroke="#003366" strokeWidth="0.5" />
+          <pattern id="dotGrid" width="30" height="30" patternUnits="userSpaceOnUse">
+            <circle cx="15" cy="15" r="1" fill="white" />
           </pattern>
         </defs>
-        <rect width="100%" height="100%" fill="url(#grid)" />
+        <rect width="100%" height="100%" fill="url(#dotGrid)" />
       </svg>
 
-      {bubbleMembers.map((member, i) => {
-        const isSelected = selectedId === member.id;
-        const pos = adjustedPositions[i];
-        const r = isSelected ? expandedRadius : normalRadius;
-        const color = BUBBLE_COLORS[i % BUBBLE_COLORS.length];
+      {/* VNX watermark when in formation */}
+      <AnimatePresence>
+        {isVnxMode && (
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 0.08 }}
+            exit={{ opacity: 0 }}
+            className="absolute inset-0 flex items-center justify-center text-[200px] font-black text-white pointer-events-none"
+          >
+            VNX
+          </motion.div>
+        )}
+      </AnimatePresence>
+
+      {displayNodes.map((node, i) => {
+        const member = bubbleMembers[i];
+        if (!member || !node) return null;
+        const isSelected = selectedId === member.id && !isVnxMode;
+        const r = isSelected ? expandedRadius : node.baseRadius;
 
         return (
           <motion.div
             key={member.id}
-            className="absolute cursor-pointer flex items-center justify-center rounded-full select-none"
+            className="absolute cursor-pointer flex items-center justify-center rounded-full"
             style={{
               width: r * 2,
               height: r * 2,
+              left: node.x - r,
+              top: node.y - r,
               background: isSelected
-                ? `radial-gradient(circle at 30% 30%, ${color}, ${color}dd)`
-                : `radial-gradient(circle at 30% 30%, ${color}ee, ${color}aa)`,
+                ? `radial-gradient(circle at 35% 35%, ${node.color}, ${node.color}cc)`
+                : `radial-gradient(circle at 35% 35%, ${node.color}ee, ${node.color}99)`,
               boxShadow: isSelected
-                ? `0 8px 32px ${color}88, 0 0 0 3px white`
-                : `0 4px 12px ${color}44`,
+                ? `0 0 30px ${node.color}66, 0 0 60px ${node.color}33, inset 0 -3px 8px rgba(0,0,0,0.2)`
+                : `0 4px 15px ${node.color}44, inset 0 -2px 6px rgba(0,0,0,0.15)`,
+              border: isSelected ? '2px solid rgba(255,255,255,0.6)' : '1px solid rgba(255,255,255,0.2)',
+              zIndex: isSelected ? 20 : 1,
             }}
             animate={{
-              left: pos.x - r,
-              top: pos.y - r,
               width: r * 2,
               height: r * 2,
-              y: isSelected ? 0 : [0, -4, 0, 4, 0],
+              scale: isSelected ? 1 : isVnxMode ? 0.85 : 1,
             }}
             transition={{
-              left: { type: "spring", stiffness: 120, damping: 20 },
-              top: { type: "spring", stiffness: 120, damping: 20 },
-              width: { type: "spring", stiffness: 200, damping: 25 },
-              height: { type: "spring", stiffness: 200, damping: 25 },
-              y: isSelected
-                ? { duration: 0.3 }
-                : { duration: 3 + (i % 3), repeat: Infinity, ease: "easeInOut" },
+              width: { type: "spring", stiffness: 200, damping: 20 },
+              height: { type: "spring", stiffness: 200, damping: 20 },
+              scale: { type: "spring", stiffness: 300, damping: 25 },
             }}
             onClick={() => handleClick(member.id)}
           >
             <AnimatePresence mode="wait">
               {isSelected ? (
                 <motion.div
-                  key="expanded"
-                  initial={{ opacity: 0, scale: 0.8 }}
+                  key="exp"
+                  initial={{ opacity: 0, scale: 0.7 }}
                   animate={{ opacity: 1, scale: 1 }}
-                  exit={{ opacity: 0, scale: 0.8 }}
-                  className="text-center px-2 pointer-events-none"
+                  exit={{ opacity: 0, scale: 0.7 }}
+                  transition={{ duration: 0.25 }}
+                  className="text-center px-3 pointer-events-none"
                 >
-                  <div className="text-[11px] font-bold text-white leading-tight drop-shadow-md">
+                  <div className="text-sm font-extrabold text-white drop-shadow-lg leading-tight">
                     {member.shortName}
                   </div>
-                  <div className="text-[8px] text-white/90 leading-tight mt-0.5 drop-shadow-sm line-clamp-3">
+                  <div className="w-8 h-[1px] bg-white/50 mx-auto my-1" />
+                  <div className="text-[8px] text-white/90 leading-tight drop-shadow line-clamp-3">
                     {member.name}
                   </div>
                 </motion.div>
               ) : (
-                <motion.div
-                  key="collapsed"
+                <motion.span
+                  key="col"
                   initial={{ opacity: 0 }}
                   animate={{ opacity: 1 }}
                   exit={{ opacity: 0 }}
-                  className="text-[10px] font-bold text-white drop-shadow-md pointer-events-none"
+                  className="text-[11px] font-bold text-white drop-shadow-md pointer-events-none"
                 >
                   {member.id}
-                </motion.div>
+                </motion.span>
               )}
             </AnimatePresence>
           </motion.div>
         );
       })}
+
+      {/* Legend */}
+      <div className="absolute bottom-3 left-4 right-4 flex items-center justify-between text-[10px] text-white/40 pointer-events-none">
+        <span>Click vào node để xem chi tiết</span>
+        <span className="flex items-center gap-1.5">
+          <span className="w-2 h-2 rounded-full bg-cyan-400/60" />
+          Tự động chuyển đổi mỗi 2s
+        </span>
+      </div>
     </div>
   );
 }
