@@ -373,7 +373,7 @@ function BubbleChart({ members }: { members: Member[] }) {
       }}
     >
       {/* Decorative dots */}
-      <svg className="absolute inset-0 w-full h-full opacity-[0.06]" xmlns="http://www.w3.org/2000/svg">
+      <svg className="absolute inset-0 w-full h-full opacity-[0.06] bg-muted-foreground" xmlns="http://www.w3.org/2000/svg">
         <defs>
           <pattern id="dotGrid" width="30" height="30" patternUnits="userSpaceOnUse">
             <circle cx="15" cy="15" r="1" fill="white" />
