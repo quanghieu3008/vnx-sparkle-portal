@@ -964,9 +964,7 @@ function BubbleChart({ members }: { members: Member[] }) {
             animate={{ opacity: 0.08 }}
             exit={{ opacity: 0 }}
             className="absolute inset-0 flex items-center justify-center text-[200px] font-black text-white pointer-events-none"
-          >
-            VNX
-          </motion.div>
+          ></motion.div>
         )}
       </AnimatePresence>
 
