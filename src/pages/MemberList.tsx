@@ -138,57 +138,143 @@ const tradingTypeFilters = [
   { value: "Trái phiếu riêng lẻ", label: "Trái phiếu RL" },
 ];
 
-// Bubble Chart Component
+// Bubble Chart Component with physics-based non-overlapping layout
 function BubbleChart() {
-  const [selectedIdx, setSelectedIdx] = useState<number | null>(null);
-  const [autoIdx, setAutoIdx] = useState(0);
+  const [activeIdx, setActiveIdx] = useState<number | null>(null);
   const [isUserSelected, setIsUserSelected] = useState(false);
+  const autoIdxRef = useRef(0);
   const containerRef = useRef<HTMLDivElement>(null);
-  const timerRef = useRef<ReturnType<typeof setInterval>>();
+  const positionsRef = useRef<{ x: number; y: number; vx: number; vy: number }[]>([]);
+  const animFrameRef = useRef<number>();
+  const [renderTick, setRenderTick] = useState(0);
 
   const bubbleMembers = membersData.slice(0, 30);
+  const BASE_SIZE = 56;
+  const ACTIVE_SIZE = 120;
+  const CONTAINER_W = 1200;
+  const CONTAINER_H = 480;
+  const PADDING = 40;
 
-  // Generate stable positions for bubbles
-  const positions = useMemo(() => {
-    const cols = 6;
-    const rows = 5;
-    const result: { x: number; y: number }[] = [];
+  // Initialize positions with collision-free placement
+  useEffect(() => {
+    if (positionsRef.current.length > 0) return;
+    const positions: { x: number; y: number; vx: number; vy: number }[] = [];
+    const r = BASE_SIZE / 2 + 4;
+    
     for (let i = 0; i < 30; i++) {
-      const col = i % cols;
-      const row = Math.floor(i / cols);
-      const xBase = (col + 0.5) / cols * 100;
-      const yBase = (row + 0.5) / rows * 100;
-      // Add deterministic offset based on index
-      const xOff = ((i * 7 + 3) % 11 - 5) * 1.2;
-      const yOff = ((i * 13 + 7) % 11 - 5) * 1.2;
-      result.push({ x: Math.max(8, Math.min(92, xBase + xOff)), y: Math.max(8, Math.min(92, yBase + yOff)) });
+      let x: number, y: number, placed = false;
+      for (let attempt = 0; attempt < 500; attempt++) {
+        x = PADDING + r + Math.random() * (CONTAINER_W - 2 * PADDING - 2 * r);
+        y = PADDING + r + Math.random() * (CONTAINER_H - 2 * PADDING - 2 * r);
+        let overlap = false;
+        for (const p of positions) {
+          const dx = x - p.x, dy = y - p.y;
+          if (Math.sqrt(dx * dx + dy * dy) < r * 2 + 6) { overlap = true; break; }
+        }
+        if (!overlap) { placed = true; break; }
+      }
+      if (!placed) {
+        x = PADDING + r + (i % 6) * ((CONTAINER_W - 2 * PADDING) / 6);
+        y = PADDING + r + Math.floor(i / 6) * ((CONTAINER_H - 2 * PADDING) / 5);
+      }
+      const angle = Math.random() * Math.PI * 2;
+      const speed = 0.15 + Math.random() * 0.2;
+      positions.push({ x: x!, y: y!, vx: Math.cos(angle) * speed, vy: Math.sin(angle) * speed });
     }
-    return result;
+    positionsRef.current = positions;
+    setRenderTick(1);
   }, []);
 
-  const activeIdx = isUserSelected ? selectedIdx : autoIdx;
-
+  // Physics simulation: gentle floating + collision avoidance
   useEffect(() => {
-    timerRef.current = setInterval(() => {
+    let lastTime = performance.now();
+    const simulate = (now: number) => {
+      const dt = Math.min(now - lastTime, 32);
+      lastTime = now;
+      const positions = positionsRef.current;
+      if (positions.length === 0) { animFrameRef.current = requestAnimationFrame(simulate); return; }
+
+      const r = BASE_SIZE / 2 + 2;
+      const activeR = ACTIVE_SIZE / 2 + 4;
+
+      for (let i = 0; i < positions.length; i++) {
+        const p = positions[i];
+        const isActive = i === (isUserSelected ? activeIdx : autoIdxRef.current);
+        const myR = isActive ? activeR : r;
+
+        // Move
+        p.x += p.vx * dt * 0.06;
+        p.y += p.vy * dt * 0.06;
+
+        // Wall bounce
+        if (p.x < PADDING + myR) { p.x = PADDING + myR; p.vx = Math.abs(p.vx); }
+        if (p.x > CONTAINER_W - PADDING - myR) { p.x = CONTAINER_W - PADDING - myR; p.vx = -Math.abs(p.vx); }
+        if (p.y < PADDING + myR) { p.y = PADDING + myR; p.vy = Math.abs(p.vy); }
+        if (p.y > CONTAINER_H - PADDING - myR) { p.y = CONTAINER_H - PADDING - myR; p.vy = -Math.abs(p.vy); }
+
+        // Collision avoidance with other bubbles
+        for (let j = i + 1; j < positions.length; j++) {
+          const q = positions[j];
+          const jActive = j === (isUserSelected ? activeIdx : autoIdxRef.current);
+          const otherR = jActive ? activeR : r;
+          const minDist = myR + otherR + 4;
+          const dx = q.x - p.x, dy = q.y - p.y;
+          const dist = Math.sqrt(dx * dx + dy * dy);
+          if (dist < minDist && dist > 0.1) {
+            const push = (minDist - dist) * 0.3;
+            const nx = dx / dist, ny = dy / dist;
+            p.x -= nx * push;
+            p.y -= ny * push;
+            q.x += nx * push;
+            q.y += ny * push;
+          }
+        }
+
+        // Gentle random drift
+        if (Math.random() < 0.01) {
+          p.vx += (Math.random() - 0.5) * 0.1;
+          p.vy += (Math.random() - 0.5) * 0.1;
+        }
+        // Speed limit
+        const speed = Math.sqrt(p.vx * p.vx + p.vy * p.vy);
+        const maxSpeed = 0.35;
+        const minSpeed = 0.08;
+        if (speed > maxSpeed) { p.vx *= maxSpeed / speed; p.vy *= maxSpeed / speed; }
+        if (speed < minSpeed) { const a = Math.random() * Math.PI * 2; p.vx = Math.cos(a) * minSpeed; p.vy = Math.sin(a) * minSpeed; }
+      }
+
+      setRenderTick(t => t + 1);
+      animFrameRef.current = requestAnimationFrame(simulate);
+    };
+    animFrameRef.current = requestAnimationFrame(simulate);
+    return () => { if (animFrameRef.current) cancelAnimationFrame(animFrameRef.current); };
+  }, [activeIdx, isUserSelected]);
+
+  // Auto-rotate active bubble every 2s
+  useEffect(() => {
+    const timer = setInterval(() => {
       if (!isUserSelected) {
-        setAutoIdx(prev => (prev + 1) % 30);
+        autoIdxRef.current = (autoIdxRef.current + 1) % 30;
+        setRenderTick(t => t + 1);
       }
     }, 2000);
-    return () => clearInterval(timerRef.current);
+    return () => clearInterval(timer);
   }, [isUserSelected]);
 
   const handleClick = useCallback((idx: number) => {
-    setSelectedIdx(idx);
+    setActiveIdx(idx);
     setIsUserSelected(true);
-    // Resume auto after 6s
     setTimeout(() => setIsUserSelected(false), 6000);
   }, []);
+
+  const currentActive = isUserSelected ? activeIdx : autoIdxRef.current;
+  const positions = positionsRef.current;
 
   return (
     <div
       ref={containerRef}
       className="relative w-full rounded-2xl overflow-hidden"
-      style={{ height: 480, background: "linear-gradient(135deg, #f1f5f9 0%, #e2e8f0 50%, #cbd5e1 100%)" }}
+      style={{ height: CONTAINER_H, background: "linear-gradient(135deg, #f1f5f9 0%, #e2e8f0 50%, #cbd5e1 100%)" }}
     >
       {/* Decorative grid dots */}
       <div className="absolute inset-0 opacity-10" style={{
@@ -196,59 +282,38 @@ function BubbleChart() {
         backgroundSize: "30px 30px"
       }} />
 
-      {bubbleMembers.map((member, idx) => {
-        const isActive = activeIdx === idx;
-        const baseSize = 56;
-        const activeSize = 120;
-        const size = isActive ? activeSize : baseSize;
+      {positions.length > 0 && bubbleMembers.map((member, idx) => {
+        const isActive = currentActive === idx;
+        const size = isActive ? ACTIVE_SIZE : BASE_SIZE;
+        const p = positions[idx];
 
         return (
-          <motion.div
+          <div
             key={member.id}
             className="absolute cursor-pointer flex items-center justify-center rounded-full shadow-lg"
             style={{
               backgroundColor: BUBBLE_COLORS[idx % BUBBLE_COLORS.length],
-              zIndex: isActive ? 50 : 10,
-            }}
-            animate={{
               width: size,
               height: size,
-              left: `calc(${positions[idx].x}% - ${size / 2}px)`,
-              top: `calc(${positions[idx].y}% - ${size / 2}px)`,
-              y: isActive ? 0 : [0, -4, 0, 4, 0],
+              left: p.x - size / 2,
+              top: p.y - size / 2,
+              zIndex: isActive ? 50 : 10,
+              transition: "width 0.4s ease, height 0.4s ease",
+              transform: isActive ? "scale(1)" : undefined,
             }}
-            transition={isActive
-              ? { type: "spring", stiffness: 200, damping: 20 }
-              : { y: { duration: 3 + (idx % 3), repeat: Infinity, ease: "easeInOut" }, width: { type: "spring" }, height: { type: "spring" } }
-            }
             onClick={() => handleClick(idx)}
-            whileHover={{ scale: isActive ? 1 : 1.15 }}
+            onMouseEnter={(e) => { if (!isActive) (e.currentTarget as HTMLElement).style.transform = "scale(1.15)"; }}
+            onMouseLeave={(e) => { (e.currentTarget as HTMLElement).style.transform = "scale(1)"; }}
           >
-            <AnimatePresence mode="wait">
-              {isActive ? (
-                <motion.div
-                  key="expanded"
-                  initial={{ opacity: 0, scale: 0.8 }}
-                  animate={{ opacity: 1, scale: 1 }}
-                  exit={{ opacity: 0, scale: 0.8 }}
-                  className="flex flex-col items-center justify-center text-center px-2"
-                >
-                  <span className="text-white font-bold text-xs leading-tight">{member.shortName}</span>
-                  <span className="text-white/90 text-[7px] leading-tight mt-0.5 line-clamp-3">{member.name}</span>
-                </motion.div>
-              ) : (
-                <motion.span
-                  key="collapsed"
-                  initial={{ opacity: 0 }}
-                  animate={{ opacity: 1 }}
-                  exit={{ opacity: 0 }}
-                  className="text-white font-bold text-xs"
-                >
-                  {member.id}
-                </motion.span>
-              )}
-            </AnimatePresence>
-          </motion.div>
+            {isActive ? (
+              <div className="flex flex-col items-center justify-center text-center px-2 animate-fade-in">
+                <span className="text-white font-bold text-sm leading-tight">{member.shortName}</span>
+                <span className="text-white/90 text-[8px] leading-tight mt-0.5 line-clamp-3">{member.name}</span>
+              </div>
+            ) : (
+              <span className="text-white font-bold text-xs">{member.id}</span>
+            )}
+          </div>
         );
       })}
 
