@@ -64,7 +64,7 @@ const menuItems: MenuItem[] = [
   {
     label: "Dành cho thành viên",
     items: [
-      { label: "Danh sách thành viên" },
+      { label: "Danh sách thành viên", href: "/danh-sach-thanh-vien" },
       { label: "Tin công bố về Thành viên" },
       { label: "Tin công bố của thành viên" },
       { label: "Đăng ký thành viên" },
