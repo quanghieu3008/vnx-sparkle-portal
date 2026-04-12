@@ -396,11 +396,9 @@ export default function MemberList() {
             >
               <div className="flex items-center gap-2 mb-4">
                 <Building2 className="w-5 h-5 text-primary" />
-                <h2 className="text-xl font-bold text-[#003366]">Thành viên nổi bật</h2>
+                <h2 className="text-xl font-bold text-[#003366]">Tổng quan thành viên</h2>
               </div>
-              <p className="text-sm text-slate-500 mb-4">
-                Click vào mỗi node để xem thông tin chi tiết. Các node tự động xoay mỗi 2 giây.
-              </p>
+              <p className="text-sm text-slate-500 mb-4">​</p>
               <BubbleChart />
             </motion.div>
           </div>
