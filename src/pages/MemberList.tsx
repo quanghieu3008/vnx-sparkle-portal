@@ -353,9 +353,9 @@ export default function MemberList() {
           <MarketTicker />
         </div>
 
-        <div style={{ backgroundColor: "#eef1f6" }}>
-          {/* Breadcrumb */}
-          <div className="max-w-7xl mx-auto px-4 py-3">
+        {/* Sticky Breadcrumb */}
+        <div className="sticky top-[120px] z-30 bg-white border-b border-slate-200 shadow-sm">
+          <div className="max-w-7xl mx-auto px-4 py-2.5">
             <nav className="flex items-center gap-1 text-sm text-slate-500">
               <Link to="/" className="hover:text-primary transition-colors">Trang chủ</Link>
               <ChevronRight className="w-3.5 h-3.5" />
@@ -364,6 +364,9 @@ export default function MemberList() {
               <span className="text-primary font-semibold">Danh sách thành viên</span>
             </nav>
           </div>
+        </div>
+
+        <div style={{ backgroundColor: "#eef1f6" }}>
 
           {/* Page Header */}
           <div className="relative overflow-hidden">
