@@ -398,8 +398,7 @@ export default function MemberList() {
                 <Building2 className="w-5 h-5 text-primary" />
                 <h2 className="text-xl font-bold text-[#003366]">Tổng quan thành viên</h2>
               </div>
-              <p className="text-sm text-slate-500 mb-4">
-              </p>
+              <p className="text-sm text-slate-500 mb-4">​</p>
               <BubbleChart />
             </motion.div>
           </div>
