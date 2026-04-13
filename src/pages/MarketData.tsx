@@ -210,6 +210,31 @@ export default function MarketData() {
   const [investorTab, setInvestorTab] = useState("hose");
   const [derivTab, setDerivTab] = useState("futures");
   const [activeSidebarItem, setActiveSidebarItem] = useState<string | null>(null);
+  const [selectedIndexId, setSelectedIndexId] = useState(0);
+  const [isHovering, setIsHovering] = useState(false);
+  const intervalRef = useRef<ReturnType<typeof setInterval> | null>(null);
+
+  // Auto-cycle through indices
+  useEffect(() => {
+    if (isHovering) return;
+    intervalRef.current = setInterval(() => {
+      setSelectedIndexId((prev) => (prev + 1) % indicesDetail.length);
+    }, 3000);
+    return () => {
+      if (intervalRef.current) clearInterval(intervalRef.current);
+    };
+  }, [isHovering]);
+
+  const selectedIndex = indicesDetail[selectedIndexId];
+
+  const handleIndexHover = useCallback((index: number) => {
+    setIsHovering(true);
+    setSelectedIndexId(index);
+  }, []);
+
+  const handleIndexLeave = useCallback(() => {
+    setIsHovering(false);
+  }, []);
 
   const investorData: Record<string, InvestorTrading[]> = {
     hose: kospiTrading,
