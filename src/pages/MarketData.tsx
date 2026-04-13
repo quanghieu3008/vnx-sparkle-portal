@@ -58,25 +58,25 @@ const mainIndex = {
 
 const kospiTrading: InvestorTrading[] = [
   { type: "Tổ chức trong nước", sell: 2837, buy: 2430, netBuying: -407 },
-  { type: "Khối ngoại", sell: 4260, buy: 3556, netBuying: -704 },
+  { type: "Tổ chức nước ngoài", sell: 4260, buy: 3556, netBuying: -704 },
   { type: "Cá nhân", sell: 5682, buy: 6546, netBuying: 863 },
 ];
 
 const kosdaqTrading: InvestorTrading[] = [
   { type: "Tổ chức trong nước", sell: 1520, buy: 1380, netBuying: -140 },
-  { type: "Khối ngoại", sell: 890, buy: 1120, netBuying: 230 },
+  { type: "Tổ chức nước ngoài", sell: 890, buy: 1120, netBuying: 230 },
   { type: "Cá nhân", sell: 3200, buy: 3450, netBuying: 250 },
 ];
 
 const upcomTrading: InvestorTrading[] = [
   { type: "Tổ chức trong nước", sell: 320, buy: 280, netBuying: -40 },
-  { type: "Khối ngoại", sell: 150, buy: 200, netBuying: 50 },
+  { type: "Tổ chức nước ngoài", sell: 150, buy: 200, netBuying: 50 },
   { type: "Cá nhân", sell: 780, buy: 850, netBuying: 70 },
 ];
 
 const derivativesTrading: InvestorTrading[] = [
   { type: "Tổ chức trong nước", sell: 1748, buy: 1790, netBuying: 42 },
-  { type: "Khối ngoại", sell: 12467, buy: 12664, netBuying: 197 },
+  { type: "Tổ chức nước ngoài", sell: 12467, buy: 12664, netBuying: 197 },
   { type: "Cá nhân", sell: 3639, buy: 3379, netBuying: -260 },
 ];
 
@@ -281,7 +281,7 @@ export default function MarketData() {
             {/* Center Column */}
             <section className="lg:col-span-5">
               {/* Main Index Card */}
-              <div className="bg-white rounded-lg shadow-sm border border-slate-200 p-5 mb-5">
+              <div className="bg-white rounded-lg shadow-sm border border-slate-200 p-5 mb-5 py-[30px]">
                 <div className="flex items-start justify-between mb-2">
                   <div>
                     <h2 className="text-lg font-bold text-slate-800">{mainIndex.name}</h2>
@@ -333,7 +333,7 @@ export default function MarketData() {
               </div>
 
               {/* Trading by Investor */}
-              <div className="bg-white rounded-lg shadow-sm border border-slate-200 p-5 mb-5">
+              <div className="bg-white rounded-lg shadow-sm border border-slate-200 p-5 mb-5 py-[40px]">
                 <h3 className="text-base font-bold text-slate-800 mb-3">Giao dịch theo Nhà đầu tư</h3>
                 <div className="flex items-center gap-2 mb-4">
                   {["hose", "hnx", "upcom"].map((tab) => (
@@ -380,7 +380,7 @@ export default function MarketData() {
               </div>
 
               {/* Derivatives Trading by Investor */}
-              <div className="bg-white rounded-lg shadow-sm border border-slate-200 p-5">
+              <div className="bg-white rounded-lg shadow-sm border border-slate-200 p-5 py-[30px]">
                 <div className="flex items-center gap-2 mb-4">
                   {["futures", "options"].map((tab) => (
                     <button
