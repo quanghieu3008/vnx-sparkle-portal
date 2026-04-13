@@ -494,11 +494,25 @@ export default function MarketData() {
                 </div>
                 <table className="w-full text-sm">
                   <tbody>
-                    {indices.map((idx) => (
-                      <tr key={idx.name} className="border-b border-slate-50 hover:bg-slate-50 transition-colors">
-                        <td className="py-2.5 px-4 font-medium text-slate-700">{idx.name}</td>
-                        <td className="py-2.5 px-2 text-right font-semibold text-slate-800">{idx.value.toLocaleString("vi-VN", { minimumFractionDigits: 2 })}</td>
-                        <td className={`py-2.5 px-4 text-right text-xs font-semibold ${idx.change >= 0 ? "text-green-600" : "text-red-600"}`}>
+                    {indicesDetail.map((idx, i) => (
+                      <tr
+                        key={idx.name}
+                        className={`border-b border-slate-50 cursor-pointer transition-all duration-200 ${
+                          selectedIndexId === i
+                            ? "bg-slate-800 text-white"
+                            : "hover:bg-slate-100"
+                        }`}
+                        onMouseEnter={() => handleIndexHover(i)}
+                        onMouseLeave={handleIndexLeave}
+                        onClick={() => { setSelectedIndexId(i); setIsHovering(false); }}
+                      >
+                        <td className={`py-2.5 px-4 font-medium ${selectedIndexId === i ? "text-white" : "text-slate-700"}`}>{idx.name}</td>
+                        <td className={`py-2.5 px-2 text-right font-semibold ${selectedIndexId === i ? "text-white" : "text-slate-800"}`}>{idx.value.toLocaleString("vi-VN", { minimumFractionDigits: 2 })}</td>
+                        <td className={`py-2.5 px-4 text-right text-xs font-semibold ${
+                          selectedIndexId === i
+                            ? "text-white/90"
+                            : idx.change >= 0 ? "text-green-600" : "text-red-600"
+                        }`}>
                           ({idx.changePercent >= 0 ? "+" : ""}{idx.changePercent.toFixed(2)}%)
                         </td>
                       </tr>
