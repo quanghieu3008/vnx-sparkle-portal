@@ -20,6 +20,7 @@ import InternationalCooperation from "./pages/InternationalCooperation";
 import InternationalPartners from "./pages/InternationalPartners";
 import TrainingPrograms from "./pages/TrainingPrograms";
 import MemberList from "./pages/MemberList";
+import MarketData from "./pages/MarketData";
 import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
