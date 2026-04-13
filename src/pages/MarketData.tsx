@@ -84,12 +84,12 @@ const tradingByMarket = {
   value: [
     { market: "HOSE", sell: 4500, buy: 3800, total: 12229 },
     { market: "HNX", sell: 1200, buy: 980, total: 7453 },
-    { market: "Phái sinh", sell: 18000, buy: 17500, total: 51486 },
+    { market: "UPCOM", sell: 18000, buy: 17500, total: 21486 },
   ],
   volume: [
     { market: "HOSE", value: 700 },
     { market: "HNX", value: 795 },
-    { market: "Phái sinh", value: 5 },
+    { market: "UPCOM", value: 5 },
   ],
 };
 
