@@ -278,7 +278,7 @@ export default function TrainingPrograms() {
               </select>
               <input
                 type="date"
-                className="px-4 py-2.5 rounded-lg border border-slate-200 text-sm bg-white focus:outline-none focus:ring-2 focus:ring-primary/30"
+                className="px-4 py-2.5 rounded-lg border border-slate-200 text-sm bg-white focus:outline-none focus:ring-2 focus:ring-primary/30 text-black"
               />
             </div>
           </section>
