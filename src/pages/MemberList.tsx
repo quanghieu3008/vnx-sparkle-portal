@@ -1,6 +1,6 @@
 import { useState, useEffect, useCallback, useRef, useMemo } from "react";
 import { Link } from "react-router-dom";
-import { Search, ChevronRight, ChevronDown, Filter, Users, Building2 } from "lucide-react";
+import { Search, ChevronRight, ChevronDown, Filter, Users, Building2, Download } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 import Header from "@/components/Header";
 import MarketTicker from "@/components/MarketTicker";
@@ -461,6 +461,10 @@ export default function MemberList() {
                       </>
                     )}
                   </div>
+                  <button className="flex items-center gap-2 px-4 py-2 bg-primary text-white rounded-lg text-sm font-medium hover:bg-primary/90 transition-colors whitespace-nowrap">
+                    <Download className="w-4 h-4" />
+                    <span>Kết xuất</span>
+                  </button>
                 </div>
                 <div className="mt-3 text-xs text-slate-400">
                   Tìm thấy <span className="font-semibold text-primary">{filtered.length}</span> thành viên
