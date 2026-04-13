@@ -269,7 +269,7 @@ export default function MarketData() {
                 </div>
 
                 {/* Download */}
-                <div className="p-4 border-t border-slate-200">
+                <div className="p-4 border-t border-slate-200 py-[16px] my-[100px]">
                   <button className="w-full flex items-center justify-center gap-2 py-2.5 bg-[#003366] text-white rounded-lg text-sm font-medium hover:bg-[#002244] transition-colors">
                     <Download className="w-4 h-4" />
                     Tải xuống toàn bộ dữ liệu
