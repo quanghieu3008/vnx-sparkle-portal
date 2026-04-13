@@ -337,17 +337,17 @@ export default function MarketData() {
             {/* Center Column */}
             <section className="lg:col-span-5">
               {/* Main Index Card */}
-              <div className="bg-white rounded-lg shadow-sm border border-slate-200 p-5 mb-5 py-[30px]">
+              <div className="bg-white rounded-lg shadow-sm border border-slate-200 p-5 mb-5 py-[30px] transition-all duration-300">
                 <div className="flex items-start justify-between mb-2">
                   <div>
-                    <h2 className="text-lg font-bold text-slate-800">{mainIndex.name}</h2>
+                    <h2 className="text-lg font-bold text-slate-800 transition-all duration-300">{selectedIndex.name}</h2>
                     <div className="flex items-baseline gap-3 mt-1">
-                      <span className="text-3xl font-bold text-slate-900">{mainIndex.value.toLocaleString("vi-VN", { minimumFractionDigits: 2 })}</span>
-                      <span className={`text-sm font-semibold ${mainIndex.change >= 0 ? "text-green-600" : "text-red-600"}`}>
-                        {mainIndex.change >= 0 ? "▲" : "▼"} {Math.abs(mainIndex.change).toFixed(2)} ({mainIndex.changePercent >= 0 ? "+" : ""}{mainIndex.changePercent.toFixed(2)}%)
+                      <span className="text-3xl font-bold text-slate-900 transition-all duration-300">{selectedIndex.value.toLocaleString("vi-VN", { minimumFractionDigits: 2 })}</span>
+                      <span className={`text-sm font-semibold transition-all duration-300 ${selectedIndex.change >= 0 ? "text-green-600" : "text-red-600"}`}>
+                        {selectedIndex.change >= 0 ? "▲" : "▼"} {Math.abs(selectedIndex.change).toFixed(2)} ({selectedIndex.changePercent >= 0 ? "+" : ""}{selectedIndex.changePercent.toFixed(2)}%)
                       </span>
                     </div>
-                    <p className="text-xs text-slate-400 mt-1">{mainIndex.date}</p>
+                    <p className="text-xs text-slate-400 mt-1">{selectedIndex.date}</p>
                   </div>
                   <div className="flex gap-1">
                     <button className="px-3 py-1 text-xs rounded bg-slate-800 text-white">Ngày</button>
@@ -356,8 +356,8 @@ export default function MarketData() {
                 </div>
 
                 {/* Mini chart */}
-                <div className="mt-2 border border-slate-100 rounded p-2">
-                  <MiniChart data={mainIndex.chartData} color="#3b82f6" />
+                <div className="mt-2 border border-slate-100 rounded p-2 transition-all duration-500">
+                  <MiniChart data={selectedIndex.chartData} color={selectedIndex.change >= 0 ? "#22c55e" : "#ef4444"} />
                   <div className="flex justify-between text-[10px] text-slate-400 mt-1 px-1">
                     <span>09:00</span><span>10:00</span><span>11:00</span><span>12:00</span><span>13:00</span><span>14:00</span><span>15:00</span>
                   </div>
@@ -367,23 +367,23 @@ export default function MarketData() {
                 <div className="flex justify-between mt-4 text-center">
                   <div>
                     <p className="text-xs text-slate-500">Trần</p>
-                    <p className="text-sm font-bold text-purple-600">↑ {mainIndex.stats.ceiling}</p>
+                    <p className="text-sm font-bold text-purple-600">↑ {selectedIndex.stats.ceiling}</p>
                   </div>
                   <div>
                     <p className="text-xs text-slate-500">Tăng</p>
-                    <p className="text-sm font-bold text-green-600">▲ {mainIndex.stats.up}</p>
+                    <p className="text-sm font-bold text-green-600">▲ {selectedIndex.stats.up}</p>
                   </div>
                   <div>
                     <p className="text-xs text-slate-500">Đứng giá</p>
-                    <p className="text-sm font-bold text-yellow-600">{mainIndex.stats.noChange}</p>
+                    <p className="text-sm font-bold text-yellow-600">{selectedIndex.stats.noChange}</p>
                   </div>
                   <div>
                     <p className="text-xs text-slate-500">Giảm</p>
-                    <p className="text-sm font-bold text-red-600">▼ {mainIndex.stats.down}</p>
+                    <p className="text-sm font-bold text-red-600">▼ {selectedIndex.stats.down}</p>
                   </div>
                   <div>
                     <p className="text-xs text-slate-500">Sàn</p>
-                    <p className="text-sm font-bold text-blue-600">↓ {mainIndex.stats.floor}</p>
+                    <p className="text-sm font-bold text-blue-600">↓ {selectedIndex.stats.floor}</p>
                   </div>
                 </div>
               </div>
