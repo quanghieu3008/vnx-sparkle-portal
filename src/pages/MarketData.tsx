@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect, useRef, useCallback } from "react";
 import { Link } from "react-router-dom";
 import { ChevronRight, Download, TrendingUp, TrendingDown, Plus } from "lucide-react";
 import Header from "@/components/Header";
@@ -30,31 +30,62 @@ interface ListingSummaryRow {
 }
 
 // --- Sample Data ---
-const indices: MarketIndex[] = [
-  { name: "VN-Index", value: 1248.35, change: -12.47, changePercent: -0.99 },
-  { name: "VN30", value: 1265.12, change: -15.23, changePercent: -1.19 },
-  { name: "HNX-Index", value: 225.67, change: 1.23, changePercent: 0.55 },
-  { name: "HNX30", value: 487.92, change: -2.15, changePercent: -0.44 },
-  { name: "UPCOM", value: 92.34, change: 0.18, changePercent: 0.20 },
-  { name: "VNX Allshare", value: 1380.56, change: -10.82, changePercent: -0.78 },
-  { name: "VN100", value: 1195.43, change: -14.07, changePercent: -1.16 },
+interface IndexDetail {
+  name: string;
+  value: number;
+  change: number;
+  changePercent: number;
+  date: string;
+  chartData: number[];
+  stats: { ceiling: number; up: number; noChange: number; down: number; floor: number };
+}
+
+const indicesDetail: IndexDetail[] = [
+  {
+    name: "VN-Index", value: 1248.35, change: -12.47, changePercent: -0.99,
+    date: "2025.04.13 PM 02:45",
+    chartData: [1260, 1258, 1255, 1252, 1256, 1254, 1250, 1248, 1246, 1249, 1248],
+    stats: { ceiling: 12, up: 156, noChange: 45, down: 210, floor: 8 },
+  },
+  {
+    name: "VN30", value: 1265.12, change: -15.23, changePercent: -1.19,
+    date: "2025.04.13 PM 02:45",
+    chartData: [1280, 1276, 1272, 1270, 1274, 1268, 1265, 1262, 1266, 1264, 1265],
+    stats: { ceiling: 5, up: 12, noChange: 3, down: 10, floor: 0 },
+  },
+  {
+    name: "HNX-Index", value: 225.67, change: 1.23, changePercent: 0.55,
+    date: "2025.04.13 PM 02:45",
+    chartData: [224, 224.5, 225, 224.8, 225.2, 225.5, 225.3, 225.8, 226, 225.7, 225.67],
+    stats: { ceiling: 8, up: 98, noChange: 32, down: 75, floor: 4 },
+  },
+  {
+    name: "HNX30", value: 487.92, change: -2.15, changePercent: -0.44,
+    date: "2025.04.13 PM 02:45",
+    chartData: [490, 489.5, 489, 488.5, 489, 488, 487.5, 488.2, 487.8, 488, 487.92],
+    stats: { ceiling: 3, up: 10, noChange: 5, down: 12, floor: 0 },
+  },
+  {
+    name: "UPCOM", value: 92.34, change: 0.18, changePercent: 0.20,
+    date: "2025.04.13 PM 02:45",
+    chartData: [92, 92.1, 92.2, 92.15, 92.3, 92.25, 92.35, 92.28, 92.32, 92.36, 92.34],
+    stats: { ceiling: 2, up: 65, noChange: 120, down: 58, floor: 1 },
+  },
+  {
+    name: "VNX Allshare", value: 1380.56, change: -10.82, changePercent: -0.78,
+    date: "2025.04.13 PM 02:45",
+    chartData: [1392, 1390, 1388, 1385, 1387, 1384, 1382, 1380, 1381, 1379, 1380.56],
+    stats: { ceiling: 10, up: 140, noChange: 50, down: 180, floor: 6 },
+  },
+  {
+    name: "VN100", value: 1195.43, change: -14.07, changePercent: -1.16,
+    date: "2025.04.13 PM 02:45",
+    chartData: [1210, 1208, 1205, 1202, 1206, 1200, 1198, 1196, 1197, 1194, 1195.43],
+    stats: { ceiling: 6, up: 42, noChange: 10, down: 38, floor: 4 },
+  },
 ];
 
-const mainIndex = {
-  name: "VN-Index",
-  value: 1248.35,
-  change: -12.47,
-  changePercent: -0.99,
-  date: "2025.04.13 PM 02:45",
-  chartData: [1260, 1258, 1255, 1252, 1256, 1254, 1250, 1248, 1246, 1249, 1248],
-  stats: {
-    ceiling: 12,
-    up: 156,
-    noChange: 45,
-    down: 210,
-    floor: 8,
-  },
-};
+const indices: MarketIndex[] = indicesDetail.map(({ name, value, change, changePercent }) => ({ name, value, change, changePercent }));
 
 const kospiTrading: InvestorTrading[] = [
   { type: "Tổ chức trong nước", sell: 2837, buy: 2430, netBuying: -407 },
