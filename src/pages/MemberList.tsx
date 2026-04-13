@@ -438,39 +438,11 @@ export default function MemberList() {
                     >
                       <div className="flex items-center gap-2">
                         <Filter className="w-4 h-4 text-slate-400" />
-                        <span>{filterType === "all" ? "Loại thành viên" : tradingTypeFilters.find(f => f.value === filterType)?.label}</span>
+                        <span>{filterType === "all" ? "Thành viên thị trường" : tradingTypeFilters.find(f => f.value === filterType)?.label}</span>
                       </div>
                       <ChevronDown className={`w-4 h-4 text-slate-400 transition-transform ${filterDropdownOpen ? "rotate-180" : ""}`} />
                     </button>
-                    {filterDropdownOpen && (
-                      <>
-                        <div className="fixed inset-0 z-40" onClick={() => setFilterDropdownOpen(false)} />
-                        <div className="absolute right-0 top-full mt-1 z-50 bg-white border border-slate-200 rounded-lg shadow-lg py-1 min-w-[220px]">
-                          {tradingTypeFilters.map((f) => (
-                            <button
-                              key={f.value}
-                              onClick={() => { setFilterType(f.value); setFilterDropdownOpen(false); }}
-                              className={`w-full text-left px-4 py-2.5 text-sm transition-colors hover:bg-blue-50 ${
-                                filterType === f.value ? "text-primary font-semibold bg-blue-50/50" : "text-slate-600"
-                              }`}
-                            >
-                              {f.label}
-                            </button>
-                          ))}
-                        </div>
-                      </>
-                    )}
-                  </div>
-                  <button className="flex items-center gap-2 px-4 py-2 bg-primary text-white rounded-lg text-sm font-medium hover:bg-primary/90 transition-colors whitespace-nowrap">
-                    <Download className="w-4 h-4" />
-                    <span>Kết xuất</span>
-                  </button>
-                </div>
-                <div className="mt-3 text-xs text-slate-400">
-                  Tìm thấy <span className="font-semibold text-primary">{filtered.length}</span> thành viên
-                </div>
-              </div>
-
+...
               {/* Table */}
               <div className="bg-white rounded-2xl shadow-lg overflow-hidden">
                 <div className="overflow-x-auto">
@@ -480,7 +452,7 @@ export default function MemberList() {
                         <th className="text-left text-white text-xs font-semibold px-5 py-4 w-20">Mã TV</th>
                         <th className="text-left text-white text-xs font-semibold px-5 py-4">Tên thành viên</th>
                         <th className="text-left text-white text-xs font-semibold px-5 py-4 w-24">Viết tắt</th>
-                        <th className="text-left text-white text-xs font-semibold px-5 py-4">Loại thành viên giao dịch</th>
+                        <th className="text-left text-white text-xs font-semibold px-5 py-4">Thành viên thị trường</th>
                       </tr>
                     </thead>
                     <tbody>
