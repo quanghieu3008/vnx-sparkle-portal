@@ -300,7 +300,7 @@ export default function TrainingPrograms() {
                     <button
                       key={cat.id}
                       onClick={() => setActiveCategory(cat.id)}
-                      className={`w-full text-left px-4 py-[31px] text-base border-b border-slate-100 transition-colors ${
+                      className={`w-full text-left px-4 py-[28px] text-base border-b border-slate-100 transition-colors ${
                         activeCategory === cat.id
                           ? "bg-primary/10 font-semibold border-l-4 border-l-primary border-0 border-solid text-secondary"
                           : "text-slate-600 hover:bg-slate-50 hover:text-primary border"
