@@ -1,6 +1,6 @@
 import { useState, useEffect, useCallback, useRef, useMemo } from "react";
 import { Link } from "react-router-dom";
-import { Search, ChevronRight, Filter, Users, Building2 } from "lucide-react";
+import { Search, ChevronRight, ChevronDown, Filter, Users, Building2 } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 import Header from "@/components/Header";
 import MarketTicker from "@/components/MarketTicker";
@@ -132,10 +132,14 @@ const ITEMS_PER_PAGE = 15;
 const tradingTypeFilters = [
   { value: "all", label: "Tất cả" },
   { value: "Cổ phiếu", label: "Cổ phiếu" },
-  { value: "Trái phiếu doanh nghiệp", label: "Trái phiếu DN" },
-  { value: "Trái phiếu chính phủ", label: "Trái phiếu CP" },
+  { value: "Trái phiếu doanh nghiệp", label: "Trái phiếu doanh nghiệp" },
+  { value: "Trái phiếu chính phủ", label: "Trái phiếu chính phủ" },
   { value: "Phái sinh", label: "Phái sinh" },
-  { value: "Trái phiếu riêng lẻ", label: "Trái phiếu RL" },
+  { value: "Trái phiếu riêng lẻ", label: "Trái phiếu riêng lẻ" },
+  { value: "ETF", label: "ETF" },
+  { value: "Chứng quyền", label: "Chứng quyền" },
+  { value: "Cacbon", label: "Cacbon" },
+  { value: "Vàng", label: "Vàng" },
 ];
 
 // Bubble Chart Component with physics-based non-overlapping layout
