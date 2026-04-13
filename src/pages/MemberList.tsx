@@ -424,27 +424,41 @@ export default function MemberList() {
                   <div className="relative flex-1">
                     <Search className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-slate-400" />
                     <Input
-                      placeholder="Tìm kiếm theo Mã, Tên hoặc Tên viết tắt thành viên..."
+                      placeholder="Tìm kiếm theo Mã hoặc Tên thành viên..."
                       value={searchQuery}
                       onChange={(e) => setSearchQuery(e.target.value)}
                       className="pl-10 border-slate-200 focus:border-primary"
                     />
                   </div>
-                  <div className="flex items-center gap-2 flex-wrap">
-                    <Filter className="w-4 h-4 text-slate-400" />
-                    {tradingTypeFilters.map((f) => (
-                      <button
-                        key={f.value}
-                        onClick={() => setFilterType(f.value)}
-                        className={`px-3 py-1.5 rounded-full text-xs font-medium transition-all ${
-                          filterType === f.value
-                            ? "bg-primary text-white shadow-md"
-                            : "bg-slate-100 text-slate-600 hover:bg-slate-200"
-                        }`}
-                      >
-                        {f.label}
-                      </button>
-                    ))}
+                  <div className="relative">
+                    <button
+                      onClick={() => setFilterDropdownOpen(!filterDropdownOpen)}
+                      className="flex items-center gap-2 px-4 py-2 border border-slate-200 rounded-lg text-sm font-medium text-slate-700 hover:bg-slate-50 transition-colors min-w-[200px] justify-between"
+                    >
+                      <div className="flex items-center gap-2">
+                        <Filter className="w-4 h-4 text-slate-400" />
+                        <span>{filterType === "all" ? "Loại thành viên" : tradingTypeFilters.find(f => f.value === filterType)?.label}</span>
+                      </div>
+                      <ChevronDown className={`w-4 h-4 text-slate-400 transition-transform ${filterDropdownOpen ? "rotate-180" : ""}`} />
+                    </button>
+                    {filterDropdownOpen && (
+                      <>
+                        <div className="fixed inset-0 z-40" onClick={() => setFilterDropdownOpen(false)} />
+                        <div className="absolute right-0 top-full mt-1 z-50 bg-white border border-slate-200 rounded-lg shadow-lg py-1 min-w-[220px]">
+                          {tradingTypeFilters.map((f) => (
+                            <button
+                              key={f.value}
+                              onClick={() => { setFilterType(f.value); setFilterDropdownOpen(false); }}
+                              className={`w-full text-left px-4 py-2.5 text-sm transition-colors hover:bg-blue-50 ${
+                                filterType === f.value ? "text-primary font-semibold bg-blue-50/50" : "text-slate-600"
+                              }`}
+                            >
+                              {f.label}
+                            </button>
+                          ))}
+                        </div>
+                      </>
+                    )}
                   </div>
                 </div>
                 <div className="mt-3 text-xs text-slate-400">
