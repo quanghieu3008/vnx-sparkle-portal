@@ -56,7 +56,7 @@ const menuItems: MenuItem[] = [
   {
     label: "Thông tin thị trường",
     items: [
-      { label: "Dữ liệu thị trường" },
+      { label: "Dữ liệu thị trường", href: "/du-lieu-thi-truong" },
       { label: "Hoạt động giám sát" },
       { label: "Bảng giá Giao dịch" },
     ],
