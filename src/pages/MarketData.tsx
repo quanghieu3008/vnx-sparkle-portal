@@ -129,7 +129,7 @@ const sidebarCategories = [
   },
   {
     title: "Thị trường liên kết",
-    items: ["HANOI  STOCK EXCHANGE", "Tokyo Exchange"],
+    items: ["Hanoi Stock Exchange", "Hose Stock Exchange"],
   },
 ];
 
