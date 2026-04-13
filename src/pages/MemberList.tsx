@@ -438,7 +438,7 @@ export default function MemberList() {
                     >
                       <div className="flex items-center gap-2">
                         <Filter className="w-4 h-4 text-slate-400" />
-                        <span>{filterType === "all" ? "Loại thành viên" : tradingTypeFilters.find(f => f.value === filterType)?.label}</span>
+                        <span>{filterType === "all" ? "Thành viên thị trường" : tradingTypeFilters.find(f => f.value === filterType)?.label}</span>
                       </div>
                       <ChevronDown className={`w-4 h-4 text-slate-400 transition-transform ${filterDropdownOpen ? "rotate-180" : ""}`} />
                     </button>
@@ -480,7 +480,7 @@ export default function MemberList() {
                         <th className="text-left text-white text-xs font-semibold px-5 py-4 w-20">Mã TV</th>
                         <th className="text-left text-white text-xs font-semibold px-5 py-4">Tên thành viên</th>
                         <th className="text-left text-white text-xs font-semibold px-5 py-4 w-24">Viết tắt</th>
-                        <th className="text-left text-white text-xs font-semibold px-5 py-4">Loại thành viên giao dịch</th>
+                        <th className="text-left text-white text-xs font-semibold px-5 py-4">Thành viên thị trường</th>
                       </tr>
                     </thead>
                     <tbody>
