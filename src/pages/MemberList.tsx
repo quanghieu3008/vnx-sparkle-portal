@@ -357,11 +357,11 @@ export default function MemberList() {
         <div className="sticky top-[120px] z-30 bg-white border-b border-slate-200 shadow-sm">
           <div className="max-w-7xl mx-auto px-4 py-2.5">
             <nav className="flex items-center gap-1 text-sm text-slate-500">
-              <Link to="/" className="hover:text-primary transition-colors">Trang chủ</Link>
+              <Link to="/" className="transition-colors bg-transparent text-black">Trang chủ</Link>
               <ChevronRight className="w-3.5 h-3.5" />
-              <span className="text-slate-400">Dành cho thành viên</span>
+              <span className="text-black">Dành cho thành viên</span>
               <ChevronRight className="w-3.5 h-3.5" />
-              <span className="text-primary font-semibold">Danh sách thành viên</span>
+              <span className="font-semibold text-zinc-600">Danh sách thành viên</span>
             </nav>
           </div>
         </div>
