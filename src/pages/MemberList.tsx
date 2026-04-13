@@ -334,6 +334,7 @@ export default function MemberList() {
   const [searchQuery, setSearchQuery] = useState("");
   const [filterType, setFilterType] = useState("all");
   const [currentPage, setCurrentPage] = useState(1);
+  const [filterDropdownOpen, setFilterDropdownOpen] = useState(false);
 
   const filtered = useMemo(() => {
     return membersData.filter((m) => {
